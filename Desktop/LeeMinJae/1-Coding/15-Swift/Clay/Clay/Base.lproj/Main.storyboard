@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="APZ-Ra-4Mp">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumBarunGothic.ttf">
+            <string>NanumBarunGothic</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vdk-Yq-aqx">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="APZ-Ra-4Mp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2a6-SC-zkh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uG2-sR-Vyn" kind="relationship" relationship="viewControllers" id="r52-13-udu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rea-k6-CIx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="29"/>
+        </scene>
+        <!--오늘의 기록-->
+        <scene sceneID="VPW-hH-h9r">
+            <objects>
+                <viewController id="Syb-bE-IPC" customClass="ViewController" customModule="Clay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zSn-wc-K0L">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qsk-gI-XEb">
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFg-xz-yZt">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 칼로리" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58C-bU-AxH">
+                                                <rect key="frame" x="24" y="8" width="342" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="0.62126634599780561" blue="0.73307980688489549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="NanumBarunGothic" family="NanumBarunGothic" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="800" id="7Vi-yN-GwR"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zFg-xz-yZt" firstAttribute="width" secondItem="gKu-Ut-ay9" secondAttribute="width" id="7jk-R7-LHX"/>
+                                    <constraint firstItem="zFg-xz-yZt" firstAttribute="leading" secondItem="4c5-j0-klm" secondAttribute="leading" id="Zf0-mm-3YC"/>
+                                    <constraint firstItem="zFg-xz-yZt" firstAttribute="top" secondItem="4c5-j0-klm" secondAttribute="top" id="dRz-0L-fGU"/>
+                                    <constraint firstItem="zFg-xz-yZt" firstAttribute="bottom" secondItem="4c5-j0-klm" secondAttribute="bottom" id="oI1-B0-ViX"/>
+                                    <constraint firstItem="zFg-xz-yZt" firstAttribute="trailing" secondItem="4c5-j0-klm" secondAttribute="trailing" id="wii-C3-vRZ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="4c5-j0-klm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="gKu-Ut-ay9"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jdz-at-Uk4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qsk-gI-XEb" firstAttribute="leading" secondItem="jdz-at-Uk4" secondAttribute="leading" id="F8n-hO-RVY"/>
+                            <constraint firstItem="Qsk-gI-XEb" firstAttribute="top" secondItem="jdz-at-Uk4" secondAttribute="top" id="eZD-4d-7Ye"/>
+                            <constraint firstItem="jdz-at-Uk4" firstAttribute="bottom" secondItem="Qsk-gI-XEb" secondAttribute="bottom" id="fCE-te-RVP"/>
+                            <constraint firstItem="jdz-at-Uk4" firstAttribute="trailing" secondItem="Qsk-gI-XEb" secondAttribute="trailing" id="uZV-cQ-x1P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="오늘의 기록" leftItemsSupplementBackButton="YES" id="JLy-mQ-MiB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bell" catalog="system" id="gRG-Hd-tbf">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <size key="freeformSize" width="390" height="844"/>
+                    <connections>
+                        <outlet property="lblHello" destination="58C-bU-AxH" id="GHq-zo-8By"/>
+                        <outlet property="navHome" destination="JLy-mQ-MiB" id="End-PH-Ij5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WM3-Mr-au0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066.1538461538462" y="27.72511848341232"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="JKT-hZ-08h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uG2-sR-Vyn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="house" catalog="system" springLoaded="YES" id="0D6-v4-6D0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vmm-3o-ugp">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Syb-bE-IPC" kind="relationship" relationship="rootViewController" id="3U4-ZE-GoJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7UC-DV-qE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.9230769230769" y="27.72511848341232"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
