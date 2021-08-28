@@ -21,9 +21,17 @@
 		BE5AD74826D8A65F001F7D18 /* Clay logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BE5AD74726D8A65F001F7D18 /* Clay logo.png */; };
 		BE5AD74C26D8AFAE001F7D18 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5AD74B26D8AFAE001F7D18 /* DietViewController.swift */; };
 		BEBD8A8B26D91E45001413DC /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A8726D91E45001413DC /* NanumBarunGothic.ttf */; };
-		BEBD8A9826D9219C001413DC /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9526D9219C001413DC /* NanumBarunGothicBold.ttf */; };
-		BEBD8A9926D9219C001413DC /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9626D9219C001413DC /* NanumBarunGothicUltraLight.ttf */; };
-		BEBD8A9A26D9219C001413DC /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9726D9219C001413DC /* NanumBarunGothicLight.ttf */; };
+		BEBD8A9C26D9C32A001413DC /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9B26D9C32A001413DC /* NanumBarunGothicBold.ttf */; };
+		BEBD8A9E26D9C337001413DC /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9D26D9C336001413DC /* NanumBarunGothicLight.ttf */; };
+		BEBD8AA026D9CB4B001413DC /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8A9F26D9CB4B001413DC /* Pretendard-Black.otf */; };
+		BEBD8AA226D9CB5F001413DC /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA126D9CB5F001413DC /* Pretendard-Bold.otf */; };
+		BEBD8AAA26D9CB68001413DC /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA326D9CB68001413DC /* Pretendard-ExtraBold.otf */; };
+		BEBD8AAB26D9CB68001413DC /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA426D9CB68001413DC /* Pretendard-Thin.otf */; };
+		BEBD8AAC26D9CB68001413DC /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA526D9CB68001413DC /* Pretendard-ExtraLight.otf */; };
+		BEBD8AAD26D9CB68001413DC /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA626D9CB68001413DC /* Pretendard-Regular.otf */; };
+		BEBD8AAE26D9CB68001413DC /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA726D9CB68001413DC /* Pretendard-Light.otf */; };
+		BEBD8AAF26D9CB68001413DC /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA826D9CB68001413DC /* Pretendard-SemiBold.otf */; };
+		BEBD8AB026D9CB68001413DC /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8AA926D9CB68001413DC /* Pretendard-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +72,17 @@
 		BE5AD74726D8A65F001F7D18 /* Clay logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clay logo.png"; sourceTree = "<group>"; };
 		BE5AD74B26D8AFAE001F7D18 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		BEBD8A8726D91E45001413DC /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
-		BEBD8A9526D9219C001413DC /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
-		BEBD8A9626D9219C001413DC /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.ttf; sourceTree = "<group>"; };
-		BEBD8A9726D9219C001413DC /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.ttf; sourceTree = "<group>"; };
+		BEBD8A9B26D9C32A001413DC /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothicBold.ttf; path = "../../../../../../../../../../Volumes/나눔바른고딕 맥용 TTF/NanumBarunGothicBold.ttf"; sourceTree = "<group>"; };
+		BEBD8A9D26D9C336001413DC /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothicLight.ttf; path = "../../../../../../../../../../Volumes/나눔바른고딕 맥용 TTF/NanumBarunGothicLight.ttf"; sourceTree = "<group>"; };
+		BEBD8A9F26D9CB4B001413DC /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		BEBD8AA126D9CB5F001413DC /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		BEBD8AA326D9CB68001413DC /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		BEBD8AA426D9CB68001413DC /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		BEBD8AA526D9CB68001413DC /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		BEBD8AA626D9CB68001413DC /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		BEBD8AA726D9CB68001413DC /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		BEBD8AA826D9CB68001413DC /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		BEBD8AA926D9CB68001413DC /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,9 +176,17 @@
 		BE5AD73F26D88B86001F7D18 /* font */ = {
 			isa = PBXGroup;
 			children = (
-				BEBD8A9526D9219C001413DC /* NanumBarunGothicBold.ttf */,
-				BEBD8A9726D9219C001413DC /* NanumBarunGothicLight.ttf */,
-				BEBD8A9626D9219C001413DC /* NanumBarunGothicUltraLight.ttf */,
+				BEBD8AA326D9CB68001413DC /* Pretendard-ExtraBold.otf */,
+				BEBD8AA526D9CB68001413DC /* Pretendard-ExtraLight.otf */,
+				BEBD8AA726D9CB68001413DC /* Pretendard-Light.otf */,
+				BEBD8AA926D9CB68001413DC /* Pretendard-Medium.otf */,
+				BEBD8AA626D9CB68001413DC /* Pretendard-Regular.otf */,
+				BEBD8AA826D9CB68001413DC /* Pretendard-SemiBold.otf */,
+				BEBD8AA426D9CB68001413DC /* Pretendard-Thin.otf */,
+				BEBD8AA126D9CB5F001413DC /* Pretendard-Bold.otf */,
+				BEBD8A9F26D9CB4B001413DC /* Pretendard-Black.otf */,
+				BEBD8A9D26D9C336001413DC /* NanumBarunGothicLight.ttf */,
+				BEBD8A9B26D9C32A001413DC /* NanumBarunGothicBold.ttf */,
 				BEBD8A8726D91E45001413DC /* NanumBarunGothic.ttf */,
 				BE5AD74126D88BA1001F7D18 /* EliceDigitalBaeum_Bold.ttf */,
 				BE5AD74026D88BA1001F7D18 /* EliceDigitalBaeum_Regular.ttf */,
@@ -283,14 +307,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE56BB4026D7C65300367468 /* LaunchScreen.storyboard in Resources */,
-				BEBD8A9926D9219C001413DC /* NanumBarunGothicUltraLight.ttf in Resources */,
+				BEBD8AA226D9CB5F001413DC /* Pretendard-Bold.otf in Resources */,
+				BEBD8AAE26D9CB68001413DC /* Pretendard-Light.otf in Resources */,
 				BE5AD74226D88BA1001F7D18 /* EliceDigitalBaeum_Regular.ttf in Resources */,
 				BE56BB3D26D7C65300367468 /* Assets.xcassets in Resources */,
-				BEBD8A9826D9219C001413DC /* NanumBarunGothicBold.ttf in Resources */,
+				BEBD8A9C26D9C32A001413DC /* NanumBarunGothicBold.ttf in Resources */,
+				BEBD8AAD26D9CB68001413DC /* Pretendard-Regular.otf in Resources */,
+				BEBD8A9E26D9C337001413DC /* NanumBarunGothicLight.ttf in Resources */,
 				BE5AD74526D89365001F7D18 /* LaunchScreen.png in Resources */,
-				BEBD8A9A26D9219C001413DC /* NanumBarunGothicLight.ttf in Resources */,
+				BEBD8AA026D9CB4B001413DC /* Pretendard-Black.otf in Resources */,
+				BEBD8AB026D9CB68001413DC /* Pretendard-Medium.otf in Resources */,
 				BE56BB3B26D7C65200367468 /* Main.storyboard in Resources */,
+				BEBD8AAB26D9CB68001413DC /* Pretendard-Thin.otf in Resources */,
+				BEBD8AAA26D9CB68001413DC /* Pretendard-ExtraBold.otf in Resources */,
 				BEBD8A8B26D91E45001413DC /* NanumBarunGothic.ttf in Resources */,
+				BEBD8AAC26D9CB68001413DC /* Pretendard-ExtraLight.otf in Resources */,
+				BEBD8AAF26D9CB68001413DC /* Pretendard-SemiBold.otf in Resources */,
 				BE5AD74826D8A65F001F7D18 /* Clay logo.png in Resources */,
 				BE5AD74326D88BA1001F7D18 /* EliceDigitalBaeum_Bold.ttf in Resources */,
 			);
