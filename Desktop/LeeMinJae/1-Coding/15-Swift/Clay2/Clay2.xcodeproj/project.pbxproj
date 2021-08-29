@@ -30,6 +30,18 @@
 		BEBD8B5226DA7226001413DC /* EliceDigitalBaeum_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8B5026DA7226001413DC /* EliceDigitalBaeum_Regular.ttf */; };
 		BEBD8B5326DA7226001413DC /* EliceDigitalBaeum_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BEBD8B5126DA7226001413DC /* EliceDigitalBaeum_Bold.ttf */; };
 		BEBD8B5526DA8026001413DC /* MyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B5426DA8026001413DC /* MyTabView.swift */; };
+		BEBD8B5926DA85FE001413DC /* TotalCalBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B5826DA85FE001413DC /* TotalCalBtn.swift */; };
+		BEBD8B5B26DA86A7001413DC /* PopBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B5A26DA86A7001413DC /* PopBtnStyle.swift */; };
+		BEBD8B5F26DB12ED001413DC /* LongBtnstyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B5E26DB12ED001413DC /* LongBtnstyle.swift */; };
+		BEBD8B6226DB1600001413DC /* exBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B6126DB1600001413DC /* exBtn.swift */; };
+		BEBD8B6426DB1BA1001413DC /* MealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8B6326DB1BA1001413DC /* MealBanner.swift */; };
+		BEBD8BA226DB8068001413DC /* MyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BA126DB8068001413DC /* MyPoint.swift */; };
+		BEBD8BA426DB8396001413DC /* MyRemainKcal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BA326DB8396001413DC /* MyRemainKcal.swift */; };
+		BEBD8BA826DB841F001413DC /* TextFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BA726DB841F001413DC /* TextFunction.swift */; };
+		BEBD8BAA26DB8F47001413DC /* BodyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BA926DB8F47001413DC /* BodyInfo.swift */; };
+		BEBD8BAD26DB99EF001413DC /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BAC26DB99EF001413DC /* Practice.swift */; };
+		BEBD8BB026DB9CE6001413DC /* NutritionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */; };
+		BEBD8BB226DBB74F001413DC /* LockedMealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BB126DBB74F001413DC /* LockedMealBanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +91,18 @@
 		BEBD8B5026DA7226001413DC /* EliceDigitalBaeum_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Regular.ttf; sourceTree = "<group>"; };
 		BEBD8B5126DA7226001413DC /* EliceDigitalBaeum_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Bold.ttf; sourceTree = "<group>"; };
 		BEBD8B5426DA8026001413DC /* MyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabView.swift; sourceTree = "<group>"; };
+		BEBD8B5826DA85FE001413DC /* TotalCalBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCalBtn.swift; sourceTree = "<group>"; };
+		BEBD8B5A26DA86A7001413DC /* PopBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopBtnStyle.swift; sourceTree = "<group>"; };
+		BEBD8B5E26DB12ED001413DC /* LongBtnstyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongBtnstyle.swift; sourceTree = "<group>"; };
+		BEBD8B6126DB1600001413DC /* exBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exBtn.swift; sourceTree = "<group>"; };
+		BEBD8B6326DB1BA1001413DC /* MealBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBanner.swift; sourceTree = "<group>"; };
+		BEBD8BA126DB8068001413DC /* MyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPoint.swift; sourceTree = "<group>"; };
+		BEBD8BA326DB8396001413DC /* MyRemainKcal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRemainKcal.swift; sourceTree = "<group>"; };
+		BEBD8BA726DB841F001413DC /* TextFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFunction.swift; sourceTree = "<group>"; };
+		BEBD8BA926DB8F47001413DC /* BodyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInfo.swift; sourceTree = "<group>"; };
+		BEBD8BAC26DB99EF001413DC /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
+		BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionList.swift; sourceTree = "<group>"; };
+		BEBD8BB126DBB74F001413DC /* LockedMealBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedMealBanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,17 +153,18 @@
 		BEBD8AF926D9F14F001413DC /* Clay2 */ = {
 			isa = PBXGroup;
 			children = (
+				BEBD8BAE26DB9CC7001413DC /* NutritionList */,
+				BEBD8BAB26DB8F4E001413DC /* GetBodyInfo */,
+				BEBD8BA626DB8400001413DC /* Function */,
+				BEBD8B6026DB12F4001413DC /*  ButtonStyle */,
+				BEBD8B5D26DB0783001413DC /* Main */,
+				BEBD8B5C26DB076C001413DC /* Home */,
 				BEBD8B4B26DA4EA9001413DC /* Font */,
-				BEBD8AFA26D9F14F001413DC /* Clay2App.swift */,
-				BEBD8AFC26D9F14F001413DC /* ContentView.swift */,
-				BEBD8B3726DA4C97001413DC /* TodayBanner.swift */,
-				BEBD8B4C26DA54EF001413DC /* HelloBanner.swift */,
-				BEBD8B4E26DA5A9D001413DC /* ReamainNutrition.swift */,
 				BEBD8AFE26D9F152001413DC /* Assets.xcassets */,
 				BEBD8B0326D9F152001413DC /* Info.plist */,
 				BEBD8B0026D9F152001413DC /* Preview Content */,
 				BEBD8B2F26DA3EAF001413DC /* Launch Screen.storyboard */,
-				BEBD8B5426DA8026001413DC /* MyTabView.swift */,
+				BEBD8BAC26DB99EF001413DC /* Practice.swift */,
 			);
 			path = Clay2;
 			sourceTree = "<group>";
@@ -187,6 +212,65 @@
 				BEBD8B3F26DA4EA4001413DC /* Pretendard-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		BEBD8B5C26DB076C001413DC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8B3726DA4C97001413DC /* TodayBanner.swift */,
+				BEBD8B4C26DA54EF001413DC /* HelloBanner.swift */,
+				BEBD8B4E26DA5A9D001413DC /* ReamainNutrition.swift */,
+				BEBD8B5826DA85FE001413DC /* TotalCalBtn.swift */,
+				BEBD8B6126DB1600001413DC /* exBtn.swift */,
+				BEBD8B6326DB1BA1001413DC /* MealBanner.swift */,
+				BEBD8BB126DBB74F001413DC /* LockedMealBanner.swift */,
+				BEBD8BA126DB8068001413DC /* MyPoint.swift */,
+				BEBD8BA326DB8396001413DC /* MyRemainKcal.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BEBD8B5D26DB0783001413DC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8AFA26D9F14F001413DC /* Clay2App.swift */,
+				BEBD8B5426DA8026001413DC /* MyTabView.swift */,
+				BEBD8AFC26D9F14F001413DC /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BEBD8B6026DB12F4001413DC /*  ButtonStyle */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8B5A26DA86A7001413DC /* PopBtnStyle.swift */,
+				BEBD8B5E26DB12ED001413DC /* LongBtnstyle.swift */,
+			);
+			path = " ButtonStyle";
+			sourceTree = "<group>";
+		};
+		BEBD8BA626DB8400001413DC /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8BA726DB841F001413DC /* TextFunction.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		BEBD8BAB26DB8F4E001413DC /* GetBodyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8BA926DB8F47001413DC /* BodyInfo.swift */,
+			);
+			path = GetBodyInfo;
+			sourceTree = "<group>";
+		};
+		BEBD8BAE26DB9CC7001413DC /* NutritionList */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */,
+			);
+			path = NutritionList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,12 +415,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEBD8B5B26DA86A7001413DC /* PopBtnStyle.swift in Sources */,
+				BEBD8BA426DB8396001413DC /* MyRemainKcal.swift in Sources */,
 				BEBD8B3826DA4C97001413DC /* TodayBanner.swift in Sources */,
 				BEBD8B4F26DA5A9D001413DC /* ReamainNutrition.swift in Sources */,
+				BEBD8BAD26DB99EF001413DC /* Practice.swift in Sources */,
+				BEBD8B6426DB1BA1001413DC /* MealBanner.swift in Sources */,
+				BEBD8B5926DA85FE001413DC /* TotalCalBtn.swift in Sources */,
 				BEBD8AFD26D9F14F001413DC /* ContentView.swift in Sources */,
+				BEBD8BB226DBB74F001413DC /* LockedMealBanner.swift in Sources */,
 				BEBD8B4D26DA54EF001413DC /* HelloBanner.swift in Sources */,
+				BEBD8BAA26DB8F47001413DC /* BodyInfo.swift in Sources */,
+				BEBD8BA826DB841F001413DC /* TextFunction.swift in Sources */,
 				BEBD8B5526DA8026001413DC /* MyTabView.swift in Sources */,
+				BEBD8BB026DB9CE6001413DC /* NutritionList.swift in Sources */,
+				BEBD8BA226DB8068001413DC /* MyPoint.swift in Sources */,
+				BEBD8B5F26DB12ED001413DC /* LongBtnstyle.swift in Sources */,
 				BEBD8AFB26D9F14F001413DC /* Clay2App.swift in Sources */,
+				BEBD8B6226DB1600001413DC /* exBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +591,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay2/Preview Content\"";
+				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clay2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -516,6 +613,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay2/Preview Content\"";
+				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clay2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

@@ -27,7 +27,7 @@ struct HelloBanner: View {
             
         }
             .frame(width: 340, height: 80)
-            .background(Color("userPink"))
+        .background(Color.black)
             .cornerRadius(15)
             .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 0.7, x: 0.2, y: 0.2)
         
