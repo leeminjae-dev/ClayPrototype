@@ -24,7 +24,7 @@ struct TodayBanner: View {
                 HStack{
                     Text("\(today,formatter: TodayBanner.dateFormat)")
                         .fontWeight(.bold)
-                        .font(Font.custom("Pretendard", size: 20))
+                        .font(Font.custom(systemFont, size: 20))
                         .padding(.leading,5)
             }
             
@@ -33,7 +33,7 @@ struct TodayBanner: View {
     }
 }
 
-private struct TodayBanner_Previews : PreviewProvider{
+struct TodayBanner_Previews : PreviewProvider{
     static var previews: some View{
         TodayBanner()
     }
@@ -46,7 +46,7 @@ private struct TodayBannerText : View {
     var body: some View{
         Text(text)
             .fontWeight(.bold)
-            .font(Font.custom("Pretendard", size: 30))
+            .font(Font.custom(systemFont, size: 30))
             
             
     }

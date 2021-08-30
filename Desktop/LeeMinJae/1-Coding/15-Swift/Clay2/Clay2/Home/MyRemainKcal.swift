@@ -49,7 +49,7 @@ private struct KcalLableText : View {
     var text : String
     var body: some View{
         Text(text)
-            .font(Font.custom("Pretendard", size: 15))
+            .font(Font.custom(systemFont, size: 15))
             .fontWeight(.black)
         
     }
@@ -61,7 +61,7 @@ private struct KcalNumText : View{
     var body: some View{
         Text(text)
             .foregroundColor(Color.blue)
-            .font(Font.custom("Pretendard", size: 20))
+            .font(Font.custom(systemFont, size: 20))
             .fontWeight(.black)
             
     }

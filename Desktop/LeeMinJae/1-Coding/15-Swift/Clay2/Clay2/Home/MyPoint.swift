@@ -37,7 +37,7 @@ private struct PointLableText : View {
     var text : String
     var body: some View{
         Text(text)
-            .font(Font.custom("Pretendard", size: 15))
+            .font(Font.custom(systemFont, size: 15))
             .fontWeight(.black)
         
     }
@@ -48,7 +48,7 @@ private struct PointNumText : View{
     var text : String
     var body: some View{
         Text(text)
-            .font(Font.custom("Pretendard", size: 20))
+            .font(Font.custom(systemFont, size: 20))
             .fontWeight(.black)
     }
 }/// 포인트 숫자 텍스트 함수

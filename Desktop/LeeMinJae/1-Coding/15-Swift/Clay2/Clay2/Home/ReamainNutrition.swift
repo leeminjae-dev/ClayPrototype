@@ -17,23 +17,23 @@ struct RemainNutrition: View {
                 HStack{
                     Text("오늘 섭취할 단백질이 ")
                         .fontWeight(.bold)
-                        .font(Font.custom("Pretendard", size: 15)) +
+                        .font(Font.custom(systemFont, size: 15)) +
                     Text("\(protein,specifier: "%.1f")g")
                         .fontWeight(.black)
                         .foregroundColor(Color.blue)
-                        .font(Font.custom("Pretendard", size: 20)) +
+                        .font(Font.custom(systemFont, size: 20)) +
                     Text(" 남았어요!")
                         .fontWeight(.bold)
-                        .font(Font.custom("Pretendard", size: 15))
+                        .font(Font.custom(systemFont, size: 15))
                     }
 
 
                 HStack(spacing : 0){
                     Text("총합 111g ")
-                        .font(Font.custom("Pretendard", size: 13))
+                        .font(Font.custom(systemFont, size: 13))
                         .foregroundColor(Color.gray)
                     Text(">")
-                        .font(Font.custom("Pretendard", size: 13))
+                        .font(Font.custom(systemFont, size: 13))
                         .fontWeight(.black)
                 }
                 .padding(.trailing, 100.0)

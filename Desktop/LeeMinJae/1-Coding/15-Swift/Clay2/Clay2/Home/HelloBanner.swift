@@ -11,14 +11,14 @@ struct HelloBanner: View {
     var body: some View{
         VStack{
             Text("안녕하세요 민재님,")
-                .font(Font.custom("Pretendard", size: 15))
+                .font(Font.custom(systemFont, size: 15))
                 .foregroundColor(.white)
                 .fontWeight(.bold)
                 .padding(.trailing,195)
                 .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
             
             Text("오늘도 목표를 위해 함께 달려요!")
-                .font(.custom("Pretendard", size: 15))
+                .font(.custom(systemFont, size: 15))
                 .foregroundColor(.white)
                 .fontWeight(.bold)
                 .padding(.trailing,120)

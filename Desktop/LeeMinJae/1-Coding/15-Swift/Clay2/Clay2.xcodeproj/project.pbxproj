@@ -42,6 +42,14 @@
 		BEBD8BAD26DB99EF001413DC /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BAC26DB99EF001413DC /* Practice.swift */; };
 		BEBD8BB026DB9CE6001413DC /* NutritionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */; };
 		BEBD8BB226DBB74F001413DC /* LockedMealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBD8BB126DBB74F001413DC /* LockedMealBanner.swift */; };
+		BEF539B226DBD20C00A4983A /* Launch Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEF539B126DBD20C00A4983A /* Launch Logo.jpg */; };
+		BEF539B426DC53C600A4983A /* BannerPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539B326DC53C600A4983A /* BannerPractice.swift */; };
+		BEF539B726DC5A4300A4983A /* BannerPractice2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539B626DC5A4300A4983A /* BannerPractice2.swift */; };
+		BEF539BB26DD034300A4983A /* IntroBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539BA26DD034300A4983A /* IntroBanner.swift */; };
+		BEF539C126DD0B3F00A4983A /* LogInBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539C026DD0B3F00A4983A /* LogInBtn.swift */; };
+		BEF539C426DD160200A4983A /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539C326DD160200A4983A /* PageControl.swift */; };
+		BEF539C626DD2BC500A4983A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539C526DD2BC500A4983A /* Font.swift */; };
+		BEF539C826DD316F00A4983A /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF539C726DD316F00A4983A /* Main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +111,14 @@
 		BEBD8BAC26DB99EF001413DC /* Practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionList.swift; sourceTree = "<group>"; };
 		BEBD8BB126DBB74F001413DC /* LockedMealBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedMealBanner.swift; sourceTree = "<group>"; };
+		BEF539B126DBD20C00A4983A /* Launch Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Launch Logo.jpg"; sourceTree = "<group>"; };
+		BEF539B326DC53C600A4983A /* BannerPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPractice.swift; sourceTree = "<group>"; };
+		BEF539B626DC5A4300A4983A /* BannerPractice2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPractice2.swift; sourceTree = "<group>"; };
+		BEF539BA26DD034300A4983A /* IntroBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroBanner.swift; sourceTree = "<group>"; };
+		BEF539C026DD0B3F00A4983A /* LogInBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInBtn.swift; sourceTree = "<group>"; };
+		BEF539C326DD160200A4983A /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		BEF539C526DD2BC500A4983A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		BEF539C726DD316F00A4983A /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,13 +169,14 @@
 		BEBD8AF926D9F14F001413DC /* Clay2 */ = {
 			isa = PBXGroup;
 			children = (
+				BEBD8B5D26DB0783001413DC /* Main */,
+				BEF539B526DC54DD00A4983A /* Intro */,
+				BEBD8B5C26DB076C001413DC /* Home */,
 				BEBD8BAE26DB9CC7001413DC /* NutritionList */,
 				BEBD8BAB26DB8F4E001413DC /* GetBodyInfo */,
-				BEBD8BA626DB8400001413DC /* Function */,
-				BEBD8B6026DB12F4001413DC /*  ButtonStyle */,
-				BEBD8B5D26DB0783001413DC /* Main */,
-				BEBD8B5C26DB076C001413DC /* Home */,
-				BEBD8B4B26DA4EA9001413DC /* Font */,
+				BEBD8BA626DB8400001413DC /* Preset */,
+				BEF539BE26DD0A8D00A4983A /* Practice */,
+				BEF539C226DD156C00A4983A /* Assets */,
 				BEBD8AFE26D9F152001413DC /* Assets.xcassets */,
 				BEBD8B0326D9F152001413DC /* Info.plist */,
 				BEBD8B0026D9F152001413DC /* Preview Content */,
@@ -172,6 +189,7 @@
 		BEBD8B0026D9F152001413DC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				BEF539B126DBD20C00A4983A /* Launch Logo.jpg */,
 				BEBD8B3326DA4096001413DC /* 스크린샷 2021-08-28 오후 6.59.09.png */,
 				BEBD8B0126D9F152001413DC /* Preview Assets.xcassets */,
 			);
@@ -210,6 +228,7 @@
 				BEBD8B4026DA4EA5001413DC /* Pretendard-Regular.otf */,
 				BEBD8B3A26DA4EA4001413DC /* Pretendard-SemiBold.otf */,
 				BEBD8B3F26DA4EA4001413DC /* Pretendard-Thin.otf */,
+				BEF539C526DD2BC500A4983A /* Font.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -217,6 +236,7 @@
 		BEBD8B5C26DB076C001413DC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BEBD8B5426DA8026001413DC /* MyTabView.swift */,
 				BEBD8B3726DA4C97001413DC /* TodayBanner.swift */,
 				BEBD8B4C26DA54EF001413DC /* HelloBanner.swift */,
 				BEBD8B4E26DA5A9D001413DC /* ReamainNutrition.swift */,
@@ -234,8 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				BEBD8AFA26D9F14F001413DC /* Clay2App.swift */,
-				BEBD8B5426DA8026001413DC /* MyTabView.swift */,
 				BEBD8AFC26D9F14F001413DC /* ContentView.swift */,
+				BEF539C726DD316F00A4983A /* Main.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -249,12 +269,14 @@
 			path = " ButtonStyle";
 			sourceTree = "<group>";
 		};
-		BEBD8BA626DB8400001413DC /* Function */ = {
+		BEBD8BA626DB8400001413DC /* Preset */ = {
 			isa = PBXGroup;
 			children = (
+				BEBD8B6026DB12F4001413DC /*  ButtonStyle */,
 				BEBD8BA726DB841F001413DC /* TextFunction.swift */,
+				BEF539C326DD160200A4983A /* PageControl.swift */,
 			);
-			path = Function;
+			path = Preset;
 			sourceTree = "<group>";
 		};
 		BEBD8BAB26DB8F4E001413DC /* GetBodyInfo */ = {
@@ -271,6 +293,32 @@
 				BEBD8BAF26DB9CE6001413DC /* NutritionList.swift */,
 			);
 			path = NutritionList;
+			sourceTree = "<group>";
+		};
+		BEF539B526DC54DD00A4983A /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				BEF539BA26DD034300A4983A /* IntroBanner.swift */,
+				BEF539C026DD0B3F00A4983A /* LogInBtn.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		BEF539BE26DD0A8D00A4983A /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				BEF539B326DC53C600A4983A /* BannerPractice.swift */,
+				BEF539B626DC5A4300A4983A /* BannerPractice2.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		BEF539C226DD156C00A4983A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BEBD8B4B26DA4EA9001413DC /* Font */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +434,7 @@
 				BEBD8B4226DA4EA5001413DC /* Pretendard-ExtraBold.otf in Resources */,
 				BEBD8B4526DA4EA5001413DC /* Pretendard-Medium.otf in Resources */,
 				BEBD8B4326DA4EA5001413DC /* Pretendard-SemiBold.otf in Resources */,
+				BEF539B226DBD20C00A4983A /* Launch Logo.jpg in Resources */,
 				BEBD8B0226D9F152001413DC /* Preview Assets.xcassets in Resources */,
 				BEBD8B4426DA4EA5001413DC /* Pretendard-Black.otf in Resources */,
 				BEBD8B4826DA4EA5001413DC /* Pretendard-Thin.otf in Resources */,
@@ -420,16 +469,23 @@
 				BEBD8B3826DA4C97001413DC /* TodayBanner.swift in Sources */,
 				BEBD8B4F26DA5A9D001413DC /* ReamainNutrition.swift in Sources */,
 				BEBD8BAD26DB99EF001413DC /* Practice.swift in Sources */,
+				BEF539B726DC5A4300A4983A /* BannerPractice2.swift in Sources */,
 				BEBD8B6426DB1BA1001413DC /* MealBanner.swift in Sources */,
 				BEBD8B5926DA85FE001413DC /* TotalCalBtn.swift in Sources */,
+				BEF539BB26DD034300A4983A /* IntroBanner.swift in Sources */,
+				BEF539C426DD160200A4983A /* PageControl.swift in Sources */,
 				BEBD8AFD26D9F14F001413DC /* ContentView.swift in Sources */,
 				BEBD8BB226DBB74F001413DC /* LockedMealBanner.swift in Sources */,
 				BEBD8B4D26DA54EF001413DC /* HelloBanner.swift in Sources */,
 				BEBD8BAA26DB8F47001413DC /* BodyInfo.swift in Sources */,
 				BEBD8BA826DB841F001413DC /* TextFunction.swift in Sources */,
+				BEF539B426DC53C600A4983A /* BannerPractice.swift in Sources */,
 				BEBD8B5526DA8026001413DC /* MyTabView.swift in Sources */,
+				BEF539C126DD0B3F00A4983A /* LogInBtn.swift in Sources */,
 				BEBD8BB026DB9CE6001413DC /* NutritionList.swift in Sources */,
 				BEBD8BA226DB8068001413DC /* MyPoint.swift in Sources */,
+				BEF539C826DD316F00A4983A /* Main.swift in Sources */,
+				BEF539C626DD2BC500A4983A /* Font.swift in Sources */,
 				BEBD8B5F26DB12ED001413DC /* LongBtnstyle.swift in Sources */,
 				BEBD8AFB26D9F14F001413DC /* Clay2App.swift in Sources */,
 				BEBD8B6226DB1600001413DC /* exBtn.swift in Sources */,

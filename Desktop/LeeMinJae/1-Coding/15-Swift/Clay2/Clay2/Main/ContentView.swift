@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var morningCal : Float = 0
-    @State var launchCal : Float = 0
-    @State var dinnerCal : Float = 0
-    @State var myPoint : Int = 0
-    @State var remainCal : Float = 0
+    @State private var morningCal : Float = 0
+    @State private var launchCal : Float = 0
+    @State private var dinnerCal : Float = 0
+    @State private var myPoint : Int = 0
+    @State private var remainCal : Float = 0
     
-    @State var morningTime : Bool = isMorning()
-    var launchTime : Bool = isLaunch()
+    @State private var morningTime : Bool = isMorning()
+    @State private var launchTime : Bool = isLaunch()
     ///var dinnerTime : Bool = isDinner()
-    var dinnerTime : Bool = true
+    @State private var dinnerTime : Bool = true
     /// 시간에 따라 잠금장치가 걸릴지 안걸릴지 판별
     
     

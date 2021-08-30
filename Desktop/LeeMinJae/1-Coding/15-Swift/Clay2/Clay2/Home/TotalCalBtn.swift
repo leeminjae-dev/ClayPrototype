@@ -15,12 +15,12 @@ struct TotalCalBtn: View {
             VStack{
                 VStack(spacing : 0){
                     Text("오늘 총 칼로리")
-                        .font(Font.custom("Pretendard", size: 15))
+                        .font(Font.custom(systemFont, size: 15))
                         .foregroundColor(.black)
                         .fontWeight(.bold)
                     HStack{
                         Text("\(Cal,specifier: "%.1f")")
-                            .font(Font.custom("Pretendard", size: 20))
+                            .font(Font.custom(systemFont, size: 20))
                             .fontWeight(.black)
                             .foregroundColor(Color.blue)
                         Text("Kcal")
@@ -32,7 +32,7 @@ struct TotalCalBtn: View {
                 .padding(.trailing, 210)
                 HStack(spacing : 180){
                     Text("오늘의 칼로리 확인하기")
-                        .font(Font.custom("Pretendard", size: 10))
+                        .font(Font.custom(systemFont, size: 10))
                         .foregroundColor(.gray)
                        
                     Image(systemName: "chevron.down")

@@ -17,7 +17,7 @@ struct LockedMealBanner: View {
                 HStack{
                         Text(MealText)
                             .fontWeight(.bold)
-                            .font(Font.custom("Pretendard", size: 15))
+                            .font(Font.custom(systemFont, size: 15))
                             .padding(.leading,30)
                     Spacer()
                     Image(systemName: "lock")
@@ -29,10 +29,10 @@ struct LockedMealBanner: View {
                         Text("\(MealCal,specifier: "%.1f")")
                             .foregroundColor(Color.blue)
                             .fontWeight(.black)
-                            .font(Font.custom("Pretendard", size: 20))
+                            .font(Font.custom(systemFont, size: 20))
                         Text("Kcal")
                             .fontWeight(.semibold)
-                            .font(Font.custom("Pretendard", size: 15))
+                            .font(Font.custom(systemFont, size: 15))
                             
                         }
                     .padding(.trailing)

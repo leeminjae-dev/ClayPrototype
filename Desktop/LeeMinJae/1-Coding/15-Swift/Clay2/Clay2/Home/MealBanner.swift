@@ -22,7 +22,7 @@ struct MealBanner: View {
                     HStack{
                             Text(MealText)
                                 .fontWeight(.bold)
-                                .font(Font.custom("Pretendard", size: 15))
+                                .font(Font.custom(systemFont, size: 15))
                                 .padding(.leading,30)
                         Spacer()
                         
@@ -30,10 +30,10 @@ struct MealBanner: View {
                             Text("\(MealCal,specifier: "%.1f")")
                                 .foregroundColor(Color.blue)
                                 .fontWeight(.black)
-                                .font(Font.custom("Pretendard", size: 20))
+                                .font(Font.custom(systemFont, size: 20))
                             Text("Kcal")
                                 .fontWeight(.semibold)
-                                .font(Font.custom("Pretendard", size: 15))
+                                .font(Font.custom(systemFont, size: 15))
                                 
                             }
                         .padding(.trailing)
@@ -52,7 +52,7 @@ struct MealBanner: View {
                 HStack{
                         Text(MealText)
                             .fontWeight(.bold)
-                            .font(Font.custom("Pretendard", size: 15))
+                            .font(Font.custom(systemFont, size: 15))
                             .padding(.leading,30)
                     Spacer()
                     Image(systemName: "lock")
@@ -64,10 +64,10 @@ struct MealBanner: View {
                         Text("\(MealCal,specifier: "%.1f")")
                             .foregroundColor(Color.blue)
                             .fontWeight(.black)
-                            .font(Font.custom("Pretendard", size: 20))
+                            .font(Font.custom(systemFont, size: 20))
                         Text("Kcal")
                             .fontWeight(.semibold)
-                            .font(Font.custom("Pretendard", size: 15))
+                            .font(Font.custom(systemFont, size: 15))
                             
                         }
                     .padding(.trailing)
@@ -92,6 +92,6 @@ struct MealBanner: View {
 struct MealBanner_Previews : PreviewProvider{
    
     static var previews: some View{
-        MealBanner(MealCal: 2000, MealText: "아침", isLocked: false)
+        MealBanner(MealCal: 2000, MealText: "아침", isLocked: true)
     }
 }
