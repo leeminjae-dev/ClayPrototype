@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct SignView: View {
+struct MainLogIn: View {
     
     @State private var selectedTab : Trip = trips[0]
     @EnvironmentObject var viewModel : AppViewModel
@@ -21,13 +21,6 @@ struct SignView: View {
                 //let frame = proxy.frame(in: .global)
                 VStack{
                     VStack{
-                        HStack{
-                            Text("클레이와 함께 도전하기")
-                                .font(Font.custom(systemFont, size: 18))
-                                .foregroundColor(Color.gray)
-                            Spacer()
-                        }
-                        .padding()
                         
                         TabView(selection : $selectedTab){
                             ForEach(trips){trip in
@@ -46,12 +39,13 @@ struct SignView: View {
                          
                     }
                     .padding([.top, .bottom])
-                    
-                    KakaoLogInBtn()
                     ClayLogInBtn()
+                    KakaoLogInBtn()
                     
                     
                 }
+               
+                
                 
                 
                 
@@ -89,8 +83,8 @@ private struct Trip : Identifiable, Hashable{
 }
 
 
-struct SignView_Previews : PreviewProvider{
+struct MainLogIn_Previews : PreviewProvider{
     static var previews: some View{
-        SignView()
+        MainLogIn()
     }
 }

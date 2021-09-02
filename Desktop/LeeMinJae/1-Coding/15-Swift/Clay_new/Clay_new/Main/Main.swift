@@ -18,29 +18,34 @@ struct Main: View {
     var body: some View {
         
         NavigationView{
-            if viewModel.signedIn{
-                if currentPage > totalPage{
+            if currentPage > totalPage{
+                if viewModel.signedIn{
                     MyTabView()
-                }
-                else{
-                    WalkThroughScreen()
-                }
-            }else{
-                SignView()
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+                        .transition(.slide)
+                }else{
+                AreYouFirstView()
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
+                    .transition(.slide)
+                }
+            }else{
+                WalkThroughScreen()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    .transition(.slide)
+                    
             }
           
         }
-        .navigationBarHidden(true)
-        .navigationBarTitle(Text("Home"))
-        .edgesIgnoringSafeArea([.top, .bottom])
+        .accentColor(Color.pink)
         .onAppear{
             viewModel.signedIn = viewModel.isSignedIn
         
         }
-        
     }
+    
 }
 
 struct Main_Previews: PreviewProvider {

@@ -14,7 +14,7 @@ struct FirstLaunchView: View {
     
     var body: some View {
         if currentPage > totalPage{
-            SignView()
+            MainSignUp()
         }
         else{
             WalkThroughScreen()
@@ -131,7 +131,8 @@ private struct ScreenView : View{
                             }
                         }, label: {
                             Text("Skip")
-                                .font(Font.custom(systemFont, size: 15))
+                                .font(Font.custom(systemFont, size: 18))
+                                .foregroundColor(.blue)
                                 
                     })
                     }

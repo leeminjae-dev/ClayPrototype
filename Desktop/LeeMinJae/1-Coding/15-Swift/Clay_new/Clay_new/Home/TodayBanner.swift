@@ -16,21 +16,19 @@ struct TodayBanner: View {
     
     @State var today = Date()
     var body: some View{
-        HStack(spacing: 20){
             VStack(spacing : 0){
+                
                 TodayBannerText(text: "Today")
-                    
-                    
+                    .padding(.trailing,70)
+                
                 HStack{
                     Text("\(today,formatter: TodayBanner.dateFormat)")
                         .fontWeight(.bold)
                         .font(Font.custom(systemFont, size: 20))
                         .padding(.leading,5)
+                        }    
             }
-            
-                
-            }
-    }
+    
 }
 
 struct TodayBanner_Previews : PreviewProvider{

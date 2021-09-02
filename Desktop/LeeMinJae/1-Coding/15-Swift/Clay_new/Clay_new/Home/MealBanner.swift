@@ -28,7 +28,7 @@ struct MealBanner: View {
                         
                         HStack{
                             Text("\(MealCal,specifier: "%.1f")")
-                                .foregroundColor(Color.blue)
+                                .foregroundColor(Color.white)
                                 .fontWeight(.black)
                                 .font(Font.custom(systemFont, size: 20))
                             Text("Kcal")
@@ -42,9 +42,9 @@ struct MealBanner: View {
                             }
                     
                             .frame(width: 340, height: 80)
-                            .background(Color.white)
+                    .background(Color.white)
                             .cornerRadius(15)
-                            .shadow(color: .black, radius: 0.7, x: 0.2, y: 0.2)
+                    .shadow(color: .black, radius: 0.8)
                 })
                 .foregroundColor(Color.black)
         }
@@ -62,7 +62,7 @@ struct MealBanner: View {
                 Spacer()
                     HStack{
                         Text("\(MealCal,specifier: "%.1f")")
-                            .foregroundColor(Color.blue)
+                            .foregroundColor(Color.white)
                             .fontWeight(.black)
                             .font(Font.custom(systemFont, size: 20))
                         Text("Kcal")
@@ -78,7 +78,7 @@ struct MealBanner: View {
                         .frame(width: 340, height: 80)
                         .background(Color.gray)
                         .cornerRadius(15)
-                        .shadow(color: .black, radius: 0.7, x: 0.2, y: 0.2)
+                .shadow(color: .black, radius: 0.8)
             }
         }
       

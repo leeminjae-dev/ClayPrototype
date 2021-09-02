@@ -23,6 +23,7 @@ struct LogoutBtn: View {
                 .cornerRadius(5)
         })
         .transition(.slide)
+        .shadow(radius: 0.5)
     }
 }
 

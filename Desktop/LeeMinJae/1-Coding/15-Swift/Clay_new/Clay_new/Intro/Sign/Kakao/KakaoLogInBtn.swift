@@ -12,6 +12,11 @@ import KakaoSDKAuth
 import KakaoSDKUser
 
 struct KakaoLogInBtn: View {
+    
+    @EnvironmentObject var viewModel : AppViewModel
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View{
         //카카오톡 로그인 버튼
             Button(action : {
@@ -24,7 +29,6 @@ struct KakaoLogInBtn: View {
                                 }
                                 else {
                                     print("loginWithKakaoTalk() success.")
-
                                     //do something
                                     _ = oauthToken
                                 }
@@ -37,7 +41,6 @@ struct KakaoLogInBtn: View {
                                 }
                                 else {
                                     print("loginWithKakaoTalk() success.")
-
                                     //do something
                                     _ = oauthToken
                                 }
@@ -46,7 +49,10 @@ struct KakaoLogInBtn: View {
                }){
                    
                 Image("KakaoLogInBtn")
+                    .resizable()
+                    .frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.slide)
+                    .shadow(color: .black, radius: 0.8, x: 1 , y: 1)
                }
                //ios가 버전이 올라감에 따라 sceneDelegate를 더이상 사용하지 않게되었다
                //그래서 로그인을 한후 리턴값을 인식을 하여야하는데 해당 코드를 적어주지않으면 리턴값을 인식되지않는다

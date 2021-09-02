@@ -28,23 +28,46 @@ struct ContentView: View {
         UINavigationBar.appearance().barTintColor = UIColor(Color.white)
         UINavigationBar.appearance().shadowImage = UIImage()
         ///UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        ///UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        ///Use this if NavigationBarTitle is with displayMode = .inline
+        ///UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
     }
     
     var body: some View{
         
         NavigationView{
-                //ScrollView{
-                    
-                    VStack(spacing : 40){
-                        
+                ScrollView{
+                    VStack(spacing : 13){
+                        HStack{
+                            VStack(spacing:0){
+                                Text("오늘의 목표")
+                                    .font(Font.custom(systemFont, size: 20))
+                                    .fontWeight(.bold)
+                                    .overlay(Rectangle().frame(height: 4).offset(y: 4), alignment: .bottom)
+                                    
+                                
+                            }
+                            Spacer()
+                        }
                         HStack(spacing : 60){
-                        TodayBanner()
+                            TodayBanner()
                             VStack(spacing : 10){
-                                MyPoint(myPoint: myPoint)
-                                MyRemainKcal(myKcal: remainCal)
+                                    MyPoint(myPoint: myPoint)
+                                    MyRemainKcal(myKcal: remainCal)
                             }
                         }
+                        .frame(width: 370, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.white)
+                        .cornerRadius(10)
                         VStack(spacing : 15){
+                            HStack{
+                                Text("식단 기록")
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                Image(systemName: "chevron.right")
+                                    
+                                Spacer()
+                            }
                            
                             MealBanner(MealCal: morningCal, MealText: "아침", isLocked: morningTime)
                             MealBanner(MealCal: morningCal, MealText: "점심", isLocked: launchTime)
@@ -52,16 +75,24 @@ struct ContentView: View {
                                                         
                            
                         }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        
                         
                     }
-                    .padding(.bottom, 130)
-    
-               /* }
+                    .padding(.bottom, 200)
+                    .padding(40)
+                    
+               }
                 
-            .padding()
-            .navigationBarTitle("홈", displayMode: .inline)
+                .background(Color.secondary.opacity(0.2))
+                .navigationBarTitle("Clay",displayMode: .inline)
+                
+                
             
-            .font(Font.custom("Pretendard", size: 15))*/
+            
+            .font(Font.custom("Pretendard", size: 15))
             .navigationBarItems(leading:
                                     Button(action:{
                                         ///isLogined = false
@@ -81,11 +112,13 @@ struct ContentView: View {
             )
 
         }
+        
+        .navigationBarTitle("")
         .navigationBarHidden(true)
-        .navigationBarTitle(Text("Home"))
-        .edgesIgnoringSafeArea([.top, .bottom])
+        
         
     }
+    
 }
 
 private func isMorning() -> Bool{
@@ -151,6 +184,5 @@ struct ContentView_Previews : PreviewProvider{
         ContentView()
     }
 }
-
 
 

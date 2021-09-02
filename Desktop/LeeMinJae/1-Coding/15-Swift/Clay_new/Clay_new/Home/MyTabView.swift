@@ -31,8 +31,6 @@ struct MyTabView: View {
                     Image(systemName: "questionmark")
                     Text("미정")
                 }
-                
-                
                 Text("cal")
                 .tabItem {
                     Image(systemName: "archivebox")

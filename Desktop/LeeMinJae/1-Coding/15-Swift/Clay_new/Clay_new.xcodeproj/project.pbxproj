@@ -41,7 +41,7 @@
 		BE43C71326DF3329007E42C7 /* ClayLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71226DF3329007E42C7 /* ClayLogin.swift */; };
 		BE43C71526DF3352007E42C7 /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71426DF3352007E42C7 /* FirstLaunchView.swift */; };
 		BE43C71726DF3367007E42C7 /* KakaoLogInBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71626DF3367007E42C7 /* KakaoLogInBtn.swift */; };
-		BE43C71926DF3375007E42C7 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71826DF3375007E42C7 /* SignView.swift */; };
+		BE43C71926DF3375007E42C7 /* MainLogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71826DF3375007E42C7 /* MainLogIn.swift */; };
 		BE43C71B26DF338C007E42C7 /* SwiftUIFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71A26DF338C007E42C7 /* SwiftUIFirebase.swift */; };
 		BE43C71D26DF33AA007E42C7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE43C71C26DF33AA007E42C7 /* Launch Screen.storyboard */; };
 		BE43C72026DF3524007E42C7 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C71F26DF3524007E42C7 /* Main.swift */; };
@@ -56,6 +56,16 @@
 		BE43C73A26DF4295007E42C7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73926DF4295007E42C7 /* SignUpView.swift */; };
 		BE43C73C26DFACA2007E42C7 /* ClayLogInBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73B26DFACA2007E42C7 /* ClayLogInBtn.swift */; };
 		BE43C73F26DFB522007E42C7 /* LogoutBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73E26DFB522007E42C7 /* LogoutBtn.swift */; };
+		BE43C74326E06D2D007E42C7 /* WrongIDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C74226E06D2D007E42C7 /* WrongIDErrorView.swift */; };
+		BE43C74726E0876F007E42C7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C74626E0876E007E42C7 /* SuccessView.swift */; };
+		BE43C74926E09594007E42C7 /* WrongRegisterErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C74826E09594007E42C7 /* WrongRegisterErrorView.swift */; };
+		BED9D84426E0D304004561F5 /* FirstBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84326E0D304004561F5 /* FirstBtn.swift */; };
+		BED9D84726E0D5E4004561F5 /* AreYouFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84626E0D5E4004561F5 /* AreYouFirstView.swift */; };
+		BED9D84926E0ED6B004561F5 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84826E0ED6B004561F5 /* ResetPassword.swift */; };
+		BED9D84B26E0F2A7004561F5 /* WrongResetPasswordErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84A26E0F2A7004561F5 /* WrongResetPasswordErrorView.swift */; };
+		BED9D84D26E0F55E004561F5 /* ResetSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84C26E0F55E004561F5 /* ResetSuccessView.swift */; };
+		BED9D85326E10F9B004561F5 /* MainSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85226E10F9B004561F5 /* MainSignUp.swift */; };
+		BED9D85526E11003004561F5 /* ClaySignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +128,7 @@
 		BE43C71226DF3329007E42C7 /* ClayLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClayLogin.swift; sourceTree = "<group>"; };
 		BE43C71426DF3352007E42C7 /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 		BE43C71626DF3367007E42C7 /* KakaoLogInBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogInBtn.swift; sourceTree = "<group>"; };
-		BE43C71826DF3375007E42C7 /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		BE43C71826DF3375007E42C7 /* MainLogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogIn.swift; sourceTree = "<group>"; };
 		BE43C71A26DF338C007E42C7 /* SwiftUIFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIFirebase.swift; sourceTree = "<group>"; };
 		BE43C71C26DF33AA007E42C7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BE43C71F26DF3524007E42C7 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -133,6 +143,16 @@
 		BE43C73926DF4295007E42C7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BE43C73B26DFACA2007E42C7 /* ClayLogInBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClayLogInBtn.swift; sourceTree = "<group>"; };
 		BE43C73E26DFB522007E42C7 /* LogoutBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutBtn.swift; sourceTree = "<group>"; };
+		BE43C74226E06D2D007E42C7 /* WrongIDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongIDErrorView.swift; sourceTree = "<group>"; };
+		BE43C74626E0876E007E42C7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		BE43C74826E09594007E42C7 /* WrongRegisterErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongRegisterErrorView.swift; sourceTree = "<group>"; };
+		BED9D84326E0D304004561F5 /* FirstBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstBtn.swift; sourceTree = "<group>"; };
+		BED9D84626E0D5E4004561F5 /* AreYouFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouFirstView.swift; sourceTree = "<group>"; };
+		BED9D84826E0ED6B004561F5 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		BED9D84A26E0F2A7004561F5 /* WrongResetPasswordErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongResetPasswordErrorView.swift; sourceTree = "<group>"; };
+		BED9D84C26E0F55E004561F5 /* ResetSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSuccessView.swift; sourceTree = "<group>"; };
+		BED9D85226E10F9B004561F5 /* MainSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSignUp.swift; sourceTree = "<group>"; };
+		BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaySignUpBtn.swift; sourceTree = "<group>"; };
 		CA7D53C163D30D90E64A17F7 /* Pods-Clay_new-Clay_newUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new-Clay_newUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_new-Clay_newUITests/Pods-Clay_new-Clay_newUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D55803615ABD5A79BDB24E2B /* Pods-Clay_new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new.release.xcconfig"; path = "Target Support Files/Pods-Clay_new/Pods-Clay_new.release.xcconfig"; sourceTree = "<group>"; };
 		DAC424A4A60F84C673B22DBF /* Pods-Clay_newTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_newTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_newTests/Pods-Clay_newTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,10 +303,12 @@
 		BE43C6EC26DF31A4007E42C7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BE43C72126DF353C007E42C7 /* MyTabView.swift */,
+				BE43C6A426DF2E73007E42C7 /* ContentView.swift */,
 				BE43C6FF26DF31F0007E42C7 /* exBtn.swift */,
 				BE43C70126DF3205007E42C7 /* SwiftUIView.swift */,
-				BE43C70326DF321B007E42C7 /* LockedMealBanner.swift */,
 				BE43C70526DF3237007E42C7 /* MealBanner.swift */,
+				BE43C70326DF321B007E42C7 /* LockedMealBanner.swift */,
 				BE43C70726DF324F007E42C7 /* MyPoint.swift */,
 				BE43C70926DF3261007E42C7 /* MyReaminKcal.swift */,
 				BE43C70B26DF3275007E42C7 /* RemainNutrtion.swift */,
@@ -300,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				BE43C73826DF3E8F007E42C7 /* Sign */,
-				BE43C71426DF3352007E42C7 /* FirstLaunchView.swift */,
 				BE43C71A26DF338C007E42C7 /* SwiftUIFirebase.swift */,
 				BE43C71C26DF33AA007E42C7 /* Launch Screen.storyboard */,
 			);
@@ -311,9 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				BE43C6A226DF2E73007E42C7 /* Clay_newApp.swift */,
-				BE43C6A426DF2E73007E42C7 /* ContentView.swift */,
 				BE43C71F26DF3524007E42C7 /* Main.swift */,
-				BE43C72126DF353C007E42C7 /* MyTabView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -355,13 +374,11 @@
 		BE43C73826DF3E8F007E42C7 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
-				BE43C71226DF3329007E42C7 /* ClayLogin.swift */,
-				BE43C73926DF4295007E42C7 /* SignUpView.swift */,
-				BE43C73626DF3E80007E42C7 /* SignInView.swift */,
-				BE43C71626DF3367007E42C7 /* KakaoLogInBtn.swift */,
-				BE43C71826DF3375007E42C7 /* SignView.swift */,
-				BE43C73B26DFACA2007E42C7 /* ClayLogInBtn.swift */,
-				BE43C73E26DFB522007E42C7 /* LogoutBtn.swift */,
+				BE43C71826DF3375007E42C7 /* MainLogIn.swift */,
+				BED9D85226E10F9B004561F5 /* MainSignUp.swift */,
+				BED9D84526E0D5B1004561F5 /* FirstComment */,
+				BE43C74126E06CF8007E42C7 /* Kakao */,
+				BE43C74026E06CEC007E42C7 /* Clay */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -371,6 +388,67 @@
 			children = (
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		BE43C74026E06CEC007E42C7 /* Clay */ = {
+			isa = PBXGroup;
+			children = (
+				BED9D85B26E1155E004561F5 /* ClayLogInView */,
+				BED9D85A26E11509004561F5 /* ClayNoticeView */,
+				BED9D85826E114B9004561F5 /* ClayBtn */,
+				BE43C71226DF3329007E42C7 /* ClayLogin.swift */,
+				BE43C73E26DFB522007E42C7 /* LogoutBtn.swift */,
+			);
+			path = Clay;
+			sourceTree = "<group>";
+		};
+		BE43C74126E06CF8007E42C7 /* Kakao */ = {
+			isa = PBXGroup;
+			children = (
+				BE43C71626DF3367007E42C7 /* KakaoLogInBtn.swift */,
+			);
+			path = Kakao;
+			sourceTree = "<group>";
+		};
+		BED9D84526E0D5B1004561F5 /* FirstComment */ = {
+			isa = PBXGroup;
+			children = (
+				BED9D84326E0D304004561F5 /* FirstBtn.swift */,
+				BE43C71426DF3352007E42C7 /* FirstLaunchView.swift */,
+				BED9D84626E0D5E4004561F5 /* AreYouFirstView.swift */,
+			);
+			path = FirstComment;
+			sourceTree = "<group>";
+		};
+		BED9D85826E114B9004561F5 /* ClayBtn */ = {
+			isa = PBXGroup;
+			children = (
+				BE43C73B26DFACA2007E42C7 /* ClayLogInBtn.swift */,
+				BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */,
+			);
+			path = ClayBtn;
+			sourceTree = "<group>";
+		};
+		BED9D85A26E11509004561F5 /* ClayNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				BE43C74626E0876E007E42C7 /* SuccessView.swift */,
+				BE43C74226E06D2D007E42C7 /* WrongIDErrorView.swift */,
+				BE43C74826E09594007E42C7 /* WrongRegisterErrorView.swift */,
+				BED9D84A26E0F2A7004561F5 /* WrongResetPasswordErrorView.swift */,
+				BED9D84C26E0F55E004561F5 /* ResetSuccessView.swift */,
+				BED9D84826E0ED6B004561F5 /* ResetPassword.swift */,
+			);
+			path = ClayNoticeView;
+			sourceTree = "<group>";
+		};
+		BED9D85B26E1155E004561F5 /* ClayLogInView */ = {
+			isa = PBXGroup;
+			children = (
+				BE43C73926DF4295007E42C7 /* SignUpView.swift */,
+				BE43C73626DF3E80007E42C7 /* SignInView.swift */,
+			);
+			path = ClayLogInView;
 			sourceTree = "<group>";
 		};
 		E65A878468B3039D3C61346A /* Pods */ = {
@@ -636,34 +714,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE43C71926DF3375007E42C7 /* SignView.swift in Sources */,
+				BE43C71926DF3375007E42C7 /* MainLogIn.swift in Sources */,
 				BE43C70626DF3237007E42C7 /* MealBanner.swift in Sources */,
+				BED9D84426E0D304004561F5 /* FirstBtn.swift in Sources */,
 				BE43C70426DF321B007E42C7 /* LockedMealBanner.swift in Sources */,
 				BE43C71726DF3367007E42C7 /* KakaoLogInBtn.swift in Sources */,
 				BE43C71026DF3291007E42C7 /* TotalCalBtn.swift in Sources */,
+				BED9D84726E0D5E4004561F5 /* AreYouFirstView.swift in Sources */,
+				BED9D84D26E0F55E004561F5 /* ResetSuccessView.swift in Sources */,
 				BE43C70A26DF3261007E42C7 /* MyReaminKcal.swift in Sources */,
 				BE43C70E26DF3286007E42C7 /* TodayBanner.swift in Sources */,
 				BE43C6A526DF2E73007E42C7 /* ContentView.swift in Sources */,
 				BE43C71526DF3352007E42C7 /* FirstLaunchView.swift in Sources */,
 				BE43C72D26DF35D2007E42C7 /* PageControl.swift in Sources */,
+				BED9D84926E0ED6B004561F5 /* ResetPassword.swift in Sources */,
 				BE43C6A326DF2E73007E42C7 /* Clay_newApp.swift in Sources */,
 				BE43C70226DF3205007E42C7 /* SwiftUIView.swift in Sources */,
 				BE43C73726DF3E80007E42C7 /* SignInView.swift in Sources */,
+				BED9D85526E11003004561F5 /* ClaySignUpBtn.swift in Sources */,
 				BE43C70826DF324F007E42C7 /* MyPoint.swift in Sources */,
 				BE43C73526DF3635007E42C7 /* AppDelegate.swift in Sources */,
 				BE43C73C26DFACA2007E42C7 /* ClayLogInBtn.swift in Sources */,
+				BE43C74726E0876F007E42C7 /* SuccessView.swift in Sources */,
 				BE43C72A26DF35A9007E42C7 /* NutritionList.swift in Sources */,
 				BE43C73A26DF4295007E42C7 /* SignUpView.swift in Sources */,
 				BE43C72026DF3524007E42C7 /* Main.swift in Sources */,
+				BE43C74926E09594007E42C7 /* WrongRegisterErrorView.swift in Sources */,
 				BE43C6EB26DF3190007E42C7 /* BodyInfo.swift in Sources */,
 				BE43C73026DF35FA007E42C7 /* PopBtnStyle.swift in Sources */,
 				BE43C72226DF353C007E42C7 /* MyTabView.swift in Sources */,
 				BE43C71326DF3329007E42C7 /* ClayLogin.swift in Sources */,
 				BE43C71B26DF338C007E42C7 /* SwiftUIFirebase.swift in Sources */,
 				BE43C6E326DF308C007E42C7 /* Font.swift in Sources */,
+				BE43C74326E06D2D007E42C7 /* WrongIDErrorView.swift in Sources */,
+				BED9D84B26E0F2A7004561F5 /* WrongResetPasswordErrorView.swift in Sources */,
 				BE43C72726DF3576007E42C7 /* MyTextView.swift in Sources */,
 				BE43C70C26DF3275007E42C7 /* RemainNutrtion.swift in Sources */,
 				BE43C73F26DFB522007E42C7 /* LogoutBtn.swift in Sources */,
+				BED9D85326E10F9B004561F5 /* MainSignUp.swift in Sources */,
 				BE43C70026DF31F0007E42C7 /* exBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
