@@ -56,3 +56,4 @@ struct Main_Previews: PreviewProvider {
 }
 
 
+private var totalPage = 3

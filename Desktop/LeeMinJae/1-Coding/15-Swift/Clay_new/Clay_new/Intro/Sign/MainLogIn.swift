@@ -12,9 +12,7 @@ struct MainLogIn: View {
     
     @State private var selectedTab : Trip = trips[0]
     @EnvironmentObject var viewModel : AppViewModel
-    
-  
-    
+     
     var body: some View{
         
             GeometryReader{proxy in

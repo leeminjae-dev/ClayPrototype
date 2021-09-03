@@ -44,7 +44,7 @@ struct ResetPassword: View {
                     .padding()
                     
             })
-            .shadow(color: .black, radius: 0.5, x: 1 , y: 1)
+            .shadow(radius: 0.5)
             
         }
         .padding(.bottom, 200)

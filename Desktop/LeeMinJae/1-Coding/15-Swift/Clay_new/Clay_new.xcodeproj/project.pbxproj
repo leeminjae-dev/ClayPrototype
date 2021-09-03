@@ -28,7 +28,6 @@
 		BE43C6E626DF308C007E42C7 /* EliceDigitalBaeum_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE43C6DA26DF308C007E42C7 /* EliceDigitalBaeum_Regular.ttf */; };
 		BE43C6E726DF308C007E42C7 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE43C6DB26DF308C007E42C7 /* Pretendard-ExtraLight.otf */; };
 		BE43C6E826DF308C007E42C7 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE43C6DC26DF308C007E42C7 /* Pretendard-Bold.otf */; };
-		BE43C6EB26DF3190007E42C7 /* BodyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C6EA26DF3190007E42C7 /* BodyInfo.swift */; };
 		BE43C70026DF31F0007E42C7 /* exBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C6FF26DF31F0007E42C7 /* exBtn.swift */; };
 		BE43C70226DF3205007E42C7 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C70126DF3205007E42C7 /* SwiftUIView.swift */; };
 		BE43C70426DF321B007E42C7 /* LockedMealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C70326DF321B007E42C7 /* LockedMealBanner.swift */; };
@@ -50,7 +49,6 @@
 		BE43C72A26DF35A9007E42C7 /* NutritionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C72926DF35A9007E42C7 /* NutritionList.swift */; };
 		BE43C72D26DF35D2007E42C7 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C72C26DF35D2007E42C7 /* PageControl.swift */; };
 		BE43C73026DF35FA007E42C7 /* PopBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C72F26DF35FA007E42C7 /* PopBtnStyle.swift */; };
-		BE43C73326DF3629007E42C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE43C73226DF3629007E42C7 /* GoogleService-Info.plist */; };
 		BE43C73526DF3635007E42C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73426DF3635007E42C7 /* AppDelegate.swift */; };
 		BE43C73726DF3E80007E42C7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73626DF3E80007E42C7 /* SignInView.swift */; };
 		BE43C73A26DF4295007E42C7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE43C73926DF4295007E42C7 /* SignUpView.swift */; };
@@ -66,6 +64,15 @@
 		BED9D84D26E0F55E004561F5 /* ResetSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D84C26E0F55E004561F5 /* ResetSuccessView.swift */; };
 		BED9D85326E10F9B004561F5 /* MainSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85226E10F9B004561F5 /* MainSignUp.swift */; };
 		BED9D85526E11003004561F5 /* ClaySignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */; };
+		BED9D85D26E195AD004561F5 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85C26E195AD004561F5 /* Loader.swift */; };
+		BED9D85F26E19B2F004561F5 /* Geometry ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85E26E19B2F004561F5 /* Geometry ex.swift */; };
+		BEDE567C26E1E8DF006DB3FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */; };
+		BEDE567E26E1EE17006DB3FD /* Clay_Tester.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */; };
+		BEDE568026E1F70F006DB3FD /* BodyInfoPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE567F26E1F70F006DB3FD /* BodyInfoPages.swift */; };
+		BEDE568226E1FAC4006DB3FD /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568126E1FAC4006DB3FD /* CheckBox.swift */; };
+		BEDE568426E2045B006DB3FD /* GenderSelectBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */; };
+		BEDE568B26E25A59006DB3FD /* GetBodyTextFieldPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568A26E25A59006DB3FD /* GetBodyTextFieldPages.swift */; };
+		BEDE568F26E26CC8006DB3FD /* GetBodyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568E26E26CC8006DB3FD /* GetBodyInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +122,6 @@
 		BE43C6DA26DF308C007E42C7 /* EliceDigitalBaeum_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EliceDigitalBaeum_Regular.ttf; path = ../../../../Clay2/Clay2/Assets/Font/EliceDigitalBaeum_Regular.ttf; sourceTree = "<group>"; };
 		BE43C6DB26DF308C007E42C7 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-ExtraLight.otf"; path = "../../../../Clay2/Clay2/Assets/Font/Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		BE43C6DC26DF308C007E42C7 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.otf"; path = "../../../../Clay2/Clay2/Assets/Font/Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		BE43C6EA26DF3190007E42C7 /* BodyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInfo.swift; sourceTree = "<group>"; };
 		BE43C6FF26DF31F0007E42C7 /* exBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exBtn.swift; sourceTree = "<group>"; };
 		BE43C70126DF3205007E42C7 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		BE43C70326DF321B007E42C7 /* LockedMealBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedMealBanner.swift; sourceTree = "<group>"; };
@@ -137,7 +143,6 @@
 		BE43C72926DF35A9007E42C7 /* NutritionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionList.swift; sourceTree = "<group>"; };
 		BE43C72C26DF35D2007E42C7 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		BE43C72F26DF35FA007E42C7 /* PopBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopBtnStyle.swift; sourceTree = "<group>"; };
-		BE43C73226DF3629007E42C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE43C73426DF3635007E42C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE43C73626DF3E80007E42C7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		BE43C73926DF4295007E42C7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -153,6 +158,15 @@
 		BED9D84C26E0F55E004561F5 /* ResetSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSuccessView.swift; sourceTree = "<group>"; };
 		BED9D85226E10F9B004561F5 /* MainSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSignUp.swift; sourceTree = "<group>"; };
 		BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaySignUpBtn.swift; sourceTree = "<group>"; };
+		BED9D85C26E195AD004561F5 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		BED9D85E26E19B2F004561F5 /* Geometry ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geometry ex.swift"; sourceTree = "<group>"; };
+		BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clay_Tester.mobileprovision; sourceTree = "<group>"; };
+		BEDE567F26E1F70F006DB3FD /* BodyInfoPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInfoPages.swift; sourceTree = "<group>"; };
+		BEDE568126E1FAC4006DB3FD /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectBtn.swift; sourceTree = "<group>"; };
+		BEDE568A26E25A59006DB3FD /* GetBodyTextFieldPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyTextFieldPages.swift; sourceTree = "<group>"; };
+		BEDE568E26E26CC8006DB3FD /* GetBodyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyInfoView.swift; sourceTree = "<group>"; };
 		CA7D53C163D30D90E64A17F7 /* Pods-Clay_new-Clay_newUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new-Clay_newUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_new-Clay_newUITests/Pods-Clay_new-Clay_newUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D55803615ABD5A79BDB24E2B /* Pods-Clay_new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new.release.xcconfig"; path = "Target Support Files/Pods-Clay_new/Pods-Clay_new.release.xcconfig"; sourceTree = "<group>"; };
 		DAC424A4A60F84C673B22DBF /* Pods-Clay_newTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_newTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_newTests/Pods-Clay_newTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +214,8 @@
 		BE43C69626DF2E73007E42C7 = {
 			isa = PBXGroup;
 			children = (
+				BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */,
+				BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */,
 				BE43C6A126DF2E73007E42C7 /* Clay_new */,
 				BE43C6B326DF2E75007E42C7 /* Clay_newTests */,
 				BE43C6BE26DF2E75007E42C7 /* Clay_newUITests */,
@@ -268,6 +284,8 @@
 		BE43C6CF26DF306C007E42C7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BED9D85C26E195AD004561F5 /* Loader.swift */,
+				BED9D85E26E19B2F004561F5 /* Geometry ex.swift */,
 				BE43C6D026DF3079007E42C7 /* Font */,
 			);
 			path = Assets;
@@ -295,7 +313,10 @@
 		BE43C6E926DF317B007E42C7 /* GetBodyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				BE43C6EA26DF3190007E42C7 /* BodyInfo.swift */,
+				BEDE568E26E26CC8006DB3FD /* GetBodyInfoView.swift */,
+				BEDE568926E229B5006DB3FD /* GetBodyInfoBtn */,
+				BEDE567F26E1F70F006DB3FD /* BodyInfoPages.swift */,
+				BEDE568A26E25A59006DB3FD /* GetBodyTextFieldPages.swift */,
 			);
 			path = GetBodyInfo;
 			sourceTree = "<group>";
@@ -350,6 +371,7 @@
 			children = (
 				BE43C72E26DF35E0007E42C7 /* ButtonStyle */,
 				BE43C72C26DF35D2007E42C7 /* PageControl.swift */,
+				BEDE568126E1FAC4006DB3FD /* CheckBox.swift */,
 			);
 			path = Preset;
 			sourceTree = "<group>";
@@ -365,7 +387,6 @@
 		BE43C73126DF3619007E42C7 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				BE43C73226DF3629007E42C7 /* GoogleService-Info.plist */,
 				BE43C73426DF3635007E42C7 /* AppDelegate.swift */,
 			);
 			path = API;
@@ -449,6 +470,14 @@
 				BE43C73626DF3E80007E42C7 /* SignInView.swift */,
 			);
 			path = ClayLogInView;
+			sourceTree = "<group>";
+		};
+		BEDE568926E229B5006DB3FD /* GetBodyInfoBtn */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */,
+			);
+			path = GetBodyInfoBtn;
 			sourceTree = "<group>";
 		};
 		E65A878468B3039D3C61346A /* Pods */ = {
@@ -574,19 +603,20 @@
 			files = (
 				BE43C6E826DF308C007E42C7 /* Pretendard-Bold.otf in Resources */,
 				BE43C6AA26DF2E74007E42C7 /* Preview Assets.xcassets in Resources */,
-				BE43C73326DF3629007E42C7 /* GoogleService-Info.plist in Resources */,
 				BE43C6E526DF308C007E42C7 /* Pretendard-Thin.otf in Resources */,
 				BE43C6A726DF2E74007E42C7 /* Assets.xcassets in Resources */,
 				BE43C6DE26DF308C007E42C7 /* Pretendard-ExtraBold.otf in Resources */,
 				BE43C6DF26DF308C007E42C7 /* EliceDigitalBaeum_Bold.ttf in Resources */,
 				BE43C71D26DF33AA007E42C7 /* Launch Screen.storyboard in Resources */,
 				BE43C6E126DF308C007E42C7 /* Pretendard-Light.otf in Resources */,
+				BEDE567C26E1E8DF006DB3FD /* GoogleService-Info.plist in Resources */,
 				BE43C6E726DF308C007E42C7 /* Pretendard-ExtraLight.otf in Resources */,
 				BE43C6E226DF308C007E42C7 /* Pretendard-Regular.otf in Resources */,
 				BE43C6E426DF308C007E42C7 /* Pretendard-SemiBold.otf in Resources */,
 				BE43C6E026DF308C007E42C7 /* Pretendard-Black.otf in Resources */,
 				BE43C6DD26DF308C007E42C7 /* Pretendard-Medium.otf in Resources */,
 				BE43C6E626DF308C007E42C7 /* EliceDigitalBaeum_Regular.ttf in Resources */,
+				BEDE567E26E1EE17006DB3FD /* Clay_Tester.mobileprovision in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,17 +750,23 @@
 				BE43C70426DF321B007E42C7 /* LockedMealBanner.swift in Sources */,
 				BE43C71726DF3367007E42C7 /* KakaoLogInBtn.swift in Sources */,
 				BE43C71026DF3291007E42C7 /* TotalCalBtn.swift in Sources */,
+				BEDE568426E2045B006DB3FD /* GenderSelectBtn.swift in Sources */,
 				BED9D84726E0D5E4004561F5 /* AreYouFirstView.swift in Sources */,
+				BEDE568F26E26CC8006DB3FD /* GetBodyInfoView.swift in Sources */,
 				BED9D84D26E0F55E004561F5 /* ResetSuccessView.swift in Sources */,
 				BE43C70A26DF3261007E42C7 /* MyReaminKcal.swift in Sources */,
 				BE43C70E26DF3286007E42C7 /* TodayBanner.swift in Sources */,
 				BE43C6A526DF2E73007E42C7 /* ContentView.swift in Sources */,
 				BE43C71526DF3352007E42C7 /* FirstLaunchView.swift in Sources */,
 				BE43C72D26DF35D2007E42C7 /* PageControl.swift in Sources */,
+				BEDE568B26E25A59006DB3FD /* GetBodyTextFieldPages.swift in Sources */,
+				BED9D85D26E195AD004561F5 /* Loader.swift in Sources */,
+				BEDE568226E1FAC4006DB3FD /* CheckBox.swift in Sources */,
 				BED9D84926E0ED6B004561F5 /* ResetPassword.swift in Sources */,
 				BE43C6A326DF2E73007E42C7 /* Clay_newApp.swift in Sources */,
 				BE43C70226DF3205007E42C7 /* SwiftUIView.swift in Sources */,
 				BE43C73726DF3E80007E42C7 /* SignInView.swift in Sources */,
+				BEDE568026E1F70F006DB3FD /* BodyInfoPages.swift in Sources */,
 				BED9D85526E11003004561F5 /* ClaySignUpBtn.swift in Sources */,
 				BE43C70826DF324F007E42C7 /* MyPoint.swift in Sources */,
 				BE43C73526DF3635007E42C7 /* AppDelegate.swift in Sources */,
@@ -740,7 +776,6 @@
 				BE43C73A26DF4295007E42C7 /* SignUpView.swift in Sources */,
 				BE43C72026DF3524007E42C7 /* Main.swift in Sources */,
 				BE43C74926E09594007E42C7 /* WrongRegisterErrorView.swift in Sources */,
-				BE43C6EB26DF3190007E42C7 /* BodyInfo.swift in Sources */,
 				BE43C73026DF35FA007E42C7 /* PopBtnStyle.swift in Sources */,
 				BE43C72226DF353C007E42C7 /* MyTabView.swift in Sources */,
 				BE43C71326DF3329007E42C7 /* ClayLogin.swift in Sources */,
@@ -752,6 +787,7 @@
 				BE43C70C26DF3275007E42C7 /* RemainNutrtion.swift in Sources */,
 				BE43C73F26DFB522007E42C7 /* LogoutBtn.swift in Sources */,
 				BED9D85326E10F9B004561F5 /* MainSignUp.swift in Sources */,
+				BED9D85F26E19B2F004561F5 /* Geometry ex.swift in Sources */,
 				BE43C70026DF31F0007E42C7 /* exBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +857,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -839,7 +876,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -882,6 +919,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -894,7 +932,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -910,18 +948,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: minjae Lee (W2D39S8KC2)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay_new/Preview Content\"";
 				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clay_new/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "leeminjae.Clay-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Clay Tester";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -933,18 +975,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: minjae Lee (W2D39S8KC2)";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay_new/Preview Content\"";
 				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Clay_new/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "leeminjae.Clay-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Clay Tester";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

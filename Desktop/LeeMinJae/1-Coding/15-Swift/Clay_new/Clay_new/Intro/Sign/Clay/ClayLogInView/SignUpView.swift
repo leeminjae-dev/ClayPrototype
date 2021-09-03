@@ -38,10 +38,13 @@ struct ClaySignUpView : View{
     @State var alert = false
     @State var errorMassage = ""
     @State var alertSuccess = false
+    @State var localizationMassage = ""
+    @State var isLoading = false
     
     @EnvironmentObject var viewModel : AppViewModel
     
     var body: some View{
+        
         ZStack{
         VStack(spacing: 20){
             
@@ -119,9 +122,10 @@ struct ClaySignUpView : View{
             }
             .background(RoundedRectangle(cornerRadius: 5).stroke(self.email != "" ? Color(.secondarySystemBackground): self.color))
             .frame(width: 350, height: 10, alignment: .center)
-            
+            //가입하기
             Button(action: {
-                register()
+                
+                self.register()
                 /*guard !email.isEmpty, !password.isEmpty else{
                     return
                     
@@ -140,41 +144,77 @@ struct ClaySignUpView : View{
             .shadow(color: .black, radius: 0.8, x: 1 , y: 1)
             
         }
-        .navigationBarTitle(Text("회원가입"))
+        .navigationBarTitle(Text("계정 만들기"))
         .edgesIgnoringSafeArea([.top, .bottom])
-        
+            ZStack{
             if self.alert{
+                
                 WrongRegisterErrorView(alert: self.$alert, errorMassage: self.$errorMassage)
+                
+                
+            }
+            if self.isLoading{
+                Loader()
+                    .onAppear(perform: {
+                        delayText()
+                    })
+                
+                }
             }
         }
         .padding(.bottom, 50)
         
     }
     
+    func delayText() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.isLoading.toggle()
+        }
+    }
+    
     func register(){
+        self.isLoading = true
         if self.email != ""{
             if self.password == self.passwordCorrect{
                 Auth.auth().createUser(withEmail: self.email, password: self.password) {
                     (res, err) in
                     
                     if err != nil{
-                        self.errorMassage = err!.localizedDescription
-                        self.alert.toggle()
+                        localizationMassage = err!.localizedDescription
+                        if localizationMassage == "The email address is badly formatted."{
+                            self.errorMassage = "올바른 이메일 형식이 아닙니다."
+                        }
+                        
+                        if localizationMassage == "The password must be 6 characters long or more."{
+                            self.errorMassage = "비밀번호는 최소 6글자 이상이어야 합니다"
+                        }
+                        if localizationMassage == "The email address is already in use by another account."{
+                            self.errorMassage = "이미 사용중인 이메일입니다."
+                        }
+                        
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                            self.alert.toggle()
+                        }
+                        
                         return
                     }
                     
-                    UserDefaults.standard.setValue(true, forKey: "status")
-                    NotificationCenter.default.post(name:NSNotification.Name("status"),object: nil)
+                    viewModel.signIn(email: email, password: password)
                 }
                 
             }else{
                 self.errorMassage = "입력하신 비밀번호가 일치하지 않습니다"
-                self.alert.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    self.alert.toggle()
+                }
             }
         }
         else{
             self.errorMassage = "모든 칸을 입력해주세요"
-            self.alert.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                self.alert.toggle()
+            }
         }
     }
 }

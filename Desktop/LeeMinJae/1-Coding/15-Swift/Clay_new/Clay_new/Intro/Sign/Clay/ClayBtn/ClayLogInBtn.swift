@@ -22,8 +22,7 @@ struct ClayLogInBtn: View {
         })
         .shadow(color: .black, radius: 0.8)
         .navigationBarTitle("로그인").font(.headline)
-        
-        
+
     }
 }
 

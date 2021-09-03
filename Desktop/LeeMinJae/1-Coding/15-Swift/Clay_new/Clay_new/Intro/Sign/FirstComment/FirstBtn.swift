@@ -6,7 +6,7 @@ import SwiftUI
 struct FirstBtn: View {
     var body: some View {
      NavigationLink(
-        destination: MainSignUp(),
+        destination: GetBodyInfoView(),
         label: {
             Text("처음이신가요?")
                 .foregroundColor(.black)
@@ -19,7 +19,7 @@ struct FirstBtn: View {
         })
         .navigationBarTitle("")
         .navigationBarHidden(true)
-        .shadow(color: .black, radius: 0.8, x: 1 , y: 1)
+        .shadow(color: .black, radius: 0.8)
     }
 }
 

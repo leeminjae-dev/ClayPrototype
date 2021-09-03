@@ -52,7 +52,7 @@ struct WrongIDErrorView: View {
             .frame(width: UIScreen.main.bounds.width - 100)
             .background(Color.white)
             .cornerRadius(15)
-            .shadow(radius: 5)
+            .shadow(radius: 0.5)
             .padding(.bottom,50)
    
         

@@ -11,10 +11,10 @@ import SwiftUI
 
 struct FirstLaunchView: View {
     @AppStorage("currentPage") var currentPage = 1
-    
+    @State var totalPage = 3
     var body: some View {
         if currentPage > totalPage{
-            MainSignUp()
+            AreYouFirstView()
         }
         else{
             WalkThroughScreen()
@@ -40,20 +40,20 @@ struct Home : View{
 struct WalkThroughScreen : View{
     
     @AppStorage("currentPage") var currentPage = 1
-    
+    var totalPage = 3
     
     var body: some View{
         ZStack{
             
-            if currentPage == 1{
+            if self.currentPage == 1{
                 ScreenView(image: "FirstLaunchBanner1", title: "Step 1",detail: "클레이는 어떤 앱이에요 어쩌구 저쩌구 어떻게 하면 다이어트를 성공하게 해줄 수 있다 같은 설명이 들어가는 자리입니다.")
                     .transition(.scale)
             }
-            if currentPage == 2{
+            if self.currentPage == 2{
                 ScreenView(image: "FirstLaunchBanner2", title: "Step 2",detail: "클레이는 어떤 앱이에요 어쩌구 저쩌구 어떻게 하면 다이어트를 성공하게 해줄 수 있다 같은 설명이 들어가는 자리입니다.")
                     .transition(.scale)
             }
-            if currentPage == 3{
+            if self.currentPage == 3{
                 ScreenView(image: "FirstLaunchBanner3", title: "Step 3",detail: "클레이는 어떤 앱이에요 어쩌구 저쩌구 어떻게 하면 다이어트를 성공하게 해줄 수 있다 같은 설명이 들어가는 자리입니다.")
                     .transition(.scale)
             }
@@ -65,10 +65,10 @@ struct WalkThroughScreen : View{
             // 다음페이지 넘기기 버튼
             Button(action: {
                     withAnimation(.easeOut){
-                if currentPage <= totalPage{
-                    currentPage += 1
+                        if self.currentPage <= self.totalPage{
+                            self.currentPage += 1
                 }else{
-                    currentPage = 1
+                    self.currentPage = 1
                 }
                 
             }}, label: {
@@ -102,7 +102,7 @@ private struct ScreenView : View{
     var image : String
     var title : String
     var detail : String
-    
+    var totalPage = 3
     @AppStorage("currentPage") var currentPage = 1
     
     var body: some View{
@@ -110,14 +110,14 @@ private struct ScreenView : View{
         VStack{
             /// 위 네비게이션 바
                     HStack{
-                        if currentPage == 1{
+                        if self.currentPage == 1{
                             Text("클레이는 이런 앱이에요.")
                                 .font(Font.custom(systemFont, size: 15))
                             }
                         else{
                             Button(action: {
                                 withAnimation(.easeInOut){
-                                    currentPage -= 1
+                                    self.currentPage -= 1
                                 }
                             }, label: {
                                 Image(systemName: "chevron.left")
@@ -127,7 +127,7 @@ private struct ScreenView : View{
                         Spacer()
                         Button(action: {
                             withAnimation(.easeInOut){
-                                currentPage = 4
+                                self.currentPage = 4
                             }
                         }, label: {
                             Text("Skip")
@@ -160,4 +160,4 @@ private struct ScreenView : View{
     }
 }
 
-var totalPage = 3
+

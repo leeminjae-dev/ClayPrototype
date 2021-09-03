@@ -18,7 +18,7 @@ struct SuccessView: View {
                 
                 HStack{
                     
-                    Text("로그인 성공")
+                    Text("회원가입 성공")
                         .font(Font.custom(systemFont, size: 15))
                         .foregroundColor(.black)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -37,7 +37,7 @@ struct SuccessView: View {
             .frame(width: UIScreen.main.bounds.width - 100)
             .background(Color.white)
             .cornerRadius(15)
-            .shadow(radius: 5)
+            .shadow(radius: 0.5)
             
             
         

@@ -12,6 +12,10 @@ struct SignInView: View {
     @State var alert = false
     @State var alertSuccess = false
     
+    @State var isLoading = false
+    @State var isSuccess = false
+    @State var animate = false
+    
     @EnvironmentObject var viewModel : AppViewModel
     
     var body: some View{
@@ -51,7 +55,9 @@ struct SignInView: View {
                     
                 }
                 Button(action: {
+                    
                     self.visible.toggle()
+                    
                 }, label: {
                     Image(systemName: self.visible ? "eye.slash.fill" : "eye.fill")
                         .foregroundColor(.black)
@@ -63,7 +69,11 @@ struct SignInView: View {
                 
             ///로그인 버튼
             Button(action: {
+               
+                
                 self.verify()
+                        
+                
                 /*guard !email.isEmpty, !password.isEmpty else{
                     self.verify()
                     return
@@ -71,14 +81,15 @@ struct SignInView: View {
                 }
                 viewModel.signIn(email: email, password: password)*/
             }, label: {
-                Text("로그인")
-                    .font(Font.custom(systemFont, size: 20))
-                    .foregroundColor(.white)
-                    .frame(width: 350, height: 50)
-                    .background(Color.init("userPink"))
-                    .cornerRadius(10)
-                    .padding()
-                    
+                    Text("로그인")
+                        .font(Font.custom(systemFont, size: 20))
+                        .foregroundColor(.white)
+                        .frame(width: 350, height: 50)
+                        .background(Color.init("userPink"))
+                        .cornerRadius(10)
+                        .padding()
+               
+                
             })
             .shadow(color: .black, radius: 0.8, x: 1 , y: 1)
             
@@ -101,23 +112,39 @@ struct SignInView: View {
             
             if self.alert{
                 WrongIDErrorView(alert: self.$alert)
+                
             }
-            if self.alertSuccess{
-                SuccessView(alertSuccess: self.$alertSuccess)
-            }
+            if self.isLoading{
+                Loader()
+                    .onAppear(perform: {
+                        delayText()
+                    })
+                
+                }
         }
         
     }
+    func delayText() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.isLoading.toggle()
+        }
+    }
+
     func verify(){
+        self.isLoading = true
         if self.email != "" && self.password != ""{
-            
+           
             Auth.auth().signIn(withEmail: self.email, password: self.password){ (res, err) in
-                
+                self.isLoading = false
+
                 if err != nil{
-                    self.alert.toggle()
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                        self.alert.toggle()
+                    }
+ 
                 }else{
-                    self.alertSuccess.toggle()
+                    self.isSuccess = true
                 }
                 
                 viewModel.signIn(email: email, password: password)
@@ -125,7 +152,9 @@ struct SignInView: View {
             
             
         }else{
-            self.alert.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                self.alert.toggle()
+            }
         }
         
     }

@@ -44,14 +44,9 @@ struct MainSignUp: View {
                     
                     
                 }
-               
-                
-                
-                
-                
                 
             }
-       
+            .transition(.slide)
         
     }
     func getIndex()->Int{

@@ -20,7 +20,7 @@ struct AreYouFirstView: View {
                     .font(Font.custom(systemFont, size: 13))
                 Text("|")
                 
-                NavigationLink("로그인", destination: MainLogIn())
+                NavigationLink("로그인", destination: SignInView())
                     .font(Font.custom(systemFont, size: 15))
                     .foregroundColor(Color.blue)
                    
