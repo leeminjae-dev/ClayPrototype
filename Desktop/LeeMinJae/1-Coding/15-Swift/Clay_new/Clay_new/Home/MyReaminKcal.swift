@@ -9,25 +9,15 @@ import Foundation
 import SwiftUI
 
 struct MyRemainKcal: View {
-    @State var myKcal: Float
+    @State var myKcal: String
     var body: some View{
         VStack(spacing : 5){
             KcalLableText(text:"잔여 칼로리")
             HStack{
-                if(myKcal > 0){
+               
                     KcalNumText(text:"\(myKcal)")
                     KcalLableText(text: "Kcal")
-                }
-                else{
-                    HStack{
-                        KcalNumText(text: "0")
-                        KcalLableText(text: "Kcal")
-                        
-                    }
-
                     
-                    
-                }
                     
                     
             }
@@ -40,7 +30,7 @@ struct MyRemainKcal: View {
 
 struct MyRemainKcal_Previews : PreviewProvider{
     static var previews: some View{
-        MyRemainKcal(myKcal: 0)
+        MyRemainKcal(myKcal: "0")
     }
 }
 

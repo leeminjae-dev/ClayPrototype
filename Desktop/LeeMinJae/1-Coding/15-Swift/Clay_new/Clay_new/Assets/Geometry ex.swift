@@ -22,9 +22,24 @@ class TextBindingManager: ObservableObject {
 
 struct ex: View {
     @ObservedObject var textBindingManager = TextBindingManager(limit: 5)
-    
+    @State var transitionView : Bool = false
     var body: some View {
-        TextField("Placeholder", text: $textBindingManager.text)
+        VStack{
+        Button(action: {
+                transitionView.toggle()
+            
+        }, label: {
+            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+        })
+        if transitionView {
+            RoundedRectangle(cornerRadius: 20)
+                .frame(height: UIScreen.main.bounds.height * 0.5)
+                //밑에서 등장해서 왼쪽으로 사라짐
+                .transition(.asymmetric(insertion: AnyTransition.move(edge: .bottom),
+                                        removal: AnyTransition.move(edge: .leading)))
+                .animation(.easeIn)
+        }
+        }
     }
 }
 

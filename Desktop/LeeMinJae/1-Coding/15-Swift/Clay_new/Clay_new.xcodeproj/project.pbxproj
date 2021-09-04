@@ -66,13 +66,18 @@
 		BED9D85526E11003004561F5 /* ClaySignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */; };
 		BED9D85D26E195AD004561F5 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85C26E195AD004561F5 /* Loader.swift */; };
 		BED9D85F26E19B2F004561F5 /* Geometry ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9D85E26E19B2F004561F5 /* Geometry ex.swift */; };
-		BEDE567C26E1E8DF006DB3FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */; };
 		BEDE567E26E1EE17006DB3FD /* Clay_Tester.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */; };
 		BEDE568026E1F70F006DB3FD /* BodyInfoPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE567F26E1F70F006DB3FD /* BodyInfoPages.swift */; };
 		BEDE568226E1FAC4006DB3FD /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568126E1FAC4006DB3FD /* CheckBox.swift */; };
 		BEDE568426E2045B006DB3FD /* GenderSelectBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */; };
 		BEDE568B26E25A59006DB3FD /* GetBodyTextFieldPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568A26E25A59006DB3FD /* GetBodyTextFieldPages.swift */; };
 		BEDE568F26E26CC8006DB3FD /* GetBodyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE568E26E26CC8006DB3FD /* GetBodyInfoView.swift */; };
+		BEDE569126E2E961006DB3FD /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE569026E2E961006DB3FD /* Transition.swift */; };
+		BEDE569526E302D1006DB3FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDE569426E302D1006DB3FD /* GoogleService-Info.plist */; };
+		BEDE569826E30736006DB3FD /* DataBaseEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE569726E30736006DB3FD /* DataBaseEx.swift */; };
+		BEDE569E26E30913006DB3FD /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE569D26E30913006DB3FD /* FirebaseData.swift */; };
+		BEDE56A026E30923006DB3FD /* ThreadDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE569F26E30923006DB3FD /* ThreadDataType.swift */; };
+		BEDE56A226E372D0006DB3FD /* TransitionLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDE56A126E372D0006DB3FD /* TransitionLeft.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,13 +165,18 @@
 		BED9D85426E11003004561F5 /* ClaySignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaySignUpBtn.swift; sourceTree = "<group>"; };
 		BED9D85C26E195AD004561F5 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		BED9D85E26E19B2F004561F5 /* Geometry ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geometry ex.swift"; sourceTree = "<group>"; };
-		BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Clay_Tester.mobileprovision; sourceTree = "<group>"; };
 		BEDE567F26E1F70F006DB3FD /* BodyInfoPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInfoPages.swift; sourceTree = "<group>"; };
 		BEDE568126E1FAC4006DB3FD /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectBtn.swift; sourceTree = "<group>"; };
 		BEDE568A26E25A59006DB3FD /* GetBodyTextFieldPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyTextFieldPages.swift; sourceTree = "<group>"; };
 		BEDE568E26E26CC8006DB3FD /* GetBodyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyInfoView.swift; sourceTree = "<group>"; };
+		BEDE569026E2E961006DB3FD /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		BEDE569426E302D1006DB3FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BEDE569726E30736006DB3FD /* DataBaseEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseEx.swift; sourceTree = "<group>"; };
+		BEDE569D26E30913006DB3FD /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		BEDE569F26E30923006DB3FD /* ThreadDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDataType.swift; sourceTree = "<group>"; };
+		BEDE56A126E372D0006DB3FD /* TransitionLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLeft.swift; sourceTree = "<group>"; };
 		CA7D53C163D30D90E64A17F7 /* Pods-Clay_new-Clay_newUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new-Clay_newUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_new-Clay_newUITests/Pods-Clay_new-Clay_newUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D55803615ABD5A79BDB24E2B /* Pods-Clay_new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_new.release.xcconfig"; path = "Target Support Files/Pods-Clay_new/Pods-Clay_new.release.xcconfig"; sourceTree = "<group>"; };
 		DAC424A4A60F84C673B22DBF /* Pods-Clay_newTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_newTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_newTests/Pods-Clay_newTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,7 +224,7 @@
 		BE43C69626DF2E73007E42C7 = {
 			isa = PBXGroup;
 			children = (
-				BEDE567B26E1E8DF006DB3FD /* GoogleService-Info.plist */,
+				BEDE569426E302D1006DB3FD /* GoogleService-Info.plist */,
 				BEDE567D26E1EE17006DB3FD /* Clay_Tester.mobileprovision */,
 				BE43C6A126DF2E73007E42C7 /* Clay_new */,
 				BE43C6B326DF2E75007E42C7 /* Clay_newTests */,
@@ -238,9 +248,9 @@
 		BE43C6A126DF2E73007E42C7 /* Clay_new */ = {
 			isa = PBXGroup;
 			children = (
+				BEDE569626E30727006DB3FD /* DataBase */,
 				BE43C71E26DF33F7007E42C7 /* Main */,
 				BE43C71126DF3317007E42C7 /* Intro */,
-				BE43C6E926DF317B007E42C7 /* GetBodyInfo */,
 				BE43C6EC26DF31A4007E42C7 /* Home */,
 				BE43C73D26DFB4FA007E42C7 /* Profile */,
 				BE43C73126DF3619007E42C7 /* API */,
@@ -287,6 +297,8 @@
 				BED9D85C26E195AD004561F5 /* Loader.swift */,
 				BED9D85E26E19B2F004561F5 /* Geometry ex.swift */,
 				BE43C6D026DF3079007E42C7 /* Font */,
+				BEDE569026E2E961006DB3FD /* Transition.swift */,
+				BEDE56A126E372D0006DB3FD /* TransitionLeft.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -342,6 +354,8 @@
 		BE43C71126DF3317007E42C7 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				BE43C6E926DF317B007E42C7 /* GetBodyInfo */,
+				BED9D84526E0D5B1004561F5 /* FirstComment */,
 				BE43C73826DF3E8F007E42C7 /* Sign */,
 				BE43C71A26DF338C007E42C7 /* SwiftUIFirebase.swift */,
 				BE43C71C26DF33AA007E42C7 /* Launch Screen.storyboard */,
@@ -397,7 +411,6 @@
 			children = (
 				BE43C71826DF3375007E42C7 /* MainLogIn.swift */,
 				BED9D85226E10F9B004561F5 /* MainSignUp.swift */,
-				BED9D84526E0D5B1004561F5 /* FirstComment */,
 				BE43C74126E06CF8007E42C7 /* Kakao */,
 				BE43C74026E06CEC007E42C7 /* Clay */,
 			);
@@ -478,6 +491,16 @@
 				BEDE568326E2045B006DB3FD /* GenderSelectBtn.swift */,
 			);
 			path = GetBodyInfoBtn;
+			sourceTree = "<group>";
+		};
+		BEDE569626E30727006DB3FD /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				BEDE569726E30736006DB3FD /* DataBaseEx.swift */,
+				BEDE569D26E30913006DB3FD /* FirebaseData.swift */,
+				BEDE569F26E30923006DB3FD /* ThreadDataType.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		E65A878468B3039D3C61346A /* Pods */ = {
@@ -609,11 +632,11 @@
 				BE43C6DF26DF308C007E42C7 /* EliceDigitalBaeum_Bold.ttf in Resources */,
 				BE43C71D26DF33AA007E42C7 /* Launch Screen.storyboard in Resources */,
 				BE43C6E126DF308C007E42C7 /* Pretendard-Light.otf in Resources */,
-				BEDE567C26E1E8DF006DB3FD /* GoogleService-Info.plist in Resources */,
 				BE43C6E726DF308C007E42C7 /* Pretendard-ExtraLight.otf in Resources */,
 				BE43C6E226DF308C007E42C7 /* Pretendard-Regular.otf in Resources */,
 				BE43C6E426DF308C007E42C7 /* Pretendard-SemiBold.otf in Resources */,
 				BE43C6E026DF308C007E42C7 /* Pretendard-Black.otf in Resources */,
+				BEDE569526E302D1006DB3FD /* GoogleService-Info.plist in Resources */,
 				BE43C6DD26DF308C007E42C7 /* Pretendard-Medium.otf in Resources */,
 				BE43C6E626DF308C007E42C7 /* EliceDigitalBaeum_Regular.ttf in Resources */,
 				BEDE567E26E1EE17006DB3FD /* Clay_Tester.mobileprovision in Resources */,
@@ -744,6 +767,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDE569E26E30913006DB3FD /* FirebaseData.swift in Sources */,
 				BE43C71926DF3375007E42C7 /* MainLogIn.swift in Sources */,
 				BE43C70626DF3237007E42C7 /* MealBanner.swift in Sources */,
 				BED9D84426E0D304004561F5 /* FirstBtn.swift in Sources */,
@@ -756,11 +780,14 @@
 				BED9D84D26E0F55E004561F5 /* ResetSuccessView.swift in Sources */,
 				BE43C70A26DF3261007E42C7 /* MyReaminKcal.swift in Sources */,
 				BE43C70E26DF3286007E42C7 /* TodayBanner.swift in Sources */,
+				BEDE56A226E372D0006DB3FD /* TransitionLeft.swift in Sources */,
 				BE43C6A526DF2E73007E42C7 /* ContentView.swift in Sources */,
 				BE43C71526DF3352007E42C7 /* FirstLaunchView.swift in Sources */,
 				BE43C72D26DF35D2007E42C7 /* PageControl.swift in Sources */,
 				BEDE568B26E25A59006DB3FD /* GetBodyTextFieldPages.swift in Sources */,
+				BEDE569126E2E961006DB3FD /* Transition.swift in Sources */,
 				BED9D85D26E195AD004561F5 /* Loader.swift in Sources */,
+				BEDE56A026E30923006DB3FD /* ThreadDataType.swift in Sources */,
 				BEDE568226E1FAC4006DB3FD /* CheckBox.swift in Sources */,
 				BED9D84926E0ED6B004561F5 /* ResetPassword.swift in Sources */,
 				BE43C6A326DF2E73007E42C7 /* Clay_newApp.swift in Sources */,
@@ -774,6 +801,7 @@
 				BE43C74726E0876F007E42C7 /* SuccessView.swift in Sources */,
 				BE43C72A26DF35A9007E42C7 /* NutritionList.swift in Sources */,
 				BE43C73A26DF4295007E42C7 /* SignUpView.swift in Sources */,
+				BEDE569826E30736006DB3FD /* DataBaseEx.swift in Sources */,
 				BE43C72026DF3524007E42C7 /* Main.swift in Sources */,
 				BE43C74926E09594007E42C7 /* WrongRegisterErrorView.swift in Sources */,
 				BE43C73026DF35FA007E42C7 /* PopBtnStyle.swift in Sources */,
@@ -948,7 +976,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution: minjae Lee (W2D39S8KC2)";
+				CODE_SIGN_IDENTITY = "Apple Development: lkj938@naver.com (K8J79PS7B3)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay_new/Preview Content\"";
@@ -963,7 +991,7 @@
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "leeminjae.Clay-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Clay Tester";
+				PROVISIONING_PROFILE_SPECIFIER = "Clay-new";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -975,7 +1003,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution: minjae Lee (W2D39S8KC2)";
+				CODE_SIGN_IDENTITY = "Apple Development: lkj938@naver.com (K8J79PS7B3)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Clay_new/Preview Content\"";
@@ -990,7 +1018,7 @@
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "leeminjae.Clay-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Clay Tester";
+				PROVISIONING_PROFILE_SPECIFIER = "Clay-new";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

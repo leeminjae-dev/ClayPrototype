@@ -18,7 +18,7 @@ struct MyTextView : View{
     
     @State
     private var index: Int = 0
-    
+    @State var animate = false
     private let backGroundColors = [
         Color.red,
         Color.yellow,
@@ -34,14 +34,16 @@ struct MyTextView : View{
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .font(.system(size: 40))
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            Text("\(String(isActivated))")
+                            Text("\(String(isActivated))")
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .font(.system(size: 40))
                 .foregroundColor(self.isActivated ? Color.black : Color.blue)
-            
+                                .rotationEffect(.init(degrees: self.animate ? 360 : 0))
             Spacer()
                 
         }
+        .rotationEffect(.init(degrees: self.animate ? 360 : 0))
+        
         .background(backGroundColors[index])
         .onTapGesture {
             
@@ -53,6 +55,7 @@ struct MyTextView : View{
            
             
         }
+        
     }
 }
 

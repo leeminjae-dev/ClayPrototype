@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var userData : User
+    
     @State private var morningCal : Float = 0
     @State private var launchCal : Float = 0
     @State private var dinnerCal : Float = 0
@@ -53,8 +55,8 @@ struct ContentView: View {
                         HStack(spacing : 60){
                             TodayBanner()
                             VStack(spacing : 10){
-                                    MyPoint(myPoint: myPoint)
-                                    MyRemainKcal(myKcal: remainCal)
+                                MyPoint(myPoint: Int(userData.userPoint)!)
+                                MyRemainKcal(myKcal: userData.totalKcal!)
                             }
                         }
                         .frame(width: 370, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

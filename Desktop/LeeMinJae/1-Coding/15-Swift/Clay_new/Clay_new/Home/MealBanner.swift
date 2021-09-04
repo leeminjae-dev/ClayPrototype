@@ -28,7 +28,7 @@ struct MealBanner: View {
                         
                         HStack{
                             Text("\(MealCal,specifier: "%.1f")")
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.black)
                                 .fontWeight(.black)
                                 .font(Font.custom(systemFont, size: 20))
                             Text("Kcal")

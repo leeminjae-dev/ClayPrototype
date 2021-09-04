@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>621450909040-fop2g2gbqr4k5ualkntljdd0fuu3410t.apps.googleusercontent.com</string>
+	<string>517950584684-93dlb7qtt1iqqf3hjv61t5enf63r0cn2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.621450909040-fop2g2gbqr4k5ualkntljdd0fuu3410t</string>
+	<string>com.googleusercontent.apps.517950584684-93dlb7qtt1iqqf3hjv61t5enf63r0cn2</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCILcG2Hb3jRygSJ9WW09EVQxXDnaT5_9E</string>
+	<string>AIzaSyBe31iFxgb2Z1QXkgIt0jr7utlE1jee5qE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>621450909040</string>
+	<string>517950584684</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>leeminjae.Clay-new</string>
 	<key>PROJECT_ID</key>
-	<string>clay-d264e</string>
+	<string>clay-3b231</string>
 	<key>STORAGE_BUCKET</key>
-	<string>clay-d264e.appspot.com</string>
+	<string>clay-3b231.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:621450909040:ios:cd1bace6a73ecdbf5c6bb5</string>
+	<string>1:517950584684:ios:a7fdd624cd499cbb242549</string>
 </dict>
 </plist>

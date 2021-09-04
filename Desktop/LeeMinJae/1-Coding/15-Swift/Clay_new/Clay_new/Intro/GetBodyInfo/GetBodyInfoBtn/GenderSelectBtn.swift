@@ -9,13 +9,13 @@ import SwiftUI
 
 struct GenderSelectBtn: View {
     
-    @State var selectColor = Color.black
-    @State var nonSelectColor = Color.black.opacity(0.3)
+    @State var selectColor = Color.init("userPink")
+    @State var nonSelectColor = Color.init("userPink").opacity(0.3)
     @Binding var istabMale : Bool
     @Binding var istabFemale : Bool 
     
     var body: some View {
-
+        
             HStack(spacing: 50){
                 Button(action: {
                     

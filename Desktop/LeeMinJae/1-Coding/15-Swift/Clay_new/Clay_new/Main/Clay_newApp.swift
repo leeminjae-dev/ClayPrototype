@@ -12,7 +12,7 @@ import Firebase
 struct Clay_newApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @ObservedObject var userData  = User()
     
     var body: some Scene {
         
@@ -20,6 +20,7 @@ struct Clay_newApp: App {
             let viewModel = AppViewModel()
             Main()
                 .environmentObject(viewModel)
+                .environmentObject(userData)
         }
     }
 }

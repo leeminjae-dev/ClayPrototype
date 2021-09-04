@@ -11,7 +11,7 @@ struct GetBodyInfoView: View {
     
     @State var bodyInfoCurrentPage : Int = 1
     @State var getBodyInfoTotalPage = 8
-    
+   
     var body: some View {
         if bodyInfoCurrentPage >  getBodyInfoTotalPage{
             MainSignUp()
