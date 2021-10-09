@@ -66,7 +66,12 @@ struct DiaryView: View {
             VStack{
                 HStack{
                     Button(action: {
-                        isTabDiet = false
+                        if isSearch{
+                            isSearch = false
+                        }else{
+                            isTabDiet = false
+                        }
+                        
                         
                     }, label: {
                         
@@ -208,7 +213,7 @@ struct DiaryView: View {
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
                         }else{
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 Test 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 간식 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
@@ -325,7 +330,7 @@ struct DiaryView: View {
                                             })
                                             .buttonStyle(BorderlessButtonStyle())
                                     }
-                                    .padding(.trailing, 20)
+                                    .padding(.trailing, 15)
                                     .padding(.leading, 6)
                                         .padding(5)
                                         
@@ -339,7 +344,7 @@ struct DiaryView: View {
                             
                             .listStyle(PlainListStyle())
                             .frame(width: 370, height: 200)
-                            .padding(.trailing, 30)
+                            .padding(.trailing, 20)
                             .onAppear{
                                 UITableView.appearance().separatorColor = .clear
                             }
@@ -397,7 +402,8 @@ struct DiaryView: View {
                                             
                                         }
                                         .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
-                                        .onAppear(perform: loadImageFromFirebase).animation(.spring())
+                                        .onAppear(perform: loadImageFromFirebase)
+                                        .animation(.spring())
                                 }
                                 .padding(.top, 230)
                                 .padding(.leading, 230)
@@ -504,8 +510,24 @@ struct DiaryView: View {
                             let docRef = Firestore.firestore().collection("UserData").document(userEmail).collection("Calendar").document(makeTodayDetail())
                             docRef.getDocument { (document, error) in
                                 if let document = document, document.exists {
+                                    if isMorning(){
+                                        if datas.completeList["completeMorning"]!{
+                                            
+                                        }else{
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                        }
+                                    }
+                                    if isLaunch(){
+                                        if datas.completeList["completeLaunch"]!{
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                        }
+                                    }
+                                    if isDinner(){
+                                        if datas.completeList["completeDinner"]!{
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                        }
+                                    }
                                    
-                                    datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
                                 } else {
                                     datas.createCalnedar(email: userEmail, kcal: datas.dietKcal, date: makeTodayDetail(), level: "0")
                                     
@@ -597,9 +619,6 @@ struct DiaryView: View {
         
         .onAppear{
             
-            Analytics.logEvent(AnalyticsEventScreenView,
-                                     parameters: [AnalyticsParameterScreenName: "\(DiaryView.self)",
-                                                  AnalyticsParameterScreenClass: "\(DiaryView.self)"])
             
             show = true
             datas.dietKcal = 0
@@ -642,6 +661,10 @@ struct DiaryView: View {
                 }
                 else if isDinner(){
                     Text(" 저녁")
+                        .font(Font.custom(systemFont, size: 17))
+                        .fontWeight(.bold)
+                }else{
+                    Text(" 간식")
                         .font(Font.custom(systemFont, size: 17))
                         .fontWeight(.bold)
                 }
@@ -794,7 +817,7 @@ func makeMealString() -> String{
     else if isDinner(){
         return "Dinner"
            }
-    return "test"
+    return "Snack"
 
 }
 

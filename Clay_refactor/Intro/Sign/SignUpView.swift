@@ -30,9 +30,9 @@ struct SignUpView : View{
     
     @State var vari : Int = 1
     
-    let selectMorningTime = ["05","06","07","08","09"]
-    let selectLaunchTime = ["10","11","12","13","14","15"]
-    let selectDinnerTime = ["16","17","18","19","20","21"]
+    let selectMorningTime =  ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
+    let selectLaunchTime =  ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
+    let selectDinnerTime =  ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
     
     var body: some View{
         ZStack{
@@ -144,9 +144,9 @@ struct SignUpView : View{
                     //가입하기
                     
                     Button(action: {
-                        
-                        self.register()
                         userEmail = userData.email
+                        self.register()
+                        
                         
                         /*guard !email.isEmpty, !password.isEmpty else{
                             return

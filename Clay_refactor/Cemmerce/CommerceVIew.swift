@@ -25,13 +25,14 @@ struct CommerceVIew: View {
     @State var canBuy : Bool = false
     @State var cantBuy : Bool = false
     @State var errorMessage : String = ""
+    @State var successMessage : String = ""
     @State var buySuccess : Bool = false
     
     @State var deviceToken : String = "eok-S689KEZwprWBOLJMD4:APA91bF3MnF1UUHkvGjINUDrS7ssM6uTRGc9Q2fy-Dr3NYiRTe4SfzKrI8iGH7cbiFrRdecfBb3pUHdtswNL-2MUeFdFbTmy0PPwI729X4lBhYbmyWR5l2EDldrprNpPITzGbr6iASOE"
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-               WrongResetPasswordErrorView(alert: $buySuccess, errorMassage: $errorMessage)
+                SuccessAlertView(alert: $buySuccess, errorMassage: $successMessage)
                     .zIndex(2)
                 if showBuy{
                     Rectangle()
@@ -65,6 +66,50 @@ struct CommerceVIew: View {
                                 .frame(width: 180, height: 200)
                                 .opacity(0)
                                 .cornerRadius(15)
+                            HStack{
+                              
+                                VStack{
+                                    HStack{
+                                        Rectangle()
+                                            .frame(width: 2, height: 17)
+                                            .foregroundColor(Color.init("systemColor"))
+                                            .padding(.bottom, 1)
+                                            .padding(.leading, 8)
+                                        Text("사용 가능한 포인트")
+                                            .font(Font.custom(systemFont, size: 17))
+                                            .fontWeight(.bold)
+                                        Spacer()
+                                        HStack(spacing : 0){
+                                            Image("금화")
+                                               .resizable()
+                                               .clipShape(Circle())
+                                               .frame(width: 27, height: 33)
+                                               
+                                               
+                                               .padding(.bottom, 4)
+                                            Text("\(datas.dataToDisplay["archievePoint"]!)")
+                                                .font(Font.custom(systemFont, size: 20))
+                                                .fontWeight(.bold)
+                                                .frame(height: 6, alignment: .bottom)
+                                                .background(Color.init("systemColor").opacity(0.5))
+                                                .padding(.top,10)
+                                             Text("P")
+                                                .font(Font.custom(systemFont, size: 20))
+                                                .fontWeight(.bold)
+                                                .padding(.bottom, 5)
+                                        }
+                                        
+                                        .padding(.trailing, 12)
+                                       
+                                        
+                                    }
+                                    
+                                   
+                                   
+                                }
+                                Spacer()
+                            }
+                            .padding(.leading, 7)
                             
                             HStack(spacing : 15){
                                 ProductView(productImage: "아임얼라이브 콤부차", productName: "아임얼라이브 콤부차", productPrice: 12500, show : $show, delay: 0.1, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
@@ -94,6 +139,7 @@ struct CommerceVIew: View {
             }
             .popup(isPresented: $showBuy, closeOnTap: false){
                 ZStack{
+                    
                     WrongResetPasswordErrorView(alert: $cantBuy, errorMassage: $errorMessage)
                         .zIndex(2)
                     VStack(spacing : 15){
@@ -160,7 +206,7 @@ struct CommerceVIew: View {
                                         sendMessageToDevice()
                                         productNum = 1
                                         showBuy = false
-                                        errorMessage = "주문이 완료되었습니다."
+                                        successMessage = "주문이 완료되었습니다."
                                         buySuccess = true
                                         canBuy = false
                                         

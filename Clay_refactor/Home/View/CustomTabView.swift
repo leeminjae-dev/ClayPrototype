@@ -10,31 +10,37 @@ import SwiftUI
 struct CustomTabView: View {
     @State var selectedTab = "house"
     @State var isTabDiet = false
+    @State var isTabSnackDiet = false
     var body: some View {
         if isTabDiet{
             
             DiaryView(isTabDiet: $isTabDiet)
                 
                
-        }else{
+        }
+        else if isTabSnackDiet{
+            SnackDiaryView(isTabSnackDiet : $isTabSnackDiet)
+        }
+        else{
             ZStack(alignment: .bottom){
            
                 if selectedTab == "house"{
                     
-                    HomeView(isTabDiet: $isTabDiet)
+                    HomeView(isTabDiet: $isTabDiet, isTabSnackDiet: $isTabSnackDiet)
                 }
-                if selectedTab == "heart"{
-                    DonateView()
-                        
-                }
+//                if selectedTab == "heart"{
+//                    DonateView()
+//                        
+//                }
                 if selectedTab == "cart"{
                     CommerceVIew()
                 }
                 if selectedTab == "person.circle"{
                     VStack{
-                        LogoutBtn()
-                        Spacer()
+                       MyPageView()
+                            Spacer()
                     }
+                   
                     
                 }
                     

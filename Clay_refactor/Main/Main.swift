@@ -51,9 +51,7 @@ struct Main: View {
             }
             
             
-            
-            
-           
+
           
         
         }

@@ -9,10 +9,23 @@
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
-		<key>NotificationTarget.xcscheme_^#shared#^_</key>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BE24E62626E4E0A0003D5DFC</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>27</integer>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE24E63726E4E0A1003D5DFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE24E64226E4E0A1003D5DFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

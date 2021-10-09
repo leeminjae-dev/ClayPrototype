@@ -26,7 +26,7 @@ class FoodInfoViewModel: ObservableObject {
     
     func fetchFoodInfo(searchFoodName : String){
         print(#fileID, #function, #line, "")
-        AF.request((baseUrl+searchFoodName).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, method: .get,encoding: URLEncoding.queryString)
+        AF.request((baseUrl+searchFoodName ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, method: .get,encoding: URLEncoding.queryString)
             .publishDecodable(type: FoodInfoResponse.self)
             .compactMap{$0.value }
             .map{ $0.jsonBody.items}

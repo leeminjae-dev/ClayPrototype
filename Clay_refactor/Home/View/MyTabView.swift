@@ -23,7 +23,7 @@ struct MyTabView: View {
    
     @State private var selection = 0
     @State var isTabDiet : Bool = false
-    
+    @State var isSnackTabDiet : Bool = false
     var body: some View{
         if isTabDiet{
             
@@ -41,7 +41,7 @@ struct MyTabView: View {
                         Image(systemName: "archivebox")
                         Text("리포트")
                     }
-                HomeView(isTabDiet: $isTabDiet)
+                HomeView(isTabDiet: $isTabDiet, isTabSnackDiet: $isSnackTabDiet)
                     .tabItem{
                         
                         Image(systemName: "house")

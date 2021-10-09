@@ -22,6 +22,7 @@ struct TaskMetaData: Identifiable{
     var task: [Task]
     var taskDate: Date
     var taskColor : String
+  
    
 }
 

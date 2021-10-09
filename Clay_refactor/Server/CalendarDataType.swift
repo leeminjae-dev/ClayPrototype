@@ -15,6 +15,7 @@ struct CalendarDataType: Identifiable {
     var kcal : Float
     var date : String
     var level : String
+    
 }
 
 

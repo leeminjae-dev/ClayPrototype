@@ -28,16 +28,16 @@ class UserData: ObservableObject {
     @Published var archieveRate : String = "0"
     @Published var foodStruct : [nutrition] = []
     
-    @Published var userMorningTime : Int = 3
-    @Published var userLaunchTime : Int = 3
-    @Published var userDinnerTime : Int = 2
+    @Published var userMorningTime : Int = 8
+    @Published var userLaunchTime : Int = 12
+    @Published var userDinnerTime : Int = 18
     
     @Published var dinnerTime : Bool = false
     @Published var offDinnerTime : Bool = false
     @Published var dinnerTimeRemaining : Int = 0
     
     @Published var archievePoint : String = ""
-    
+    @Published var userImageURL : String = ""
 }
 
 

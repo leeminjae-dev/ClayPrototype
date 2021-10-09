@@ -31,11 +31,12 @@ class FirebaseData: ObservableObject {
     @Published var data = [ThreadDataType]()
     @Published var calendarData = [CalendarDataType]()
     @Published var dataToDisplay : [String : String] = ["archieveRate" : "0", "targetArchieve" : "0", "userPoint" : "0", "Kcal" : "0","nickName" : "", "archievePoint" : ""]
-    @Published var kcalToDisplay : [String : Float] = ["morningKcal" : 0, "launchKcal" : 0, "dinnerKcal" : 0]
+    @Published var kcalToDisplay : [String : Float] = ["morningKcal" : 0, "launchKcal" : 0, "dinnerKcal" : 0, "snackKcal" : 0]
     @Published var completeList : [String : Bool] = ["completeMorning": false, "completeLaunch" : false, "completeDinner" : false]
     @Published var homeCountToDisPlay : [String : String] = ["homeCount" : "0"]
     @Published var userTimeToDisPlay : [String : String] = ["userMorningTime" : "0","userLaunchTime" : "0","userDinnerTime" : "0"]
     @Published var foodList : [[String]] = []
+    @Published var snackFoodList : [[String]] = []
     @Published var dietKcal : Float = 0
     @Published var calendarToDisplay : [String : String] = ["level" : "0", "date" : ""]
     @Published var calendarKcalToDisplay : [String : Float] = ["kcal" : 0]
@@ -322,6 +323,25 @@ class FirebaseData: ObservableObject {
                                                     "kcal": kcal
                                                     ])
     }
+    
+    func createSnackFoodList(
+        email : String,
+        foodName : String,
+        serveSize : String,
+        date : String = makeToday(),
+        kcal : String
+       
+                    )
+    {
+        
+        // To create or overwrite a single document
+        dbCollection.document(email).collection("diary").document(date + " Snack").collection("foodList").document(foodName).setData([
+                                                                                    
+                                                    "id" : dbCollection.document().documentID,
+                                                    "serveSize" : serveSize,
+                                                    "kcal": kcal
+                                                    ])
+    }
 
     func createDiary(
         email : String,
@@ -331,6 +351,7 @@ class FirebaseData: ObservableObject {
         morningKcal : Float,
         launchKcal : Float,
         dinnerKcal : Float
+       
 
                     )
     {
@@ -391,19 +412,36 @@ class FirebaseData: ObservableObject {
                 }
             }
         }
-        else {
-            dbCollection.document(email).collection("diary").document(date + " \(makeMealString())").setData([
-                                                                                        
-                                                        "id" : dbCollection.document().documentID,
-                                                        "image" : image,
-                                                        "diaryText\(makeMealString())" : diaryText,
-                                                        "date": makeToday(),
-                                                        "dinnerKcal" : dinnerKcal,
-                                                        "completeDinner" : true
-                                                        ])
-        }
+      
        
     }
+    
+    func createSnackDiary(
+        email : String,
+        image : String,
+        diaryText : String,
+        date : String = makeToday(),
+        snackKcal : Float
+
+                    )
+    {
+        
+        // To create or overwrite a single document
+
+    dbCollection.document(email).collection("diary").document(date + " Snack").setData([
+                                                                                
+                                                "id" : dbCollection.document().documentID,
+                                                "image" : image,
+                                                "diaryTextSnack" : diaryText,
+                                                "date": makeToday(),
+                                                "snackKcal" : snackKcal
+                                              
+                                                ])
+        
+    
+    }
+    
+    
     
     func KcalCall(email:String, data : String, date : String = makeToday(), meal : String) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
@@ -456,8 +494,41 @@ class FirebaseData: ObservableObject {
         }
    }
     
+    func snackFoodListCall(email:String,date : String = makeToday()) {
+        guard (Auth.auth().currentUser?.uid) != nil else { return }
+        dbCollection.document(email).collection("diary").document(date + " Snack").collection("foodList")
+            .addSnapshotListener{ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data()["kcal"]!)")
+                    if self.snackFoodList.contains(["\(document.documentID)","\(document.data()["serveSize"]!)","\(document.data()["kcal"]!)"]){
+                        
+                    }else{
+                        
+                        self.dietKcal = self.dietKcal + Float("\(document.data()["kcal"]!)")!
+                        self.snackFoodList.append(["\(document.documentID)","\(document.data()["serveSize"]!)","\(document.data()["kcal"]!)"])
+                        
+                    }
+                   
+                }
+            }
+        }
+   }
+    
     func deleteFoodList(email : String, date : String = makeToday(), foodName : String) {
         dbCollection.document(email).collection("diary").document(date + " \(makeMealString())").collection("foodList").document(foodName).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    func deleteSnackFoodList(email : String, date : String = makeToday(), foodName : String) {
+        dbCollection.document(email).collection("diary").document(date + " Snack").collection("foodList").document(foodName).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {

@@ -89,9 +89,9 @@ struct SignInView: View {
             ///로그인 버튼
             Button(action: {
                
-                
-                self.verify()
                 userEmail = self.email
+                self.verify()
+                
                 
                 /*guard !email.isEmpty, !password.isEmpty else{
                     self.verify()

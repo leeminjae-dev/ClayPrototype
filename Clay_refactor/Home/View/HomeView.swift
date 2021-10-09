@@ -10,28 +10,28 @@ import Firebase
 import FirebaseFirestore
 import ConfettiSwiftUI
 import UserNotifications
-
+import SwiftUIRefresh
 
 struct HomeView: View {
     @State var timeNow = ""
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @EnvironmentObject var userData : UserData
     @EnvironmentObject var viewModel : SignAppViewModel
-
-    @ObservedObject var datas = firebaseData
     
+    @ObservedObject var datas = firebaseData
+    @State var isShowing : Bool = false
     @AppStorage("userEmail") var userEmail = ""
     @AppStorage("firstPop") var firstPop = "0"
     @AppStorage("firstLaunch") var firstLaunch = "0"
     
     @State private var morningTime : Bool = false
-    @State private var offMorningTime : Bool = isMorning()
+    
     
     @State private var launchTime : Bool = false
-    @State private var offLaunchTime : Bool = isLaunch()
+   
     ///var dinnerTime : Bool = isDinner()
     @State private var dinnerTime : Bool = false
-    @State private var offDinnerTime : Bool = isDinner()
+    
     /// 시간에 따라 잠금장치가 걸릴지 안걸릴지 판별
     @State var show : Bool = false
     @State var isUnlocked : Bool = true
@@ -41,6 +41,7 @@ struct HomeView: View {
     @State var dinnerTimeRemaining = 0
     
     @Binding var isTabDiet : Bool
+    @Binding var isTabSnackDiet : Bool
     @State var counter:Int = 0
 
     @State var showingPointPopup : Bool = false
@@ -54,19 +55,21 @@ struct HomeView: View {
     
     @State var isConfetti : Bool = false
     
-    let selectMorningTime = ["5","6","7","8","9"]
-    let selectLaunchTime = ["10","11","12","13","14","15"]
-    let selectDinnerTime = ["16","17","18","19","20","21"]
-    
+  
     @State var homeCount = 0
     @State var endToday : Bool = false
     
     @State var tasks: [TaskMetaData] = []
     @State var currentDate: Date = Date()
-    init(isTabDiet: Binding<Bool>){
+    
+    @State var imageURL : String = ""
+    
+    @State var minute : Int = 0
+    init(isTabDiet: Binding<Bool>, isTabSnackDiet : Binding<Bool>){
         
         UINavigationBar.appearance().tintColor = UIColor(Color.init("systemColor"))
        _isTabDiet = isTabDiet
+        _isTabSnackDiet = isTabSnackDiet
     }
     
     var body: some View {
@@ -100,10 +103,21 @@ struct HomeView: View {
                   
                     if showingPopup || showingPointPopup || showingFailPopup{
                         
-                        Rectangle()
-                            .foregroundColor(Color.black.opacity(0.3))
-                            .frame(width: 390, height: 900)
-                            .zIndex(1)
+                        
+                        if #available(iOS 15, *){
+                            Rectangle()
+                                .foregroundColor(Color.black.opacity(0.3))
+                                .frame(width: 390, height: 900)
+                                .zIndex(1)
+                        }else{
+                            Rectangle()
+                                .foregroundColor(Color.black.opacity(0.3))
+                                .frame(width: 390, height: .infinity)
+                                .zIndex(1)
+                        }
+                            
+                           
+                          
                     }
                     ZStack{
                         ZStack{
@@ -127,10 +141,17 @@ struct HomeView: View {
                                         NavigationLink(
                                             destination: CustomDatePicker(currentDate: $currentDate, tasks : $tasks),
                                             label: {
-                                                Image(systemName: "calendar")
-                                                    .resizable()
-                                                    .frame(width:23, height: 23, alignment: .center)
-                                                    .foregroundColor(Color.init("systemColor"))
+                                                ZStack{
+                                                    Rectangle()
+                                                        .frame(width: 40, height: 40)
+                                                        .opacity(0)
+                                                        .zIndex(1)
+                                                    Image(systemName: "calendar")
+                                                        .resizable()
+                                                        .frame(width:23, height: 23, alignment: .center)
+                                                        .foregroundColor(Color.init("systemColor"))
+                                                }
+                                                
                                             }
                                         )
                                         
@@ -152,13 +173,21 @@ struct HomeView: View {
                         }
                             .position(x: geometry.size.width / 2, y: geometry.size.height / 14)
                             .zIndex(1)
-                        
+                      
+                       
                         ScrollView(showsIndicators: false){
                             ZStack{
                                 VStack(spacing :10){
-                                    Rectangle()
-                                        .frame(width : 390, height : 160)
-                                        .opacity(0)
+                                    if #available(iOS 15.0, *){
+                                        Rectangle()
+                                            .frame(width : 390, height : 160)
+                                            .opacity(0)
+                                    }else{
+                                        Rectangle()
+                                            .frame(width : 390, height : 180)
+                                            .opacity(0)
+                                    }
+                                   
                                     TodayBanner()
                                         .frame(width: 377, height: 40, alignment: .center)
                                         .background(Color.white)
@@ -187,6 +216,7 @@ struct HomeView: View {
                                                 showingPopup.toggle()
                                             }, label: {
                                                 Image(systemName: "questionmark.circle")
+                                                    .foregroundColor(Color.init("darkGreen"))
                                                     .padding(.trailing, 5)
                                             })
                                             
@@ -226,6 +256,7 @@ struct HomeView: View {
                                                 ZStack(alignment: .leading) {
                                                     
                                                     Text("\(Int(datas.dataToDisplay["targetArchieve"]!)! * 1000)")
+                                                        .opacity(0)
                                                         .padding(.trailing)
                                                         .font(Font.custom(systemFont, size: 15))
                                                         .foregroundColor(Color.white)
@@ -238,6 +269,7 @@ struct HomeView: View {
                                                         .zIndex(2)
                                                     
                                                     Text("\(Int(datas.dataToDisplay["archieveRate"]!)!*1000)")
+                                                        .opacity(0)
                                                         .padding(.trailing)
                                                         .font(Font.custom(systemFont, size: 15))
                                                         .foregroundColor(Color.white)
@@ -275,24 +307,31 @@ struct HomeView: View {
                                     
                                     HStack(spacing: 5){
                                         ZStack{
-                                            Image(systemName : "person")
-                                               
-                                                .foregroundColor(Color.black)
-                                                .frame(width: 60, height: 60)
-                                                .multilineTextAlignment(.center)
-                                                .padding(.trailing, 13)
-                                                
-                                            Circle()
-                                                .foregroundColor(Color.gray.opacity(0.7))
-                                                .frame(width : 55, height : 55)
-                                                .padding(.trailing, 15)
+                                            if imageURL != ""
+                                            {
+                                                FirebaseImageView(imageURL: userData.userImageURL)
+                                                    .clipShape(Circle())
+                                            }else{
+                                                Image(systemName : "person")
+                                                   
+                                                    .foregroundColor(Color.black)
+                                                    .frame(width: 60, height: 60)
+                                                    .multilineTextAlignment(.center)
+                                                    .padding(.trailing, 13)
+                                                    
+                                                Circle()
+                                                    .foregroundColor(Color.gray.opacity(0.7))
+                                                    .frame(width : 55, height : 55)
+                                                    .padding(.trailing, 15)
+                                            }
+                                            
                                             
                                         }
                                        
                                         HStack(spacing : 5){
                                             Text("\(datas.dataToDisplay["nickName"]!)님은 오늘")
                                                 .font(Font.custom(systemFont, size: 13))
-                                            Text("\(Float(datas.dataToDisplay["Kcal"]!)! - datas.kcalToDisplay["morningKcal"]! - datas.kcalToDisplay["launchKcal"]! - datas.kcalToDisplay["dinnerKcal"]!, specifier: "%.0f")Kcal")
+                                            Text("\(Float(datas.dataToDisplay["Kcal"]!)! - datas.kcalToDisplay["morningKcal"]! - datas.kcalToDisplay["launchKcal"]! - datas.kcalToDisplay["dinnerKcal"]! - datas.kcalToDisplay["snackKcal"]!, specifier: "%.0f")Kcal")
                                                 .font(Font.custom(systemFont, size: 13))
                                                 .fontWeight(.bold)
                                                 .frame(height: 6, alignment: .bottom)
@@ -313,6 +352,8 @@ struct HomeView: View {
                                     .offset(y: self.show ? 0 : 20)
                                     .animation(.easeOut.delay(0.2))
                                    
+                                    
+                                    
                                     VStack(spacing:15){
                                         HStack(spacing :0){
                                             Rectangle()
@@ -325,11 +366,74 @@ struct HomeView: View {
                                                 .padding(.leading, 7)
                                           
                                             Spacer()
+                                            ZStack{
+                                                if datas.kcalToDisplay["snackKcal"]! != 0{
+                     
+                                                        Button(
+                                                            action: {isTabSnackDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                  
+                                                                    Text("간식")
+                                                                        .font(Font.custom(systemFont, size: 14))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundColor(Color.black)
+                                                                    ZStack{
+                                                                        Image(systemName: "plus")
+                                                                            .foregroundColor(Color.white)
+                                                                            .frame(width: 20, height: 20)
+                                                                            .zIndex(1)
+                                                                        Circle()
+                                                                            .frame(width: 25, height: 25)
+                                                                            .foregroundColor(Color.init("systemColor"))
+                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3)
+                                                                    }
+                                                                  
+                                                                      
+                                                                      
+                                                                }
+
+                                                                       
+                                                            }) /// 간식 기입 후
+                                                    
+                                                    
+                                                }else{
+                                                        Button(
+                                                            action: {
+                                                                isTabSnackDiet = true
+                      
+                                                            },
+                                                            label: {
+                                                                HStack{
+                
+                                                                    Text("간식")
+                                                                        .font(Font.custom(systemFont, size: 14))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundColor(Color.black)
+                                                                    ZStack{
+                                                                        Image(systemName: "plus")
+                                                                            .foregroundColor(Color.black)
+                                                                            .frame(width: 20, height: 20)
+                                                                            .zIndex(1)
+                                                                        Circle()
+                                                                            .frame(width: 25, height: 25)
+                                                                            .foregroundColor(Color.init("lockedColor"))
+                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 2, y:2)
+                                                                    }
+                                                                        
+                                                                }
+                                                               
+                                                            })
+                                                    
+                                                   
+                                                }
+                                            }
+                                            .padding(.trailing,25)
                                         }
                                         .padding(.leading)
                                        
                                         VStack(spacing : 15){
-                                            if morningTime {
+                                            if morningTime || self.isMorning(){
                                                 if datas.kcalToDisplay["morningKcal"]! != 0{
                                                     Button(
                                                         action: {isTabDiet = true},
@@ -401,7 +505,7 @@ struct HomeView: View {
                                                                     .frame(width: 345, height: 70)
                                                                     .background(Color.init("lockedColor"))
                                                                     .cornerRadius(60)
-                                                                    .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                                    .shadow(color: Color.black.opacity(0.4), radius: 6, y:3 )
                                                         })//아침 기입 전
                                                         
                                                 }
@@ -530,7 +634,7 @@ struct HomeView: View {
                                                            
                                                 }
                                                
-                                            if launchTime{
+                                            if launchTime || isLaunch(){
                                                 
                                                 if datas.kcalToDisplay["launchKcal"]! != 0{
                                                     Button(
@@ -627,10 +731,7 @@ struct HomeView: View {
                                                                 
                                                                 ///Text("\(today,formatter: MealBanner.dateFormat)")
                                                                 
-                                                                Image(systemName: "checkmark.circle")
-                                                                    .resizable()
-                                                                    .foregroundColor(Color.white)
-                                                                    .frame(width: 15, height: 15)
+                                                           
                                                                 Spacer()
                                                                 
                                                                 HStack{
@@ -733,7 +834,7 @@ struct HomeView: View {
                                                            
                                                 }
                                                 
-                                            if dinnerTime {
+                                            if dinnerTime || self.isDinner(){
                                                 if datas.kcalToDisplay["dinnerKcal"]! != 0{
                                                     Button(
                                                         action: {isTabDiet = true},
@@ -823,6 +924,7 @@ struct HomeView: View {
                                                         ZStack{
                                                             Image(systemName: "checkmark.circle")
                                                                 .resizable()
+                                                                .foregroundColor(.white)
                                                                 .frame(width: 15, height: 15)
                                                                 .zIndex(1)
                                                             HStack{
@@ -934,7 +1036,7 @@ struct HomeView: View {
                                                     
                                                            
                                                 }
-                                               
+                                         
                                         }
                                         .padding(.top,1)
                                        
@@ -945,11 +1047,81 @@ struct HomeView: View {
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
+                                    .animation(.easeOut.delay(0.4))
+                                    
+                                    VStack{
+                                        HStack(spacing: 0){
+                                            Rectangle()
+                                                .frame(width: 2, height: 17)
+                                                .foregroundColor(Color.init("systemColor"))
+                                                .padding(.bottom, 1)
+                                            
+                                            Text("식사 시간")
+                                                .font(Font.custom(systemFont, size: 17))
+                                                .fontWeight(.bold)
+                                                .padding(.leading, 7)
+                                            Spacer()
+                                        }
+                                        .padding([.leading, .trailing])
+                                        
+                                        ZStack{
+                                            Rectangle()
+                                                .frame(width: 2, height: 30)
+                                                .foregroundColor(Color.white)
+                                                .padding(.bottom, 1)
+                                                .padding(.trailing, 160)
+                                                .zIndex(1)
+                                            Text("          아침                             \(datas.userTimeToDisPlay["userMorningTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00")
+                                                .font(Font.custom(systemFont, size: 15))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color.white)
+                                                .frame(width: 350, height: 30, alignment: .leading)
+                                                .background(Color.init("systemColor"))
+                                                .cornerRadius(60)
+                                        }
+                                        ZStack{
+                                            Rectangle()
+                                                .frame(width: 2, height: 30)
+                                                .foregroundColor(Color.white)
+                                                .padding(.bottom, 1)
+                                                .padding(.trailing, 160)
+                                                .zIndex(1)
+                                            Text("          점심                             \(datas.userTimeToDisPlay["userLaunchTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00")
+                                                .font(Font.custom(systemFont, size: 15))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color.white)
+                                                .frame(width: 350, height: 30, alignment: .leading)
+                                                .background(Color.init("systemColor"))
+                                                .cornerRadius(60)
+                                        }
+                                        ZStack{
+                                            Rectangle()
+                                                .frame(width: 2, height: 30)
+                                                .foregroundColor(Color.white)
+                                                .padding(.bottom, 1)
+                                                .padding(.trailing, 160)
+                                                .zIndex(1)
+                                            Text("          저녁                             \(datas.userTimeToDisPlay["userDinnerTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00")
+                                                .font(Font.custom(systemFont, size: 15))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(Color.white)
+                                                .frame(width: 350, height: 30, alignment: .leading)
+                                                .background(Color.init("systemColor"))
+                                                .cornerRadius(60)
+                                        }
+                                    
+                                    }
+                                    
+                                    .frame(width: 377, height: 180, alignment: .center)
+                                    .background(Color.white)
+                                    .cornerRadius(15)
+                                    .opacity(show ? 1 : 0)
+                                    .offset(y: self.show ? 0 : 20)
                                     .animation(.easeOut.delay(0.3))
                                     
-                                 
-                                    
-                                    
+                                    Rectangle()
+                                        .frame(width : 390, height : 140)
+                                        .opacity(0)
                                 }
                                 
                             }
@@ -959,7 +1131,9 @@ struct HomeView: View {
 
                             .ignoresSafeArea()
                         }
+                        
                         .position(x: geometry.size.width / 2, y: geometry.size.height/2)
+                        
                     }
                    
                    
@@ -1060,6 +1234,7 @@ struct HomeView: View {
                        }
                 .popup(isPresented: $showingPointPopup, dismissCallback: {
                     datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"]!)! + 1))
+                    datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
                     datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
@@ -1098,7 +1273,6 @@ struct HomeView: View {
                        }
                 .popup(isPresented: $showingFailPopup, dismissCallback : {
                     datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
-                    datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
                 }){
@@ -1132,31 +1306,27 @@ struct HomeView: View {
                 .navigationBarHidden(true)
                 .onAppear{
                     
-                  
-                    
+                    let docRef = Firestore.firestore().collection("UserData").document(userEmail).collection("Calendar").document(makeTodayDetail())
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            
+                           
+                        } else {
+                            datas.createCalnedar(email: userEmail, kcal: datas.dietKcal, date: makeTodayDetail(), level: "0")
+                            
+                        }
+                    }
+                
 //                    datas.homeCountCall(email: userEmail)
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //                        datas.updateHomeCount(email: userEmail, homeCount: String(Int(datas.homeCountToDisPlay["homeCount"]!)! + 1))
 //                    }
 //
-                  
-                   
                     
-                    if isMorning(){
-                        
-                        offMorningTime = true
-                        datas.isCanGetPoint(email: userEmail, userPoint: "1")
-                    }
-                    if isLaunch(){
-                        
-                        offLaunchTime = true
-                        datas.isCanGetPoint(email: userEmail, userPoint: "1")
-                    }
-                    if isDinner(){
-                        
-                        offDinnerTime = true
-                        datas.isCanGetPoint(email: userEmail, userPoint: "1")
-                    }
+                   
+
+                    
+                    
                     show = true
                     
                     if firstPop == "0"{
@@ -1174,6 +1344,7 @@ struct HomeView: View {
                     datas.KcalCall(email: userEmail, data: "morningKcal", meal: "Breakfast")
                     datas.KcalCall(email: userEmail, data: "launchKcal", meal: "Launch")
                     datas.KcalCall(email: userEmail, data: "dinnerKcal", meal: "Dinner")
+                    datas.KcalCall(email: userEmail, data: "snackKcal", meal: "Snack")
                     
                     datas.isCompleteCall(email: userEmail, data: "completeMorning", meal: "Breakfast")
                     datas.isCompleteCall(email: userEmail, data: "completeLaunch", meal: "Launch")
@@ -1208,9 +1379,7 @@ struct HomeView: View {
                     launchTimeRemaining = Int(datas.userTimeToDisPlay["userLaunchTime"]!)! * 3600 - getTimeToSeconds()
                     dinnerTimeRemaining = Int(datas.userTimeToDisPlay["userDinnerTime"]!)! * 3600 - getTimeToSeconds()
                     
-                    print(isMorningTimeOver)
-                    print(morningTimeRemaining)
-                    print(offMorningTime)
+                
                     
                     datas.readCalendarData(email: userEmail)
                     for data in datas.calendarData{
@@ -1236,35 +1405,33 @@ struct HomeView: View {
                 
                 
                 
-                UIApplication.shared.applicationIconBadgeNumber = 0
+                delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
+              
+                if isMorning(){
+                    
+                    
+                    datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                }
+                if isLaunch(){
+                    
+                    
+                    datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                }
+                if isDinner(){
+                    
+                  
+                    datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                }
+                
+                
+                
                 
                 isTimeEnd()
                 
                 if timeNow == "\(datas.userTimeToDisPlay["userMorningTime"]!):00:00"{
                    
                     morningTime = true
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
-                        
-                        
-                        if status{
-                            
-                            let content = UNMutableNotificationContent()
-                            content.title = "클레이"
-                            content.body = "저녁 식단 기록 시간이에요!"
-                            
-                            // this time interval represents the delay time of notification
-                            // ie., the notification will be delivered after the delay.....
-                            
-                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            
-                            let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
-                            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                            
-                            return
-                        }
-                        
                     
-                    }
                 }
                 
                 if timeNow == "\(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00:00"{
@@ -1277,28 +1444,7 @@ struct HomeView: View {
                 if timeNow == "\(datas.userTimeToDisPlay["userLaunchTime"]!):00:00"{
                     
                     launchTime = true
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
-                        
-                        
-                        if status{
-                            
-                            let content = UNMutableNotificationContent()
-                            content.title = "클레이"
-                            content.body = "점심 식단 기록 시간이에요!"
-                            
-                            // this time interval represents the delay time of notification
-                            // ie., the notification will be delivered after the delay.....
-                            
-                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            
-                            let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
-                            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                            
-                            return
-                        }
-                        
                     
-                    }
                     
                 }
                 if timeNow == "\(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00:00"{
@@ -1311,28 +1457,7 @@ struct HomeView: View {
                     
                   
                     dinnerTime = true
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
-                        
-                        
-                        if status{
-                            
-                            let content = UNMutableNotificationContent()
-                            content.title = "클레이"
-                            content.body = "저녁 식단 기록 시간이에요!"
-                            
-                            // this time interval represents the delay time of notification
-                            // ie., the notification will be delivered after the delay.....
-                            
-                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            
-                            let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
-                            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                            
-                            return
-                        }
-                        
-                    
-                    }
+                   
                     
                 }
                 if timeNow == "\(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00:00"{
@@ -1347,7 +1472,11 @@ struct HomeView: View {
                 if timeNow == "00:00:00"{
                     
                     morningTime = false
-                    
+                    launchTime = false
+                    dinnerTime = false
+                    morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - getTimeToSeconds()
+                    launchTimeRemaining = Int(datas.userTimeToDisPlay["userLaunchTime"]!)! * 3600 - getTimeToSeconds()
+                    dinnerTimeRemaining = Int(datas.userTimeToDisPlay["userDinnerTime"]!)! * 3600 - getTimeToSeconds()
                 }
                 
                 morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - getTimeToSeconds()
@@ -1386,8 +1515,80 @@ struct HomeView: View {
                 
             }
         }
-           
+      
         
+    }
+    
+    func isMorning() -> Bool{
+        
+        
+                   let date = Date()
+                   let calender = Calendar.current
+                   let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        
+                   let hour = components.hour
+        
+                   let today_string = String(hour!)
+                   
+        if today_string == datas.userTimeToDisPlay["userMorningTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+            return true
+               }
+        else{
+            return false
+        }
+
+    }
+    
+    func isDinner() -> Bool{
+        
+                   let date = Date()
+                   let calender = Calendar.current
+                   let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        
+                   let hour = components.hour
+        
+                   let today_string = String(hour!)
+                   
+        if today_string == datas.userTimeToDisPlay["userDinnerTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)! + 1){
+            return true
+               }
+        else{
+            return false
+        }
+        
+    }
+    
+    func isLaunch() -> Bool{
+       
+        let date = Date()
+       let calender = Calendar.current
+       let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+
+       let hour = components.hour
+
+       let today_string = String(hour!)
+
+        if today_string == datas.userTimeToDisPlay["userLaunchTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)! + 1){
+            return true
+               }
+        else{
+            return false
+        }
+
+    }
+    
+   
+    
+    func loadImageFromFirebase() {
+        let storage = Storage.storage().reference(withPath: FILE_NAME)
+        storage.downloadURL { (url, error) in
+            if error != nil {
+                print((error?.localizedDescription)!)
+                return
+            }
+            print("Download success")
+            self.imageURL = "\(url!)"
+        }
     }
     
     func isTimeEnd() {
@@ -1409,6 +1610,7 @@ struct HomeView: View {
         
         
     }
+
     
     func timeString(time: Int) -> String {
         let hours   = Int(time) / 3600
@@ -1442,25 +1644,9 @@ var dateFormatter: DateFormatter {
 }
 
 
-func isMorning() -> Bool{
-    @ObservedObject var datas = firebaseData
-    
-               let date = Date()
-               let calender = Calendar.current
-               let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-    
-               let hour = components.hour
-    
-               let today_string = String(hour!)
-               
-    if today_string == datas.userTimeToDisPlay["userMorningTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
-        return true
-           }
-    else{
-        return false
-    }
 
-}
+
+
 
 func isLaunch() -> Bool{
     @ObservedObject var datas = firebaseData
@@ -1519,4 +1705,60 @@ func getTimeToSeconds() -> Int{
 
    return hour! * 60 * 60 + minute! * 60 + second!
 
+}
+
+
+func isMorning() -> Bool{
+    @ObservedObject var datas = firebaseData
+    
+               let date = Date()
+               let calender = Calendar.current
+               let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+    
+               let hour = components.hour
+    
+               let today_string = String(hour!)
+               
+    if today_string == datas.userTimeToDisPlay["userMorningTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+        return true
+           }
+    else{
+        return false
+    }
+
+}
+struct PullToRefresh: View {
+    
+    var coordinateSpaceName: String
+    var onRefresh: ()->Void
+    
+    @State var needRefresh: Bool = false
+    
+    var body: some View {
+        GeometryReader { geo in
+            if (geo.frame(in: .named(coordinateSpaceName)).midY > 50) {
+                Spacer()
+                    .onAppear {
+                        needRefresh = true
+                    }
+            } else if (geo.frame(in: .named(coordinateSpaceName)).maxY < 10) {
+                Spacer()
+                    .onAppear {
+                        if needRefresh {
+                            needRefresh = false
+                            onRefresh()
+                        }
+                    }
+            }
+            HStack {
+                Spacer()
+                if needRefresh {
+                    ProgressView()
+                } else {
+                    Text("⬇️")
+                }
+                Spacer()
+            }
+        }.padding(.top, -50)
+    }
 }

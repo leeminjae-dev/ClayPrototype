@@ -20,7 +20,7 @@ struct CustomTabBar: View {
                 TabBarButton(image: "house", seletedTab: $selectedTab, title: "홈")
                 
                 TabBarButton(image: "cart", seletedTab: $selectedTab, title: "클레이샵")
-                TabBarButton(image: "heart", seletedTab: $selectedTab, title: "칼로리 펀딩")
+//                TabBarButton(image: "heart", seletedTab: $selectedTab, title: "칼로리 펀딩")
                 
                 TabBarButton(image: "person.circle", seletedTab: $selectedTab, title: "내 정보")
                 

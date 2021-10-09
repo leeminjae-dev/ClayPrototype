@@ -40,13 +40,11 @@ struct GetBodyInfoView: View {
     
     @State var currentTime =  Date()
     
-    let selectMorningTime = ["05","06","07","08","09"]
-    let selectLaunchTime = ["10","11","12","13","14","15"]
-    let selectDinnerTime = ["16","17","18","19","20","21"]
+    let selectMorningTime = ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
+    let selectLaunchTime = ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
+    let selectDinnerTime = ["00", "01","02","03","04", "05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21", "22"]
     
-    @State var userMorningTime = 3
-    @State var userLaunchTime = 2
-    @State var userDinnerTime = 2
+    
     
     init(){
         UINavigationBar.appearance().backgroundColor = UIColor(Color.white)

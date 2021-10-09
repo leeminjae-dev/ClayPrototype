@@ -11,9 +11,8 @@ struct LogoutBtn: View {
     @EnvironmentObject var viewModel : SignAppViewModel
     @ObservedObject var datas = firebaseData
     var body: some View {
-        VStack{
-            Text("포인트")
-            Text(datas.dataToDisplay["archievePoint"]!)
+       
+            
             Button(action: {
                 viewModel.singOut()
             }, label: {
@@ -26,7 +25,7 @@ struct LogoutBtn: View {
             })
             .transition(.slide)
             .shadow(radius: 0.5)
-        }
+        
         
     }
 }

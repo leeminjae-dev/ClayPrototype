@@ -9,10 +9,28 @@ import SwiftUI
 
 struct DonateView: View {
     var body: some View {
-        Image("service")
-            .resizable()
-            .frame(width: 380, height: 780)
-            .position(x: 195, y: 290)
+        GeometryReader{ geometry in
+            if #available(iOS 15,*){
+                
+                Image("service")
+                    .resizable()
+                    .frame(width: 400, height: 1000)
+                    .position(x: 195, y: geometry.size.height/2.5)
+        
+            }
+            
+            else{
+                
+                Image("service")
+                    .resizable()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .position(x: 195, y: geometry.size.height/2)
+                    
+                
+            }
+            
+        }
+       
     }
 }
 

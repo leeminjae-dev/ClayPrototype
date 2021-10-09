@@ -1,7 +1,7 @@
 
 import SwiftUI
 import Firebase
-
+import FirebaseFirestore
 
 // Configuring Firebase Push Notifications...
 // See my Full Push Notification Video..
@@ -10,9 +10,10 @@ import Firebase
 // Intializng Firebase And CLoud Messaging...
 
 class AppDelegate: NSObject,UIApplicationDelegate{
-    
+   
     let gcmMessageIDKey = "gcm.message_id"
-    
+   
+    @State var morningTime = 12
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         
@@ -21,8 +22,14 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         // Setting Up Cloud Messaging...
         
         Messaging.messaging().delegate = self
-        
+    
         // Setting Up Notifications...
+        
+//        Notification(time: Int(firebaseData.userTimeToDisPlay["userMorningTime"]!)!, ment: "아침 식사 기록 시간입니다!")
+//        Notification(time: Int(firebaseData.userTimeToDisPlay["userLaunchTime"]!)!, ment: "점심 식사 기록 시간입니다!")
+//        Notification(time: Int(firebaseData.userTimeToDisPlay["userDinnerTime"]!)!, ment: "저녁 식사 기록 시간입니다!")
+        
+     
         
         if #available(iOS 10.0, *) {
           // For iOS 10 display notification (sent via APNS)
@@ -42,6 +49,66 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         return true
     }
     
+    
+    
+    
+    func Notification(morningTime : Int, morningMinute: Int, morningMent : String, launchTime : Int, launchMinute : Int, launchMent : String, dinnerTime : Int, dinnerMinute : Int, dinnerMent : String ){
+        
+       
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge], completionHandler: {userDidAllow, error in
+            //if userDidAllow : do something if you want to
+        })
+        
+        let morningContent = UNMutableNotificationContent()
+        morningContent.title = "클레이"
+        morningContent.body = morningMent
+        morningContent.sound = .default
+        
+        let launchContent = UNMutableNotificationContent()
+        launchContent.title = "클레이"
+        launchContent.body = launchMent
+        launchContent.sound = .default
+        
+        let dinnerContent = UNMutableNotificationContent()
+        dinnerContent.title = "클레이"
+        dinnerContent.body = dinnerMent
+        dinnerContent.sound = .default
+        
+        //Set notification to trigger 11:30AM everyday
+        var morningDateComponents = DateComponents()
+        morningDateComponents.hour = morningTime
+        morningDateComponents.minute = morningMinute
+        
+        var launchDateComponents = DateComponents()
+        launchDateComponents.hour = launchTime
+        launchDateComponents.minute = launchMinute
+        
+        var dinnerDateComponents = DateComponents()
+        dinnerDateComponents.hour = dinnerTime
+        dinnerDateComponents.minute = dinnerMinute
+        
+        let morningTrigger = UNCalendarNotificationTrigger(dateMatching: morningDateComponents, repeats: true)
+        let launchTrigger = UNCalendarNotificationTrigger(dateMatching: launchDateComponents, repeats: true)
+        let dinnerTrigger = UNCalendarNotificationTrigger(dateMatching: dinnerDateComponents, repeats: true)
+        //Set your content
+      
+       
+        let morningRequest = UNNotificationRequest(
+            identifier: "morningPush", content: morningContent, trigger: morningTrigger
+        )
+        let launchRequest = UNNotificationRequest(
+            identifier: "launchPush", content: launchContent, trigger: launchTrigger
+        )
+        let dinnerRequest = UNNotificationRequest(
+            identifier: "dinnerPush", content: dinnerContent, trigger: dinnerTrigger
+        )
+        
+        UNUserNotificationCenter.current().add(morningRequest, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(launchRequest, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(dinnerRequest, withCompletionHandler: nil)
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
@@ -49,7 +116,7 @@ class AppDelegate: NSObject,UIApplicationDelegate{
       if let messageID = userInfo[gcmMessageIDKey] {
         print("Message ID: \(messageID)")
       }
-
+        
       // Print full message.
       print(userInfo)
 
@@ -75,7 +142,7 @@ extension AppDelegate: MessagingDelegate{
     
         // Store this token to firebase and retrieve when to send message to someone....
         let dataDict:[String: String] = ["token": fcmToken ?? ""]
-        
+        print("\(String(describing: firebaseData.userTimeToDisPlay["userMorningTime"]!))asdasdasdasdasdasdasasdasdasdasdasd")
         // Store token in Firestore For Sending Notifications From Server in Future...
         
         print(dataDict)
