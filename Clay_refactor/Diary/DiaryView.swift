@@ -11,8 +11,9 @@ import PopupView
 import FirebaseAnalytics
 import Firebase
 import FirebaseFirestore
-let FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString()).jpg"
 
+let FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString()).jpg"
+let PROFILE_FILE_NAME = "Diary/\(makeEmailString())/ProfileImage.jpg"
 struct DiaryView: View {
     @ObservedObject var datas = firebaseData
     @EnvironmentObject var userData : UserData
@@ -519,11 +520,15 @@ struct DiaryView: View {
                                     }
                                     if isLaunch(){
                                         if datas.completeList["completeLaunch"]!{
+                                          
+                                        }else{
                                             datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
                                         }
                                     }
                                     if isDinner(){
                                         if datas.completeList["completeDinner"]!{
+                                           
+                                        }else{
                                             datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
                                         }
                                     }
@@ -536,7 +541,11 @@ struct DiaryView: View {
                             
                             firebaseData.createDiary(email:userEmail , image: "image1", diaryText: diaryText ,morningKcal: datas.dietKcal ,launchKcal: datas.dietKcal ,dinnerKcal: datas.dietKcal)
                             self.isTabDiet = false
-                            datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                            
+                            if isDinner(){
+                                datas.isCanGetPoint(email: userEmail, userPoint: "0")
+                            }
+                           
                             
                         }, label: {
                             

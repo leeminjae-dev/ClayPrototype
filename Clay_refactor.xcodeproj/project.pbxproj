@@ -49,6 +49,7 @@
 		BE24E6A826E5A2E3003D5DFC /* MainLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */; };
 		BE24E6AA26E6EDAC003D5DFC /* SignSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A926E6EDAC003D5DFC /* SignSuccessView.swift */; };
 		BE24E6AD26E71234003D5DFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6AC26E71234003D5DFC /* HomeView.swift */; };
+		BE2D462D27114FC80006E864 /* ProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */; };
 		BE345D2C26FD547B00328BAE /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */; };
 		BE50036D26EB0600000DEA57 /* MealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE50036C26EB0600000DEA57 /* MealBanner.swift */; };
 		BE50036F26EB061E000DEA57 /* NutritionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE50036E26EB061E000DEA57 /* NutritionList.swift */; };
@@ -199,6 +200,7 @@
 		BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInView.swift; sourceTree = "<group>"; };
 		BE24E6A926E6EDAC003D5DFC /* SignSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignSuccessView.swift; sourceTree = "<group>"; };
 		BE24E6AC26E71234003D5DFC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePicker.swift; sourceTree = "<group>"; };
 		BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
 		BE3FDF78270ED17400BF1C7C /* EliceDigitalBaeum_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Regular.ttf; sourceTree = "<group>"; };
 		BE3FDF79270ED17400BF1C7C /* EliceDigitalBaeum_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Bold.ttf; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				BE69E24C270D6ACF002A90C1 /* MyPageView.swift */,
+				BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -938,6 +941,7 @@
 				BE24E65726E4E2C4003D5DFC /* FirstLaunchView.swift in Sources */,
 				BE24E69426E5035A003D5DFC /* AppDelegate.swift in Sources */,
 				BE955E9826E8FC7300FECF2F /* DiaryView.swift in Sources */,
+				BE2D462D27114FC80006E864 /* ProfileImagePicker.swift in Sources */,
 				BE50036F26EB061E000DEA57 /* NutritionList.swift in Sources */,
 				BE69E246270C3871002A90C1 /* DateValue.swift in Sources */,
 				BE24E68126E4F212003D5DFC /* UserData.swift in Sources */,

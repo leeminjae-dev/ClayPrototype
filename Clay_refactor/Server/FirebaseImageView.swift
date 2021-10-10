@@ -26,10 +26,34 @@ struct FirebaseImageView: View {
                 .cornerRadius(15)
                 .clipped()
         }.onReceive(imageLoader.didChange) { data in
+            
             self.image = UIImage(data: data) ?? UIImage()
         }
     }
 }
+
+struct FirebaseProfileImageView: View {
+    @ObservedObject var imageLoader:DataLoader
+    @State var image:UIImage = UIImage()
+    
+    init(imageURL: String) {
+        imageLoader = DataLoader(urlString:imageURL)
+    }
+
+    var body: some View {
+        VStack {
+            Image(uiImage: image)
+                .resizable()
+               
+               
+               
+                
+        }.onReceive(imageLoader.didChange) { data in
+            self.image = UIImage(data: data) ?? UIImage()
+        }
+    }
+}
+
 
 class DataLoader: ObservableObject {
     @Published var didChange = PassthroughSubject<Data, Never>()

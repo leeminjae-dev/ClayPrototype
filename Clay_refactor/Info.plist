@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>프로필 이미지 추가를 위해 카메라권한을 허용해주세요</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -43,8 +45,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>We need camera permission</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareExtraBold.ttf</string>

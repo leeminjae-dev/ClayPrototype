@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct CustomTabView: View {
     @State var selectedTab = "house"
     @State var isTabDiet = false
     @State var isTabSnackDiet = false
+    @State var userImageURL : String = ""
     var body: some View {
         if isTabDiet{
             
@@ -26,18 +28,18 @@ struct CustomTabView: View {
            
                 if selectedTab == "house"{
                     
-                    HomeView(isTabDiet: $isTabDiet, isTabSnackDiet: $isTabSnackDiet)
+                    HomeView(isTabDiet: $isTabDiet, isTabSnackDiet: $isTabSnackDiet, userImageURL: $userImageURL)
                 }
-//                if selectedTab == "heart"{
-//                    DonateView()
-//                        
-//                }
+                if selectedTab == "heart"{
+                    DonateView()
+                        
+                }
                 if selectedTab == "cart"{
                     CommerceVIew()
                 }
                 if selectedTab == "person.circle"{
                     VStack{
-                       MyPageView()
+                       MyPageView(userImageURL: $userImageURL)
                             Spacer()
                     }
                    
@@ -50,9 +52,24 @@ struct CustomTabView: View {
                     
                    
             } .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+                .onAppear{
+                    loadImageFromUserImageFirebase()
+                }
+            
         }
         
         
+    }
+    func loadImageFromUserImageFirebase() {
+        let storage = Storage.storage().reference(withPath: "Diary/\(makeEmailString())/ProfileImage.jpg")
+        storage.downloadURL { (url, error) in
+            if error != nil {
+                print((error?.localizedDescription)!)
+                return
+            }
+            print("Download success")
+            self.userImageURL = "\(url!)"
+        }
     }
 }
 

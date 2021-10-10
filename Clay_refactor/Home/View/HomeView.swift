@@ -23,6 +23,7 @@ struct HomeView: View {
     @AppStorage("userEmail") var userEmail = ""
     @AppStorage("firstPop") var firstPop = "0"
     @AppStorage("firstLaunch") var firstLaunch = "0"
+    @AppStorage("userProfileImage") var userProfileImage : String = ""
     
     @State private var morningTime : Bool = false
     
@@ -47,6 +48,7 @@ struct HomeView: View {
     @State var showingPointPopup : Bool = false
     @State var showingFailPopup : Bool = false
     @State var showingPopup : Bool = false
+    @State var showingTimePopup : Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
     
     @State var isMorningTimeOver : Bool = false
@@ -65,11 +67,14 @@ struct HomeView: View {
     @State var imageURL : String = ""
     
     @State var minute : Int = 0
-    init(isTabDiet: Binding<Bool>, isTabSnackDiet : Binding<Bool>){
+    @Binding var userImageURL : String 
+    @State var shownProfileImage : Bool = false
+    init(isTabDiet: Binding<Bool>, isTabSnackDiet : Binding<Bool>, userImageURL : Binding<String>){
         
         UINavigationBar.appearance().tintColor = UIColor(Color.init("systemColor"))
        _isTabDiet = isTabDiet
         _isTabSnackDiet = isTabSnackDiet
+        _userImageURL = userImageURL
     }
     
     var body: some View {
@@ -101,7 +106,7 @@ struct HomeView: View {
                         .zIndex(1.5)
                     
                   
-                    if showingPopup || showingPointPopup || showingFailPopup{
+                    if showingPopup || showingPointPopup || showingFailPopup || showingTimePopup{
                         
                         
                         if #available(iOS 15, *){
@@ -192,6 +197,9 @@ struct HomeView: View {
                                         .frame(width: 377, height: 40, alignment: .center)
                                         .background(Color.white)
                                         .cornerRadius(15)
+                                        .opacity(show ? 1 : 0)
+                                        .offset(y: self.show ? 0 : 20)
+                                        .animation(.easeOut.delay(0.2))
                                     
                                     VStack(spacing : 3){
                                         
@@ -286,43 +294,72 @@ struct HomeView: View {
                                                         .opacity(0.3)
                                                         .foregroundColor(Color("systemColor"))
                                                         .zIndex(1)
-                    
+                                                    
                                                 }
                                                 .cornerRadius(45.0)
-                                                
+                                               
                                             }
                                             .frame(width:345, height: 35)
                                             .padding(.top,8)
                                         }
-                                        
+                                        HStack(spacing : 10){
+                                            Spacer()
+                                            HStack{
+                                                Circle()
+                                                    .fill(Color.init("systemColor"))
+                                                    .frame(width: 8,height: 8)
+                                                Text("환급 받은 포인트")
+                                                    .font(Font.custom(systemFont, size: 10))
+                                            }
+                                            HStack{
+                                                Circle()
+                                                    .fill(Color.init("targetArchieveColor"))
+                                                    .frame(width: 8,height: 8)
+                                                Text("예상 환급 포인트")
+                                                    .font(Font.custom(systemFont, size: 10))
+                                            }
+                                            
+                                        }
+                                        .padding(.trailing, 20)
+                                        .padding(.top, 10)
                                         
                                     }
-                                    .padding(.bottom, 50)
-                                    .frame(width: 377, height: 130, alignment: .center)
+                                    .padding(.bottom, 40)
+                                    .frame(width: 377, height: 137, alignment: .center)
                                     .background(Color.white)
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.1))
+                                    .animation(.easeOut.delay(0.3))
                                     
                                     HStack(spacing: 5){
                                         ZStack{
-                                            if imageURL != ""
-                                            {
-                                                FirebaseImageView(imageURL: userData.userImageURL)
+                                            if userImageURL != ""{
+
+                                                FirebaseProfileImageView(imageURL: userImageURL)
+                                                    .frame(width : 65, height : 65)
                                                     .clipShape(Circle())
-                                            }else{
-                                                Image(systemName : "person")
-                                                   
-                                                    .foregroundColor(Color.black)
-                                                    .frame(width: 60, height: 60)
-                                                    .multilineTextAlignment(.center)
-                                                    .padding(.trailing, 13)
+                                                    .padding(.trailing, 12)
+                                                    .padding(.top, 7)
                                                     
-                                                Circle()
-                                                    .foregroundColor(Color.gray.opacity(0.7))
-                                                    .frame(width : 55, height : 55)
-                                                    .padding(.trailing, 15)
+
+                                            }else{
+                                                ZStack{
+                                                    Image(systemName : "person")
+                                                        .resizable()
+                                                        .frame(width: 30, height: 30)
+                                                        .foregroundColor(Color.black)
+                                                        
+                                                        .multilineTextAlignment(.center)
+                                                        .padding(.trailing, 13)
+                                
+                                                    Circle()
+                                                        .foregroundColor(Color.gray.opacity(0.7))
+                                                        .frame(width : 65, height : 65)
+                                                        .padding(.trailing, 12)
+                                                    
+                                                }
+                                              
                                             }
                                             
                                             
@@ -350,7 +387,7 @@ struct HomeView: View {
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.2))
+                                    .animation(.easeOut.delay(0.4))
                                    
                                     
                                     
@@ -366,69 +403,14 @@ struct HomeView: View {
                                                 .padding(.leading, 7)
                                           
                                             Spacer()
-                                            ZStack{
-                                                if datas.kcalToDisplay["snackKcal"]! != 0{
-                     
-                                                        Button(
-                                                            action: {isTabSnackDiet = true},
-                                                            label: {
-                                                                HStack{
-                                                                  
-                                                                    Text("간식")
-                                                                        .font(Font.custom(systemFont, size: 14))
-                                                                        .fontWeight(.bold)
-                                                                        .foregroundColor(Color.black)
-                                                                    ZStack{
-                                                                        Image(systemName: "plus")
-                                                                            .foregroundColor(Color.white)
-                                                                            .frame(width: 20, height: 20)
-                                                                            .zIndex(1)
-                                                                        Circle()
-                                                                            .frame(width: 25, height: 25)
-                                                                            .foregroundColor(Color.init("systemColor"))
-                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3)
-                                                                    }
-                                                                  
-                                                                      
-                                                                      
-                                                                }
-
-                                                                       
-                                                            }) /// 간식 기입 후
-                                                    
-                                                    
-                                                }else{
-                                                        Button(
-                                                            action: {
-                                                                isTabSnackDiet = true
-                      
-                                                            },
-                                                            label: {
-                                                                HStack{
-                
-                                                                    Text("간식")
-                                                                        .font(Font.custom(systemFont, size: 14))
-                                                                        .fontWeight(.bold)
-                                                                        .foregroundColor(Color.black)
-                                                                    ZStack{
-                                                                        Image(systemName: "plus")
-                                                                            .foregroundColor(Color.black)
-                                                                            .frame(width: 20, height: 20)
-                                                                            .zIndex(1)
-                                                                        Circle()
-                                                                            .frame(width: 25, height: 25)
-                                                                            .foregroundColor(Color.init("lockedColor"))
-                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 2, y:2)
-                                                                    }
-                                                                        
-                                                                }
-                                                               
-                                                            })
-                                                    
-                                                   
-                                                }
-                                            }
-                                            .padding(.trailing,25)
+                                            Button(action:{
+                                                showingTimePopup = true
+                                            }, label:{
+                                                Image(systemName: "questionmark.circle")
+                                                    .padding(.trailing, 20)
+                                                    .foregroundColor(Color.init("darkGreen"))
+                                            })
+                                               
                                         }
                                         .padding(.leading)
                                        
@@ -1036,88 +1018,85 @@ struct HomeView: View {
                                                     
                                                            
                                                 }
-                                         
+                                            HStack{
+                                                Spacer()
+                                                if datas.kcalToDisplay["snackKcal"]! != 0{
+                     
+                                                        Button(
+                                                            action: {isTabSnackDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                  
+                                                                    Text("간식")
+                                                                        .font(Font.custom(systemFont, size: 18))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundColor(Color.black)
+                                                                        .padding(.top, 2)
+                                                                        .padding(.trailing, 3)
+                                                                    ZStack{
+                                                                        Image(systemName: "plus")
+                                                                            .foregroundColor(Color.white)
+                                                                            .frame(width: 20, height: 20)
+                                                                            .zIndex(1)
+                                                                        Circle()
+                                                                            .frame(width: 22, height: 22)
+                                                                            .foregroundColor(Color.init("systemColor"))
+                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3)
+                                                                    }
+                                                                  
+                                                                      
+                                                                      
+                                                                }
+
+                                                                       
+                                                            }) /// 간식 기입 후
+                                                    
+                                                    
+                                                }else{
+                                                        Button(
+                                                            action: {
+                                                                isTabSnackDiet = true
+                      
+                                                            },
+                                                            label: {
+                                                                HStack{
+                
+                                                                    Text("간식")
+                                                                        .font(Font.custom(systemFont, size: 14))
+                                                                        .fontWeight(.bold)
+                                                                        .foregroundColor(Color.black)
+                                                                        .padding(.top, 2)
+                                                                    ZStack{
+                                                                        Image(systemName: "plus")
+                                                                            .foregroundColor(Color.black)
+                                                                            .frame(width: 20, height: 20)
+                                                                            .zIndex(1)
+                                                                        Circle()
+                                                                            .frame(width: 22, height: 22)
+                                                                            .foregroundColor(Color.init("lockedColor"))
+                                                                            .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 2, y:2)
+                                                                    }
+                                                                        
+                                                                }
+                                                               
+                                                            })
+                                                    
+                                                   
+                                                }
+                                                
+                                            }
+                                            .padding(.trailing,25)
                                         }
                                         .padding(.top,1)
                                        
                                        
                                     }
-                                    .frame(width: 377, height: 309, alignment: .center)
+                                    .frame(width: 377, height: 337, alignment: .center)
                                     .background(Color.white)
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.4))
-                                    
-                                    VStack{
-                                        HStack(spacing: 0){
-                                            Rectangle()
-                                                .frame(width: 2, height: 17)
-                                                .foregroundColor(Color.init("systemColor"))
-                                                .padding(.bottom, 1)
-                                            
-                                            Text("식사 시간")
-                                                .font(Font.custom(systemFont, size: 17))
-                                                .fontWeight(.bold)
-                                                .padding(.leading, 7)
-                                            Spacer()
-                                        }
-                                        .padding([.leading, .trailing])
-                                        
-                                        ZStack{
-                                            Rectangle()
-                                                .frame(width: 2, height: 30)
-                                                .foregroundColor(Color.white)
-                                                .padding(.bottom, 1)
-                                                .padding(.trailing, 160)
-                                                .zIndex(1)
-                                            Text("          아침                             \(datas.userTimeToDisPlay["userMorningTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00")
-                                                .font(Font.custom(systemFont, size: 15))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(Color.white)
-                                                .frame(width: 350, height: 30, alignment: .leading)
-                                                .background(Color.init("systemColor"))
-                                                .cornerRadius(60)
-                                        }
-                                        ZStack{
-                                            Rectangle()
-                                                .frame(width: 2, height: 30)
-                                                .foregroundColor(Color.white)
-                                                .padding(.bottom, 1)
-                                                .padding(.trailing, 160)
-                                                .zIndex(1)
-                                            Text("          점심                             \(datas.userTimeToDisPlay["userLaunchTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00")
-                                                .font(Font.custom(systemFont, size: 15))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(Color.white)
-                                                .frame(width: 350, height: 30, alignment: .leading)
-                                                .background(Color.init("systemColor"))
-                                                .cornerRadius(60)
-                                        }
-                                        ZStack{
-                                            Rectangle()
-                                                .frame(width: 2, height: 30)
-                                                .foregroundColor(Color.white)
-                                                .padding(.bottom, 1)
-                                                .padding(.trailing, 160)
-                                                .zIndex(1)
-                                            Text("          저녁                             \(datas.userTimeToDisPlay["userDinnerTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00")
-                                                .font(Font.custom(systemFont, size: 15))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(Color.white)
-                                                .frame(width: 350, height: 30, alignment: .leading)
-                                                .background(Color.init("systemColor"))
-                                                .cornerRadius(60)
-                                        }
-                                    
-                                    }
-                                    
-                                    .frame(width: 377, height: 180, alignment: .center)
-                                    .background(Color.white)
-                                    .cornerRadius(15)
-                                    .opacity(show ? 1 : 0)
-                                    .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.3))
+                                    .animation(.easeOut.delay(0.5))
                                     
                                     Rectangle()
                                         .frame(width : 390, height : 140)
@@ -1232,9 +1211,68 @@ struct HomeView: View {
                     .cornerRadius(30.0)
                        
                        }
+                /// 나의 포인트 설명 팝업
+                .popup(isPresented: $showingTimePopup) {
+                    VStack{
+                       
+                        HStack(spacing: 0){
+                            Rectangle()
+                                .frame(width: 2, height: 17)
+                                .foregroundColor(Color.init("systemColor"))
+                                .padding(.bottom, 1)
+                            
+                            Text("나의 식사 시간")
+                                .font(Font.custom(systemFont, size: 17))
+                                .fontWeight(.bold)
+                                .padding(.leading, 7)
+                            Spacer()
+                           
+                            Image(systemName: "multiply")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(Color.init("systemColor"))
+                                
+                        }
+                        .padding([.leading, .trailing], 30)
+                        
+                        VStack(spacing: 15){
+                            ZStack{
+                               
+                                Text("아침 : \(datas.userTimeToDisPlay["userMorningTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00")
+                                    .font(Font.custom(systemFont, size: 20))
+                                    .fontWeight(.bold)
+                                   
+                            }
+                            ZStack{
+                            
+                                Text("점심 : \(datas.userTimeToDisPlay["userLaunchTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00")
+                                    .font(Font.custom(systemFont, size: 20))
+                                    .fontWeight(.bold)
+                                    
+                            }
+                            ZStack{
+                              
+                                Text("저녁 : \(datas.userTimeToDisPlay["userDinnerTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00")
+                                    .font(Font.custom(systemFont, size: 20))
+                                    .fontWeight(.bold)
+                                   
+                            }
+                        }
+                        .padding(.vertical, 30)
+                        .padding(.bottom, 5)
+                       
+                    
+                    }
+                    
+                    .frame(width: 350, height:250)
+                    .background(Color.white)
+                    .cornerRadius(30.0)
+                       
+                       }/// 시간 표시 팝업
+                
                 .popup(isPresented: $showingPointPopup, dismissCallback: {
                     datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"]!)! + 1))
-                    datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
+                    datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
                     datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
@@ -1271,6 +1309,7 @@ struct HomeView: View {
                     .cornerRadius(30.0)
                    
                        }
+                /// 포인드 획득 팝업
                 .popup(isPresented: $showingFailPopup, dismissCallback : {
                     datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
@@ -1301,6 +1340,7 @@ struct HomeView: View {
                         .cornerRadius(30.0)
                     }
                 }
+                /// 포인트 획득 실패 팝업
                 .background(Color.init("background"))
                 .ignoresSafeArea()
                 .navigationBarHidden(true)
@@ -1316,18 +1356,11 @@ struct HomeView: View {
                             
                         }
                     }
-                
-//                    datas.homeCountCall(email: userEmail)
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                        datas.updateHomeCount(email: userEmail, homeCount: String(Int(datas.homeCountToDisPlay["homeCount"]!)! + 1))
-//                    }
-//
+                          
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        show = true
+                    }
                     
-                   
-
-                    
-                    
-                    show = true
                     
                     if firstPop == "0"{
                         showingPopup = true
@@ -1390,12 +1423,7 @@ struct HomeView: View {
                         ], taskDate: dateToString(dateString: data.date), taskColor:levelToColor(level:data.level) ))
                     }
                     
-                    
-                            
-                  
-                  
-                  
-                
+    
                    
                   
                 }
@@ -1405,7 +1433,7 @@ struct HomeView: View {
                 
                 
                 
-                delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
+                delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
               
                 if isMorning(){
                     
@@ -1461,7 +1489,7 @@ struct HomeView: View {
                     
                 }
                 if timeNow == "\(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00:00"{
-                    datas.isCanGetPoint(email: userEmail, userPoint: "0")
+                   
                     dinnerTime = false
                     if  datas.dataToDisplay["userPoint"]! == "0" && (!datas.completeList["completeMorning"]! || !datas.completeList["completeLaunch"]! || !datas.completeList["completeDinner"]!){
                         
@@ -1474,9 +1502,7 @@ struct HomeView: View {
                     morningTime = false
                     launchTime = false
                     dinnerTime = false
-                    morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - getTimeToSeconds()
-                    launchTimeRemaining = Int(datas.userTimeToDisPlay["userLaunchTime"]!)! * 3600 - getTimeToSeconds()
-                    dinnerTimeRemaining = Int(datas.userTimeToDisPlay["userDinnerTime"]!)! * 3600 - getTimeToSeconds()
+                 
                 }
                 
                 morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - getTimeToSeconds()
@@ -1497,9 +1523,7 @@ struct HomeView: View {
                     isDinnerTimeOver = true
                 }
                 
-                self.morningTimeRemaining -= 1
-                self.launchTimeRemaining -= 1
-                self.dinnerTimeRemaining -= 1
+              
                 
                 if  datas.dataToDisplay["userPoint"]! == "0" && datas.completeList["completeMorning"]! && datas.completeList["completeLaunch"]! && datas.completeList["completeDinner"]!{
                     
