@@ -310,8 +310,8 @@ func cal(weight : Double, height : Double, age : Double, gender : Bool, selectAt
        
         let averageWeight = height / 100 * height / 100 * 21
         let bmi = weight / averageWeight * 100
-        let minusWeight = weight - targetWeight
-        let dayKcal = minusWeight * 7200 / 90
+        let minusWeight = 2.0
+        let dayKcal = minusWeight * 7200 / 30
         if selectAtivate == 0{
            
             if bmi >= 110{
@@ -376,8 +376,8 @@ func cal(weight : Double, height : Double, age : Double, gender : Bool, selectAt
       
         let averageWeight = height / 100 * height / 100 * 22
         let bmi = weight / averageWeight * 100
-        let minusWeight = weight - targetWeight
-        let dayKcal = minusWeight * 7200 / 90
+        let minusWeight = 2.0
+        let dayKcal = minusWeight * 7200 / 30
         
         if selectAtivate == 0{
             
