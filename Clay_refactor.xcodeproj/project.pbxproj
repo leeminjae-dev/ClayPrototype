@@ -76,7 +76,6 @@
 		BE5313B826F017F00090C4C0 /* TodayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313B726F017F00090C4C0 /* TodayBanner.swift */; };
 		BE5313BA26F01B150090C4C0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313B926F01B150090C4C0 /* ProgressBar.swift */; };
 		BE5313BC26F0368C0090C4C0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */; };
-		BE5313BE26F0376B0090C4C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5313BD26F0376B0090C4C0 /* Launch Screen.storyboard */; };
 		BE53235826F6CD4000D3FB91 /* GetBodyInfoReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */; };
 		BE69E244270C384D002A90C1 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E243270C384D002A90C1 /* CustomDatePicker.swift */; };
 		BE69E246270C3871002A90C1 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E245270C3871002A90C1 /* DateValue.swift */; };
@@ -93,6 +92,7 @@
 		BE8964B12710393D00BDC896 /* SnackFoodInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8964B02710393D00BDC896 /* SnackFoodInfoRowView.swift */; };
 		BE9147192709E7A0009F1522 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BE9147182709E7A0009F1522 /* Alamofire */; };
 		BE955E9826E8FC7300FECF2F /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE955E9726E8FC7300FECF2F /* DiaryView.swift */; };
+		BEA16A6D2716FC570012CA4A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */; };
 		BEAEDBC6270858B200A54AD4 /* CommerceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */; };
 		BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC82708A5E000A54AD4 /* DonateView.swift */; };
 		BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */; };
@@ -229,7 +229,6 @@
 		BE5313B726F017F00090C4C0 /* TodayBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBanner.swift; sourceTree = "<group>"; };
 		BE5313B926F01B150090C4C0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		BE5313BD26F0376B0090C4C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyInfoReport.swift; sourceTree = "<group>"; };
 		BE69E243270C384D002A90C1 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		BE69E245270C3871002A90C1 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
@@ -265,6 +264,7 @@
 		BE8964AE271026CD00BDC896 /* SnackDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackDiaryView.swift; sourceTree = "<group>"; };
 		BE8964B02710393D00BDC896 /* SnackFoodInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackFoodInfoRowView.swift; sourceTree = "<group>"; };
 		BE955E9726E8FC7300FECF2F /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceVIew.swift; sourceTree = "<group>"; };
 		BEAEDBC82708A5E000A54AD4 /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 				BE24E67226E4E63E003D5DFC /* FirstLaunchComment */,
 				BE24E67A26E4F0E0003D5DFC /* GetBodyInfo */,
 				BE24E67726E4EE42003D5DFC /* Sign */,
-				BE5313BD26F0376B0090C4C0 /* Launch Screen.storyboard */,
+				BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -769,11 +769,11 @@
 			mainGroup = BE24E61E26E4E0A0003D5DFC;
 			packageReferences = (
 				BE18A1372704550F00FC7B6D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
-				BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */,
-				BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */,
+				BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BEFE203A270BAD5200AA3E47 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
-				BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */,
-				BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */,
+				BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */,
+				BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
 				BE267F152714011000D2CB7F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BE24E62826E4E0A0003D5DFC /* Products */;
@@ -794,9 +794,9 @@
 			files = (
 				BE50E04426F21EE4001327C0 /* NanumSquareBold.ttf in Resources */,
 				BE24E67126E4E4C9003D5DFC /* Pretendard-Bold.otf in Resources */,
+				BEA16A6D2716FC570012CA4A /* Launch Screen.storyboard in Resources */,
 				BE24E66E26E4E4C9003D5DFC /* Pretendard-Medium.otf in Resources */,
 				BE50E04726F21EE4001327C0 /* NanumSquareLight.ttf in Resources */,
-				BE5313BE26F0376B0090C4C0 /* Launch Screen.storyboard in Resources */,
 				BE24E66B26E4E4C9003D5DFC /* Pretendard-ExtraLight.otf in Resources */,
 				BE24E67026E4E4C9003D5DFC /* Pretendard-SemiBold.otf in Resources */,
 				BE50E04626F21EE4001327C0 /* NanumSquareExtraBold.ttf in Resources */,
@@ -1173,6 +1173,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Clay_refactor/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1204,6 +1205,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = Clay_refactor/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1356,7 +1358,7 @@
 				minimumVersion = 0.2.1;
 			};
 		};
-		BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */ = {
+		BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
 			requirement = {
@@ -1372,7 +1374,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */ = {
+		BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
 			requirement = {
@@ -1380,7 +1382,7 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1396,7 +1398,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */ = {
+		BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yodagamaheshan/DateGrid.git";
 			requirement = {
@@ -1414,7 +1416,7 @@
 		};
 		BE7F4A98270566240081B7C4 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */;
+			package = BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
 		};
 		BE7F4AEE270567880081B7C4 /* ConfettiSwiftUI */ = {
@@ -1424,12 +1426,12 @@
 		};
 		BE8964AC271019A600BDC896 /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */;
+			package = BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
 			productName = SwiftUIRefresh;
 		};
 		BE9147182709E7A0009F1522 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		BEFE203B270BAD5300AA3E47 /* ElegantCalendar */ = {
@@ -1439,7 +1441,7 @@
 		};
 		BEFE203E270BB40300AA3E47 /* DateGrid */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */;
+			package = BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */;
 			productName = DateGrid;
 		};
 /* End XCSwiftPackageProductDependency section */

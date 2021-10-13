@@ -5,7 +5,7 @@ import Combine
 import Kingfisher
 
 let FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString()).jpg"
-let DOWNLOAD_FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString())_200x200.jpg"
+let DOWNLOAD_FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString())_300x300.jpg"
 
 
 struct imagePicker: UIViewControllerRepresentable {
@@ -60,7 +60,7 @@ struct imagePicker: UIViewControllerRepresentable {
         
         func downloadImageFromFirebase() {
             // Create a reference to the file you want to download
-            storage.child(DOWNLOAD_FILE_NAME).downloadURL { (url, error) in
+            storage.child(FILE_NAME).downloadURL { (url, error) in
                 if error != nil {
                     // Handle any errors
                     print((error?.localizedDescription)!)
