@@ -112,16 +112,16 @@ struct CommerceVIew: View {
                             .padding(.leading, 7)
                             
                             HStack(spacing : 15){
-                                ProductView(productImage: "아임얼라이브 콤부차", productName: "아임얼라이브 콤부차", productPrice: 12500, show : $show, delay: 0.1, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
+                                ProductView(productImage: "아임얼라이브 콤부차", productName: "콤부차(4개입)", productPrice: 12500, show : $show, delay: 0.1, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
                                 
-                                ProductView(productImage: "티트리트 여우티 (20개입)", productName: "티트리트 여우티 (20개입)", productPrice: 13000, show : $show, delay: 0.2, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
+                                ProductView(productImage: "티트리트 여우티 (20개입)", productName: "티트리트 여우티(20개입)", productPrice: 13000, show : $show, delay: 0.2, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
                             }
                             HStack(spacing : 15){
-                                ProductView(productImage: "맛있닭 닭가슴살 스테이크", productName: "맛있닭 닭가슴살 스테이크", productPrice: 6500, show : $show, delay: 0.3, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
-                                ProductView(productImage: "티젠 콤부차 (10개입)", productName: "티젠 콤부차 (10개입)", productPrice: 4000, show : $show, delay: 0.4, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
+                                ProductView(productImage: "맛있닭 닭가슴살 스테이크", productName: "닭가슴살 스테이크(5개입)", productPrice: 6500, show : $show, delay: 0.3, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
+                                ProductView(productImage: "티젠 콤부차 (10개입)", productName: "티젠 콤부차(10개입)", productPrice: 4000, show : $show, delay: 0.4, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
                             }
                             HStack(spacing : 15){
-                                ProductView(productImage: "컵누들", productName: "컵누들", productPrice: 4000, show : $show, delay: 0.5, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
+                                ProductView(productImage: "컵누들", productName: "컵누들(1개입)", productPrice: 1000, show : $show, delay: 0.5, showBuy: $showBuy, buyProductName: $buyProductName, buyProductPrice: $buyProductPrice)
                                 Rectangle()
                                     .frame(width: 180, height: 180)
                                     .opacity(0)

@@ -2,12 +2,24 @@
 import SwiftUI
 import FirebaseStorage
 import Combine
+import Kingfisher
+
+let PROFILE_FILE_NAME = "Diary/\(makeEmailString())/ProfileImage.jpg"
+let DOWNLOAD_PROFILE_FILE_NAME = "Diary/\(makeEmailString())/ProfileImage_300x300.jpg"
+
+let PROFILE_FILE_NAME2 = "Diary/\(makeEmailString())/ProfileImage2.jpg"
+let DOWNLOAD_PROFILE_FILE_NAME2 = "Diary/\(makeEmailString())/ProfileImage2_300x300.jpg"
 
 struct ProfileImagePicker: UIViewControllerRepresentable {
 
     @Binding var shown: Bool
     @Binding var imageURL:String
+   
     @State var isProfile : Bool = false
+    
+    @Binding var isChangedProfile : Bool
+    @Binding var userImageURL : String
+    
     func makeCoordinator() -> ProfileImagePicker.Coordinator {
         return ProfileImagePicker.Coordinator(parent: self)
     }
@@ -48,14 +60,23 @@ struct ProfileImagePicker: UIViewControllerRepresentable {
                 
                 print("Upload size is \(size)")
                 print("Upload success")
+                self.parent.isChangedProfile = true
+             
                 self.downloadProfileImageFromFirebase()
+           
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.parent.isChangedProfile = false
+                }
+                
+               
+                
             }
         }
-        
+      
         
         func downloadProfileImageFromFirebase() {
             // Create a reference to the file you want to download
-            storage.child(PROFILE_FILE_NAME).downloadURL { (url, error) in
+            storage.child(DOWNLOAD_PROFILE_FILE_NAME).downloadURL { (url, error) in
                 if error != nil {
                     // Handle any errors
                     print((error?.localizedDescription)!)
@@ -64,7 +85,7 @@ struct ProfileImagePicker: UIViewControllerRepresentable {
                 print("Download success")
                 self.parent.imageURL = "\(url!)"
                 self.parent.shown.toggle()
-                
+               
                 self.listOfImageFile()
             }
         }
@@ -89,7 +110,8 @@ struct ProfileImagePicker: UIViewControllerRepresentable {
             }
         }
     }
-    
+  
+
     func makeUIViewController(context: UIViewControllerRepresentableContext<ProfileImagePicker>) -> UIImagePickerController {
         let imagepic = UIImagePickerController()
         imagepic.sourceType = .photoLibrary

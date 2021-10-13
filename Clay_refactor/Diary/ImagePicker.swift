@@ -2,6 +2,11 @@
 import SwiftUI
 import FirebaseStorage
 import Combine
+import Kingfisher
+
+let FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString()).jpg"
+let DOWNLOAD_FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString())_200x200.jpg"
+
 
 struct imagePicker: UIViewControllerRepresentable {
     
@@ -9,6 +14,7 @@ struct imagePicker: UIViewControllerRepresentable {
     @Binding var imageURL:String
     @State var isProfile : Bool = false
     func makeCoordinator() -> imagePicker.Coordinator {
+        
         return imagePicker.Coordinator(parent: self)
     }
     
@@ -16,7 +22,9 @@ struct imagePicker: UIViewControllerRepresentable {
         var parent: imagePicker
         let storage = Storage.storage().reference()
         init(parent: imagePicker) {
+            
             self.parent = parent
+            
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -50,30 +58,9 @@ struct imagePicker: UIViewControllerRepresentable {
             }
         }
         
-        func uploadProfileImageToFireBase(image: UIImage) {
-            // Create the file metadata
-            let metadata = StorageMetadata()
-            metadata.contentType = "image/jpeg"
-            
-            // Upload the file to the path FILE_NAME
-            storage.child(PROFILE_FILE_NAME).putData(image.jpegData(compressionQuality: 0.42)!, metadata: metadata) { (metadata, error) in
-                guard let metadata = metadata else {
-                  // Uh-oh, an error occurred!
-                  print((error?.localizedDescription)!)
-                  return
-                }
-                // Metadata contains file metadata such as size, content-type.
-                let size = metadata.size
-                
-                print("Upload size is \(size)")
-                print("Upload success")
-                self.downloadImageFromFirebase()
-            }
-        }
-        
         func downloadImageFromFirebase() {
             // Create a reference to the file you want to download
-            storage.child(FILE_NAME).downloadURL { (url, error) in
+            storage.child(DOWNLOAD_FILE_NAME).downloadURL { (url, error) in
                 if error != nil {
                     // Handle any errors
                     print((error?.localizedDescription)!)
@@ -87,21 +74,6 @@ struct imagePicker: UIViewControllerRepresentable {
             }
         }
         
-        func downloadProfileImageFromFirebase() {
-            // Create a reference to the file you want to download
-            storage.child(PROFILE_FILE_NAME).downloadURL { (url, error) in
-                if error != nil {
-                    // Handle any errors
-                    print((error?.localizedDescription)!)
-                    return
-                }
-                print("Download success")
-                self.parent.imageURL = "\(url!)"
-                self.parent.shown.toggle()
-                
-                self.listOfImageFile()
-            }
-        }
         
         func listOfImageFile() {
             let storageReference = Storage.storage().reference().child("images/")

@@ -12,8 +12,8 @@ import FirebaseAnalytics
 import Firebase
 import FirebaseFirestore
 
-let FILE_NAME = "Diary/\(makeEmailString())/\(makeToday())/\(makeMealString()).jpg"
-let PROFILE_FILE_NAME = "Diary/\(makeEmailString())/ProfileImage.jpg"
+
+
 struct DiaryView: View {
     @ObservedObject var datas = firebaseData
     @EnvironmentObject var userData : UserData
@@ -135,6 +135,7 @@ struct DiaryView: View {
                 .opacity(show ? 1 : 0)
                 .offset(y: self.show ? 0 : 20)
                 .animation(.spring().delay(0.1))
+                .ignoresSafeArea(.keyboard)
                 
                 
                 if isSearch{
@@ -245,7 +246,7 @@ struct DiaryView: View {
                     .offset(y: self.show ? 0 : 20)
                     .animation(.easeOut.delay(0.2))
                     .padding(.bottom,20)
-                    
+                    .ignoresSafeArea(.keyboard)
                     VStack{
   
                         if datas.foodList == []{
@@ -280,7 +281,7 @@ struct DiaryView: View {
                             .offset(y: self.show ? 0 : 20)
                             .animation(.easeOut.delay(0.2))
                             .padding(.bottom,7)
-                            
+                            .ignoresSafeArea(.keyboard)
                                 
                         }else{
                             VStack{
@@ -351,7 +352,7 @@ struct DiaryView: View {
                             }
                            
                            
-                           
+                            .ignoresSafeArea(.keyboard)
                           
                             
                             
@@ -502,6 +503,7 @@ struct DiaryView: View {
                     .opacity(show ? 1 : 0)
                     .offset(y: self.show ? 0 : 20)
                     .animation(.easeOut.delay(0.35))
+                    .ignoresSafeArea(.keyboard)
                     
                     Spacer()
                     if imageURL != ""{
@@ -540,6 +542,7 @@ struct DiaryView: View {
                             }
                             
                             firebaseData.createDiary(email:userEmail , image: "image1", diaryText: diaryText ,morningKcal: datas.dietKcal ,launchKcal: datas.dietKcal ,dinnerKcal: datas.dietKcal)
+                            
                             self.isTabDiet = false
                             
                             if isDinner(){
@@ -628,7 +631,7 @@ struct DiaryView: View {
         
         .onAppear{
             
-            
+            loadImageFromFirebase()
             show = true
             datas.dietKcal = 0
             datas.foodList.removeAll()

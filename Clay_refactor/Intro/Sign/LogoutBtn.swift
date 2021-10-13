@@ -10,11 +10,13 @@ import SwiftUI
 struct LogoutBtn: View {
     @EnvironmentObject var viewModel : SignAppViewModel
     @ObservedObject var datas = firebaseData
+    @AppStorage("userEmail") var userEmail = ""
     var body: some View {
        
             
             Button(action: {
                 viewModel.singOut()
+                self.userEmail = ""
             }, label: {
                 Text("로그아웃")
                     .font(Font.custom(systemFont, size: 15))

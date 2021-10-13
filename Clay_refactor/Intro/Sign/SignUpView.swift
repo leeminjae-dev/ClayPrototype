@@ -144,7 +144,9 @@ struct SignUpView : View{
                     //가입하기
                     
                     Button(action: {
+                        
                         userEmail = userData.email
+                        
                         self.register()
                         
                         
@@ -300,7 +302,7 @@ struct SignUpView : View{
     func pushData() {
         userData.totalKcal = cal(weight: Double(userData.kgWeight)!, height: Double(userData.cmHeight)!, age: Double(userData.age)!, gender: userData.isTabMale, selectAtivate: userData.selectActive, targetWeight: Double(userData.targetWeight)!)
         
-        firebaseData.createData(email: userData.email, age: userData.age, cmHeight: userData.cmHeight, kgWeight: userData.kgWeight, targetWeight: userData.targetWeight, isTabMale: userData.isTabMale ? "Female" : "Male", nickName: userData.nickName, totalKcal: userData.totalKcal, userPoint: userData.userPoint, archieveRate: userData.archieveRate, targetArchieve: userData.targetArchieve,homeCount: 1, userMorningTime: selectMorningTime[userData.userMorningTime], userLaunchTime: selectLaunchTime[userData.userLaunchTime], userDinnerTime: selectDinnerTime[userData.userDinnerTime], archievePoint: "0")
+        firebaseData.createData(email: userData.email, age: userData.age,targetWeight: userData.targetWeight, isTabMale: userData.isTabMale ? "Female" : "Male", nickName: userData.nickName, totalKcal: userData.totalKcal, userPoint: userData.userPoint, archieveRate: userData.archieveRate, targetArchieve: userData.targetArchieve,homeCount: 1, userMorningTime: selectMorningTime[userData.userMorningTime], userLaunchTime: selectLaunchTime[userData.userLaunchTime], userDinnerTime: selectDinnerTime[userData.userDinnerTime], archievePoint: "0")
     }
 }
 

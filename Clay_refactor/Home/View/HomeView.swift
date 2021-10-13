@@ -25,13 +25,6 @@ struct HomeView: View {
     @AppStorage("firstLaunch") var firstLaunch = "0"
     @AppStorage("userProfileImage") var userProfileImage : String = ""
     
-    @State private var morningTime : Bool = false
-    
-    
-    @State private var launchTime : Bool = false
-   
-    ///var dinnerTime : Bool = isDinner()
-    @State private var dinnerTime : Bool = false
     
     /// 시간에 따라 잠금장치가 걸릴지 안걸릴지 판별
     @State var show : Bool = false
@@ -199,7 +192,7 @@ struct HomeView: View {
                                         .cornerRadius(15)
                                         .opacity(show ? 1 : 0)
                                         .offset(y: self.show ? 0 : 20)
-                                        .animation(.easeOut.delay(0.2))
+                                        .animation(.easeOut.delay(0.1))
                                     
                                     VStack(spacing : 3){
                                         
@@ -330,7 +323,7 @@ struct HomeView: View {
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.3))
+                                    .animation(.easeOut.delay(0.2))
                                     
                                     HStack(spacing: 5){
                                         ZStack{
@@ -341,7 +334,7 @@ struct HomeView: View {
                                                     .clipShape(Circle())
                                                     .padding(.trailing, 12)
                                                     .padding(.top, 7)
-                                                    
+
 
                                             }else{
                                                 ZStack{
@@ -387,7 +380,7 @@ struct HomeView: View {
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.4))
+                                    .animation(.easeOut.delay(0.3))
                                    
                                     
                                     
@@ -415,93 +408,12 @@ struct HomeView: View {
                                         .padding(.leading)
                                        
                                         VStack(spacing : 15){
-                                            if morningTime || self.isMorning(){
-                                                if datas.kcalToDisplay["morningKcal"]! != 0{
-                                                    Button(
-                                                        action: {isTabDiet = true},
-                                                        label: {
-                                                            HStack{
-                                                                Text("아침")
-                                                                    .foregroundColor(Color.white)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["morningKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.white)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.white)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("systemColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
-                                                        })//아침 기입 후
-                                                        
-                                                }else{
-                                                    Button(
-                                                        action: {isTabDiet = true},
-                                                        label: {
-                                                            HStack{
-                                                                Text("아침")
-                                                                    .foregroundColor(Color.black)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["morningKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.black)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.black)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.black.opacity(0.4), radius: 6, y:3 )
-                                                        })//아침 기입 전
-                                                        
-                                                }
-                                            
-                                            }
-                                            
-                                                else{
+                                            if morningTimeRemaining < 0{
+                                                if isMorningTimeOver{
                                                     if datas.completeList["completeMorning"]!{
-                                                        
-                                                        
                                                         ZStack{
                                                             Image(systemName: "checkmark.circle")
                                                                 .resizable()
-                                                            
                                                                 .foregroundColor(Color.white)
                                                                 .frame(width: 15, height: 15)
                                                                 .zIndex(1)
@@ -514,7 +426,7 @@ struct HomeView: View {
                                                                 
                                                                 ///Text("\(today,formatter: MealBanner.dateFormat)")
                                                                 
-                                                                
+                                                           
                                                                 Spacer()
                                                                 
                                                                 HStack{
@@ -536,48 +448,17 @@ struct HomeView: View {
                                                                     .background(Color.init("systemColor"))
                                                                     .cornerRadius(60)
                                                                     
-                                                        }//아침 시간 지나고 성공
-                                                        
-                                                    }
-                                                    else{
-                                                        if isMorningTimeOver{
-                                                            ZStack{
-                                                                Image(systemName: "multiply.circle")
-                                                                    .resizable()
-                                                                    .foregroundColor(Color.white)
-                                                                    .frame(width: 15, height: 15)
-                                                                    .zIndex(1)
-                                                                HStack{
-                                                                        Text("아침")
-                                                                        .foregroundColor(Color.gray)
-                                                                            .fontWeight(.bold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            .padding(.leading,30)
-                                                                    Spacer()
-                                                                    
-                                                                    
-                                                                    Spacer()
-                                                                    HStack{
-                                                                       
-                                                                        Text("Kcal")
-                                                                            .foregroundColor(Color.gray)
-                                                                            .fontWeight(.semibold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            
-                                                                        }
-                                                                    .padding(.trailing)
-                                                                        
-                                                                        
-                                                                        }
-                                                                
-                                                                        .frame(width: 345, height: 70)
-                                                                        .background(Color.gray.opacity(0.4))
-                                                                        .cornerRadius(60)
-                                                                        
-                                                            }//아침 시간 지나고 실패
-                                                           
-                                                        }else{
+                                                        }
+                                                        //아침 시간 지나고 성공
+                                                    }else{
+                                                        ZStack{
+                                                            Image(systemName: "multiply.circle")
+                                                                .resizable()
+                                                                .foregroundColor(Color.white)
+                                                                .frame(width: 15, height: 15)
+                                                                .zIndex(1)
                                                             HStack{
+                                                                
                                                                     Text("아침")
                                                                     .foregroundColor(Color.gray)
                                                                         .fontWeight(.bold)
@@ -585,13 +466,7 @@ struct HomeView: View {
                                                                         .padding(.leading,30)
                                                                 Spacer()
                                                                 
-                                                                Image(systemName: "alarm")
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                Text("\(timeString(time: morningTimeRemaining))")
-                                                                    .fontWeight(.bold)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                    .padding(.trailing, 15)
+                                                               
                                                                 Spacer()
                                                                 HStack{
                                                                    
@@ -607,96 +482,130 @@ struct HomeView: View {
                                                                     }
                                                             
                                                                     .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
+                                                                    .background(Color.gray.opacity(0.4))
                                                                     .cornerRadius(60)
-                                                        }/// 아침 시간 지나기 전
-                                                        
+                                                                   
+                                                        }
+                                                        //아침 시간 지나고 실패
+                                                    }
+                                                }else{
+                                                    if datas.completeList["completeMorning"]!{
+                                                        Button(
+                                                            
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("아침")
+                                                                        .foregroundColor(Color.white)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("\(datas.kcalToDisplay["morningKcal"]!,specifier: "%.0f")")
+                                                                            .foregroundColor(Color.white)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.white)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("systemColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
+                                                            })
+                                                        // 아침 칼로리 기입 후
+                                                    }else{
+                                                        Button(
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("아침")
+                                                                        .foregroundColor(Color.black)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("0")
+                                                                            .foregroundColor(Color.black)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.black)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("lockedColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                            })
+                                                        // 아침 칼로리 기입 전
                                                     }
                                                     
-                                                           
                                                 }
-                                               
-                                            if launchTime || isLaunch(){
                                                 
-                                                if datas.kcalToDisplay["launchKcal"]! != 0{
-                                                    Button(
-                                                        
-                                                        action: {isTabDiet = true},
-                                                        label: {
-                                                            HStack{
-                                                                Text("점심")
-                                                                    .foregroundColor(Color.white)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["launchKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.white)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.white)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("systemColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
-                                                        }) /// 점심 기입 후
-                                                }else{
-                                                    Button(
-                                                        action: {isTabDiet = true},
-                                                        label: {
-                                                            HStack{
-                                                                Text("점심")
-                                                                    .foregroundColor(Color.black)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["launchKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.black)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.black)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
-                                                        })
-                                                } /// 점심 기입 전
-                                               
+                                            }else{
+                                                HStack{
+                                                        Text("아침")
+                                                        .foregroundColor(Color.gray)
+                                                            .fontWeight(.bold)
+                                                            .font(Font.custom(systemFont, size: 15))
+                                                            .padding(.leading,30)
+                                                    Spacer()
                                                     
+                                                    Image(systemName: "alarm")
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                    Text("\(timeString(time: morningTimeRemaining))")
+                                                        .fontWeight(.bold)
+                                                        .font(Font.custom(systemFont, size: 15))
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                        .padding(.trailing, 15)
+                                                    Spacer()
+                                                    HStack{
+                                                       
+                                                        Text("Kcal")
+                                                            .foregroundColor(Color.gray)
+                                                            .fontWeight(.semibold)
+                                                            .font(Font.custom(systemFont, size: 15))
+                                                            
+                                                        }
+                                                    .padding(.trailing)
+                                                        
+                                                        
+                                                        }
+                                                
+                                                        .frame(width: 345, height: 70)
+                                                        .background(Color.init("lockedColor"))
+                                                        .cornerRadius(60)
+                                                //아침 타이머
                                             }
-                                            
-                                                else{
+                                               
+                                            if launchTimeRemaining < 0{
+                                                if isLaunchTimeOver{
                                                     if datas.completeList["completeLaunch"]!{
                                                         ZStack{
                                                             Image(systemName: "checkmark.circle")
@@ -736,48 +645,16 @@ struct HomeView: View {
                                                                     .cornerRadius(60)
                                                                     
                                                         }
-                                                       
-                                                    } /// 점심 시간 지나고 성공
-                                                    else{
-                                                        if isLaunchTimeOver{
-                                                            ZStack{
-                                                                Image(systemName: "multiply.circle")
-                                                                    .resizable()
-                                                                    .foregroundColor(Color.white)
-                                                                    .frame(width: 15, height: 15)
-                                                                    .zIndex(1)
-                                                                HStack{
-                                                                    
-                                                                        Text("점심")
-                                                                        .foregroundColor(Color.gray)
-                                                                            .fontWeight(.bold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            .padding(.leading,30)
-                                                                    Spacer()
-                                                                    
-                                                                   
-                                                                    Spacer()
-                                                                    HStack{
-                                                                       
-                                                                        Text("Kcal")
-                                                                            .foregroundColor(Color.gray)
-                                                                            .fontWeight(.semibold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            
-                                                                        }
-                                                                    .padding(.trailing)
-                                                                        
-                                                                        
-                                                                        }
-                                                                
-                                                                        .frame(width: 345, height: 70)
-                                                                        .background(Color.gray.opacity(0.4))
-                                                                        .cornerRadius(60)
-                                                                       
-                                                            } // 점심 시간 지나고 실패
-                                                           
-                                                        }else{
+                                                        //점심 시간 지나고 성공
+                                                    }else{
+                                                        ZStack{
+                                                            Image(systemName: "multiply.circle")
+                                                                .resizable()
+                                                                .foregroundColor(Color.white)
+                                                                .frame(width: 15, height: 15)
+                                                                .zIndex(1)
                                                             HStack{
+                                                                
                                                                     Text("점심")
                                                                     .foregroundColor(Color.gray)
                                                                         .fontWeight(.bold)
@@ -785,13 +662,7 @@ struct HomeView: View {
                                                                         .padding(.leading,30)
                                                                 Spacer()
                                                                 
-                                                                Image(systemName: "alarm")
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                Text("\(timeString(time: launchTimeRemaining))")
-                                                                    .fontWeight(.bold)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                    .padding(.trailing, 15)
+                                                               
                                                                 Spacer()
                                                                 HStack{
                                                                    
@@ -807,106 +678,136 @@ struct HomeView: View {
                                                                     }
                                                             
                                                                     .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
+                                                                    .background(Color.gray.opacity(0.4))
                                                                     .cornerRadius(60)
-                                                        }/// 점심 시간 지나기 전
-                                                        
+                                                                   
+                                                        }
+                                                        //점심 시간 지나고 실패
+                                                    }
+                                                }else{
+                                                    if datas.completeList["completeLaunch"]!{
+                                                        Button(
+                                                            
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("점심")
+                                                                        .foregroundColor(Color.white)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("\(datas.kcalToDisplay["launchKcal"]!,specifier: "%.0f")")
+                                                                            .foregroundColor(Color.white)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.white)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("systemColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
+                                                            })
+                                                        // 점심 칼로리 기입 후
+                                                    }else{
+                                                        Button(
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("점심")
+                                                                        .foregroundColor(Color.black)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("0")
+                                                                            .foregroundColor(Color.black)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.black)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("lockedColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                            })
+                                                        // 점심 칼로리 기입 전
                                                     }
                                                     
-                                                           
                                                 }
                                                 
-                                            if dinnerTime || self.isDinner(){
-                                                if datas.kcalToDisplay["dinnerKcal"]! != 0{
-                                                    Button(
-                                                        action: {isTabDiet = true},
-                                                        label: {
+                                            }else{
+                                                HStack{
+                                                        Text("점심")
+                                                        .foregroundColor(Color.gray)
+                                                            .fontWeight(.bold)
+                                                            .font(Font.custom(systemFont, size: 15))
+                                                            .padding(.leading,30)
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "alarm")
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                    Text("\(timeString(time: launchTimeRemaining))")
+                                                        .fontWeight(.bold)
+                                                        .font(Font.custom(systemFont, size: 15))
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                        .padding(.trailing, 15)
+                                                    Spacer()
+                                                    HStack{
+                                                       
+                                                        Text("Kcal")
+                                                            .foregroundColor(Color.gray)
+                                                            .fontWeight(.semibold)
+                                                            .font(Font.custom(systemFont, size: 15))
                                                             
-                                                            HStack{
-                                                                Text("저녁")
-                                                                    .foregroundColor(Color.white)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["dinnerKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.white)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.white)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("systemColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
-                                                        }) /// 저녁 기입 후
-                                                }else{
-                                                    Button(
-                                                        action: {
-                                                            isTabDiet = true
-                                                           
-                                                            
-                                                        },
-                                                        label: {
-                                                            
-                                                            HStack{
-                                                                Text("저녁")
-                                                                    .foregroundColor(Color.black)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .padding(.leading,30)
-                                                                Spacer()
-                                                                
-                                                                ///Text("\(today,formatter: MealBanner.dateFormat)")
-                                                                
-                                                                
-                                                                Spacer()
-                                                                
-                                                                HStack{
-                                                                    Text("\(datas.kcalToDisplay["dinnerKcal"]!,specifier: "%.0f")")
-                                                                        .foregroundColor(Color.black)
-                                                                        .fontWeight(.black)
-                                                                        .font(Font.custom(systemFont, size: 20))
-                                                                    Text("Kcal")
-                                                                        .foregroundColor(Color.black)
-                                                                        .font(Font.custom(systemFont, size: 15))
-                                                                        
-                                                                    }
-                                                                    .padding(.trailing)
-                                                                    
-                                                                    
-                                                                    }
-                                                            
-                                                                    .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
-                                                                    .cornerRadius(60)
-                                                                    .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
-                                                        })
-                                                }
+                                                        }
+                                                    .padding(.trailing)
+                                                        
+                                                        
+                                                        }
+                                                
+                                                        .frame(width: 345, height: 70)
+                                                        .background(Color.init("lockedColor"))
+                                                        .cornerRadius(60)
+                                                //아침 타이머
+                                            }
                                                
                                                 
-                                            }// 저녁 기입 전
-                                            
-                                                else{
-                                                    
+                                            if dinnerTimeRemaining < 0{
+                                                if isDinnerTimeOver{
                                                     if datas.completeList["completeDinner"]!{
                                                         ZStack{
                                                             Image(systemName: "checkmark.circle")
                                                                 .resizable()
-                                                                .foregroundColor(.white)
+                                                                .foregroundColor(Color.white)
                                                                 .frame(width: 15, height: 15)
                                                                 .zIndex(1)
                                                             HStack{
@@ -918,6 +819,7 @@ struct HomeView: View {
                                                                 
                                                                 ///Text("\(today,formatter: MealBanner.dateFormat)")
                                                                 
+                                                           
                                                                 Spacer()
                                                                 
                                                                 HStack{
@@ -938,49 +840,18 @@ struct HomeView: View {
                                                                     .frame(width: 345, height: 70)
                                                                     .background(Color.init("systemColor"))
                                                                     .cornerRadius(60)
-                                                                   
+                                                                    
                                                         }
-                                                        
-                                                    } // 시간지나고 성공
-                                                    else{
-                                                        if isDinnerTimeOver{
-                                                            ZStack{
-                                                                Image(systemName: "multiply.circle")
-                                                                    .resizable()
-                                                                    .foregroundColor(Color.white)
-                                                                    .frame(width: 15, height: 15)
-                                                                    .zIndex(1)
-                                                                HStack{
-                                                                        Text("저녁")
-                                                                        .foregroundColor(Color.gray)
-                                                                            .fontWeight(.bold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            .padding(.leading,30)
-                                                                    Spacer()
-                                                                    
-                                                                    
-                                                                    Spacer()
-                                                                    HStack{
-                                                                       
-                                                                        Text("Kcal")
-                                                                            .foregroundColor(Color.gray)
-                                                                            .fontWeight(.semibold)
-                                                                            .font(Font.custom(systemFont, size: 15))
-                                                                            
-                                                                        }
-                                                                    .padding(.trailing)
-                                                                        
-                                                                        
-                                                                        }
-                                                                
-                                                                        .frame(width: 345, height: 70)
-                                                                        .background(Color.gray.opacity(0.4))
-                                                                        .cornerRadius(60)
-                                                                        
-                                                            }// 저녁 시간 지나고 실패
-                                                           
-                                                        }else{
+                                                        //저녁 시간 지나고 성공
+                                                    }else{
+                                                        ZStack{
+                                                            Image(systemName: "multiply.circle")
+                                                                .resizable()
+                                                                .foregroundColor(Color.white)
+                                                                .frame(width: 15, height: 15)
+                                                                .zIndex(1)
                                                             HStack{
+                                                                
                                                                     Text("저녁")
                                                                     .foregroundColor(Color.gray)
                                                                         .fontWeight(.bold)
@@ -988,13 +859,7 @@ struct HomeView: View {
                                                                         .padding(.leading,30)
                                                                 Spacer()
                                                                 
-                                                                Image(systemName: "alarm")
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                Text("\(timeString(time: dinnerTimeRemaining))")
-                                                                    .fontWeight(.bold)
-                                                                    .font(Font.custom(systemFont, size: 15))
-                                                                    .foregroundColor(Color.init("timeColor"))
-                                                                    .padding(.trailing, 15)
+                                                               
                                                                 Spacer()
                                                                 HStack{
                                                                    
@@ -1010,14 +875,128 @@ struct HomeView: View {
                                                                     }
                                                             
                                                                     .frame(width: 345, height: 70)
-                                                                    .background(Color.init("lockedColor"))
+                                                                    .background(Color.gray.opacity(0.4))
                                                                     .cornerRadius(60)
-                                                        }/// 저녁 시간 지나기 전
-                                                        
+                                                                   
+                                                        }
+                                                        //저녁 시간 지나고 실패
+                                                    }
+                                                }else{
+                                                    if datas.completeList["completeDinner"]!{
+                                                        Button(
+                                                            
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("저녁")
+                                                                        .foregroundColor(Color.white)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("\(datas.kcalToDisplay["dinnerKcal"]!,specifier: "%.0f")")
+                                                                            .foregroundColor(Color.white)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.white)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("systemColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.init("shadowColor").opacity(0.68), radius: 3, y:3 )
+                                                            })
+                                                        // 저녁 칼로리 기입 후
+                                                    }else{
+                                                        Button(
+                                                            action: {isTabDiet = true},
+                                                            label: {
+                                                                HStack{
+                                                                    Text("저녁")
+                                                                        .foregroundColor(Color.black)
+                                                                        .font(Font.custom(systemFont, size: 15))
+                                                                        .padding(.leading,30)
+                                                                    Spacer()
+                                                                    
+                                                                    ///Text("\(today,formatter: MealBanner.dateFormat)")
+                                                                    
+                                                                    
+                                                                    Spacer()
+                                                                    
+                                                                    HStack{
+                                                                        Text("0")
+                                                                            .foregroundColor(Color.black)
+                                                                            .fontWeight(.black)
+                                                                            .font(Font.custom(systemFont, size: 20))
+                                                                        Text("Kcal")
+                                                                            .foregroundColor(Color.black)
+                                                                            .font(Font.custom(systemFont, size: 15))
+                                                                            
+                                                                        }
+                                                                        .padding(.trailing)
+                                                                        
+                                                                        
+                                                                        }
+                                                                
+                                                                        .frame(width: 345, height: 70)
+                                                                        .background(Color.init("lockedColor"))
+                                                                        .cornerRadius(60)
+                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                            })
+                                                        // 저녁 칼로리 기입 전
                                                     }
                                                     
-                                                           
                                                 }
+                                                
+                                            }else{
+                                                HStack{
+                                                        Text("저녁")
+                                                        .foregroundColor(Color.gray)
+                                                            .fontWeight(.bold)
+                                                            .font(Font.custom(systemFont, size: 15))
+                                                            .padding(.leading,30)
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: "alarm")
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                    Text("\(timeString(time: dinnerTimeRemaining))")
+                                                        .fontWeight(.bold)
+                                                        .font(Font.custom(systemFont, size: 15))
+                                                        .foregroundColor(Color.init("timeColor"))
+                                                        .padding(.trailing, 15)
+                                                    Spacer()
+                                                    HStack{
+                                                       
+                                                        Text("Kcal")
+                                                            .foregroundColor(Color.gray)
+                                                            .fontWeight(.semibold)
+                                                            .font(Font.custom(systemFont, size: 15))
+                                                            
+                                                        }
+                                                    .padding(.trailing)
+                                                        
+                                                        
+                                                        }
+                                                
+                                                        .frame(width: 345, height: 70)
+                                                        .background(Color.init("lockedColor"))
+                                                        .cornerRadius(60)
+                                                //저녁 타이머
+                                            }
+                                               
                                             HStack{
                                                 Spacer()
                                                 if datas.kcalToDisplay["snackKcal"]! != 0{
@@ -1096,7 +1075,7 @@ struct HomeView: View {
                                     .cornerRadius(15)
                                     .opacity(show ? 1 : 0)
                                     .offset(y: self.show ? 0 : 20)
-                                    .animation(.easeOut.delay(0.5))
+                                    .animation(.easeOut.delay(0.4))
                                     
                                     Rectangle()
                                         .frame(width : 390, height : 140)
@@ -1346,6 +1325,8 @@ struct HomeView: View {
                 .navigationBarHidden(true)
                 .onAppear{
                     
+                    delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
+                    
                     let docRef = Firestore.firestore().collection("UserData").document(userEmail).collection("Calendar").document(makeTodayDetail())
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
@@ -1357,10 +1338,8 @@ struct HomeView: View {
                         }
                     }
                           
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                        show = true
-                    }
-                    
+                   
+                    show = true
                     
                     if firstPop == "0"{
                         showingPopup = true
@@ -1390,17 +1369,8 @@ struct HomeView: View {
                     datas.calendarCall(email: userEmail)
                     datas.calendarkcalCall(email: userEmail)
                     
-                    if morningTimeRemaining < 0{
-                        
-                        isMorningTimeOver = true
-                    }
-                    if launchTimeRemaining < 0{
-                        
-                        isLaunchTimeOver = true
-                    }
-                    if dinnerTimeRemaining < 0{
-                       
-                        isDinnerTimeOver = true
+                   
+                    if dinnerTimeRemaining < -7200{
                         
                         if  datas.dataToDisplay["userPoint"]! == "0" && (datas.completeList["completeMorning"]!  == false || datas.completeList["completeLaunch"]!  == false || datas.completeList["completeDinner"]! == false){
                             
@@ -1431,10 +1401,7 @@ struct HomeView: View {
            
             .onReceive(timer){input in
                 
-                
-                
-                delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
-              
+            
                 if isMorning(){
                     
                     
@@ -1455,56 +1422,7 @@ struct HomeView: View {
                 
                 
                 isTimeEnd()
-                
-                if timeNow == "\(datas.userTimeToDisPlay["userMorningTime"]!):00:00"{
-                   
-                    morningTime = true
-                    
-                }
-                
-                if timeNow == "\(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00:00"{
-                    
-                    morningTime = false
-                    isMorningTimeOver = true
-                    
-                }
-                
-                if timeNow == "\(datas.userTimeToDisPlay["userLaunchTime"]!):00:00"{
-                    
-                    launchTime = true
-                    
-                    
-                }
-                if timeNow == "\(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00:00"{
-                    
-                    launchTime = false
-                    
-                }
-                
-                if timeNow == "\(datas.userTimeToDisPlay["userDinnerTime"]!):00:00"{
-                    
-                  
-                    dinnerTime = true
-                   
-                    
-                }
-                if timeNow == "\(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00:00"{
-                   
-                    dinnerTime = false
-                    if  datas.dataToDisplay["userPoint"]! == "0" && (!datas.completeList["completeMorning"]! || !datas.completeList["completeLaunch"]! || !datas.completeList["completeDinner"]!){
-                        
-                        showingFailPopup = true
-                    }
-                }
-               
-                if timeNow == "00:00:00"{
-                    
-                    morningTime = false
-                    launchTime = false
-                    dinnerTime = false
-                 
-                }
-                
+
                 morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - getTimeToSeconds()
                 launchTimeRemaining = Int(datas.userTimeToDisPlay["userLaunchTime"]!)! * 3600 - getTimeToSeconds()
                 dinnerTimeRemaining = Int(datas.userTimeToDisPlay["userDinnerTime"]!)! * 3600 - getTimeToSeconds()
@@ -1513,14 +1431,19 @@ struct HomeView: View {
                 
                
                 
-                if morningTimeRemaining < 0{
+                if morningTimeRemaining < -7200{
                     isMorningTimeOver = true
                 }
-                if launchTimeRemaining < 0{
+                if launchTimeRemaining < -7200{
                     isLaunchTimeOver = true
                 }
-                if dinnerTimeRemaining < 0{
+                if dinnerTimeRemaining < -7200{
                     isDinnerTimeOver = true
+                    
+                    if  datas.dataToDisplay["userPoint"]! == "0" && (!datas.completeList["completeMorning"]! || !datas.completeList["completeLaunch"]! || !datas.completeList["completeDinner"]!){
+                        
+                        showingFailPopup = true
+                    }
                 }
                 
               
@@ -1554,7 +1477,7 @@ struct HomeView: View {
         
                    let today_string = String(hour!)
                    
-        if today_string == datas.userTimeToDisPlay["userMorningTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+        if today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2) || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
             return true
                }
         else{
@@ -1604,7 +1527,7 @@ struct HomeView: View {
    
     
     func loadImageFromFirebase() {
-        let storage = Storage.storage().reference(withPath: FILE_NAME)
+        let storage = Storage.storage().reference(withPath: DOWNLOAD_FILE_NAME)
         storage.downloadURL { (url, error) in
             if error != nil {
                 print((error?.localizedDescription)!)
@@ -1667,7 +1590,25 @@ var dateFormatter: DateFormatter {
         return fmtr
 }
 
+func isMorning() -> Bool{
+    @ObservedObject var datas = firebaseData
+    
+               let date = Date()
+               let calender = Calendar.current
+               let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+    
+               let hour = components.hour
+    
+               let today_string = String(hour!)
+               
+    if today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+        return true
+           }
+    else{
+        return false
+    }
 
+}
 
 
 
@@ -1682,7 +1623,7 @@ func isLaunch() -> Bool{
 
    let today_string = String(hour!)
 
-    if today_string == datas.userTimeToDisPlay["userLaunchTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)! + 1){
+    if today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)! + 1){
         return true
            }
     else{
@@ -1701,7 +1642,7 @@ func isDinner() -> Bool{
     
                let today_string = String(hour!)
                
-    if today_string == datas.userTimeToDisPlay["userDinnerTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)! + 1){
+    if today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)! + 1){
         return true
            }
     else{
@@ -1732,25 +1673,7 @@ func getTimeToSeconds() -> Int{
 }
 
 
-func isMorning() -> Bool{
-    @ObservedObject var datas = firebaseData
-    
-               let date = Date()
-               let calender = Calendar.current
-               let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-    
-               let hour = components.hour
-    
-               let today_string = String(hour!)
-               
-    if today_string == datas.userTimeToDisPlay["userMorningTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
-        return true
-           }
-    else{
-        return false
-    }
 
-}
 struct PullToRefresh: View {
     
     var coordinateSpaceName: String

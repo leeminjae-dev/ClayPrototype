@@ -487,7 +487,7 @@ struct CustomDatePicker: View {
     func extraDate()->[String]{
         
         let calendar = Calendar.current
-        let month = calendar.component(.month, from: currentDate) - 1
+        let month = calendar.component(.month, from: currentDate) 
         let year = calendar.component(.year, from: currentDate)
         
         return ["\(year)",calendar.monthSymbols[month], "\(month)"]

@@ -40,16 +40,11 @@ class FirebaseData: ObservableObject {
     @Published var dietKcal : Float = 0
     @Published var calendarToDisplay : [String : String] = ["level" : "0", "date" : ""]
     @Published var calendarKcalToDisplay : [String : Float] = ["kcal" : 0]
-    init() {
-        readData()
-        
-    }
+ 
     
     // Reference link: https://firebase.google.com/docs/firestore/manage-data/add-data
     func createData(email: String,
                     age : String,
-                    cmHeight: String,
-                    kgWeight : String,
                     targetWeight : String,
                     isTabMale : String,
                     nickName : String,
@@ -69,8 +64,6 @@ class FirebaseData: ObservableObject {
         dbCollection.document(email).setData([      "id" : dbCollection.document().documentID,
                                                     "email" : email,
                                                     "age" :age,
-                                                    "height":cmHeight,
-                                                    "weight":kgWeight,
                                                     "targetWeight":targetWeight,
                                                     "gender" : isTabMale,
                                                     "nickName":nickName,
@@ -97,65 +90,7 @@ class FirebaseData: ObservableObject {
     
     
     // Reference link : https://firebase.google.com/docs/firestore/query-data/listen
-    func readData() {
-        
-        dbCollection.addSnapshotListener { (documentSnapshot, err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
-                return
-            }else {
-                print("read data success")
-            }
-            
-            documentSnapshot!.documentChanges.forEach { diff in
-                // Real time create from server
-                if (diff.type == .added) {
-                    let msgData = ThreadDataType(id : dbCollection.document().documentID,
-                                                 email: diff.document.get("email") as! String?,
-                                                 age: diff.document.get("age") as! String?,
-                                                 cmHeight: diff.document.get("height") as! String?,
-                                                 kgWeight: diff.document.get("weight") as! String?,
-                                                 targetWeight: diff.document.get("targetWeight") as! String?,
-                                                 isTabMale: diff.document.get("gender") as! String?,
-                                                 nickName: diff.document.get("nickName") as! String?,
-                                                 date: diff.document.get("date") as! String?,
-                                                 userPoint: diff.document.get("userPoint") as! String?,
-                                                 totalKcal: diff.document.get("Kcal") as! String?,
-                                                 archieveRate: diff.document.get("archieveRate") as! String?,
-                                                 targetArchieve : diff.document.get("targetArchieve") as! String?,
-                                                 archievePoint : diff.document.get("archievePoint") as! String?)
-                    self.data.append(msgData)
-                }
-                
-                // Real time modify from server
-                if (diff.type == .modified) {
-                    self.data = self.data.map { (eachData) -> ThreadDataType in
-                        var data = eachData
-                        if data.email == diff.document.documentID {
-                            data.age = diff.document.get("age") as! String?
-                            data.cmHeight = diff.document.get("height") as! String?
-                            data.kgWeight = diff.document.get("weight") as! String?
-                            data.targetWeight = diff.document.get("targetWeight") as! String?
-                            data.isTabMale = diff.document.get("gender") as! String?
-                            data.nickName = diff.document.get("nickName") as! String?
-                            data.date = diff.document.get("date") as! String?
-                            data.userPoint = diff.document.get("userPoint") as! String?
-                            data.totalKcal = diff.document.get("Kcal") as! String?
-                            data.archieveRate = diff.document.get("archieveRate") as! String?
-                            data.targetArchieve = diff.document.get("targetArchieve") as! String?
-                            data.archieveRate = diff.document.get("archieveRate") as! String?
-                            return data
-                            
-                        }else {
-                            
-                            return eachData
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
     
     //Reference link: https://firebase.google.com/docs/firestore/manage-data/delete-data
     func deleteData(datas: FirebaseData ,index: IndexSet) {
@@ -212,7 +147,63 @@ class FirebaseData: ObservableObject {
             "archievePoint" : archievePoint             ])
     }
     
-    
+    func readUserTime() {
+        
+        dbCollection.addSnapshotListener { (documentSnapshot, err) in
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }else {
+                print("read data success")
+            }
+            
+            documentSnapshot!.documentChanges.forEach { diff in
+                // Real time create from server
+                if (diff.type == .added) {
+                    let msgData = ThreadDataType(id : dbCollection.document().documentID,
+                                                 email: diff.document.get("email") as! String?,
+                                                 age: diff.document.get("age") as! String?,
+                                                
+                                                 targetWeight: diff.document.get("targetWeight") as! String?,
+                                                 isTabMale: diff.document.get("gender") as! String?,
+                                                 nickName: diff.document.get("nickName") as! String?,
+                                                 date: diff.document.get("date") as! String?,
+                                                 userPoint: diff.document.get("userPoint") as! String?,
+                                                 totalKcal: diff.document.get("Kcal") as! String?,
+                                                 archieveRate: diff.document.get("archieveRate") as! String?,
+                                                 targetArchieve : diff.document.get("targetArchieve") as! String?,
+                                                 archievePoint : diff.document.get("archievePoint") as! String?)
+                    self.data.append(msgData)
+                }
+                
+                // Real time modify from server
+                if (diff.type == .modified) {
+                    self.data = self.data.map { (eachData) -> ThreadDataType in
+                        var data = eachData
+                        if data.email == diff.document.documentID {
+                            data.age = diff.document.get("age") as! String?
+                          
+                            data.targetWeight = diff.document.get("targetWeight") as! String?
+                            data.isTabMale = diff.document.get("gender") as! String?
+                            data.nickName = diff.document.get("nickName") as! String?
+                            data.date = diff.document.get("date") as! String?
+                            data.userPoint = diff.document.get("userPoint") as! String?
+                            data.totalKcal = diff.document.get("Kcal") as! String?
+                            data.archieveRate = diff.document.get("archieveRate") as! String?
+                            data.targetArchieve = diff.document.get("targetArchieve") as! String?
+                            data.archieveRate = diff.document.get("archieveRate") as! String?
+                            return data
+                            
+                        }else {
+                            
+                            return eachData
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     func updateTargetArchieve(
         email : String,

@@ -42,6 +42,7 @@ struct SnackDiaryView: View {
     @State var show : Bool = false
     
     @State var isPhoto : Bool = false
+    @State var isSuccess : Bool = false
     @State var errorMessage : String = ""
     
     @State var customFoodName : String = ""
@@ -63,6 +64,7 @@ struct SnackDiaryView: View {
             WrongResetPasswordErrorView(alert: $isPhoto, errorMassage: $errorMessage)
                
                 .zIndex(1)
+           
             VStack{
                 HStack{
                     Button(action: {
@@ -460,6 +462,8 @@ struct SnackDiaryView: View {
     }
     var CustomNutritionAddView : some View{
         ZStack{
+            SuccessAlertView(alert: $isSuccess, errorMassage: $errorMessage)
+                .zIndex(1)
             if isPhoto{
                 WrongResetPasswordErrorView(alert: $isPhoto, errorMassage: $errorMessage)
                     .zIndex(2)
@@ -546,7 +550,16 @@ struct SnackDiaryView: View {
                     }
                 }else{
                     Button(action :{
-                        isSearch = false
+                        errorMessage = "식단 추가가 완료되었습니다."
+                        if #available(iOS 15, *){
+                            isSearch = false
+                        }else{
+                            isSuccess = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                isSuccess = false
+                            }
+                        }
+                       
                         datas.createSnackFoodList(email: userEmail, foodName: customFoodName, serveSize: customServeSize, kcal : "\(Float(customKcal)!)")
                         customKcal = ""
                         customFoodName = ""

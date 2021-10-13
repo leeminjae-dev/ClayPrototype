@@ -9,27 +9,26 @@ import SwiftUI
 
 struct DonateView: View {
     var body: some View {
-        GeometryReader{ geometry in
-            if #available(iOS 15,*){
-                
-                Image("service")
-                    .resizable()
-                    .frame(width: 400, height: 1000)
-                    .position(x: 195, y: geometry.size.height/2.5)
         
-            }
-            
-            else{
-                
-                Image("service")
+            VStack{
+                Spacer()
+                Image(systemName: "exclamationmark.circle")
                     .resizable()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .position(x: 195, y: geometry.size.height/2)
-                    
-                
+                    .frame(width: 170, height: 170, alignment: .center)
+                    .foregroundColor(Color.init("systemColor"))
+                    .padding(.bottom, 25)
+                Text("서비스 준비중입니다.")
+                    .font(Font.custom(systemFont, size: 25))
+                    .foregroundColor(Color.init("darkGreen"))
+                    .fontWeight(.bold)
+                    .padding(.bottom, 14)
+                Text("더 나은 클레이가 되도록 노력하겠습니다.")
+                    .font(Font.custom(systemFont, size: 20))
+                Spacer()
+                Spacer()
+                Spacer()
             }
-            
-        }
+           
        
     }
 }

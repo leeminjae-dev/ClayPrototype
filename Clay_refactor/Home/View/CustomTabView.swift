@@ -53,7 +53,10 @@ struct CustomTabView: View {
                    
             } .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
                 .onAppear{
+                    
+                       
                     loadImageFromUserImageFirebase()
+                   
                 }
             
         }
@@ -61,7 +64,7 @@ struct CustomTabView: View {
         
     }
     func loadImageFromUserImageFirebase() {
-        let storage = Storage.storage().reference(withPath: "Diary/\(makeEmailString())/ProfileImage.jpg")
+        let storage = Storage.storage().reference(withPath: DOWNLOAD_PROFILE_FILE_NAME)
         storage.downloadURL { (url, error) in
             if error != nil {
                 print((error?.localizedDescription)!)

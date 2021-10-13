@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CA2F1333B46800B1ECA1E8C /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5DBC3386FE9D77E5611A5F /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
-		3DB99FEB42BC8D74DDDB51E2 /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD17E36B08410DFF29225D7 /* Pods_Clay_refactor.framework */; };
+		61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
+		7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */; };
+		9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */; };
 		BE24E62B26E4E0A0003D5DFC /* Clay_refactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */; };
 		BE24E62D26E4E0A0003D5DFC /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62C26E4E0A0003D5DFC /* Main.swift */; };
 		BE24E62F26E4E0A1003D5DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE24E62E26E4E0A1003D5DFC /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		BE24E6A826E5A2E3003D5DFC /* MainLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */; };
 		BE24E6AA26E6EDAC003D5DFC /* SignSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A926E6EDAC003D5DFC /* SignSuccessView.swift */; };
 		BE24E6AD26E71234003D5DFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6AC26E71234003D5DFC /* HomeView.swift */; };
+		BE267F172714011000D2CB7F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BE267F162714011000D2CB7F /* Kingfisher */; };
 		BE2D462D27114FC80006E864 /* ProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */; };
 		BE345D2C26FD547B00328BAE /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */; };
 		BE50036D26EB0600000DEA57 /* MealBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE50036C26EB0600000DEA57 /* MealBanner.swift */; };
@@ -101,7 +103,6 @@
 		BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203B270BAD5300AA3E47 /* ElegantCalendar */; };
 		BEFE203F270BB40300AA3E47 /* DateGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203E270BB40300AA3E47 /* DateGrid */; };
 		BEFE204A270C256D00AA3E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */; };
-		D36B792DC47FCA2938C9623C /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50E2077B2C22FCA6CF397A4 /* Pods_Clay_refactorTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,13 +147,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01260B1BF4447B390062574A /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
-		2F5DBC3386FE9D77E5611A5F /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F5B6125615A7882CB4ECC6B /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		67FD054554A3EEF263E7DBC4 /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
-		9B5CD6F689DB49B121850C81 /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
-		A2808E18F793A69650E565C8 /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
-		A50E2077B2C22FCA6CF397A4 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
+		2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
+		672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
+		74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1E7BEA27099E5B0000522D /* Clay_refactor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clay_refactor.entitlements; sourceTree = "<group>"; };
 		BE24E62726E4E0A0003D5DFC /* Clay_refactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clay_refactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clay_refactorApp.swift; sourceTree = "<group>"; };
@@ -273,8 +275,7 @@
 		BEFE1F8B270B4E8500AA3E47 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEFE1F8D270B4E8500AA3E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FAD17E36B08410DFF29225D7 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB7692FE2514405BAD96A690 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,9 +287,10 @@
 				BE8964AD271019A600BDC896 /* SwiftUIRefresh in Frameworks */,
 				BE7F4AEF270567880081B7C4 /* ConfettiSwiftUI in Frameworks */,
 				BE7F4A99270566240081B7C4 /* PopupView in Frameworks */,
+				BE267F172714011000D2CB7F /* Kingfisher in Frameworks */,
 				BE9147192709E7A0009F1522 /* Alamofire in Frameworks */,
 				BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */,
-				3DB99FEB42BC8D74DDDB51E2 /* Pods_Clay_refactor.framework in Frameworks */,
+				7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D36B792DC47FCA2938C9623C /* Pods_Clay_refactorTests.framework in Frameworks */,
+				9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CA2F1333B46800B1ECA1E8C /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
+				61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,12 +316,12 @@
 		5694BDBB44867D20DFBFEA3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				67FD054554A3EEF263E7DBC4 /* Pods-Clay_refactor.debug.xcconfig */,
-				9B5CD6F689DB49B121850C81 /* Pods-Clay_refactor.release.xcconfig */,
-				FB7692FE2514405BAD96A690 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
-				01260B1BF4447B390062574A /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
-				4F5B6125615A7882CB4ECC6B /* Pods-Clay_refactorTests.debug.xcconfig */,
-				A2808E18F793A69650E565C8 /* Pods-Clay_refactorTests.release.xcconfig */,
+				672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */,
+				5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */,
+				8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
+				C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
+				2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */,
+				26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -655,9 +657,9 @@
 				BE7F4AB3270566400081B7C4 /* leveldb.framework */,
 				BE7F4AB4270566400081B7C4 /* nanopb.framework */,
 				BE7F4AB5270566400081B7C4 /* openssl_grpc.framework */,
-				FAD17E36B08410DFF29225D7 /* Pods_Clay_refactor.framework */,
-				2F5DBC3386FE9D77E5611A5F /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
-				A50E2077B2C22FCA6CF397A4 /* Pods_Clay_refactorTests.framework */,
+				579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */,
+				74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
+				3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -669,13 +671,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64C26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactor" */;
 			buildPhases = (
-				CAA00958B15B542B3C537371 /* [CP] Check Pods Manifest.lock */,
+				BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */,
 				BE24E62326E4E0A0003D5DFC /* Sources */,
 				BE24E62426E4E0A0003D5DFC /* Frameworks */,
 				BE24E62526E4E0A0003D5DFC /* Resources */,
 				BE7F4AF1270567880081B7C4 /* Embed Frameworks */,
 				BEFE1F91270B4E8500AA3E47 /* Embed App Extensions */,
-				C26EEDEE11E874AB09CBF9C4 /* [CP] Embed Pods Frameworks */,
+				5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -689,6 +691,7 @@
 				BEFE203B270BAD5300AA3E47 /* ElegantCalendar */,
 				BEFE203E270BB40300AA3E47 /* DateGrid */,
 				BE8964AC271019A600BDC896 /* SwiftUIRefresh */,
+				BE267F162714011000D2CB7F /* Kingfisher */,
 			);
 			productName = Clay_refactor;
 			productReference = BE24E62726E4E0A0003D5DFC /* Clay_refactor.app */;
@@ -698,7 +701,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64F26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorTests" */;
 			buildPhases = (
-				440BF08DB30C8396B1B935EA /* [CP] Check Pods Manifest.lock */,
+				A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */,
 				BE24E63426E4E0A1003D5DFC /* Sources */,
 				BE24E63526E4E0A1003D5DFC /* Frameworks */,
 				BE24E63626E4E0A1003D5DFC /* Resources */,
@@ -717,11 +720,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E65226E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorUITests" */;
 			buildPhases = (
-				A78CE225C37EF191F3A9D97C /* [CP] Check Pods Manifest.lock */,
+				146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */,
 				BE24E63F26E4E0A1003D5DFC /* Sources */,
 				BE24E64026E4E0A1003D5DFC /* Frameworks */,
 				BE24E64126E4E0A1003D5DFC /* Resources */,
-				1E58585206F40EB8088E5608 /* [CP] Embed Pods Frameworks */,
+				7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -766,11 +769,12 @@
 			mainGroup = BE24E61E26E4E0A0003D5DFC;
 			packageReferences = (
 				BE18A1372704550F00FC7B6D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
-				BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */,
-				BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */,
+				BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
 				BEFE203A270BAD5200AA3E47 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
-				BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */,
-				BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
+				BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */,
+				BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */,
+				BE267F152714011000D2CB7F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BE24E62826E4E0A0003D5DFC /* Products */;
 			projectDirPath = "";
@@ -825,46 +829,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E58585206F40EB8088E5608 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		440BF08DB30C8396B1B935EA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clay_refactorTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A78CE225C37EF191F3A9D97C /* [CP] Check Pods Manifest.lock */ = {
+		146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -886,7 +851,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C26EEDEE11E874AB09CBF9C4 /* [CP] Embed Pods Frameworks */ = {
+		5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -903,7 +868,46 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CAA00958B15B542B3C537371 /* [CP] Check Pods Manifest.lock */ = {
+		7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clay_refactorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1154,7 +1158,7 @@
 		};
 		BE24E64D26E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67FD054554A3EEF263E7DBC4 /* Pods-Clay_refactor.debug.xcconfig */;
+			baseConfigurationReference = 672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1185,7 +1189,7 @@
 		};
 		BE24E64E26E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B5CD6F689DB49B121850C81 /* Pods-Clay_refactor.release.xcconfig */;
+			baseConfigurationReference = 5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1216,7 +1220,7 @@
 		};
 		BE24E65026E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F5B6125615A7882CB4ECC6B /* Pods-Clay_refactorTests.debug.xcconfig */;
+			baseConfigurationReference = 2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1239,7 +1243,7 @@
 		};
 		BE24E65126E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2808E18F793A69650E565C8 /* Pods-Clay_refactorTests.release.xcconfig */;
+			baseConfigurationReference = 26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1262,7 +1266,7 @@
 		};
 		BE24E65326E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB7692FE2514405BAD96A690 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
+			baseConfigurationReference = 8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1283,7 +1287,7 @@
 		};
 		BE24E65426E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01260B1BF4447B390062574A /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
+			baseConfigurationReference = C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1352,7 +1356,7 @@
 				minimumVersion = 0.2.1;
 			};
 		};
-		BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */ = {
+		BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
 			requirement = {
@@ -1360,7 +1364,15 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+		BE267F152714011000D2CB7F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/timbersoftware/SwiftUIRefresh.git";
 			requirement = {
@@ -1368,7 +1380,7 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1384,7 +1396,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */ = {
+		BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yodagamaheshan/DateGrid.git";
 			requirement = {
@@ -1395,9 +1407,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BE267F162714011000D2CB7F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE267F152714011000D2CB7F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		BE7F4A98270566240081B7C4 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView" */;
+			package = BE18A13A2704779D00FC7B6D /* XCRemoteSwiftPackageReference "PopupView.git" */;
 			productName = PopupView;
 		};
 		BE7F4AEE270567880081B7C4 /* ConfettiSwiftUI */ = {
@@ -1407,12 +1424,12 @@
 		};
 		BE8964AC271019A600BDC896 /* SwiftUIRefresh */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			package = BE8964AB271019A500BDC896 /* XCRemoteSwiftPackageReference "SwiftUIRefresh.git" */;
 			productName = SwiftUIRefresh;
 		};
 		BE9147182709E7A0009F1522 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = BE9147172709E7A0009F1522 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
 			productName = Alamofire;
 		};
 		BEFE203B270BAD5300AA3E47 /* ElegantCalendar */ = {
@@ -1422,7 +1439,7 @@
 		};
 		BEFE203E270BB40300AA3E47 /* DateGrid */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid" */;
+			package = BEFE203D270BB40300AA3E47 /* XCRemoteSwiftPackageReference "DateGrid.git" */;
 			productName = DateGrid;
 		};
 /* End XCSwiftPackageProductDependency section */

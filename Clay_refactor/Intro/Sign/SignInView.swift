@@ -89,7 +89,7 @@ struct SignInView: View {
             ///로그인 버튼
             Button(action: {
                
-                userEmail = self.email
+                self.userEmail = self.email
                 self.verify()
                 
                 

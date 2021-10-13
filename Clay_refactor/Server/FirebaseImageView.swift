@@ -8,52 +8,74 @@
 import SwiftUI
 import Combine
 import FirebaseStorage
+import Kingfisher
+
+
+
+
 
 struct FirebaseImageView: View {
     @ObservedObject var imageLoader:DataLoader
     @State var image:UIImage = UIImage()
-    
+
     init(imageURL: String) {
         imageLoader = DataLoader(urlString:imageURL)
     }
 
     var body: some View {
         VStack {
+
             Image(uiImage: image)
+
                 .resizable()
                 .scaledToFill()
                 .frame(width: 360, height: 280, alignment: .center)
                 .cornerRadius(15)
                 .clipped()
         }.onReceive(imageLoader.didChange) { data in
-            
+
             self.image = UIImage(data: data) ?? UIImage()
         }
     }
 }
 
-struct FirebaseProfileImageView: View {
+
+struct FirebaseProfileImageView2: View {
     @ObservedObject var imageLoader:DataLoader
     @State var image:UIImage = UIImage()
-    
+
     init(imageURL: String) {
         imageLoader = DataLoader(urlString:imageURL)
     }
 
     var body: some View {
         VStack {
+
             Image(uiImage: image)
+
                 .resizable()
-               
-               
-               
-                
+           
         }.onReceive(imageLoader.didChange) { data in
+
             self.image = UIImage(data: data) ?? UIImage()
         }
     }
 }
 
+
+struct FirebaseProfileImageView: View {
+ 
+  
+    @State var imageURL: String = ""
+   
+    var body: some View {
+        VStack {
+            KFImage(URL(string: imageURL))
+                .resizable()
+    
+        }
+    }
+}
 
 class DataLoader: ObservableObject {
     @Published var didChange = PassthroughSubject<Data, Never>()
@@ -77,3 +99,6 @@ class DataLoader: ObservableObject {
         }.resume()
     }
 }
+
+
+
