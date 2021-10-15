@@ -27,7 +27,7 @@ struct ProductView: View {
     var body: some View {
         VStack(spacing : 1){
             ZStack{
-                Image(productImage)
+                Image(productName)
                     .resizable()
                     .frame(width: 170, height: 170)
                     .cornerRadius(15)

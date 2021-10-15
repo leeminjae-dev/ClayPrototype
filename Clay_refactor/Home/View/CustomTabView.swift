@@ -17,11 +17,12 @@ struct CustomTabView: View {
         if isTabDiet{
             
             DiaryView(isTabDiet: $isTabDiet)
-                
+               
                
         }
         else if isTabSnackDiet{
             SnackDiaryView(isTabSnackDiet : $isTabSnackDiet)
+                
         }
         else{
             ZStack(alignment: .bottom){
@@ -51,7 +52,9 @@ struct CustomTabView: View {
                 CustomTabBar(selectedTab: $selectedTab)
                     
                    
-            } .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+            }
+          
+            .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
                 .onAppear{
                     
                        
@@ -60,6 +63,7 @@ struct CustomTabView: View {
                 }
             
         }
+        
         
         
     }

@@ -12,6 +12,7 @@ struct imagePicker: UIViewControllerRepresentable {
     
     @Binding var shown: Bool
     @Binding var imageURL:String
+    @Binding var isLoading : Bool
     @State var isProfile : Bool = false
     func makeCoordinator() -> imagePicker.Coordinator {
         
@@ -35,9 +36,14 @@ struct imagePicker: UIViewControllerRepresentable {
             let image = info[.originalImage] as! UIImage
             
             uploadImageToFireBase(image: image)
+            
         }
         
         func uploadImageToFireBase(image: UIImage) {
+            self.parent.isLoading = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                self.parent.isLoading = false
+            }
             // Create the file metadata
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"

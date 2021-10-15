@@ -561,7 +561,7 @@ struct HomeView: View {
                                                                         .frame(width: 345, height: 70)
                                                                         .background(Color.init("lockedColor"))
                                                                         .cornerRadius(60)
-                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                                        .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                                                             })
                                                         // 아침 칼로리 기입 전
                                                     }
@@ -757,7 +757,7 @@ struct HomeView: View {
                                                                         .frame(width: 345, height: 70)
                                                                         .background(Color.init("lockedColor"))
                                                                         .cornerRadius(60)
-                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                                        .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                                                             })
                                                         // 점심 칼로리 기입 전
                                                     }
@@ -797,7 +797,7 @@ struct HomeView: View {
                                                         .frame(width: 345, height: 70)
                                                         .background(Color.init("lockedColor"))
                                                         .cornerRadius(60)
-                                                //아침 타이머
+                                                //점심 타이머
                                             }
                                                
                                                 
@@ -954,7 +954,7 @@ struct HomeView: View {
                                                                         .frame(width: 345, height: 70)
                                                                         .background(Color.init("lockedColor"))
                                                                         .cornerRadius(60)
-                                                                        .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                                                        .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                                                             })
                                                         // 저녁 칼로리 기입 전
                                                     }
@@ -1251,7 +1251,7 @@ struct HomeView: View {
                 
                 .popup(isPresented: $showingPointPopup, dismissCallback: {
                     datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"]!)! + 1))
-                    datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
+                  
                     datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
@@ -1358,9 +1358,7 @@ struct HomeView: View {
                     datas.KcalCall(email: userEmail, data: "dinnerKcal", meal: "Dinner")
                     datas.KcalCall(email: userEmail, data: "snackKcal", meal: "Snack")
                     
-                    datas.isCompleteCall(email: userEmail, data: "completeMorning", meal: "Breakfast")
-                    datas.isCompleteCall(email: userEmail, data: "completeLaunch", meal: "Launch")
-                    datas.isCompleteCall(email: userEmail, data: "completeDinner", meal: "Dinner")
+                   
                     
                     datas.userTimeCall(email: userEmail, data: "userMorningTime")
                     datas.userTimeCall(email: userEmail, data: "userLaunchTime")
@@ -1401,7 +1399,10 @@ struct HomeView: View {
            
             .onReceive(timer){input in
                 
-            
+                datas.isCompleteCall(email: userEmail, data: "completeMorning", meal: "Breakfast")
+                datas.isCompleteCall(email: userEmail, data: "completeLaunch", meal: "Launch")
+                datas.isCompleteCall(email: userEmail, data: "completeDinner", meal: "Dinner")
+                
                 if isMorning(){
                     
                     
@@ -1451,6 +1452,7 @@ struct HomeView: View {
                 if  datas.dataToDisplay["userPoint"]! == "0" && datas.completeList["completeMorning"]! && datas.completeList["completeLaunch"]! && datas.completeList["completeDinner"]!{
                     
                     showingPointPopup = true
+                    datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
                 }
                 
                 

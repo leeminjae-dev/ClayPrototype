@@ -26,13 +26,11 @@ struct FirebaseImageView: View {
         VStack {
 
             Image(uiImage: image)
-
                 .resizable()
-                .scaledToFill()
-                .frame(width: 360, height: 280, alignment: .center)
-                .cornerRadius(15)
-                .clipped()
-        }.onReceive(imageLoader.didChange) { data in
+                
+        }
+        .ignoresSafeArea(.keyboard)
+        .onReceive(imageLoader.didChange) { data in
 
             self.image = UIImage(data: data) ?? UIImage()
         }

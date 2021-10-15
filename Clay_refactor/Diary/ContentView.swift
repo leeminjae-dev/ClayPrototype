@@ -15,7 +15,7 @@ import Combine
 struct ContentView: View {
     @State var shown = false
     @State var imageURL = ""
-    
+    @State var isLoading : Bool = false
     @AppStorage("userEmail") var userEmail = ""
     var body: some View {
         VStack {
@@ -26,7 +26,7 @@ struct ContentView: View {
             Button(action: { self.shown.toggle() }) {
                 Text("Upload Image").font(.title).bold()
             }.sheet(isPresented: $shown) {
-                imagePicker(shown: self.$shown,imageURL: self.$imageURL)
+                imagePicker(shown: self.$shown,imageURL: self.$imageURL, isLoading: $isLoading)
                 }.padding(10).background(Color.purple).foregroundColor(Color.white).cornerRadius(20)
         }.onAppear(perform: loadImageFromFirebase).animation(.spring())
     }

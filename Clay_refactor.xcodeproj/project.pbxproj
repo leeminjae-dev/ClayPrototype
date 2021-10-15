@@ -92,7 +92,6 @@
 		BE8964B12710393D00BDC896 /* SnackFoodInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8964B02710393D00BDC896 /* SnackFoodInfoRowView.swift */; };
 		BE9147192709E7A0009F1522 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BE9147182709E7A0009F1522 /* Alamofire */; };
 		BE955E9826E8FC7300FECF2F /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE955E9726E8FC7300FECF2F /* DiaryView.swift */; };
-		BEA16A6D2716FC570012CA4A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */; };
 		BEAEDBC6270858B200A54AD4 /* CommerceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */; };
 		BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC82708A5E000A54AD4 /* DonateView.swift */; };
 		BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */; };
@@ -100,6 +99,7 @@
 		BEC26DB026F2F949003CA5F4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */; };
 		BEC26DB226F2FB19003CA5F4 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */; };
 		BEC5A4A4270C37CB00109AAE /* CalnederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5A4A3270C37CB00109AAE /* CalnederView.swift */; };
+		BEE4B98E27171CC20042BEFC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */; };
 		BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203B270BAD5300AA3E47 /* ElegantCalendar */; };
 		BEFE203F270BB40300AA3E47 /* DateGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203E270BB40300AA3E47 /* DateGrid */; };
 		BEFE204A270C256D00AA3E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */; };
@@ -264,7 +264,6 @@
 		BE8964AE271026CD00BDC896 /* SnackDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackDiaryView.swift; sourceTree = "<group>"; };
 		BE8964B02710393D00BDC896 /* SnackFoodInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackFoodInfoRowView.swift; sourceTree = "<group>"; };
 		BE955E9726E8FC7300FECF2F /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
-		BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceVIew.swift; sourceTree = "<group>"; };
 		BEAEDBC82708A5E000A54AD4 /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		BEC5A4A3270C37CB00109AAE /* CalnederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalnederView.swift; sourceTree = "<group>"; };
+		BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BEFE1F8B270B4E8500AA3E47 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEFE1F8D270B4E8500AA3E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -406,7 +406,6 @@
 				BE24E67226E4E63E003D5DFC /* FirstLaunchComment */,
 				BE24E67A26E4F0E0003D5DFC /* GetBodyInfo */,
 				BE24E67726E4EE42003D5DFC /* Sign */,
-				BEA16A6C2716FC570012CA4A /* Launch Screen.storyboard */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -455,6 +454,7 @@
 				BE24E6A126E5A14C003D5DFC /* ResetPassword.swift */,
 				BE24E69526E50ADB003D5DFC /* LogoutBtn.swift */,
 				BE24E69726E50FBE003D5DFC /* signAndMain.swift */,
+				BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -794,7 +794,7 @@
 			files = (
 				BE50E04426F21EE4001327C0 /* NanumSquareBold.ttf in Resources */,
 				BE24E67126E4E4C9003D5DFC /* Pretendard-Bold.otf in Resources */,
-				BEA16A6D2716FC570012CA4A /* Launch Screen.storyboard in Resources */,
+				BEE4B98E27171CC20042BEFC /* Launch Screen.storyboard in Resources */,
 				BE24E66E26E4E4C9003D5DFC /* Pretendard-Medium.otf in Resources */,
 				BE50E04726F21EE4001327C0 /* NanumSquareLight.ttf in Resources */,
 				BE24E66B26E4E4C9003D5DFC /* Pretendard-ExtraLight.otf in Resources */,

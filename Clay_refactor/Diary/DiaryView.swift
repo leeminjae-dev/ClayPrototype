@@ -49,6 +49,9 @@ struct DiaryView: View {
     @State var customKcal : String = ""
     @State var customServeSize : String = ""
     
+    @State var isLoading : Bool = false
+    @State var isFocusOn : Bool = false
+    @State var isFocusOnButton : Bool = false
 //    init(){
 //        
 //        UITabBar.appearance().isTranslucent = true
@@ -61,6 +64,10 @@ struct DiaryView: View {
     
     var body: some View {
         ZStack{
+            if isLoading{
+                Loader()
+                    .zIndex(2)
+            }
             WrongResetPasswordErrorView(alert: $isPhoto, errorMassage: $errorMessage)
                
                 .zIndex(1)
@@ -99,8 +106,15 @@ struct DiaryView: View {
                                    self.searchFoodName = $0
                                    isSearch = true
                                })
-                        TextField("음식을 검색해보세요", text: binding)
-                           
+                        TextField("음식을 검색해보세요", text: binding, onEditingChanged: { (editingChanged) in
+                            if editingChanged {
+                               
+                                isFocusOn = true
+                            } else {
+                                isFocusOn = false
+                                
+                            }})
+                            
                             .font(Font.custom(systemFont, size: 12))
                         Button(action: {
                             
@@ -133,9 +147,9 @@ struct DiaryView: View {
                 }
                 .padding(.bottom, 5)
                 .opacity(show ? 1 : 0)
-                .offset(y: self.show ? 0 : 20)
+              
                 .animation(.spring().delay(0.1))
-                .ignoresSafeArea(.keyboard)
+            
                 
                 
                 if isSearch{
@@ -243,129 +257,201 @@ struct DiaryView: View {
                        
                     }
                     .opacity(show ? 1 : 0)
-                    .offset(y: self.show ? 0 : 20)
+                  
                     .animation(.easeOut.delay(0.2))
                     .padding(.bottom,20)
-                    .ignoresSafeArea(.keyboard)
-                    VStack{
+                   
+                 
   
-                        if datas.foodList == []{
-                            VStack{
-                                foodTextView
-                                HStack{
-                                    ZStack{
-                                        Image("foodImage")
-                                            .resizable()
-                                            .frame(width: 30, height: 30)
-                                        Circle()
-                                            .stroke()
-                                            .frame(width: 44, height: 44)
-                                            .foregroundColor(Color.init("systemColor"))
+                    if datas.foodList == []{
+                        VStack{
+                            foodTextView
+                            HStack{
+                                ZStack{
+                                    Image("foodImage")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                    Circle()
+                                        .stroke()
+                                        .frame(width: 44, height: 44)
+                                        .foregroundColor(Color.init("systemColor"))
 
-                                    }
-                                    .padding(.trailing, 8)
-                                    Text("음식을 검색하여 식단을 기입해주세요")
-                                        .font(Font.custom(systemFont, size: 15))
-                                        .foregroundColor(Color.gray)
-                                        .padding(.trailing, 3)
                                 }
-                                .multilineTextAlignment(.center)
-                                
-                                .frame(width: 360, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .background(Color.white)
-                                .cornerRadius(15)
-                                .shadow(radius: 1)
-                               
+                                .padding(.trailing, 8)
+                                Text("음식을 검색하여 식단을 기입해주세요")
+                                    .font(Font.custom(systemFont, size: 15))
+                                    .foregroundColor(Color.gray)
+                                    .padding(.trailing, 3)
                             }
-                            .opacity(show ? 1 : 0)
-                            .offset(y: self.show ? 0 : 20)
-                            .animation(.easeOut.delay(0.2))
-                            .padding(.bottom,7)
-                            .ignoresSafeArea(.keyboard)
+                            .multilineTextAlignment(.center)
+                            
+                            .frame(width: 360, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .shadow(radius: 1)
+                           
+                        }
+                        .opacity(show ? 1 : 0)
+                      
+                        .animation(.easeOut.delay(0.2))
+                        .padding(.bottom,7)
+                        
+                            
+                    }else if datas.foodList.count == 1{
+                        VStack{
+                            foodTextView
+                                .padding(.leading, 19)
+                            List(datas.foodList, id: \.self){food in
                                 
-                        }else{
-                            VStack{
-                                foodTextView
-                                    .padding(.leading, 19)
-                                List(datas.foodList, id: \.self){food in
-                                    
-                                    HStack(spacing :0){
-                                            HStack(spacing :0){
-                                                ZStack{
-                                                    Image("foodImage")
-                                                        .resizable()
-                                                        .frame(width: 30, height: 30)
-                                                    Circle()
-                                                        .stroke()
-                                                        .frame(width: 44, height: 44)
-                                                        .foregroundColor(Color.init("systemColor"))
+                                HStack(spacing :0){
+                                        HStack(spacing :0){
+                                            ZStack{
+                                                Image("foodImage")
+                                                    .resizable()
+                                                    .frame(width: 30, height: 30)
+                                                Circle()
+                                                    .stroke()
+                                                    .frame(width: 44, height: 44)
+                                                    .foregroundColor(Color.init("systemColor"))
 
-                                                }
-                                                .padding(.trailing, 10)
-                                                VStack{
-                                                    HStack{
-                                                        Text(food[0])
-                                                            .font(Font.custom(systemFont, size: 15))
-                                                            .fontWeight(.bold)
-                                                        Spacer()
-                                                    }
-                                                    HStack{
-                                                        Text("\(Float(food[2])!,specifier: "%.0f") Kcal")
-                                                            .font(Font.custom(systemFont, size: 13))
-                                                        Spacer()
-                                                    }
-                                                    
-                                                }
-                                               
                                             }
-                                            Button(action: {
+                                            .padding(.trailing, 10)
+                                            VStack{
+                                                HStack{
+                                                    Text(food[0])
+                                                        .font(Font.custom(systemFont, size: 15))
+                                                        .fontWeight(.bold)
+                                                    Spacer()
+                                                }
+                                                HStack{
+                                                    Text("\(Float(food[2])!,specifier: "%.0f") Kcal")
+                                                        .font(Font.custom(systemFont, size: 13))
+                                                    Spacer()
+                                                }
                                                 
-                                                let foodIndex = datas.foodList.firstIndex(of: [food[0],food[1],food[2]])
-                                                datas.foodList.remove(at: foodIndex!)
-                                                datas.deleteFoodList(email: userEmail, foodName: food[0])
-                                                datas.dietKcal = 0
-                                                datas.foodList.removeAll()
-                                                datas.foodListCall(email: userEmail)
-                                                
-                                            }, label: {
-                                                Image(systemName: "trash")
-                                            })
-                                            .buttonStyle(BorderlessButtonStyle())
-                                    }
-                                    .padding(.trailing, 15)
-                                    .padding(.leading, 6)
-                                        .padding(5)
-                                        
-                                        .frame(width: 347, height: 60)
-                                        .background(Color.white)
-                                        .cornerRadius(60)
-                                        .shadow(radius: 3, y: 3)
-                                        
+                                            }
+                                           
+                                        }
+                                        Button(action: {
+                                            
+                                            let foodIndex = datas.foodList.firstIndex(of: [food[0],food[1],food[2]])
+                                            datas.foodList.remove(at: foodIndex!)
+                                            datas.deleteFoodList(email: userEmail, foodName: food[0])
+                                            datas.dietKcal = 0
+                                            datas.foodList.removeAll()
+                                            datas.foodListCall(email: userEmail)
+                                            
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .buttonStyle(BorderlessButtonStyle())
                                 }
+                                .padding(.trailing, 15)
+                                .padding(.leading, 6)
+                                    .padding(5)
+                                    
+                                    .frame(width: 347, height: 60)
+                                    .background(Color.white)
+                                    .cornerRadius(60)
+                                    .shadow(radius: 3, y: 3)
+                                    
                             }
-                            
-                            .listStyle(PlainListStyle())
-                            .frame(width: 370, height: 200)
-                            .padding(.trailing, 20)
-                            .onAppear{
-                                UITableView.appearance().separatorColor = .clear
-                            }
-                           
-                           
-                            .ignoresSafeArea(.keyboard)
-                          
-                            
-                            
                         }
                         
+                        .listStyle(PlainListStyle())
+                        .frame(width: 370, height: 130)
+                        .padding(.trailing, 20)
+                        .onAppear{
+                            UITableView.appearance().separatorColor = .clear
+                        }
                     }
+                    else{
+                        VStack{
+                            foodTextView
+                                .padding(.leading, 19)
+                            List(datas.foodList, id: \.self){food in
+                                
+                                HStack(spacing :0){
+                                        HStack(spacing :0){
+                                            ZStack{
+                                                Image("foodImage")
+                                                    .resizable()
+                                                    .frame(width: 30, height: 30)
+                                                Circle()
+                                                    .stroke()
+                                                    .frame(width: 44, height: 44)
+                                                    .foregroundColor(Color.init("systemColor"))
+
+                                            }
+                                            .padding(.trailing, 10)
+                                            VStack{
+                                                HStack{
+                                                    Text(food[0])
+                                                        .font(Font.custom(systemFont, size: 15))
+                                                        .fontWeight(.bold)
+                                                    Spacer()
+                                                }
+                                                HStack{
+                                                    Text("\(Float(food[2])!,specifier: "%.0f") Kcal")
+                                                        .font(Font.custom(systemFont, size: 13))
+                                                    Spacer()
+                                                }
+                                                
+                                            }
+                                           
+                                        }
+                                        Button(action: {
+                                            
+                                            let foodIndex = datas.foodList.firstIndex(of: [food[0],food[1],food[2]])
+                                            datas.foodList.remove(at: foodIndex!)
+                                            datas.deleteFoodList(email: userEmail, foodName: food[0])
+                                            datas.dietKcal = 0
+                                            datas.foodList.removeAll()
+                                            datas.foodListCall(email: userEmail)
+                                            
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .buttonStyle(BorderlessButtonStyle())
+                                }
+                                .padding(.trailing, 15)
+                                .padding(.leading, 6)
+                                    .padding(5)
+                                    
+                                    .frame(width: 347, height: 60)
+                                    .background(Color.white)
+                                    .cornerRadius(60)
+                                    .shadow(radius: 3, y: 3)
+                                    
+                            }
+                        }
+                        
+                        .listStyle(PlainListStyle())
+                        .frame(width: 370, height: 200)
+                        .padding(.trailing, 20)
+                        .onAppear{
+                            UITableView.appearance().separatorColor = .clear
+                        }
+                       
+                       
+                      
+                      
+                        
+                        
+                    }
+                        
+                    
                     
                     ZStack{
                         if imageURL != "" {
                             ZStack{
                                 
                                 FirebaseImageView(imageURL: imageURL)
-                                    
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 360, height: isFocusOn ? 150 : 280, alignment: .center)
+                                    .cornerRadius(15)
+                                   
+                                
                                 HStack {
 //                                    Button(action: { self.imageURL = ""}){
 //                                        Text("dd")
@@ -374,15 +460,15 @@ struct DiaryView: View {
                                         
                                         Image(systemName: "camera")
                                             .opacity(show ? 1 : 0)
-                                            .offset(y: self.show ? 0 : 20)
-                                            .animation(.easeOut.delay(0.35))
+                                           
+                                          
                                     }
                                     .sheet(isPresented: $shown) {
                                         
                                         Camera(shown: self.$shown,imageURL: self.$imageURL)
                                             .opacity(show ? 1 : 0)
-                                            .offset(y: self.show ? 0 : 20)
-                                            .animation(.easeOut.delay(0.35))
+                                            
+                                           
                                         }
                                     .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
                                         .onAppear(perform: loadImageFromFirebase).animation(.spring())
@@ -392,28 +478,29 @@ struct DiaryView: View {
                                         
                                         Image(systemName: "photo.on.rectangle.angled")
                                             .opacity(show ? 1 : 0)
-                                            .offset(y: self.show ? 0 : 20)
-                                            .animation(.easeOut.delay(0.35))
+                                          
+                                            
                                     }
                                     .sheet(isPresented: $shownPhoto) {
                                         
-                                        imagePicker(shown: self.$shownPhoto,imageURL: self.$imageURL)
+                                        imagePicker(shown: self.$shownPhoto,imageURL: self.$imageURL, isLoading: $isLoading)
                                             .opacity(show ? 1 : 0)
-                                            .offset(y: self.show ? 0 : 20)
-                                            .animation(.easeOut.delay(0.35))
+                                            
+                                            
+                                          
                                             
                                         }
                                         .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
-                                        .onAppear(perform: loadImageFromFirebase)
+                                        
                                         .animation(.spring())
                                 }
-                                .padding(.top, 230)
+                                .padding(.top, isFocusOn ? 100 : 230)
                                 .padding(.leading, 230)
                                 .zIndex(1)
                                
                                 
                             }
-                          
+                           
                             
                             
                         }else{
@@ -458,33 +545,35 @@ struct DiaryView: View {
                                                     
                                         }
                                         .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
-                                        .onAppear(perform: loadImageFromFirebase).animation(.spring())
+                               
                                         .opacity(show ? 1 : 0)
-                                        .offset(y: self.show ? 0 : 20)
+                                     
                                         .animation(.easeOut.delay(0.35))
                                     
                                     Button(action: { self.shownPhoto.toggle() }) {
                                         
                                         Image(systemName: "photo.on.rectangle.angled")
                                             .opacity(show ? 1 : 0)
-                                            .offset(y: self.show ? 0 : 20)
+                                           
                                             .animation(.easeOut.delay(0.35))
                                     }
                                     .sheet(isPresented: $shownPhoto) {
                                         
-                                        imagePicker(shown: self.$shownPhoto,imageURL: self.$imageURL)
+                                        imagePicker(shown: self.$shownPhoto,imageURL: self.$imageURL, isLoading: $isLoading)
                                         
                                             
                                         }
-                                        .padding(10).background(Color.init("systemColor"))
-                                        .foregroundColor(Color.white).cornerRadius(20)
-                                        .onAppear(perform: loadImageFromFirebase).animation(.spring())
+                                        .padding(10)
+                                        .background(Color.init("systemColor"))
+                                        .foregroundColor(Color.white)
+                                        .cornerRadius(20)
+                                        .onAppear(perform: loadImageFromFirebase)
                                         .opacity(show ? 1 : 0)
-                                        .offset(y: self.show ? 0 : 20)
+                                        
                                         .animation(.easeOut.delay(0.35))
                                 }
                                 .padding()
-                                .frame(width: 360, height: 100, alignment: .center)
+                                .frame(width: 360, height: 100)
                                 .background(Color.white)
                                 .cornerRadius(15)
                                 .shadow(radius: 1)
@@ -501,9 +590,8 @@ struct DiaryView: View {
                         
                     }
                     .opacity(show ? 1 : 0)
-                    .offset(y: self.show ? 0 : 20)
                     .animation(.easeOut.delay(0.35))
-                    .ignoresSafeArea(.keyboard)
+                    
                     
                     Spacer()
                     if imageURL != ""{
@@ -545,7 +633,7 @@ struct DiaryView: View {
                             
                             self.isTabDiet = false
                             
-                            if isDinner(){
+                            if isDinner() && !datas.completeList["completeDinner"]!{
                                 datas.isCanGetPoint(email: userEmail, userPoint: "0")
                             }
                            
@@ -563,7 +651,7 @@ struct DiaryView: View {
                             
                         })
                         .opacity(show ? 1 : 0)
-                        .offset(y: self.show ? 0 : 20)
+                       
                         .animation(.easeOut.delay(0.35))
                     }
                     else if datas.foodList == []{
@@ -589,7 +677,7 @@ struct DiaryView: View {
                             
                         })
                         .opacity(show ? 1 : 0)
-                        .offset(y: self.show ? 0 : 20)
+                        
                         .animation(.easeOut.delay(0.35))
                     }
                     else{
@@ -614,7 +702,7 @@ struct DiaryView: View {
                             
                         })
                         .opacity(show ? 1 : 0)
-                        .offset(y: self.show ? 0 : 20)
+                        
                         .animation(.easeOut.delay(0.35))
                     }
                         
@@ -622,10 +710,11 @@ struct DiaryView: View {
                 }
              
                 }
+           
         }
         
-        .ignoresSafeArea(.keyboard)
         .padding()
+      
         .navigationBarHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         

@@ -16,6 +16,7 @@ struct Camera: UIViewControllerRepresentable {
     
     func makeCoordinator() -> Camera.Coordinator {
         return Camera.Coordinator(parent: self)
+           
     }
     
     class Coordinator: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
