@@ -52,15 +52,6 @@ struct DiaryView: View {
     @State var isLoading : Bool = false
     @State var isFocusOn : Bool = false
     @State var isFocusOnButton : Bool = false
-//    init(){
-//        
-//        UITabBar.appearance().isTranslucent = true
-//        UINavigationBar.appearance().tintColor = UIColor(Color.init("systemColor"))
-//        UITabBar.appearance().shadowImage = UIImage()
-//        UITabBar.appearance().isOpaque = false
-//        ///UITabBar.appearance().backgroundImage = UIImage()
-//       
-//    }
     
     var body: some View {
         ZStack{
@@ -629,7 +620,7 @@ struct DiaryView: View {
                                 }
                             }
                             
-                            firebaseData.createDiary(email:userEmail , image: "image1", diaryText: diaryText ,morningKcal: datas.dietKcal ,launchKcal: datas.dietKcal ,dinnerKcal: datas.dietKcal)
+                            firebaseData.createDiary(email:userEmail , image: "image1",morningKcal: datas.dietKcal ,launchKcal: datas.dietKcal ,dinnerKcal: datas.dietKcal)
                             
                             self.isTabDiet = false
                             

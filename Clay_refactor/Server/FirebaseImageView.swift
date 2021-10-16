@@ -17,7 +17,8 @@ import Kingfisher
 struct FirebaseImageView: View {
     @ObservedObject var imageLoader:DataLoader
     @State var image:UIImage = UIImage()
-
+   
+    
     init(imageURL: String) {
         imageLoader = DataLoader(urlString:imageURL)
     }
@@ -64,14 +65,17 @@ struct FirebaseProfileImageView2: View {
 struct FirebaseProfileImageView: View {
  
   
-    @State var imageURL: String = ""
+    @Binding var imageURL: String 
    
+    
     var body: some View {
         VStack {
             KFImage(URL(string: imageURL))
                 .resizable()
     
         }
+      
+        
     }
 }
 

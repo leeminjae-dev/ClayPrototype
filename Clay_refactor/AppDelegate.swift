@@ -48,13 +48,9 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         application.registerForRemoteNotifications()
         return true
     }
-    
-    
-    
-    
+  
     func Notification(morningTime : Int, morningMinute: Int, morningMent : String, launchTime : Int, launchMinute : Int, launchMent : String, dinnerTime : Int, dinnerMinute : Int, dinnerMent : String ){
         
-       
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .sound, .badge], completionHandler: {userDidAllow, error in
             //if userDidAllow : do something if you want to
@@ -75,7 +71,7 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         dinnerContent.body = dinnerMent
         dinnerContent.sound = .default
         
-        //Set notification to trigger 11:30AM everyday
+     
         var morningDateComponents = DateComponents()
         morningDateComponents.hour = morningTime
         morningDateComponents.minute = morningMinute

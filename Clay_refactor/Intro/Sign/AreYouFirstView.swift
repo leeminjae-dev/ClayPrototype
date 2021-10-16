@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AreYouFirstView: View {
+    
     @EnvironmentObject var viewModel : SignAppViewModel
     
     var body: some View {

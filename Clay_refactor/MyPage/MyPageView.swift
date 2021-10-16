@@ -13,8 +13,10 @@ struct MyPageView: View {
     
     @ObservedObject var datas = firebaseData
     @EnvironmentObject var userData : UserData
+    @StateObject var homeViewModel = HomeViewModel()
    
     @State var shownProfileImage : Bool = false
+    
     @Binding var userImageURL : String
     @AppStorage("userEmail") var userEmail = ""
    
@@ -46,7 +48,8 @@ struct MyPageView: View {
                     if userImageURL != ""
                     {
                         ZStack{
-                            FirebaseProfileImageView(imageURL: userImageURL)
+                            KFImage(URL(string: userImageURL))
+                                .resizable()
                                 .frame(width : 135, height : 135)
                                 .clipShape(Circle())
 
@@ -154,9 +157,9 @@ struct MyPageView: View {
         }
         .navigationBarHidden(true)
         .onAppear{
-          show = true
-           
             
+          show = true
+
         }
        
     }

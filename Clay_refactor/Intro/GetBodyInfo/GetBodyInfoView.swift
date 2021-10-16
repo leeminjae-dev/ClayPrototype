@@ -9,13 +9,7 @@ import SwiftUI
 import PopupView
 
 struct GetBodyInfoView: View {
-    enum Flavor: String, CaseIterable, Identifiable {
-        case chocolate
-        case two
-        case strawberry
-        
-        var id: String { self.rawValue }
-    }
+    
     @EnvironmentObject var userData : UserData
     
     @State var selectColor = Color.init("systemColor")
@@ -24,7 +18,7 @@ struct GetBodyInfoView: View {
     @State var bodyInfoCurrentPage : Int = 1
     @State var bodyInfoTotalPage : Int = 8
     
-    @State var BtnActivate : Bool = true
+    @State var btnActivate : Bool = true
     
     @State var selection: Int? = 0
     
@@ -47,13 +41,10 @@ struct GetBodyInfoView: View {
     
     
     init(){
+        
         UINavigationBar.appearance().backgroundColor = UIColor(Color.white)
         UINavigationBar.appearance().barTintColor = UIColor(Color.white)
         UINavigationBar.appearance().shadowImage = UIImage()
-        ///UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        ///UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        ///Use this if NavigationBarTitle is with displayMode = .inline
-        ///UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         
     }
     
@@ -81,253 +72,13 @@ struct GetBodyInfoView: View {
                         
                         Spacer()
                         Spacer()
-               // 다음페이지 넘기기 버튼
+             
                         
-                        HStack{
-                            Button(action: {
-                                    withAnimation(.easeInOut){
-                                        if self.bodyInfoCurrentPage != 1{
-                                            
-                                            bodyInfoCurrentPage-=1
-                                        }
-                                        
-                                    }
-                                
-                            }, label: {
-                                if bodyInfoCurrentPage < 5{
-                                    if showPopup{
-                                        
-                                    }else{
-                                        
-                                        Image(systemName: "chevron.left")
-                                            .font(.system(size : 30))
-                                            .foregroundColor(Color.white)
-                                            .font(Font.custom(systemFont, size: 20))
-                                            .frame(width: 60, height: 60, alignment: .center)
-                                            .background(Color.init("systemColor"))
-                                            .clipShape(Circle())
-                                            .shadow(radius: 1)
-                                        
-                                    }
-                                   
-                                        
-                                }else{
-                                   
-                                }
-                               
-                                
-                            })
-                            PageControl(maxPages: 5, currentPage: bodyInfoCurrentPage-1)
-                            
-                            Button(action: {
-                                    withAnimation(.easeInOut){
-                                        if bodyInfoCurrentPage ==  1{
-                                            
-                                            bodyInfoCurrentPage += 1
-                                            
-                                        }
-                                        else if bodyInfoCurrentPage ==  2{
-                                            if userData.nickName != "" && userData.age != "" && userData.cmHeight != ""{
-                                                
-                                                    bodyInfoCurrentPage += 1
-                                            
-                                            }
-                                            
-                                        }
-                                        else if bodyInfoCurrentPage ==  3{
-                                            if userData.kgWeight != "" && userData.targetWeight != "" {
-                                                
-                                                    bodyInfoCurrentPage += 1
-                                            
-                                            }
-                                            
-                                        }
-                                        else if bodyInfoCurrentPage ==  4{
-                                            userData.totalKcal = cal(weight: Double(userData.kgWeight)!, height: Double(userData.cmHeight)!, age: Double(userData.age)!, gender: userData.isTabMale, selectAtivate: userData.selectActive, targetWeight: Double(userData.targetWeight)!)
-                                            showPopup = true
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                                showPopup = false
-                                                if Double(userData.totalKcal)! > 3000 || Double(userData.totalKcal)!  < 700{
-                                                    bodyInfoCurrentPage += 2
-                                                }else{
-                                                    bodyInfoCurrentPage += 1
-                                                }
-                                                
-                                            }
-                                           
-                                        }
-                                        else if bodyInfoCurrentPage == 5{
-                                           
-                                            activate.toggle()
-                                        }
-                                        
-                                        
-                                    }
-                                
-                            }, label: {
-                                if bodyInfoCurrentPage < 5{
-                                    if bodyInfoCurrentPage ==  1{
-                                       
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor"))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                       
-                                    }
-                                    
-                                    else if bodyInfoCurrentPage ==  2{
-                                        if userData.nickName != "" && userData.age != "" && userData.cmHeight != ""{
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor"))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                       
-                                        }else{
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor").opacity(0.3))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                            
-                                        }
-                                        
-                                    }
-                                    else if bodyInfoCurrentPage ==  3{
-                                        if userData.kgWeight != "" && userData.targetWeight != "" {
-                                            
-                                            if showPopup{
-                                                
-                                            }else{
-                                                Image(systemName: "chevron.right")
-                                                    .font(.system(size : 30))
-                                                    .foregroundColor(Color.white)
-                                                    .font(Font.custom(systemFont, size: 20))
-                                                    .frame(width: 60, height: 60, alignment: .center)
-                                                    .background(Color.init("systemColor"))
-                                                    .clipShape(Circle())
-                                                    .shadow(radius: 1)
-                                            }
-                                           
-                                       
-                                        }
-                                        else{
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor").opacity(0.3))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                            
-                                        }
-                                        
-                                    }
-                                    else if bodyInfoCurrentPage ==  3{
-                                        if userData.kgWeight != "" && userData.targetWeight != "" {
-                                            
-                                            if showPopup{
-                                                
-                                            }else{
-                                                Image(systemName: "chevron.right")
-                                                    .font(.system(size : 30))
-                                                    .foregroundColor(Color.white)
-                                                    .font(Font.custom(systemFont, size: 20))
-                                                    .frame(width: 60, height: 60, alignment: .center)
-                                                    .background(Color.init("systemColor"))
-                                                    .clipShape(Circle())
-                                                    .shadow(radius: 1)
-                                            }
-                                           
-                                       
-                                        }
-                                        else{
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor").opacity(0.3))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                            
-                                        }
-                                        
-                                    }
-                                    else if bodyInfoCurrentPage ==  4{
-                                        if userData.kgWeight != "" && userData.targetWeight != "" {
-                                            
-                                            if showPopup{
-                                                
-                                            }else{
-                                                Image(systemName: "chevron.right")
-                                                    .font(.system(size : 30))
-                                                    .foregroundColor(Color.white)
-                                                    .font(Font.custom(systemFont, size: 20))
-                                                    .frame(width: 60, height: 60, alignment: .center)
-                                                    .background(Color.init("systemColor"))
-                                                    .clipShape(Circle())
-                                                    .shadow(radius: 1)
-                                            }
-                                           
-                                       
-                                        }
-                                        else{
-                                            
-                                            Image(systemName: "chevron.right")
-                                                .font(.system(size : 30))
-                                                .foregroundColor(Color.white)
-                                                .font(Font.custom(systemFont, size: 20))
-                                                .frame(width: 60, height: 60, alignment: .center)
-                                                .background(Color.init("systemColor").opacity(0.3))
-                                                .clipShape(Circle())
-                                                .shadow(radius: 1)
-                                            
-                                        }
-                                        
-                                    }
-                                    else if bodyInfoCurrentPage == 5{
-                                        
-                                    }else{
-                                        
-                                        Image(systemName: "chevron.right")
-                                            .font(.system(size : 30))
-                                            .foregroundColor(Color.white)
-                                            .font(Font.custom(systemFont, size: 20))
-                                            .frame(width: 60, height: 60, alignment: .center)
-                                            .background(Color.init("systemColor"))
-                                            .clipShape(Circle())
-                                            .shadow(radius: 1)
-                                    }
-                                   
-                                }
-                                    
-                                         
-                                
-                            })
-                            
-                            
-                        }
+                    ChevronButton(bodyInfoCurrentPage: $bodyInfoCurrentPage, showPopup: $showPopup, activate: $activate)
                         .padding(40)
                         .padding(.bottom, 80)
-                        
-                        
-                        
+                        /// 페이지 넘기기 버튼
+         
                     }
                     
                 }
@@ -354,7 +105,8 @@ struct GetBodyInfoView: View {
                     Text("안녕하세요!")
                         .font(Font.custom(systemFont, size: 20))
                         .fontWeight(.bold)
-                    VStack{
+                        .padding(.bottom, 10)
+                    VStack(spacing : 10){
                         HStack(spacing : 0){
                             Text("일일 권장 섭취 칼로리")
                                 .fontWeight(.bold)
@@ -389,173 +141,14 @@ struct GetBodyInfoView: View {
                
             }
             if self.bodyInfoCurrentPage == 2{
-                VStack(spacing:30){
-                    VStack(spacing : 20){
-                        let binding = Binding<String>(get: {
-                            userData.nickName
-                               }, set: {
-                                userData.nickName = $0
-                                BtnActivate = true
-                               })
-                        
-                        Text("닉네임")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                        
-                        TextField("닉네임", text:binding)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom(systemFont, size: 15))
-                            .padding(20)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .frame(width: 150, height: 40, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(18)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.init("systemColor"), lineWidth: 3))
-                            
-                    }
+                VStack(spacing:35){
+                    InfoTextFiled(data: $userData.nickName, btnActivate: $btnActivate, text: "닉네임", field : "닉네임")
                     
-                    VStack(spacing:30){
-                        Text("성별을 알려주세요.")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                            
-                        HStack(spacing: 50){
-                            Button(action: {
-                                
-                                userData.isTabMale.toggle()
-                               
-
-                                
-                            }, label: {
-                                
-                                if userData.isTabMale{
-                                    Text("남성")
-                                        .bold()
-                                        .foregroundColor(.black)
-                                        .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .background(Color.white)
-                                        .cornerRadius(20)
-                                        .cornerRadius(18)
-                                        .overlay(
-                                                RoundedRectangle(cornerRadius: 18)
-                                                    .stroke(nonSelectColor, lineWidth: 3))
-                                    
-                                }else{
-                                    
-                                    Text("남성")
-                                        .bold()
-                                        .foregroundColor(.black)
-                                        .frame(width : 100, height : 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .background(Color.white)
-                                        .cornerRadius(20)
-                                        .cornerRadius(18)
-                                        .overlay(
-                                                RoundedRectangle(cornerRadius: 18)
-                                                    .stroke(selectColor, lineWidth: 3))
-                                    
-                                }
-                                
-                                    })
-                            Button(action: {
-                                
-                                userData.isTabMale.toggle()
-                                
-
-                                
-                            }, label: {
-                                
-                                if !userData.isTabMale{
-                                    Text("여성")
-                                        .bold()
-                                        .foregroundColor(.black)
-                                        .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .background(Color.white)
-                                        .cornerRadius(20)
-                                        .cornerRadius(18)
-                                        .overlay(
-                                                RoundedRectangle(cornerRadius: 18)
-                                                    .stroke(nonSelectColor, lineWidth: 3))
-                                    
-                                }else{
-                                    
-                                    Text("여성")
-                                        .bold()
-                                        .foregroundColor(.black)
-                                        .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .background(Color.white)
-                                        .cornerRadius(20)
-                                        .cornerRadius(18)
-                                        .overlay(
-                                                RoundedRectangle(cornerRadius: 18)
-                                                    .stroke(selectColor, lineWidth: 3))
-                                    
-                                }
-                                
-                                    })
-                        }
-                    }
+                    RadioButton(optionVariable: $userData.isTabMale, selectColor: $selectColor, nonSelectColor: $nonSelectColor, optionOne: "남성", optionTwo: "여성")
                    
-                    VStack(spacing : 20){
-                        let binding = Binding<String>(get: {
-                            userData.age
-                               }, set: {
-                                userData.age = $0
-                                BtnActivate = true
-                               })
-                           
-                        Text("만 나이")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                        
-                        TextField("나이", text: binding)
-                            .keyboardType(.numberPad)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom(systemFont, size: 15))
-                            .padding(20)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .frame(width: 150, height: 40, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(18)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.init("systemColor"), lineWidth: 3))
-                    }
+                    InfoTextFiled(data: $userData.age, btnActivate: $btnActivate, text: "만 나이", field : "나이")
                    
-                    VStack(spacing : 20){
-                        let binding = Binding<String>(get: {
-                            userData.cmHeight
-                               }, set: {
-                                userData.cmHeight = $0
-                                BtnActivate = true
-                               })
-                        
-                        Text("키")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                        TextField("cm", text:binding)
-                            .keyboardType(.numberPad)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom(systemFont, size: 15))
-                            .padding(20)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .frame(width: 150, height: 40, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(18)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.init("systemColor"), lineWidth: 3))
-                    }
-                      
-                    
-                   
-                       
-                    
-                   
+                    InfoTextFiled(data: $userData.cmHeight, btnActivate: $btnActivate, text: "키", field : "cm")
                    
                 }
                 .transition(.moveAndFade)
@@ -563,58 +156,11 @@ struct GetBodyInfoView: View {
             
             if self.bodyInfoCurrentPage == 3{
                 VStack(spacing:40){
-                    VStack(spacing : 20){
-                        let binding = Binding<String>(get: {
-                            userData.kgWeight
-                               }, set: {
-                                userData.kgWeight = $0
-                                BtnActivate = true
-                               })
-                        Text("현재 체중")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                        TextField("kg", text:binding)
-                            .keyboardType(.numberPad)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom(systemFont, size: 15))
-                            .padding(20)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .frame(width: 150, height: 40, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(18)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.init("systemColor"), lineWidth: 3))
-                            
-                    }
+                    InfoTextFiled(data: $userData.kgWeight, btnActivate: $btnActivate, text: "체중", field : "kg")
                    
                     VStack(spacing:20){
                         
-                        let binding = Binding<String>(get: {
-                            userData.targetWeight
-                               }, set: {
-                                userData.targetWeight = $0
-                                BtnActivate = true
-                               })
-                        
-                        Text("목표 체중")
-                            .font(Font.custom(systemFont, size: 15))
-                            .fontWeight(.bold)
-                        
-                        TextField("kg", text:binding)
-                            .keyboardType(.numberPad)
-                            .multilineTextAlignment(.center)
-                            .font(Font.custom(systemFont, size: 15))
-                            .padding(20)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
-                            .frame(width: 150, height: 40, alignment: .center)
-                            .background(Color.white)
-                            .cornerRadius(18)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 18)
-                                        .stroke(Color.init("systemColor"), lineWidth: 3))
+                    InfoTextFiled(data: $userData.targetWeight, btnActivate: $btnActivate, text: "목표 체중", field : "kg")
                         
                         VStack(spacing : 20){
                             Text("평소 내 활동량은?")
@@ -718,13 +264,6 @@ struct GetBodyInfoView: View {
                                 .frame(width : 220, height: 75)
                                 .clipped()
                             }
-//                            .cornerRadius(60)
-//                            .overlay(
-//                                    RoundedRectangle(cornerRadius: 18)
-//                                        .stroke(Color.init("systemColor"), lineWidth: 3)
-//                                        .frame(width: 120, height: 30))
-                          
-                                        
                             
                         }
                         
@@ -779,7 +318,8 @@ struct GetBodyInfoView: View {
                     }
                     
                     
-                } .overlay(
+                }
+                .overlay(
                     ZStack{
                         if showPopup{
                             Color.primary.opacity(0.2)

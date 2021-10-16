@@ -34,7 +34,7 @@ class FirebaseData: ObservableObject {
     @Published var kcalToDisplay : [String : Float] = ["morningKcal" : 0, "launchKcal" : 0, "dinnerKcal" : 0, "snackKcal" : 0]
     @Published var completeList : [String : Bool] = ["completeMorning": false, "completeLaunch" : false, "completeDinner" : false]
     @Published var homeCountToDisPlay : [String : String] = ["homeCount" : "0"]
-    @Published var userTimeToDisPlay : [String : String] = ["userMorningTime" : "0","userLaunchTime" : "0","userDinnerTime" : "0"]
+    @Published var userTimeToDisPlay : [String : String] = ["userMorningTime" : "28","userLaunchTime" : "28","userDinnerTime" : "28"]
     @Published var foodList : [[String]] = []
     @Published var snackFoodList : [[String]] = []
     @Published var dietKcal : Float = 0
@@ -337,7 +337,7 @@ class FirebaseData: ObservableObject {
     func createDiary(
         email : String,
         image : String,
-        diaryText : String,
+    
         date : String = makeToday(),
         morningKcal : Float,
         launchKcal : Float,
@@ -353,7 +353,6 @@ class FirebaseData: ObservableObject {
                                                                                         
                                                         "id" : dbCollection.document().documentID,
                                                         "image" : image,
-                                                        "diaryText\(makeMealString())" : diaryText,
                                                         "date": makeToday(),
                                                         "morningKcal" : morningKcal,
                                                         "completeMorning" : true
@@ -372,7 +371,7 @@ class FirebaseData: ObservableObject {
                                                                                         
                                                         "id" : dbCollection.document().documentID,
                                                         "image" : image,
-                                                        "diaryText\(makeMealString())" : diaryText,
+                                                       
                                                         "date": makeToday(),
                                                         "launchKcal" : launchKcal,
                                                         "completeLaunch" : true
@@ -390,7 +389,7 @@ class FirebaseData: ObservableObject {
                                                                                         
                                                         "id" : dbCollection.document().documentID,
                                                         "image" : image,
-                                                        "diaryText\(makeMealString())" : diaryText,
+                                                    
                                                         "date": makeToday(),
                                                         "dinnerKcal" : dinnerKcal,
                                                         "completeDinner" : true

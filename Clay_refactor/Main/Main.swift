@@ -14,8 +14,6 @@ struct Main: View {
     @AppStorage("userEmail") var userEmail = ""
     @AppStorage("firstLogin") var firstLogin = "0"
 
-    
-    
     @EnvironmentObject var viewModel : SignAppViewModel
     
     
@@ -42,7 +40,6 @@ struct Main: View {
         }
         .onAppear{
             
-           
             if firstLogin == "0"{
                 viewModel.signedIn = false
                 firstLogin = "1"

@@ -15,15 +15,14 @@ struct Clay_refactorApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var userData = UserData()
-   
+    
     
     var body: some Scene {
         WindowGroup {
             Main()
                 .environmentObject(SignAppViewModel())
                 .environmentObject(userData)
-               
-               
+                
                
         }
         
