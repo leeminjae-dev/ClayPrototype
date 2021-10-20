@@ -168,17 +168,18 @@ struct HomeView: View {
                        
                        }
                 /// 나의 포인트 설명 팝업
-                ///
+                
                 .popup(isPresented: $homeViewModel.showingTimePopup) {
                     
                    TimeInfoPopup()
                        
-                       }/// 시간 표시 팝업
+                       }
+                /// 시간 표시 팝업
                 
                 .popup(isPresented: $homeViewModel.showingPointPopup, dismissCallback: {
                     
-                    datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"]!)! + 1))
-                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
+                    datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0 + 1))
+                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0 + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
                 }) {
@@ -188,7 +189,7 @@ struct HomeView: View {
                 /// 포인드 획득 팝업
                 
                 .popup(isPresented: $homeViewModel.showingFailPopup, dismissCallback : {
-                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"]!)! + 1))
+                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0 + 1))
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
                 }){
@@ -222,8 +223,11 @@ struct HomeView: View {
                 firstPop = "1"
             }
             
+          
+            homeViewModel.morningTimeRemaining = (Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9) * 3600 - homeViewModel.getTimeToSeconds()
+            homeViewModel.launchTimeRemaining = (Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12) * 3600 - homeViewModel.getTimeToSeconds()
+            homeViewModel.dinnerTimeRemaining = (Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18) * 3600 - homeViewModel.getTimeToSeconds()
             
- 
             datas.apiCall(email: userEmail, data: "archieveRate")
             datas.apiCall(email: userEmail, data: "targetArchieve")
             datas.apiCall(email: userEmail, data: "userPoint")
@@ -241,7 +245,7 @@ struct HomeView: View {
            
             if homeViewModel.dinnerTimeRemaining < -7200{
                 
-                if  datas.dataToDisplay["userPoint"]! == "0" && (datas.completeList["completeMorning"]!  == false || datas.completeList["completeLaunch"]!  == false || datas.completeList["completeDinner"]! == false){
+                if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) || !(datas.completeList["completeLaunch"] ?? false) || !(datas.completeList["completeDinner"] ?? false)){
                     
                     homeViewModel.showingFailPopup = true
                 }
@@ -261,11 +265,15 @@ struct HomeView: View {
         }
         .onReceive(timer){_ in
             
-            homeViewModel.morningTimeRemaining = Int(datas.userTimeToDisPlay["userMorningTime"]!)! * 3600 - homeViewModel.getTimeToSeconds()
-            homeViewModel.launchTimeRemaining = Int(datas.userTimeToDisPlay["userLaunchTime"]!)! * 3600 - homeViewModel.getTimeToSeconds()
-            homeViewModel.dinnerTimeRemaining = Int(datas.userTimeToDisPlay["userDinnerTime"]!)! * 3600 - homeViewModel.getTimeToSeconds()
+            datas.userTimeCall(email: userEmail, data: "userMorningTime")
+            datas.userTimeCall(email: userEmail, data: "userLaunchTime")
+            datas.userTimeCall(email: userEmail, data: "userDinnerTime")
             
-            delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"]!)!, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"]!)님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"]!)!, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"]!)님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"]!)!, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"]! == true && datas.completeList["completeLaunch"]! == true ? "\(datas.dataToDisplay["nickName"]!)님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"]!)님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
+            homeViewModel.morningTimeRemaining = (Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9) * 3600 - homeViewModel.getTimeToSeconds()
+            homeViewModel.launchTimeRemaining = (Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12) * 3600 - homeViewModel.getTimeToSeconds()
+            homeViewModel.dinnerTimeRemaining = (Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18) * 3600 - homeViewModel.getTimeToSeconds()
+            
+            delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"] ?? "error")님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"] ?? "error")님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"] ?? false == true && datas.completeList["completeLaunch"] ?? false == true ? "\(datas.dataToDisplay["nickName"] ?? "error")님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"] ?? "error")님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
             
             if homeViewModel.morningTimeRemaining < -7200{
                 homeViewModel.isMorningTimeOver = true
@@ -276,10 +284,12 @@ struct HomeView: View {
             if homeViewModel.dinnerTimeRemaining < -7200{
                 homeViewModel.isDinnerTimeOver = true
                 
-                if  datas.dataToDisplay["userPoint"]! == "0" && (!datas.completeList["completeMorning"]! || !datas.completeList["completeLaunch"]! || !datas.completeList["completeDinner"]!){
-                    
-                    
-                }
+               
+            }
+            
+            if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) || !(datas.completeList["completeLaunch"] ?? false) || !(datas.completeList["completeDinner"] ?? false)){
+                
+                homeViewModel.showingFailPopup = true
             }
             if isMorning(){
 
@@ -293,15 +303,12 @@ struct HomeView: View {
 
                 datas.isCanGetPoint(email: userEmail, userPoint: "1")
             }
-            
-
-            isTimeEnd()
 
 
-            if  datas.dataToDisplay["userPoint"]! == "0" && datas.completeList["completeMorning"]! && datas.completeList["completeLaunch"]! && datas.completeList["completeDinner"]!{
+            if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && datas.completeList["completeMorning"] ?? false && datas.completeList["completeLaunch"] ?? false && datas.completeList["completeDinner"] ?? false{
                 
                 homeViewModel.showingPointPopup = true
-                datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! + 1000))
+                datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"] ?? "0") ?? 0 + 1000))
             }
 
             
@@ -319,7 +326,7 @@ struct HomeView: View {
         
                    let today_string = String(hour!)
                    
-        if today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2) || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+        if today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9 + 2) || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9 + 1){
             return true
                }
         else{
@@ -338,7 +345,7 @@ struct HomeView: View {
         
                    let today_string = String(hour!)
                    
-        if today_string == datas.userTimeToDisPlay["userDinnerTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)! + 1){
+        if today_string == datas.userTimeToDisPlay["userDinnerTime"] ?? "18" || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18 + 1){
             return true
                }
         else{
@@ -357,7 +364,7 @@ struct HomeView: View {
 
        let today_string = String(hour!)
 
-        if today_string == datas.userTimeToDisPlay["userLaunchTime"]! || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)! + 1){
+        if today_string == datas.userTimeToDisPlay["userLaunchTime"] ?? "12" || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12 + 1){
             return true
                }
         else{
@@ -366,30 +373,6 @@ struct HomeView: View {
 
     }
     
-   
-    
-
-    
-    func isTimeEnd() {
-
-                   let date = Date()
-                   let calender = Calendar.current
-                   let components = calender.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
-        
-                   let hour = components.hour
-        
-                   let today_string = String(hour!)
-                   
-        if Int(today_string)! > Int(datas.userTimeToDisPlay["userMorningTime"]!)! {
-            if  datas.dataToDisplay["userPoint"]! == "0" && (!datas.completeList["completeMorning"]! || !datas.completeList["completeLaunch"]! || !datas.completeList["completeDinner"]!){
-
-                homeViewModel.showingFailPopup = true
-            }
-               }
-        
-        
-    }
-
     
     func timeString(time: Int) -> String {
         let hours   = Int(time) / 3600
@@ -433,7 +416,7 @@ func isMorning() -> Bool{
     
                let today_string = String(hour!)
                
-    if today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userMorningTime"]!)! + 1){
+    if today_string == String((Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9)) || today_string == String((Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9) + 1){
         return true
            }
     else{
@@ -455,7 +438,7 @@ func isLaunch() -> Bool{
 
    let today_string = String(hour!)
 
-    if today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)! + 1){
+    if today_string == String((Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12)) || today_string == String((Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12) + 1){
         return true
            }
     else{
@@ -474,7 +457,7 @@ func isDinner() -> Bool{
     
                let today_string = String(hour!)
                
-    if today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!) || today_string == String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)! + 1){
+    if today_string == String((Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18)) || today_string == String((Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18) + 1){
         return true
            }
     else{

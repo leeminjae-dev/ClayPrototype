@@ -172,13 +172,14 @@ struct SignUpView : View{
                 
                 
                 ZStack{
-                    if self.alert{
+                    if self.alert == true{
                         
                         WrongRegisterErrorView(alert: self.$alert, errorMassage: self.$errorMassage)
-
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
                     }
-                    if self.alertSuccess{
+                    if self.alertSuccess == true{
                         SignSuccessView(alert: $alertSuccess, errorMassage: $errorMassage)
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
                     }
                     if self.isLoading{
                         

@@ -41,7 +41,7 @@ struct ResetPassword: View {
                     .font(Font.custom(systemFont, size: 20))
                     .foregroundColor(.white)
                     .frame(width: 350, height: 50)
-                    .background(Color.init("userPink"))
+                    .background(Color.init("systemColor"))
                     .cornerRadius(10)
                     .padding()
                     
@@ -52,9 +52,11 @@ struct ResetPassword: View {
         .padding(.bottom, 200)
             if self.alert{
                 WrongResetPasswordErrorView(alert: self.$alert, errorMassage: self.$errorMassage)
+                   
             }
             if self.alertSuccess{
                 ResetSuccessView(alert: self.$alert, errorMassage: self.$errorMassage)
+                   
                 
             }
         }
@@ -72,7 +74,7 @@ struct ResetPassword: View {
                 self.errorMassage = "메일로 비밀번호 재설정 링크를 발송했습니다"
                 self.alertSuccess.toggle()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.alert.toggle()
+                    self.alertSuccess.toggle()
                 }
             }
         }
@@ -80,7 +82,7 @@ struct ResetPassword: View {
             self.errorMassage = "빈칸에 이메일 주소를 기입해주세요"
             self.alert.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.alert.toggle()
+                self.alert = false
             }
         }
     }

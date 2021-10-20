@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
-		7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */; };
-		9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */; };
+		088C843D5D8320BC84C9D090 /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5CBACE315E2A3D19E30016 /* Pods_Clay_refactor.framework */; };
+		16373FA098A0292EEC79AEC2 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5C8D1CD1A9F5184165CF3D /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
+		7C283B4B28D75A655F7B6C12 /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C913E7D3D51D578602FC5F72 /* Pods_Clay_refactorTests.framework */; };
 		BE24E62B26E4E0A0003D5DFC /* Clay_refactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */; };
 		BE24E62D26E4E0A0003D5DFC /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62C26E4E0A0003D5DFC /* Main.swift */; };
 		BE24E62F26E4E0A1003D5DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE24E62E26E4E0A1003D5DFC /* Assets.xcassets */; };
@@ -40,19 +40,22 @@
 		BE24E69426E5035A003D5DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69326E5035A003D5DFC /* AppDelegate.swift */; };
 		BE24E69626E50ADB003D5DFC /* LogoutBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69526E50ADB003D5DFC /* LogoutBtn.swift */; };
 		BE24E69826E50FBE003D5DFC /* signAndMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69726E50FBE003D5DFC /* signAndMain.swift */; };
-		BE24E69A26E59CA7003D5DFC /* MainSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69926E59CA7003D5DFC /* MainSignUpView.swift */; };
 		BE24E69C26E59CE0003D5DFC /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69B26E59CE0003D5DFC /* PageControl.swift */; };
 		BE24E69E26E59FB8003D5DFC /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69D26E59FB8003D5DFC /* SignInView.swift */; };
 		BE24E6A026E5A01E003D5DFC /* WrongIDErrorBiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E69F26E5A01E003D5DFC /* WrongIDErrorBiew.swift */; };
 		BE24E6A226E5A14C003D5DFC /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A126E5A14C003D5DFC /* ResetPassword.swift */; };
 		BE24E6A426E5A17B003D5DFC /* WrongResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A326E5A17B003D5DFC /* WrongResetPassword.swift */; };
 		BE24E6A626E5A1D0003D5DFC /* ResetSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A526E5A1D0003D5DFC /* ResetSuccess.swift */; };
-		BE24E6A826E5A2E3003D5DFC /* MainLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */; };
 		BE24E6AA26E6EDAC003D5DFC /* SignSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6A926E6EDAC003D5DFC /* SignSuccessView.swift */; };
 		BE24E6AD26E71234003D5DFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E6AC26E71234003D5DFC /* HomeView.swift */; };
 		BE267F172714011000D2CB7F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BE267F162714011000D2CB7F /* Kingfisher */; };
 		BE2D462D27114FC80006E864 /* ProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */; };
-		BE345D2C26FD547B00328BAE /* NutritionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */; };
+		BE4E0685271BC980001DAD31 /* TodayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0683271BC980001DAD31 /* TodayBanner.swift */; };
+		BE4E0686271BC980001DAD31 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0684271BC980001DAD31 /* BlurView.swift */; };
+		BE4E0688271D8478001DAD31 /* DietCompletePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0687271D8478001DAD31 /* DietCompletePopup.swift */; };
+		BE4E068A271D85E9001DAD31 /* DietAddSuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E0689271D85E9001DAD31 /* DietAddSuccessAlert.swift */; };
+		BE4E068E27201A8A001DAD31 /* NutritionAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E068D27201A8A001DAD31 /* NutritionAddView.swift */; };
+		BE4E06902720336B001DAD31 /* SnackNutritionAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4E068F2720336B001DAD31 /* SnackNutritionAddView.swift */; };
 		BE50E00826F1B1E2001327C0 /* FoodSelectSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE50E00726F1B1E2001327C0 /* FoodSelectSuccessView.swift */; };
 		BE50E04426F21EE4001327C0 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE50E04026F21EE4001327C0 /* NanumSquareBold.ttf */; };
 		BE50E04526F21EE4001327C0 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE50E04126F21EE4001327C0 /* NanumSquareRegular.ttf */; };
@@ -67,8 +70,6 @@
 		BE51006126EB974E00FA9B3D /* FoodInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE51006026EB974E00FA9B3D /* FoodInfoResponse.swift */; };
 		BE5100D926EE2D6B00FA9B3D /* FoodInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100D826EE2D6B00FA9B3D /* FoodInfoViewModel.swift */; };
 		BE5100DB26EE2D8B00FA9B3D /* FoodInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100DA26EE2D8B00FA9B3D /* FoodInfoRowView.swift */; };
-		BE5100DD26EE2DAE00FA9B3D /* APIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100DC26EE2DAE00FA9B3D /* APIView.swift */; };
-		BE5313B826F017F00090C4C0 /* TodayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313B726F017F00090C4C0 /* TodayBanner.swift */; };
 		BE5313BC26F0368C0090C4C0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */; };
 		BE53235826F6CD4000D3FB91 /* GetBodyInfoReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */; };
 		BE69E244270C384D002A90C1 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E243270C384D002A90C1 /* CustomDatePicker.swift */; };
@@ -89,10 +90,10 @@
 		BEAEDBC6270858B200A54AD4 /* CommerceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */; };
 		BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC82708A5E000A54AD4 /* DonateView.swift */; };
 		BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */; };
-		BEC26DAD26F2CF1B003CA5F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */; };
 		BEC26DB026F2F949003CA5F4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */; };
 		BEC26DB226F2FB19003CA5F4 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */; };
-		BEC5A4A4270C37CB00109AAE /* CalnederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5A4A3270C37CB00109AAE /* CalnederView.swift */; };
+		BECFE4ED27205F3400B1C964 /* DateKcalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFE4EC27205F3400B1C964 /* DateKcalDetailView.swift */; };
+		BECFE4EF27206E9600B1C964 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFE4EE27206E9600B1C964 /* MealDetail.swift */; };
 		BEE4B98E27171CC20042BEFC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */; };
 		BEEF37F2271928C2002B054B /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */; };
 		BEEF37F427192B5B002B054B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF37F327192B5B002B054B /* HomeViewModel.swift */; };
@@ -156,14 +157,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
-		2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
-		672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
-		74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		04F7002C503EC617F52EB26B /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
+		0EC2E6A99096186CFE772000 /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
+		286CF25C91D76A0C33AAE88E /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6F5C8D1CD1A9F5184165CF3D /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		772D5B1377CD0D04D5A61E19 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA3352281982CC6DE70BD0AE /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1E7BEA27099E5B0000522D /* Clay_refactor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clay_refactor.entitlements; sourceTree = "<group>"; };
 		BE24E62726E4E0A0003D5DFC /* Clay_refactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clay_refactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clay_refactorApp.swift; sourceTree = "<group>"; };
@@ -201,20 +200,23 @@
 		BE24E69326E5035A003D5DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE24E69526E50ADB003D5DFC /* LogoutBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutBtn.swift; sourceTree = "<group>"; };
 		BE24E69726E50FBE003D5DFC /* signAndMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signAndMain.swift; sourceTree = "<group>"; };
-		BE24E69926E59CA7003D5DFC /* MainSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSignUpView.swift; sourceTree = "<group>"; };
 		BE24E69B26E59CE0003D5DFC /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		BE24E69D26E59FB8003D5DFC /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		BE24E69F26E5A01E003D5DFC /* WrongIDErrorBiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongIDErrorBiew.swift; sourceTree = "<group>"; };
 		BE24E6A126E5A14C003D5DFC /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
 		BE24E6A326E5A17B003D5DFC /* WrongResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongResetPassword.swift; sourceTree = "<group>"; };
 		BE24E6A526E5A1D0003D5DFC /* ResetSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSuccess.swift; sourceTree = "<group>"; };
-		BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInView.swift; sourceTree = "<group>"; };
 		BE24E6A926E6EDAC003D5DFC /* SignSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignSuccessView.swift; sourceTree = "<group>"; };
 		BE24E6AC26E71234003D5DFC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BE2D462C27114FC80006E864 /* ProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePicker.swift; sourceTree = "<group>"; };
-		BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDetailView.swift; sourceTree = "<group>"; };
 		BE3FDF78270ED17400BF1C7C /* EliceDigitalBaeum_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Regular.ttf; sourceTree = "<group>"; };
 		BE3FDF79270ED17400BF1C7C /* EliceDigitalBaeum_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EliceDigitalBaeum_Bold.ttf; sourceTree = "<group>"; };
+		BE4E0683271BC980001DAD31 /* TodayBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayBanner.swift; path = Clay_refactor/Home/TodayBanner.swift; sourceTree = SOURCE_ROOT; };
+		BE4E0684271BC980001DAD31 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Clay_refactor/Home/BlurView.swift; sourceTree = SOURCE_ROOT; };
+		BE4E0687271D8478001DAD31 /* DietCompletePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietCompletePopup.swift; sourceTree = "<group>"; };
+		BE4E0689271D85E9001DAD31 /* DietAddSuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietAddSuccessAlert.swift; sourceTree = "<group>"; };
+		BE4E068D27201A8A001DAD31 /* NutritionAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAddView.swift; sourceTree = "<group>"; };
+		BE4E068F2720336B001DAD31 /* SnackNutritionAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackNutritionAddView.swift; sourceTree = "<group>"; };
 		BE50E00726F1B1E2001327C0 /* FoodSelectSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectSuccessView.swift; sourceTree = "<group>"; };
 		BE50E04026F21EE4001327C0 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		BE50E04126F21EE4001327C0 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
@@ -229,8 +231,6 @@
 		BE51006026EB974E00FA9B3D /* FoodInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoResponse.swift; sourceTree = "<group>"; };
 		BE5100D826EE2D6B00FA9B3D /* FoodInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewModel.swift; sourceTree = "<group>"; };
 		BE5100DA26EE2D8B00FA9B3D /* FoodInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoRowView.swift; sourceTree = "<group>"; };
-		BE5100DC26EE2DAE00FA9B3D /* APIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIView.swift; sourceTree = "<group>"; };
-		BE5313B726F017F00090C4C0 /* TodayBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBanner.swift; sourceTree = "<group>"; };
 		BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyInfoReport.swift; sourceTree = "<group>"; };
 		BE69E243270C384D002A90C1 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
@@ -270,10 +270,10 @@
 		BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceVIew.swift; sourceTree = "<group>"; };
 		BEAEDBC82708A5E000A54AD4 /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
-		BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
-		BEC5A4A3270C37CB00109AAE /* CalnederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalnederView.swift; sourceTree = "<group>"; };
+		BECFE4EC27205F3400B1C964 /* DateKcalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateKcalDetailView.swift; sourceTree = "<group>"; };
+		BECFE4EE27206E9600B1C964 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
 		BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
 		BEEF37F327192B5B002B054B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -293,7 +293,9 @@
 		BEFE1F8B270B4E8500AA3E47 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEFE1F8D270B4E8500AA3E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C48B3FBECDCD01B33D59524E /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
+		C913E7D3D51D578602FC5F72 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE5CBACE315E2A3D19E30016 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +310,7 @@
 				BE267F172714011000D2CB7F /* Kingfisher in Frameworks */,
 				BE9147192709E7A0009F1522 /* Alamofire in Frameworks */,
 				BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */,
-				7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */,
+				088C843D5D8320BC84C9D090 /* Pods_Clay_refactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +318,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */,
+				7C283B4B28D75A655F7B6C12 /* Pods_Clay_refactorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
+				16373FA098A0292EEC79AEC2 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,12 +336,12 @@
 		5694BDBB44867D20DFBFEA3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */,
-				5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */,
-				8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
-				C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
-				2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */,
-				26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */,
+				0EC2E6A99096186CFE772000 /* Pods-Clay_refactor.debug.xcconfig */,
+				C48B3FBECDCD01B33D59524E /* Pods-Clay_refactor.release.xcconfig */,
+				286CF25C91D76A0C33AAE88E /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
+				772D5B1377CD0D04D5A61E19 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
+				AA3352281982CC6DE70BD0AE /* Pods-Clay_refactorTests.debug.xcconfig */,
+				04F7002C503EC617F52EB26B /* Pods-Clay_refactorTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -372,7 +374,6 @@
 			isa = PBXGroup;
 			children = (
 				BE69E24B270D6ABD002A90C1 /* MyPage */,
-				BEFE2037270BABC800AA3E47 /* Calendar */,
 				BE1E7BEA27099E5B0000522D /* Clay_refactor.entitlements */,
 				BE24E69326E5035A003D5DFC /* AppDelegate.swift */,
 				BE24E68226E4F508003D5DFC /* Main */,
@@ -465,8 +466,6 @@
 				BE24E68526E4FCD4003D5DFC /* SignAppViewModel.swift */,
 				BE24E68926E4FD8F003D5DFC /* SignErrorView */,
 				BE24E67826E4EE59003D5DFC /* AreYouFirstView.swift */,
-				BE24E6A726E5A2E3003D5DFC /* MainLogInView.swift */,
-				BE24E69926E59CA7003D5DFC /* MainSignUpView.swift */,
 				BE24E69D26E59FB8003D5DFC /* SignInView.swift */,
 				BE24E68326E4FC89003D5DFC /* SignUpView.swift */,
 				BE24E6A126E5A14C003D5DFC /* ResetPassword.swift */,
@@ -549,10 +548,11 @@
 		BE50E04826F222BD001327C0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				BEC5A4A3270C37CB00109AAE /* CalnederView.swift */,
-				BE69E243270C384D002A90C1 /* CustomDatePicker.swift */,
-				BE69E245270C3871002A90C1 /* DateValue.swift */,
 				BE69E247270C3880002A90C1 /* Task.swift */,
+				BE69E245270C3871002A90C1 /* DateValue.swift */,
+				BE69E243270C384D002A90C1 /* CustomDatePicker.swift */,
+				BECFE4EC27205F3400B1C964 /* DateKcalDetailView.swift */,
+				BECFE4EE27206E9600B1C964 /* MealDetail.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -583,13 +583,14 @@
 		BE51005F26EB8FF500FA9B3D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				BE51006026EB974E00FA9B3D /* FoodInfoResponse.swift */,
 				BE5100D826EE2D6B00FA9B3D /* FoodInfoViewModel.swift */,
+				BE51006026EB974E00FA9B3D /* FoodInfoResponse.swift */,
 				BE5100DA26EE2D8B00FA9B3D /* FoodInfoRowView.swift */,
+				BE4E068D27201A8A001DAD31 /* NutritionAddView.swift */,
 				BE8964B02710393D00BDC896 /* SnackFoodInfoRowView.swift */,
-				BE5100DC26EE2DAE00FA9B3D /* APIView.swift */,
+				BE4E068F2720336B001DAD31 /* SnackNutritionAddView.swift */,
+				BE4E0689271D85E9001DAD31 /* DietAddSuccessAlert.swift */,
 				BE50E00726F1B1E2001327C0 /* FoodSelectSuccessView.swift */,
-				BE345D2B26FD547B00328BAE /* NutritionDetailView.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -623,12 +624,12 @@
 		BEC26DAE26F2F92B003CA5F4 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
-				BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */,
 				BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */,
-				BE5313B726F017F00090C4C0 /* TodayBanner.swift */,
+				BE4E0683271BC980001DAD31 /* TodayBanner.swift */,
 				BEEF37F52719419F002B054B /* MyPointView.swift */,
 				BEEF37F72719446C002B054B /* HomeProfileView.swift */,
 				BEEF37F9271952E2002B054B /* HomeMealBannerView.swift */,
+				BE4E0684271BC980001DAD31 /* BlurView.swift */,
 				BEEF37FC2719958C002B054B /* MealBanner */,
 			);
 			path = Banner;
@@ -659,6 +660,7 @@
 				BEEF3806271ACB3E002B054B /* TimeInfoPopup.swift */,
 				BEEF3808271AF196002B054B /* GetPointPopup.swift */,
 				BEEF380A271AF52D002B054B /* FailPopup.swift */,
+				BE4E0687271D8478001DAD31 /* DietCompletePopup.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -680,13 +682,6 @@
 				BEFE1F8D270B4E8500AA3E47 /* Info.plist */,
 			);
 			path = NotificationTarget;
-			sourceTree = "<group>";
-		};
-		BEFE2037270BABC800AA3E47 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calendar;
 			sourceTree = "<group>";
 		};
 		FAF6151A86A1DADC475ECD03 /* Frameworks */ = {
@@ -716,9 +711,9 @@
 				BE7F4AB3270566400081B7C4 /* leveldb.framework */,
 				BE7F4AB4270566400081B7C4 /* nanopb.framework */,
 				BE7F4AB5270566400081B7C4 /* openssl_grpc.framework */,
-				579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */,
-				74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
-				3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */,
+				CE5CBACE315E2A3D19E30016 /* Pods_Clay_refactor.framework */,
+				6F5C8D1CD1A9F5184165CF3D /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
+				C913E7D3D51D578602FC5F72 /* Pods_Clay_refactorTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -730,13 +725,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64C26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactor" */;
 			buildPhases = (
-				BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */,
+				51624A4EB011B0ABA1875848 /* [CP] Check Pods Manifest.lock */,
 				BE24E62326E4E0A0003D5DFC /* Sources */,
 				BE24E62426E4E0A0003D5DFC /* Frameworks */,
 				BE24E62526E4E0A0003D5DFC /* Resources */,
 				BE7F4AF1270567880081B7C4 /* Embed Frameworks */,
 				BEFE1F91270B4E8500AA3E47 /* Embed App Extensions */,
-				5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */,
+				4E8AE7F2FBCE954AC1407628 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -760,7 +755,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64F26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorTests" */;
 			buildPhases = (
-				A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */,
+				A9A4EAD123BE5D4038A5D0D5 /* [CP] Check Pods Manifest.lock */,
 				BE24E63426E4E0A1003D5DFC /* Sources */,
 				BE24E63526E4E0A1003D5DFC /* Frameworks */,
 				BE24E63626E4E0A1003D5DFC /* Resources */,
@@ -779,11 +774,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E65226E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorUITests" */;
 			buildPhases = (
-				146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */,
+				E1932B75B0A777EEF0511B02 /* [CP] Check Pods Manifest.lock */,
 				BE24E63F26E4E0A1003D5DFC /* Sources */,
 				BE24E64026E4E0A1003D5DFC /* Frameworks */,
 				BE24E64126E4E0A1003D5DFC /* Resources */,
-				7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */,
+				965D0BDB74BC58B38D8975C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -888,29 +883,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clay_refactor-Clay_refactorUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */ = {
+		4E8AE7F2FBCE954AC1407628 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -927,46 +900,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clay_refactorTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */ = {
+		51624A4EB011B0ABA1875848 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -988,6 +922,67 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		965D0BDB74BC58B38D8975C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9A4EAD123BE5D4038A5D0D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clay_refactorTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1932B75B0A777EEF0511B02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clay_refactor-Clay_refactorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -999,7 +994,6 @@
 				BE69E248270C3880002A90C1 /* Task.swift in Sources */,
 				BE24E69226E5032A003D5DFC /* ThreadDataType.swift in Sources */,
 				BEEF37F82719446C002B054B /* HomeProfileView.swift in Sources */,
-				BE5313B826F017F00090C4C0 /* TodayBanner.swift in Sources */,
 				BE24E65726E4E2C4003D5DFC /* FirstLaunchView.swift in Sources */,
 				BE24E69426E5035A003D5DFC /* AppDelegate.swift in Sources */,
 				BE955E9826E8FC7300FECF2F /* DiaryView.swift in Sources */,
@@ -1015,11 +1009,9 @@
 				BE51005A26EB507900FA9B3D /* FriendView.swift in Sources */,
 				BE24E67F26E4F15E003D5DFC /* MoveAndFade.swift in Sources */,
 				BEEF380B271AF52D002B054B /* FailPopup.swift in Sources */,
-				BE24E69A26E59CA7003D5DFC /* MainSignUpView.swift in Sources */,
 				BE51005526EB386300FA9B3D /* ContentView.swift in Sources */,
 				BE53235826F6CD4000D3FB91 /* GetBodyInfoReport.swift in Sources */,
 				BE24E6AD26E71234003D5DFC /* HomeView.swift in Sources */,
-				BE5100DD26EE2DAE00FA9B3D /* APIView.swift in Sources */,
 				BEEF37FA271952E2002B054B /* HomeMealBannerView.swift in Sources */,
 				BE51005826EB502100FA9B3D /* Friend.swift in Sources */,
 				BE24E67926E4EE59003D5DFC /* AreYouFirstView.swift in Sources */,
@@ -1028,18 +1020,19 @@
 				BE24E69626E50ADB003D5DFC /* LogoutBtn.swift in Sources */,
 				BE24E62B26E4E0A0003D5DFC /* Clay_refactorApp.swift in Sources */,
 				BE8964A9270FFF1000BDC896 /* SuccessAlertView.swift in Sources */,
-				BEC5A4A4270C37CB00109AAE /* CalnederView.swift in Sources */,
 				BEEF380D271B015E002B054B /* ChevronButton.swift in Sources */,
 				BE51005326EB37A700FA9B3D /* Camera.swift in Sources */,
 				BEEF380227199979002B054B /* TimerBanner.swift in Sources */,
 				BE24E68626E4FCD4003D5DFC /* SignAppViewModel.swift in Sources */,
 				BE24E68826E4FD5A003D5DFC /* Loader.swift in Sources */,
 				BE69E244270C384D002A90C1 /* CustomDatePicker.swift in Sources */,
-				BE345D2C26FD547B00328BAE /* NutritionDetailView.swift in Sources */,
 				BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */,
 				BEEF37F62719419F002B054B /* MyPointView.swift in Sources */,
+				BE4E06902720336B001DAD31 /* SnackNutritionAddView.swift in Sources */,
 				BE51005126EB374700FA9B3D /* FirebaseImageView.swift in Sources */,
+				BECFE4ED27205F3400B1C964 /* DateKcalDetailView.swift in Sources */,
 				BEEF38002719980B002B054B /* CanWriteBanner.swift in Sources */,
+				BE4E068A271D85E9001DAD31 /* DietAddSuccessAlert.swift in Sources */,
 				BE24E68426E4FC89003D5DFC /* SignUpView.swift in Sources */,
 				BE50E00826F1B1E2001327C0 /* FoodSelectSuccessView.swift in Sources */,
 				BE5313BC26F0368C0090C4C0 /* ImagePicker.swift in Sources */,
@@ -1047,23 +1040,26 @@
 				BE8964AF271026CD00BDC896 /* SnackDiaryView.swift in Sources */,
 				BE24E69E26E59FB8003D5DFC /* SignInView.swift in Sources */,
 				BEEF37F2271928C2002B054B /* HomeNavigationBar.swift in Sources */,
+				BE4E0688271D8478001DAD31 /* DietCompletePopup.swift in Sources */,
 				BE51005C26EB533E00FA9B3D /* FriendDataType.swift in Sources */,
 				BEEF37FE271995BE002B054B /* CantWriteBanner.swift in Sources */,
 				BE24E68B26E4FD9E003D5DFC /* WrongRegisterErrorView.swift in Sources */,
 				BEC26DB026F2F949003CA5F4 /* CustomTabBar.swift in Sources */,
 				BEEF37F427192B5B002B054B /* HomeViewModel.swift in Sources */,
 				BE24E6A426E5A17B003D5DFC /* WrongResetPassword.swift in Sources */,
-				BEC26DAD26F2CF1B003CA5F4 /* BlurView.swift in Sources */,
 				BE24E6A226E5A14C003D5DFC /* ResetPassword.swift in Sources */,
+				BE4E068E27201A8A001DAD31 /* NutritionAddView.swift in Sources */,
 				BE5100DB26EE2D8B00FA9B3D /* FoodInfoRowView.swift in Sources */,
-				BE24E6A826E5A2E3003D5DFC /* MainLogInView.swift in Sources */,
 				BE24E69026E50312003D5DFC /* FirebaseData.swift in Sources */,
 				BE69E24A270C70A7002A90C1 /* CalendarDataType.swift in Sources */,
+				BE4E0686271BC980001DAD31 /* BlurView.swift in Sources */,
 				BE24E69826E50FBE003D5DFC /* signAndMain.swift in Sources */,
 				BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */,
 				BE5100D926EE2D6B00FA9B3D /* FoodInfoViewModel.swift in Sources */,
+				BE4E0685271BC980001DAD31 /* TodayBanner.swift in Sources */,
 				BE7F4AF827061F4D0081B7C4 /* ListLineSeparator.swift in Sources */,
 				BEEF3809271AF196002B054B /* GetPointPopup.swift in Sources */,
+				BECFE4EF27206E9600B1C964 /* MealDetail.swift in Sources */,
 				BE24E67C26E4F0F3003D5DFC /* GetBodyInfoView.swift in Sources */,
 				BE8964B12710393D00BDC896 /* SnackFoodInfoRowView.swift in Sources */,
 				BE24E69C26E59CE0003D5DFC /* PageControl.swift in Sources */,
@@ -1226,7 +1222,7 @@
 		};
 		BE24E64D26E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */;
+			baseConfigurationReference = 0EC2E6A99096186CFE772000 /* Pods-Clay_refactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1258,7 +1254,7 @@
 		};
 		BE24E64E26E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */;
+			baseConfigurationReference = C48B3FBECDCD01B33D59524E /* Pods-Clay_refactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1290,7 +1286,7 @@
 		};
 		BE24E65026E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */;
+			baseConfigurationReference = AA3352281982CC6DE70BD0AE /* Pods-Clay_refactorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1313,7 +1309,7 @@
 		};
 		BE24E65126E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */;
+			baseConfigurationReference = 04F7002C503EC617F52EB26B /* Pods-Clay_refactorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1336,7 +1332,7 @@
 		};
 		BE24E65326E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
+			baseConfigurationReference = 286CF25C91D76A0C33AAE88E /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1357,7 +1353,7 @@
 		};
 		BE24E65426E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
+			baseConfigurationReference = 772D5B1377CD0D04D5A61E19 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

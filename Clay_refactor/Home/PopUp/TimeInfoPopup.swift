@@ -35,21 +35,21 @@ struct TimeInfoPopup: View {
             VStack(spacing: 15){
                 ZStack{
                    
-                    Text("아침 : \(datas.userTimeToDisPlay["userMorningTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userMorningTime"]!)!+2)):00")
+                    Text("아침 : \(datas.userTimeToDisPlay["userMorningTime"] ?? "9"):00 - \(String((Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9)+2)):00")
                         .font(Font.custom(systemFont, size: 20))
                         .fontWeight(.bold)
                        
                 }
                 ZStack{
                 
-                    Text("점심 : \(datas.userTimeToDisPlay["userLaunchTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userLaunchTime"]!)!+2)):00")
+                    Text("점심 : \(datas.userTimeToDisPlay["userLaunchTime"] ?? "12"):00 - \(String((Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12)+2)):00")
                         .font(Font.custom(systemFont, size: 20))
                         .fontWeight(.bold)
                         
                 }
                 ZStack{
                   
-                    Text("저녁 : \(datas.userTimeToDisPlay["userDinnerTime"]!):00 - \(String(Int(datas.userTimeToDisPlay["userDinnerTime"]!)!+2)):00")
+                    Text("저녁 : \(datas.userTimeToDisPlay["userDinnerTime"] ?? "18"):00 - \(String((Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18+2))):00")
                         .font(Font.custom(systemFont, size: 20))
                         .fontWeight(.bold)
                        

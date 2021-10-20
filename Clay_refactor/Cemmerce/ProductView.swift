@@ -60,8 +60,9 @@ struct ProductView: View {
                 Text("\(productPrice)")
                     .fontWeight(.bold)
                     .font(Font.custom(systemFont, size: 17))
-                Text(" 원")
+                Text(" P")
                     .font(Font.custom(systemFont, size: 15))
+                    .fontWeight(.bold)
               
             }
             .frame(width: 165, height: 35, alignment: .leading)

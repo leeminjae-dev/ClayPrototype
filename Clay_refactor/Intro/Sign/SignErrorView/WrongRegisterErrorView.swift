@@ -34,7 +34,7 @@ struct WrongRegisterErrorView: View {
             .cornerRadius(15)
             .shadow(radius: 0.5)
             .padding(.bottom,50)
-
+            
     }
 }
 

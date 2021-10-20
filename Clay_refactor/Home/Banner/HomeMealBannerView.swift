@@ -55,7 +55,7 @@ struct HomeMealBannerView: View {
             VStack(spacing : 15){
                 if morningTimeRemaining < 0{
                     if isMorningTimeOver{
-                        if datas.completeList["completeMorning"]!{
+                        if datas.completeList["completeMorning"] ?? false{
                             CantWriteBanner(MealText : "아침", mealKcal: "morningKcal", bannerColor: Color.init("systemColor"), centerImage: "checkmark.circle")
                             //아침 시간 지나고 성공
                         }else{
@@ -63,7 +63,7 @@ struct HomeMealBannerView: View {
                             //아침 시간 지나고 실패
                         }
                     }else{
-                        if datas.completeList["completeMorning"]!{
+                        if datas.completeList["completeMorning"] ?? false{
                             CanWriteBanner(MealText : "아침", mealKcal: "morningKcal", bannerColor: Color.init("systemColor"), centerImage: "", fontColor: Color.white,isTabDiet: $isTabDiet)
                                 .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                             // 아침 칼로리 기입 후
@@ -83,7 +83,7 @@ struct HomeMealBannerView: View {
                    
                 if launchTimeRemaining < 0{
                     if isLaunchTimeOver{
-                        if datas.completeList["completeLaunch"]!{
+                        if datas.completeList["completeLaunch"] ?? false{
                             CantWriteBanner(MealText : "점심", mealKcal: "launchKcal", bannerColor: Color.init("systemColor"), centerImage: "checkmark.circle")
                             //점심 시간 지나고 성공
                         }else{
@@ -91,7 +91,7 @@ struct HomeMealBannerView: View {
                             //점심 시간 지나고 실패
                         }
                     }else{
-                        if datas.completeList["completeLaunch"]!{
+                        if datas.completeList["completeLaunch"] ?? false{
                             CanWriteBanner(MealText : "점심", mealKcal: "launchKcal", bannerColor: Color.init("systemColor"), centerImage: "", fontColor: Color.white,isTabDiet: $isTabDiet)
                                 .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                             // 점심 칼로리 기입 후
@@ -113,7 +113,7 @@ struct HomeMealBannerView: View {
                     
                 if dinnerTimeRemaining < 0{
                     if isDinnerTimeOver{
-                        if datas.completeList["completeDinner"]!{
+                        if datas.completeList["completeDinner"] ?? false{
                             CantWriteBanner(MealText : "저녁", mealKcal: "dinnerKcal", bannerColor: Color.init("systemColor"), centerImage: "checkmark.circle")
                             //저녁 시간 지나고 성공
                         }else{
@@ -121,7 +121,7 @@ struct HomeMealBannerView: View {
                             //저녁 시간 지나고 실패
                         }
                     }else{
-                        if datas.completeList["completeDinner"]!{
+                        if datas.completeList["completeDinner"] ?? false{
                             CanWriteBanner(MealText : "저녁", mealKcal: "dinnerKcal", bannerColor: Color.init("systemColor"), centerImage: "", fontColor: Color.white, isTabDiet: $isTabDiet)
                                 .shadow(color: Color.black.opacity(0.5), radius: 3, y:3 )
                             // 저녁 칼로리 기입 후
@@ -141,7 +141,7 @@ struct HomeMealBannerView: View {
                    
                 HStack{
                     Spacer()
-                    if datas.kcalToDisplay["snackKcal"]! != 0{
+                    if datas.kcalToDisplay["snackKcal"] ?? 0 != 0{
 
                             Button(
                                 action: {isTabSnackDiet = true},

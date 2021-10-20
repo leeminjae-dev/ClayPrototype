@@ -10,7 +10,7 @@ import FirebaseStorage
 
 struct CustomTabView: View {
     @ObservedObject var datas = firebaseData
-     
+    @StateObject var homeViewModel = HomeViewModel()
     @State var selectedTab = "house"
     @State var isTabDiet = false
     @State var isTabSnackDiet = false
@@ -59,7 +59,6 @@ struct CustomTabView: View {
             .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
             .onAppear{
                 loadImageFromUserImageFirebase()
-                
                 
             }
            

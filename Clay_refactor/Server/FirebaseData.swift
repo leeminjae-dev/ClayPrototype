@@ -147,64 +147,6 @@ class FirebaseData: ObservableObject {
             "archievePoint" : archievePoint             ])
     }
     
-    func readUserTime() {
-        
-        dbCollection.addSnapshotListener { (documentSnapshot, err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
-                return
-            }else {
-                print("read data success")
-            }
-            
-            documentSnapshot!.documentChanges.forEach { diff in
-                // Real time create from server
-                if (diff.type == .added) {
-                    let msgData = ThreadDataType(id : dbCollection.document().documentID,
-                                                 email: diff.document.get("email") as! String?,
-                                                 age: diff.document.get("age") as! String?,
-                                                
-                                                 targetWeight: diff.document.get("targetWeight") as! String?,
-                                                 isTabMale: diff.document.get("gender") as! String?,
-                                                 nickName: diff.document.get("nickName") as! String?,
-                                                 date: diff.document.get("date") as! String?,
-                                                 userPoint: diff.document.get("userPoint") as! String?,
-                                                 totalKcal: diff.document.get("Kcal") as! String?,
-                                                 archieveRate: diff.document.get("archieveRate") as! String?,
-                                                 targetArchieve : diff.document.get("targetArchieve") as! String?,
-                                                 archievePoint : diff.document.get("archievePoint") as! String?)
-                    self.data.append(msgData)
-                }
-                
-                // Real time modify from server
-                if (diff.type == .modified) {
-                    self.data = self.data.map { (eachData) -> ThreadDataType in
-                        var data = eachData
-                        if data.email == diff.document.documentID {
-                            data.age = diff.document.get("age") as! String?
-                          
-                            data.targetWeight = diff.document.get("targetWeight") as! String?
-                            data.isTabMale = diff.document.get("gender") as! String?
-                            data.nickName = diff.document.get("nickName") as! String?
-                            data.date = diff.document.get("date") as! String?
-                            data.userPoint = diff.document.get("userPoint") as! String?
-                            data.totalKcal = diff.document.get("Kcal") as! String?
-                            data.archieveRate = diff.document.get("archieveRate") as! String?
-                            data.targetArchieve = diff.document.get("targetArchieve") as! String?
-                            data.archieveRate = diff.document.get("archieveRate") as! String?
-                            return data
-                            
-                        }else {
-                            
-                            return eachData
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
     func updateTargetArchieve(
         email : String,
         targetArchieve : String
@@ -453,7 +395,7 @@ class FirebaseData: ObservableObject {
     dbCollection.document(email).collection("diary").document(date + " \(meal)").addSnapshotListener{ (document, error) in
     if let document = document, document.exists {
         _ = document.data().map(String.init(describing:)) ?? "nil"
-        self.completeList[data] = document.get(data) as? Bool ?? nil
+        self.completeList[data] = document.get(data) as? Bool ?? false
     } else {
         print("Document does not exist")
     }
@@ -470,12 +412,12 @@ class FirebaseData: ObservableObject {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data()["kcal"]!)")
-                    if self.foodList.contains(["\(document.documentID)","\(document.data()["serveSize"]!)","\(document.data()["kcal"]!)"]){
+                    if self.foodList.contains(["\(document.documentID)","\(document.data()["serveSize"] ?? "0")","\(document.data()["kcal"] ?? "0")"]){
                         
                     }else{
                         
-                        self.dietKcal = self.dietKcal + Float("\(document.data()["kcal"]!)")!
-                        self.foodList.append(["\(document.documentID)","\(document.data()["serveSize"]!)","\(document.data()["kcal"]!)"])
+                        self.dietKcal = self.dietKcal + Float("\(document.data()["kcal"] ?? "0")")!
+                        self.foodList.append(["\(document.documentID)","\(document.data()["serveSize"] ?? "0")","\(document.data()["kcal"] ?? "0")"])
                         
                     }
                    
@@ -497,8 +439,8 @@ class FirebaseData: ObservableObject {
                         
                     }else{
                         
-                        self.dietKcal = self.dietKcal + Float("\(document.data()["kcal"]!)")!
-                        self.snackFoodList.append(["\(document.documentID)","\(document.data()["serveSize"]!)","\(document.data()["kcal"]!)"])
+                        self.dietKcal = self.dietKcal + Float("\(document.data()["kcal"] ?? "0")")!
+                        self.snackFoodList.append(["\(document.documentID)","\(document.data()["serveSize"] ?? 0)","\(document.data()["kcal"] ?? 0)"])
                         
                     }
                    
@@ -602,9 +544,9 @@ class FirebaseData: ObservableObject {
                 if (diff.type == .added) {
                     let msgData = CalendarDataType(
                                                     id: diff.document.documentID,
-                                                   kcal : diff.document.get("kcal") as! Float,
-                                                   date : diff.document.get("date") as! String,
-                                                   level:diff.document.get("level") as! String)
+                                                   kcal : diff.document.get("kcal") as? Float ?? 0,
+                                                   date : diff.document.get("date") as? String ?? "0",
+                                                   level:diff.document.get("level") as? String ?? "0")
                     self.calendarData.append(msgData)
                 }
                 
@@ -613,9 +555,9 @@ class FirebaseData: ObservableObject {
                     self.calendarData = self.calendarData.map { (eachData) -> CalendarDataType in
                         var data = eachData
                         if data.id == diff.document.documentID {
-                            data.kcal = diff.document.get("kcal") as! Float
-                            data.date = diff.document.get("date") as! String
-                            data.level = diff.document.get("level") as! String
+                            data.kcal = diff.document.get("kcal") as? Float ?? 0
+                            data.date = diff.document.get("date") as? String ?? "error"
+                            data.level = diff.document.get("level") as? String ?? "error"
                           
                             
                             return data

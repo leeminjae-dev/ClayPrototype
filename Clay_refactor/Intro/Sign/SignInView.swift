@@ -115,7 +115,7 @@ struct SignInView: View {
             HStack{
                 Spacer()
                 NavigationLink("비밀번호 재설정", destination: ResetPassword())
-                    .foregroundColor(.black)
+                    .foregroundColor(.blue)
                 Spacer()
             }
             .padding()
@@ -126,9 +126,9 @@ struct SignInView: View {
             .navigationBarTitle(Text("로그인"))
             .edgesIgnoringSafeArea(.all)
             
-            if self.alert{
+            if self.alert == true{
                 WrongIDErrorView(alert: self.$alert)
-                
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.5)))
             }
             if self.isLoading{
                 Loader()

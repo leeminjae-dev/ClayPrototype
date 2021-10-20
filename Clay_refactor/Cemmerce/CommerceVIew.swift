@@ -34,6 +34,7 @@ struct CommerceVIew: View {
             ZStack{
                 SuccessAlertView(alert: $buySuccess, errorMassage: $successMessage)
                     .zIndex(2)
+                
                 if showBuy{
                     Rectangle()
                         .foregroundColor(Color.black.opacity(0.3))
@@ -46,6 +47,7 @@ struct CommerceVIew: View {
                             
                             BlurView(effect: .systemUltraThinMaterialLight)
                                 .frame(width: 400, height: 100)
+                            
                             Text("CLAY SHOP")
                                 .font(Font.custom(systemFont, size: 23))
                                 .foregroundColor(Color.init("systemColor"))
@@ -53,23 +55,25 @@ struct CommerceVIew: View {
                                 .padding(.top,45)
                 
                         }
-                       
-                        
-                       
+   
                     }
                     .position(x: geometry.size.width / 2, y: 50)
                     .zIndex(1)
                     
                     ScrollView{
                         VStack(spacing : 10){
+                            
                             Rectangle()
                                 .frame(width: 180, height: 200)
                                 .opacity(0)
                                 .cornerRadius(15)
+                            
                             HStack{
                               
                                 VStack{
+                                    
                                     HStack{
+                                        
                                         Rectangle()
                                             .frame(width: 2, height: 17)
                                             .foregroundColor(Color.init("systemColor"))
@@ -80,28 +84,26 @@ struct CommerceVIew: View {
                                             .fontWeight(.bold)
                                         Spacer()
                                         HStack(spacing : 0){
+                                            
                                             Image("금화")
                                                .resizable()
                                                .clipShape(Circle())
                                                .frame(width: 27, height: 33)
-                                               
-                                               
                                                .padding(.bottom, 4)
-                                            Text("\(datas.dataToDisplay["archievePoint"]!)")
+                                            
+                                            Text("\(datas.dataToDisplay["archievePoint"] ?? "0")")
                                                 .font(Font.custom(systemFont, size: 20))
-                                                .fontWeight(.bold)
-                                                .frame(height: 6, alignment: .bottom)
-                                                .background(Color.init("systemColor").opacity(0.5))
-                                                .padding(.top,10)
-                                             Text("P")
+                                                .padding(.bottom, 5)
+                                            
+                                            Text("P")
                                                 .font(Font.custom(systemFont, size: 20))
                                                 .fontWeight(.bold)
                                                 .padding(.bottom, 5)
+                                            
                                         }
                                         
                                         .padding(.trailing, 12)
                                        
-                                        
                                     }
                                     
                                    
@@ -127,27 +129,27 @@ struct CommerceVIew: View {
                                     .opacity(0)
                                     .cornerRadius(15)
                             }
-                           
-                            
+   
                         }
                         
                     }
                     .position(x: geometry.size.width / 2, y:330 )
                 }
-                
-              
+
             }
             .popup(isPresented: $showBuy, closeOnTap: false){
                 ZStack{
                     
                     WrongResetPasswordErrorView(alert: $cantBuy, errorMassage: $errorMessage)
                         .zIndex(2)
+                    
                     VStack(spacing : 15){
                         HStack{
                             Text("상품 주문")
                                 .font(Font.custom(systemFont, size: 20))
                                 .fontWeight(.bold)
                                 .padding(.leading, 20)
+                            
                             Spacer()
                             Button(action: {
                                 showBuy = false
@@ -176,6 +178,7 @@ struct CommerceVIew: View {
                                     
                                     }
                                     .padding(.top, 20)
+                                
                                 VStack(spacing: 5){
                                     Text("전화번호")
                                     TextField("", text: $phoneNumber)
@@ -213,7 +216,7 @@ struct CommerceVIew: View {
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                             buySuccess = false
                                         }
-                                        datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"]!)! - buyProductPrice * productNum ))
+                                        datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"] ?? "0")! - buyProductPrice * productNum ))
                                         
                                     }else{
                                         errorMessage = "모든 칸을 기입해주세요!"
@@ -224,6 +227,7 @@ struct CommerceVIew: View {
                                     }
                                     
                                 }, label: {
+                                    
                                     Text("주문하기")
                                         .fontWeight(.bold)
                                         .font(Font.custom(systemFont, size: 15))
@@ -232,10 +236,12 @@ struct CommerceVIew: View {
                                         .background(Color.init("systemColor"))
                                         .cornerRadius(60)
                                         .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                    
                                 })
                             }
                             .padding(.leading, 20)
                         }else{
+                            
                             Image(buyProductName)
                                     .resizable()
                                     .frame(width: 300, height: 280)
@@ -249,7 +255,7 @@ struct CommerceVIew: View {
                             HStack(spacing : 0){
                                 Text("\(buyProductPrice * productNum)")
                                     .font(Font.custom(systemFont, size: 20))
-                                Text(" 원")
+                                Text(" P")
                                     .font(Font.custom(systemFont, size: 20))
                                     .fontWeight(.bold)
                             }
@@ -279,7 +285,7 @@ struct CommerceVIew: View {
                                 
           
                             Button(action: {
-                                if Int(datas.dataToDisplay["archievePoint"]!)! >= buyProductPrice * productNum{
+                                if Int(datas.dataToDisplay["archievePoint"] ?? "0")! >= buyProductPrice * productNum{
                                     canBuy = true
                                 }else{
                                     cantBuy = true
@@ -290,6 +296,7 @@ struct CommerceVIew: View {
                                 }
                                 
                             }, label: {
+                                
                                 Text("포인트로 구매하기")
                                     .fontWeight(.bold)
                                     .font(Font.custom(systemFont, size: 15))
@@ -298,6 +305,7 @@ struct CommerceVIew: View {
                                     .background(Color.init("systemColor"))
                                     .cornerRadius(60)
                                     .shadow(color: Color.black.opacity(0.3), radius: 6, y:3 )
+                                
                             })
                         }
               

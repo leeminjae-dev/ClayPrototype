@@ -51,9 +51,9 @@ struct HomeProfileView: View {
             }
            
             HStack(spacing : 5){
-                Text("\(datas.dataToDisplay["nickName"]!)님은 오늘")
+                Text("\(datas.dataToDisplay["nickName"] ?? "error")님은 오늘")
                     .font(Font.custom(systemFont, size: 13))
-                Text("\(Float(datas.dataToDisplay["Kcal"]!)! - datas.kcalToDisplay["morningKcal"]! - datas.kcalToDisplay["launchKcal"]! - datas.kcalToDisplay["dinnerKcal"]! - datas.kcalToDisplay["snackKcal"]!, specifier: "%.0f")Kcal")
+                Text("\((Float(datas.dataToDisplay["Kcal"] ?? "") ?? 0) - datas.kcalToDisplay["morningKcal"]!  - datas.kcalToDisplay["launchKcal"]! - datas.kcalToDisplay["dinnerKcal"]! - datas.kcalToDisplay["snackKcal"]!, specifier: "%.0f")Kcal")
                     .font(Font.custom(systemFont, size: 13))
                     .fontWeight(.bold)
                     .frame(height: 6, alignment: .bottom)

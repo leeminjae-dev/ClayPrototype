@@ -16,7 +16,7 @@ struct WrongResetPasswordErrorView: View {
     
     
     var body: some View {
-        if alert{
+        if alert == true{
             VStack{
                 
                 Image(systemName: "exclamationmark.triangle")
@@ -37,7 +37,7 @@ struct WrongResetPasswordErrorView: View {
             .cornerRadius(15)
             .shadow(radius: 0.5)
             .padding(.bottom,50)
-            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.2)))
+          
 
         }
         

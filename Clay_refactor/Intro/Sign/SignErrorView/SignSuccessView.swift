@@ -53,7 +53,7 @@ struct SignSuccessView: View {
             .cornerRadius(15)
             .shadow(radius: 1)
             .padding(.bottom,50)
-       
+           
 
     }
 }

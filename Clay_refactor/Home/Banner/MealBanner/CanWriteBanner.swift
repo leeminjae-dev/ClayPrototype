@@ -39,7 +39,7 @@ struct CanWriteBanner: View {
                     Spacer()
                     
                     HStack{
-                        Text("\(datas.kcalToDisplay[mealKcal]!,specifier: "%.0f")")
+                        Text("\(datas.kcalToDisplay[mealKcal] ?? 0,specifier: "%.0f")")
                             .foregroundColor(fontColor)
                             .fontWeight(.black)
                             .font(Font.custom(systemFont, size: 20))

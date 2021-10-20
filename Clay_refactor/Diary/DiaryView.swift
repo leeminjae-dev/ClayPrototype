@@ -55,10 +55,12 @@ struct DiaryView: View {
     
     var body: some View {
         ZStack{
+            
             if isLoading{
                 Loader()
                     .zIndex(2)
             }
+            
             WrongResetPasswordErrorView(alert: $isPhoto, errorMassage: $errorMessage)
                
                 .zIndex(1)
@@ -67,6 +69,7 @@ struct DiaryView: View {
                     Button(action: {
                         if isSearch{
                             isSearch = false
+                            searchFoodName = ""
                         }else{
                             isTabDiet = false
                         }
@@ -102,7 +105,10 @@ struct DiaryView: View {
                                
                                 isFocusOn = true
                             } else {
-                                isFocusOn = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    isFocusOn = false
+                                }
+                                
                                 
                             }})
                             
@@ -138,7 +144,6 @@ struct DiaryView: View {
                 }
                 .padding(.bottom, 5)
                 .opacity(show ? 1 : 0)
-              
                 .animation(.spring().delay(0.1))
             
                 
@@ -175,7 +180,8 @@ struct DiaryView: View {
                         
                         List(foodInfoViewModel.FoodInfo){ aRandomUser in
                             
-                            FoodInfoRowView(aRandomUser, foodSuccess: $foodSuccess,showingPopup: $showingPopup, foodName: $foodName, serveSize : $serveSize, foodKcal : $foodKcal, isSearch: $isSearch)
+                            FoodInfoRowView(items: aRandomUser, searchFoodName : $searchFoodName,foodSuccess: $foodSuccess,showingPopup: $showingPopup, foodName: $foodName, serveSize : $serveSize, foodKcal : $foodKcal, isSearch: $isSearch)
+                           
                                 
                     }
                         .listStyle(PlainListStyle())
@@ -201,26 +207,26 @@ struct DiaryView: View {
                 }else{
                     VStack(spacing : 0){
                         if isMorning(){
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 아침 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"] ?? "")님이 드신 아침 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
                                 
                         }
                         else if isLaunch(){
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 점심 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"] ?? "")님이 드신 점심 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
                                
                         }
                         else if isDinner(){
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 저녁 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"] ?? "")님이 드신 저녁 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
                         }else{
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 간식 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"] ?? "")님이 드신 간식 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
@@ -333,14 +339,15 @@ struct DiaryView: View {
                                             datas.foodListCall(email: userEmail)
                                             
                                         }, label: {
+                                            
                                             Image(systemName: "trash")
+                                            
                                         })
                                         .buttonStyle(BorderlessButtonStyle())
                                 }
                                 .padding(.trailing, 15)
                                 .padding(.leading, 6)
                                     .padding(5)
-                                    
                                     .frame(width: 347, height: 60)
                                     .background(Color.white)
                                     .cornerRadius(60)
@@ -353,7 +360,9 @@ struct DiaryView: View {
                         .frame(width: 370, height: 130)
                         .padding(.trailing, 20)
                         .onAppear{
+                            
                             UITableView.appearance().separatorColor = .clear
+                            
                         }
                     }
                     else{
@@ -365,6 +374,7 @@ struct DiaryView: View {
                                 HStack(spacing :0){
                                         HStack(spacing :0){
                                             ZStack{
+                                                
                                                 Image("foodImage")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
@@ -407,12 +417,11 @@ struct DiaryView: View {
                                 }
                                 .padding(.trailing, 15)
                                 .padding(.leading, 6)
-                                    .padding(5)
-                                    
-                                    .frame(width: 347, height: 60)
-                                    .background(Color.white)
-                                    .cornerRadius(60)
-                                    .shadow(radius: 3, y: 3)
+                                .padding(5)
+                                .frame(width: 347, height: 60)
+                                .background(Color.white)
+                                .cornerRadius(60)
+                                .shadow(radius: 3, y: 3)
                                     
                             }
                         }
@@ -423,23 +432,14 @@ struct DiaryView: View {
                         .onAppear{
                             UITableView.appearance().separatorColor = .clear
                         }
-                       
-                       
-                      
-                      
-                        
-                        
                     }
-                        
-                    
-                    
                     ZStack{
                         if imageURL != "" {
                             ZStack{
                                 
                                 FirebaseImageView(imageURL: imageURL)
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(width: 360, height: isFocusOn ? 150 : 280, alignment: .center)
+                                    .frame(width: 360, height: isFocusOn ? 45 : 280, alignment: .center)
                                     .cornerRadius(15)
                                    
                                 
@@ -482,18 +482,15 @@ struct DiaryView: View {
                                             
                                         }
                                         .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
-                                        
                                         .animation(.spring())
                                 }
-                                .padding(.top, isFocusOn ? 100 : 230)
+                                .padding(.top, isFocusOn ? 0  : 230)
                                 .padding(.leading, 230)
                                 .zIndex(1)
                                
                                 
                             }
-                           
-                            
-                            
+  
                         }else{
                            
                             VStack{
@@ -514,12 +511,12 @@ struct DiaryView: View {
                                                         .frame(width: 15, height: 15, alignment: .center)
                                                 }
                                             })
-                                           
-                                            Text("사진촬영 및 업로드를 해야 입력이 완료됩니다!")
-                                                .font(Font.custom(systemFont, size: 10))
-                                                .fontWeight(.light)
-                                                .padding(.leading, 3)
-                                             Spacer()
+                                       
+                                        Text("사진촬영 및 업로드를 해야 입력이 완료됩니다!")
+                                            .font(Font.custom(systemFont, size: 10))
+                                            .fontWeight(.light)
+                                            .padding(.leading, 3)
+                                         Spacer()
                                         }
                                     }
                                     
@@ -536,9 +533,7 @@ struct DiaryView: View {
                                                     
                                         }
                                         .padding(10).background(Color.init("systemColor")).foregroundColor(Color.white).cornerRadius(20)
-                               
                                         .opacity(show ? 1 : 0)
-                                     
                                         .animation(.easeOut.delay(0.35))
                                     
                                     Button(action: { self.shownPhoto.toggle() }) {
@@ -552,7 +547,6 @@ struct DiaryView: View {
                                         
                                         imagePicker(shown: self.$shownPhoto,imageURL: self.$imageURL, isLoading: $isLoading)
                                         
-                                            
                                         }
                                         .padding(10)
                                         .background(Color.init("systemColor"))
@@ -560,25 +554,17 @@ struct DiaryView: View {
                                         .cornerRadius(20)
                                         .onAppear(perform: loadImageFromFirebase)
                                         .opacity(show ? 1 : 0)
-                                        
                                         .animation(.easeOut.delay(0.35))
+                                    
                                 }
                                 .padding()
                                 .frame(width: 360, height: 100)
                                 .background(Color.white)
                                 .cornerRadius(15)
                                 .shadow(radius: 1)
-                                
-                                
-                                
-                                
+   
                             }
-                          
-                           
-                            
                         }
-                    
-                        
                     }
                     .opacity(show ? 1 : 0)
                     .animation(.easeOut.delay(0.35))
@@ -593,28 +579,30 @@ struct DiaryView: View {
                             docRef.getDocument { (document, error) in
                                 if let document = document, document.exists {
                                     if isMorning(){
-                                        if datas.completeList["completeMorning"]!{
+                                        if datas.completeList["completeMorning"] ?? false{
                                             
                                         }else{
-                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                            
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"] ?? 0 + datas.dietKcal, date: makeTodayDetail(), level: String((Int(datas.calendarToDisplay["level"] ?? "0") ?? 0) + 1))
                                         }
                                     }
                                     if isLaunch(){
-                                        if datas.completeList["completeLaunch"]!{
+                                        if datas.completeList["completeLaunch"] ?? false{
                                           
                                         }else{
-                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"] ?? 0 + datas.dietKcal, date: makeTodayDetail(), level: String((Int(datas.calendarToDisplay["level"] ?? "0") ?? 0) + 1))
                                         }
                                     }
                                     if isDinner(){
-                                        if datas.completeList["completeDinner"]!{
+                                        if datas.completeList["completeDinner"] ?? false{
                                            
                                         }else{
-                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"]! + datas.dietKcal, date: makeTodayDetail(), level: String(Int(datas.calendarToDisplay["level"]!)! + 1))
+                                            datas.updateCalnedar(email: userEmail, kcal: datas.calendarKcalToDisplay["kcal"] ?? 0 + datas.dietKcal, date: makeTodayDetail(), level: String((Int(datas.calendarToDisplay["level"] ?? "0") ?? 0) + 1))
                                         }
                                     }
                                    
                                 } else {
+                                    
                                     datas.createCalnedar(email: userEmail, kcal: datas.dietKcal, date: makeTodayDetail(), level: "0")
                                     
                                 }
@@ -624,11 +612,12 @@ struct DiaryView: View {
                             
                             self.isTabDiet = false
                             
-                            if isDinner() && !datas.completeList["completeDinner"]!{
+                            if isDinner() && !(datas.completeList["completeDinner"] ?? false){
+                                
                                 datas.isCanGetPoint(email: userEmail, userPoint: "0")
+                                
                             }
-                           
-                            
+ 
                         }, label: {
                             
                             Text("식단 기록하기")
@@ -648,7 +637,6 @@ struct DiaryView: View {
                     else if datas.foodList == []{
                         Button(action: {
                             
-                           
                             isPhoto = true
                             errorMessage = "식단을 추가해주세요!"
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
@@ -668,7 +656,6 @@ struct DiaryView: View {
                             
                         })
                         .opacity(show ? 1 : 0)
-                        
                         .animation(.easeOut.delay(0.35))
                     }
                     else{
@@ -693,7 +680,6 @@ struct DiaryView: View {
                             
                         })
                         .opacity(show ? 1 : 0)
-                        
                         .animation(.easeOut.delay(0.35))
                     }
                         

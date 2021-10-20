@@ -16,9 +16,9 @@ class HomeViewModel : ObservableObject{
     
     @Published var userImageURL : String = ""
     
-    @Published var morningTimeRemaining = 0
-    @Published var launchTimeRemaining = 0
-    @Published var dinnerTimeRemaining = 0
+    @Published var morningTimeRemaining = 1
+    @Published var launchTimeRemaining = 1
+    @Published var dinnerTimeRemaining = 1
     
     @Published var isMorningTimeOver : Bool = false
     @Published var isLaunchTimeOver : Bool = false
