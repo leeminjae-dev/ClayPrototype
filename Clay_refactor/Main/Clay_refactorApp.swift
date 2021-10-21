@@ -7,7 +7,7 @@
 
 import SwiftUI
 import FirebaseMessaging
-import FirebaseInAppMessaging
+
 import Firebase
 
 @main

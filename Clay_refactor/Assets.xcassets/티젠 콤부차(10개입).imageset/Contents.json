@@ -6,11 +6,28 @@
       "scale" : "1x"
     },
     {
+      "filename" : "티젠 콤부차 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "티젠 콤부차-1.png",
       "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "티젠 콤부차-2.png",
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "티젠 콤부차-3.png",
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "티젠 콤부차-4.png",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],

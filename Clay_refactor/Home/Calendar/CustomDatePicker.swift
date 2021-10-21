@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct CustomDatePicker: View {
     
     @Binding var currentDate: Date
     @ObservedObject var datas = firebaseData
+    @StateObject var calendarViewModel = CalendarViewModel()
+    
     @AppStorage("userEmail") var userEmail = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     // Month update on arrow button clicks...
     @State var currentMonth: Int = 0
     @State var currentDay: Int = 0
+   
     @Binding var tasks: [TaskMetaData]
     var body: some View {
         
@@ -48,10 +52,6 @@ struct CustomDatePicker: View {
                                 .font(Font.custom(systemFont, size: 23))
                                 .fontWeight(.bold)
                         }
-                        
-                       
-                        
-                      
 
                         Button {
                             
@@ -138,38 +138,54 @@ struct CustomDatePicker: View {
                                 }
                             }
                         }
-                        
-                        
-                        Text("정보")
-                            .font(.title2.bold())
-                            .frame(maxWidth: .infinity,alignment: .leading)
-                            .padding(.vertical,10)
-                            .padding(.top, 20)
-                        
+                        .padding(.top, 20)
+                       
                         if let task = tasks.first(where: { task in
                             return isSameDay(date1: task.taskDate, date2: currentDate)
                         }){
-                            
-                            ForEach(task.task){task in
-                                
-                                VStack(alignment: .leading, spacing: 10) {
+                            VStack(spacing : 0){
+                                ForEach(task.task){task in
                                     
-                                    // For Custom Timing...
-                                    Text("섭취한 칼로리")
+                                    HStack(spacing: 10) {
+                                        Text("\(currentDate)일")
+                                            .font(.title2)
+                                            .frame(maxWidth: .infinity,alignment: .leading)
+                                            .padding(.vertical,10)
+                                        // For Custom Timing...
+                                        Spacer()
+                                        Text("\(task.title)")
+                                            .font(.title2)
+                                      
+                                       
+                                    }
+                                    .padding(.top, 30)
+                                   
+                                    .padding(.horizontal)
+                                   
                                     
-                                    Text("\(task.title)")
-                                        .font(.title2.bold())
                                 }
-                                .padding(.vertical,10)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity,alignment: .leading)
-                                .background(
-                                
-                                    Color.init("systemColor")
-                                        .opacity(0.5)
-                                        .cornerRadius(10)
-                                )
+
+                                ZStack{
+                                    Rectangle()
+                                        .frame(width : 360, height: 400)
+                                        .foregroundColor(.white)
+                                 
+                                        VStack{
+                                            FirebaseImageView(imageURL: calendarViewModel.morningImageURL)
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 360, height: 360, alignment: .center)
+                                                .cornerRadius(15)
+                                            FirebaseImageView(imageURL: calendarViewModel.launchImageURL)
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 360, height: 360, alignment: .center)
+                                                .cornerRadius(15)
+                                        }
+     
+                                     
+                                }
                             }
+                            
+                            
                         }
                         else{
                             
@@ -234,10 +250,6 @@ struct CustomDatePicker: View {
                                 .fontWeight(.bold)
                         }
                         
-                       
-                        
-                      
-
                         Button {
                             
                             withAnimation{
@@ -344,6 +356,7 @@ struct CustomDatePicker: View {
                                     
                                     Text("\(task.title)")
                                         .font(.title2.bold())
+
                                 }
                                 .padding(.vertical,10)
                                 .padding(.horizontal)
@@ -362,23 +375,7 @@ struct CustomDatePicker: View {
                         }
                     }
                     .padding(.horizontal, 5)
-                    .navigationBarItems(trailing:
-                        Menu {
-                           Button(action: {
-                              //some action
-                           }) {
-                              //some label
-                           }
-                           Button(action: {
-                              //some action
-                           }) {
-                              Text("ㅇㅇ")
-                           }
-                        }
-                        label: {
-                           //some label
-                        }
-                     )
+                    
                 }
                 .padding()
                 .onChange(of: currentMonth) { newValue in
@@ -392,6 +389,9 @@ struct CustomDatePicker: View {
         }
       
         .onAppear(){
+            calendarViewModel.loadMorningImageFromFirebase()
+            calendarViewModel.loadLaunchImageFromFirebase()
+            
             currentDate = getCurrentMonth()
             datas.readCalendarData(email: userEmail)
             for data in datas.calendarData{
@@ -482,6 +482,8 @@ struct CustomDatePicker: View {
         
         return calendar.isDate(date1, inSameDayAs: date2)
     }
+    
+    
     
     // extrating Year And Month for display...
     func extraDate()->[String]{

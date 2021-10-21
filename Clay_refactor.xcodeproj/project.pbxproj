@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
-		7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */; };
-		9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */; };
+		41F572FCA8C5A38A3769BDEC /* Pods_Clay_refactorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B955953235B44272D94B58 /* Pods_Clay_refactorTests.framework */; };
+		610E560B4E0000DC8072A1B1 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA0561CAE65A1E8FC192FEAB /* Pods_Clay_refactor_Clay_refactorUITests.framework */; };
 		BE24E62B26E4E0A0003D5DFC /* Clay_refactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */; };
 		BE24E62D26E4E0A0003D5DFC /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E62C26E4E0A0003D5DFC /* Main.swift */; };
-		BE24E62F26E4E0A1003D5DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE24E62E26E4E0A1003D5DFC /* Assets.xcassets */; };
 		BE24E63226E4E0A1003D5DFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE24E63126E4E0A1003D5DFC /* Preview Assets.xcassets */; };
 		BE24E63D26E4E0A1003D5DFC /* Clay_refactorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E63C26E4E0A1003D5DFC /* Clay_refactorTests.swift */; };
 		BE24E64826E4E0A1003D5DFC /* Clay_refactorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE24E64726E4E0A1003D5DFC /* Clay_refactorUITests.swift */; };
@@ -68,9 +66,9 @@
 		BE5100D926EE2D6B00FA9B3D /* FoodInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100D826EE2D6B00FA9B3D /* FoodInfoViewModel.swift */; };
 		BE5100DB26EE2D8B00FA9B3D /* FoodInfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100DA26EE2D8B00FA9B3D /* FoodInfoRowView.swift */; };
 		BE5100DD26EE2DAE00FA9B3D /* APIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5100DC26EE2DAE00FA9B3D /* APIView.swift */; };
-		BE5313B826F017F00090C4C0 /* TodayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313B726F017F00090C4C0 /* TodayBanner.swift */; };
 		BE5313BC26F0368C0090C4C0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */; };
 		BE53235826F6CD4000D3FB91 /* GetBodyInfoReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */; };
+		BE5D501D272089C200C407DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5D501C272089C200C407DF /* Assets.xcassets */; };
 		BE69E244270C384D002A90C1 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E243270C384D002A90C1 /* CustomDatePicker.swift */; };
 		BE69E246270C3871002A90C1 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E245270C3871002A90C1 /* DateValue.swift */; };
 		BE69E248270C3880002A90C1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69E247270C3880002A90C1 /* Task.swift */; };
@@ -89,11 +87,12 @@
 		BEAEDBC6270858B200A54AD4 /* CommerceVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */; };
 		BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBC82708A5E000A54AD4 /* DonateView.swift */; };
 		BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */; };
-		BEC26DAD26F2CF1B003CA5F4 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */; };
 		BEC26DB026F2F949003CA5F4 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */; };
 		BEC26DB226F2FB19003CA5F4 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */; };
 		BEC5A4A4270C37CB00109AAE /* CalnederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5A4A3270C37CB00109AAE /* CalnederView.swift */; };
-		BEE4B98E27171CC20042BEFC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */; };
+		BECEDB7027211D2300A76DF3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEDB6F27211D2300A76DF3 /* SwiftUIView.swift */; };
+		BED4AF33272084CD00AD2D59 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4AF32272084CD00AD2D59 /* BlurView.swift */; };
+		BED4AF35272084DB00AD2D59 /* TodayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED4AF34272084DB00AD2D59 /* TodayBanner.swift */; };
 		BEEF37F2271928C2002B054B /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */; };
 		BEEF37F427192B5B002B054B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF37F327192B5B002B054B /* HomeViewModel.swift */; };
 		BEEF37F62719419F002B054B /* MyPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF37F52719419F002B054B /* MyPointView.swift */; };
@@ -112,6 +111,7 @@
 		BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203B270BAD5300AA3E47 /* ElegantCalendar */; };
 		BEFE203F270BB40300AA3E47 /* DateGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BEFE203E270BB40300AA3E47 /* DateGrid */; };
 		BEFE204A270C256D00AA3E47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */; };
+		C36649EB35C7235862B203B5 /* Pods_Clay_refactor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C9BE9EA0A6BD6A4B9D2154 /* Pods_Clay_refactor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,19 +156,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
-		2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
-		672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
-		74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3359FE638A32C7A99F20FDFF /* Pods-Clay_refactor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.release.xcconfig"; sourceTree = "<group>"; };
+		44C9BE9EA0A6BD6A4B9D2154 /* Pods_Clay_refactor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF93A7A5B0D8E97A09010E1 /* Pods-Clay_refactor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor.debug.xcconfig"; sourceTree = "<group>"; };
+		61A67D55C9892E067B74B191 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		843B7BC4E20A137B8638D1A2 /* Pods-Clay_refactorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.release.xcconfig"; sourceTree = "<group>"; };
+		AD44D148F1713AECCDD9E95B /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA0561CAE65A1E8FC192FEAB /* Pods_Clay_refactor_Clay_refactorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactor_Clay_refactorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1E7BEA27099E5B0000522D /* Clay_refactor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clay_refactor.entitlements; sourceTree = "<group>"; };
 		BE24E62726E4E0A0003D5DFC /* Clay_refactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clay_refactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE24E62A26E4E0A0003D5DFC /* Clay_refactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clay_refactorApp.swift; sourceTree = "<group>"; };
 		BE24E62C26E4E0A0003D5DFC /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		BE24E62E26E4E0A1003D5DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE24E63126E4E0A1003D5DFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE24E63326E4E0A1003D5DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE24E63826E4E0A1003D5DFC /* Clay_refactorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Clay_refactorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,9 +228,9 @@
 		BE5100D826EE2D6B00FA9B3D /* FoodInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoViewModel.swift; sourceTree = "<group>"; };
 		BE5100DA26EE2D8B00FA9B3D /* FoodInfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoRowView.swift; sourceTree = "<group>"; };
 		BE5100DC26EE2DAE00FA9B3D /* APIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIView.swift; sourceTree = "<group>"; };
-		BE5313B726F017F00090C4C0 /* TodayBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBanner.swift; sourceTree = "<group>"; };
 		BE5313BB26F0368C0090C4C0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BE53235726F6CD4000D3FB91 /* GetBodyInfoReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBodyInfoReport.swift; sourceTree = "<group>"; };
+		BE5D501C272089C200C407DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE69E243270C384D002A90C1 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		BE69E245270C3871002A90C1 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		BE69E247270C3880002A90C1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -270,11 +268,12 @@
 		BEAEDBC5270858B200A54AD4 /* CommerceVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommerceVIew.swift; sourceTree = "<group>"; };
 		BEAEDBC82708A5E000A54AD4 /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		BEAEDBCA2708C2E800A54AD4 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
-		BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		BEC26DAF26F2F949003CA5F4 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		BEC26DB126F2FB19003CA5F4 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		BEC5A4A3270C37CB00109AAE /* CalnederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalnederView.swift; sourceTree = "<group>"; };
-		BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		BECEDB6F27211D2300A76DF3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		BED4AF32272084CD00AD2D59 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = Clay_refactor/Home/BlurView.swift; sourceTree = SOURCE_ROOT; };
+		BED4AF34272084DB00AD2D59 /* TodayBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayBanner.swift; path = Clay_refactor/Home/TodayBanner.swift; sourceTree = SOURCE_ROOT; };
 		BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
 		BEEF37F327192B5B002B054B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BEEF37F52719419F002B054B /* MyPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointView.swift; sourceTree = "<group>"; };
@@ -293,7 +292,8 @@
 		BEFE1F8B270B4E8500AA3E47 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BEFE1F8D270B4E8500AA3E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEFE2049270C256D00AA3E47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; path = "Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4B955953235B44272D94B58 /* Pods_Clay_refactorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clay_refactorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0EDE6459F46D39AE35D063 /* Pods-Clay_refactorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clay_refactorTests.debug.xcconfig"; path = "Target Support Files/Pods-Clay_refactorTests/Pods-Clay_refactorTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +308,7 @@
 				BE267F172714011000D2CB7F /* Kingfisher in Frameworks */,
 				BE9147192709E7A0009F1522 /* Alamofire in Frameworks */,
 				BEFE203C270BAD5300AA3E47 /* ElegantCalendar in Frameworks */,
-				7F30FC7B73406E9E97AC4B4A /* Pods_Clay_refactor.framework in Frameworks */,
+				C36649EB35C7235862B203B5 /* Pods_Clay_refactor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DA6EDD478270C405320B678 /* Pods_Clay_refactorTests.framework in Frameworks */,
+				41F572FCA8C5A38A3769BDEC /* Pods_Clay_refactorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E8D0931366A9D5243CAE95 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
+				610E560B4E0000DC8072A1B1 /* Pods_Clay_refactor_Clay_refactorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,12 +334,12 @@
 		5694BDBB44867D20DFBFEA3E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */,
-				5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */,
-				8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
-				C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
-				2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */,
-				26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */,
+				5FF93A7A5B0D8E97A09010E1 /* Pods-Clay_refactor.debug.xcconfig */,
+				3359FE638A32C7A99F20FDFF /* Pods-Clay_refactor.release.xcconfig */,
+				AD44D148F1713AECCDD9E95B /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */,
+				61A67D55C9892E067B74B191 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */,
+				FD0EDE6459F46D39AE35D063 /* Pods-Clay_refactorTests.debug.xcconfig */,
+				843B7BC4E20A137B8638D1A2 /* Pods-Clay_refactorTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -371,8 +371,8 @@
 		BE24E62926E4E0A0003D5DFC /* Clay_refactor */ = {
 			isa = PBXGroup;
 			children = (
+				BE5D501C272089C200C407DF /* Assets.xcassets */,
 				BE69E24B270D6ABD002A90C1 /* MyPage */,
-				BEFE2037270BABC800AA3E47 /* Calendar */,
 				BE1E7BEA27099E5B0000522D /* Clay_refactor.entitlements */,
 				BE24E69326E5035A003D5DFC /* AppDelegate.swift */,
 				BE24E68226E4F508003D5DFC /* Main */,
@@ -382,7 +382,6 @@
 				BE51005626EB4FD300FA9B3D /* Community */,
 				BE24E68E26E50305003D5DFC /* Server */,
 				BE54BBF5270810CC00795644 /* Cemmerce */,
-				BE24E62E26E4E0A1003D5DFC /* Assets.xcassets */,
 				BE24E63326E4E0A1003D5DFC /* Info.plist */,
 				BEAEDBC72708A5CD00A54AD4 /* Donate */,
 				BE24E65B26E4E452003D5DFC /* Font */,
@@ -472,7 +471,6 @@
 				BE24E6A126E5A14C003D5DFC /* ResetPassword.swift */,
 				BE24E69526E50ADB003D5DFC /* LogoutBtn.swift */,
 				BE24E69726E50FBE003D5DFC /* signAndMain.swift */,
-				BEE4B98D27171CC20042BEFC /* Launch Screen.storyboard */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -550,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				BEC5A4A3270C37CB00109AAE /* CalnederView.swift */,
+				BECEDB6F27211D2300A76DF3 /* SwiftUIView.swift */,
 				BE69E243270C384D002A90C1 /* CustomDatePicker.swift */,
 				BE69E245270C3871002A90C1 /* DateValue.swift */,
 				BE69E247270C3880002A90C1 /* Task.swift */,
@@ -623,9 +622,9 @@
 		BEC26DAE26F2F92B003CA5F4 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
-				BEC26DAC26F2CF1B003CA5F4 /* BlurView.swift */,
+				BED4AF34272084DB00AD2D59 /* TodayBanner.swift */,
+				BED4AF32272084CD00AD2D59 /* BlurView.swift */,
 				BEEF37F1271928C2002B054B /* HomeNavigationBar.swift */,
-				BE5313B726F017F00090C4C0 /* TodayBanner.swift */,
 				BEEF37F52719419F002B054B /* MyPointView.swift */,
 				BEEF37F72719446C002B054B /* HomeProfileView.swift */,
 				BEEF37F9271952E2002B054B /* HomeMealBannerView.swift */,
@@ -682,13 +681,6 @@
 			path = NotificationTarget;
 			sourceTree = "<group>";
 		};
-		BEFE2037270BABC800AA3E47 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		FAF6151A86A1DADC475ECD03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -716,9 +708,9 @@
 				BE7F4AB3270566400081B7C4 /* leveldb.framework */,
 				BE7F4AB4270566400081B7C4 /* nanopb.framework */,
 				BE7F4AB5270566400081B7C4 /* openssl_grpc.framework */,
-				579E3AD546AF7A7501457809 /* Pods_Clay_refactor.framework */,
-				74257F5E69A0890A685E833C /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
-				3557602157B070AC48F5B0E1 /* Pods_Clay_refactorTests.framework */,
+				44C9BE9EA0A6BD6A4B9D2154 /* Pods_Clay_refactor.framework */,
+				BA0561CAE65A1E8FC192FEAB /* Pods_Clay_refactor_Clay_refactorUITests.framework */,
+				D4B955953235B44272D94B58 /* Pods_Clay_refactorTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -730,13 +722,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64C26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactor" */;
 			buildPhases = (
-				BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */,
+				EC00167938655FA2C4D2F109 /* [CP] Check Pods Manifest.lock */,
 				BE24E62326E4E0A0003D5DFC /* Sources */,
 				BE24E62426E4E0A0003D5DFC /* Frameworks */,
 				BE24E62526E4E0A0003D5DFC /* Resources */,
 				BE7F4AF1270567880081B7C4 /* Embed Frameworks */,
 				BEFE1F91270B4E8500AA3E47 /* Embed App Extensions */,
-				5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */,
+				C8313418320E1632783C68DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -760,7 +752,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E64F26E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorTests" */;
 			buildPhases = (
-				A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */,
+				376FB0F3B73F8CD7512F3B74 /* [CP] Check Pods Manifest.lock */,
 				BE24E63426E4E0A1003D5DFC /* Sources */,
 				BE24E63526E4E0A1003D5DFC /* Frameworks */,
 				BE24E63626E4E0A1003D5DFC /* Resources */,
@@ -779,11 +771,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE24E65226E4E0A1003D5DFC /* Build configuration list for PBXNativeTarget "Clay_refactorUITests" */;
 			buildPhases = (
-				146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */,
+				41089470BCF203E24128DA47 /* [CP] Check Pods Manifest.lock */,
 				BE24E63F26E4E0A1003D5DFC /* Sources */,
 				BE24E64026E4E0A1003D5DFC /* Frameworks */,
 				BE24E64126E4E0A1003D5DFC /* Resources */,
-				7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */,
+				5FDD19C53B7D6AC7B09F05B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -853,7 +845,6 @@
 			files = (
 				BE50E04426F21EE4001327C0 /* NanumSquareBold.ttf in Resources */,
 				BE24E67126E4E4C9003D5DFC /* Pretendard-Bold.otf in Resources */,
-				BEE4B98E27171CC20042BEFC /* Launch Screen.storyboard in Resources */,
 				BE24E66E26E4E4C9003D5DFC /* Pretendard-Medium.otf in Resources */,
 				BE50E04726F21EE4001327C0 /* NanumSquareLight.ttf in Resources */,
 				BE24E66B26E4E4C9003D5DFC /* Pretendard-ExtraLight.otf in Resources */,
@@ -862,11 +853,11 @@
 				BE24E63226E4E0A1003D5DFC /* Preview Assets.xcassets in Resources */,
 				BE24E66926E4E4C9003D5DFC /* Pretendard-Thin.otf in Resources */,
 				BEFE204A270C256D00AA3E47 /* GoogleService-Info.plist in Resources */,
-				BE24E62F26E4E0A1003D5DFC /* Assets.xcassets in Resources */,
 				BE24E66826E4E4C9003D5DFC /* Pretendard-Black.otf in Resources */,
 				BE24E66F26E4E4C9003D5DFC /* Pretendard-Regular.otf in Resources */,
 				BE50E04526F21EE4001327C0 /* NanumSquareRegular.ttf in Resources */,
 				BE24E66726E4E4C9003D5DFC /* Pretendard-ExtraBold.otf in Resources */,
+				BE5D501D272089C200C407DF /* Assets.xcassets in Resources */,
 				BE24E66D26E4E4C9003D5DFC /* Pretendard-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,63 +879,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		146A0B02E9DAB9C5F29144CD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clay_refactor-Clay_refactorUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5433ECA1428411B698363C9E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B2ED3CF938E1A7E1791A028 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A16274E36469F0762C8D6AF4 /* [CP] Check Pods Manifest.lock */ = {
+		376FB0F3B73F8CD7512F3B74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -966,7 +901,63 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA4A4F530E55A2350B99B2AA /* [CP] Check Pods Manifest.lock */ = {
+		41089470BCF203E24128DA47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clay_refactor-Clay_refactorUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FDD19C53B7D6AC7B09F05B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor-Clay_refactorUITests/Pods-Clay_refactor-Clay_refactorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8313418320E1632783C68DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clay_refactor/Pods-Clay_refactor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC00167938655FA2C4D2F109 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -999,7 +990,6 @@
 				BE69E248270C3880002A90C1 /* Task.swift in Sources */,
 				BE24E69226E5032A003D5DFC /* ThreadDataType.swift in Sources */,
 				BEEF37F82719446C002B054B /* HomeProfileView.swift in Sources */,
-				BE5313B826F017F00090C4C0 /* TodayBanner.swift in Sources */,
 				BE24E65726E4E2C4003D5DFC /* FirstLaunchView.swift in Sources */,
 				BE24E69426E5035A003D5DFC /* AppDelegate.swift in Sources */,
 				BE955E9826E8FC7300FECF2F /* DiaryView.swift in Sources */,
@@ -1014,6 +1004,7 @@
 				BE24E62D26E4E0A0003D5DFC /* Main.swift in Sources */,
 				BE51005A26EB507900FA9B3D /* FriendView.swift in Sources */,
 				BE24E67F26E4F15E003D5DFC /* MoveAndFade.swift in Sources */,
+				BED4AF35272084DB00AD2D59 /* TodayBanner.swift in Sources */,
 				BEEF380B271AF52D002B054B /* FailPopup.swift in Sources */,
 				BE24E69A26E59CA7003D5DFC /* MainSignUpView.swift in Sources */,
 				BE51005526EB386300FA9B3D /* ContentView.swift in Sources */,
@@ -1037,6 +1028,7 @@
 				BE69E244270C384D002A90C1 /* CustomDatePicker.swift in Sources */,
 				BE345D2C26FD547B00328BAE /* NutritionDetailView.swift in Sources */,
 				BEAEDBCB2708C2E800A54AD4 /* ProductView.swift in Sources */,
+				BED4AF33272084CD00AD2D59 /* BlurView.swift in Sources */,
 				BEEF37F62719419F002B054B /* MyPointView.swift in Sources */,
 				BE51005126EB374700FA9B3D /* FirebaseImageView.swift in Sources */,
 				BEEF38002719980B002B054B /* CanWriteBanner.swift in Sources */,
@@ -1053,7 +1045,6 @@
 				BEC26DB026F2F949003CA5F4 /* CustomTabBar.swift in Sources */,
 				BEEF37F427192B5B002B054B /* HomeViewModel.swift in Sources */,
 				BE24E6A426E5A17B003D5DFC /* WrongResetPassword.swift in Sources */,
-				BEC26DAD26F2CF1B003CA5F4 /* BlurView.swift in Sources */,
 				BE24E6A226E5A14C003D5DFC /* ResetPassword.swift in Sources */,
 				BE5100DB26EE2D8B00FA9B3D /* FoodInfoRowView.swift in Sources */,
 				BE24E6A826E5A2E3003D5DFC /* MainLogInView.swift in Sources */,
@@ -1061,6 +1052,7 @@
 				BE69E24A270C70A7002A90C1 /* CalendarDataType.swift in Sources */,
 				BE24E69826E50FBE003D5DFC /* signAndMain.swift in Sources */,
 				BEAEDBC92708A5E000A54AD4 /* DonateView.swift in Sources */,
+				BECEDB7027211D2300A76DF3 /* SwiftUIView.swift in Sources */,
 				BE5100D926EE2D6B00FA9B3D /* FoodInfoViewModel.swift in Sources */,
 				BE7F4AF827061F4D0081B7C4 /* ListLineSeparator.swift in Sources */,
 				BEEF3809271AF196002B054B /* GetPointPopup.swift in Sources */,
@@ -1226,7 +1218,7 @@
 		};
 		BE24E64D26E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 672F2BB82418079C867DC0FF /* Pods-Clay_refactor.debug.xcconfig */;
+			baseConfigurationReference = 5FF93A7A5B0D8E97A09010E1 /* Pods-Clay_refactor.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1235,7 +1227,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Clay_refactor/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1258,7 +1250,7 @@
 		};
 		BE24E64E26E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F1D06C034C69FCAD2FA8370 /* Pods-Clay_refactor.release.xcconfig */;
+			baseConfigurationReference = 3359FE638A32C7A99F20FDFF /* Pods-Clay_refactor.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1267,7 +1259,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"Clay_refactor/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = W2D39S8KC2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1290,7 +1282,7 @@
 		};
 		BE24E65026E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B4FC7B47BE834F930DC54A8 /* Pods-Clay_refactorTests.debug.xcconfig */;
+			baseConfigurationReference = FD0EDE6459F46D39AE35D063 /* Pods-Clay_refactorTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1313,7 +1305,7 @@
 		};
 		BE24E65126E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26857161B298D8E3315F1A5A /* Pods-Clay_refactorTests.release.xcconfig */;
+			baseConfigurationReference = 843B7BC4E20A137B8638D1A2 /* Pods-Clay_refactorTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1336,7 +1328,7 @@
 		};
 		BE24E65326E4E0A1003D5DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DA9E84F216B34283E7EF6B4 /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
+			baseConfigurationReference = AD44D148F1713AECCDD9E95B /* Pods-Clay_refactor-Clay_refactorUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1357,7 +1349,7 @@
 		};
 		BE24E65426E4E0A1003D5DFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4BCA5664FA1D16128073133 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
+			baseConfigurationReference = 61A67D55C9892E067B74B191 /* Pods-Clay_refactor-Clay_refactorUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

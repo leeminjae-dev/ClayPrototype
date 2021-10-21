@@ -6,11 +6,28 @@
       "scale" : "1x"
     },
     {
+      "filename" : "여우티 2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "여우티-1.png",
       "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "여우티-2.png",
+      "idiom" : "iphone",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "여우티-3.png",
+      "idiom" : "iphone",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "여우티-4.png",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],
