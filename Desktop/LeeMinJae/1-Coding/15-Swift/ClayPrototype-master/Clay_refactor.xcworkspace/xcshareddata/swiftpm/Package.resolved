@@ -1,0 +1,88 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
+          "version": "5.4.4"
+        }
+      },
+      {
+        "package": "ConfettiSwiftUI",
+        "repositoryURL": "https://github.com/simibac/ConfettiSwiftUI",
+        "state": {
+          "branch": null,
+          "revision": "4aac70f5264e59dfed75d6f1c282bb147f101a49",
+          "version": "0.2.1"
+        }
+      },
+      {
+        "package": "DateGrid",
+        "repositoryURL": "https://github.com/yodagamaheshan/DateGrid.git",
+        "state": {
+          "branch": null,
+          "revision": "68378c8276f2d57569fa492188e1d098ea56869b",
+          "version": "0.0.3"
+        }
+      },
+      {
+        "package": "ElegantCalendar",
+        "repositoryURL": "https://github.com/ThasianX/ElegantCalendar",
+        "state": {
+          "branch": null,
+          "revision": "d446234f27e60f5bef15f91c35d384f388ff2c7d",
+          "version": "4.3.2"
+        }
+      },
+      {
+        "package": "ElegantPages",
+        "repositoryURL": "https://github.com/ThasianX/ElegantPages",
+        "state": {
+          "branch": null,
+          "revision": "d598ce4824c40296decc84eae5b3c042d3dff842",
+          "version": "1.4.2"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "8c65ddf756c633d01d9ae01092bf72f0c66dfc60",
+          "version": "7.0.0"
+        }
+      },
+      {
+        "package": "PopupView",
+        "repositoryURL": "https://github.com/exyte/PopupView.git",
+        "state": {
+          "branch": null,
+          "revision": "0d37d6f94e0ec9b38ab43300213ad72d28af921f",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "2e09be8af614401bc9f87d40093ec19ce56ccaf2",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "SwiftUIRefresh",
+        "repositoryURL": "https://github.com/timbersoftware/SwiftUIRefresh.git",
+        "state": {
+          "branch": null,
+          "revision": "fa8fac7b5eb5c729983a8bef65f094b5e0d12014",
+          "version": "0.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
