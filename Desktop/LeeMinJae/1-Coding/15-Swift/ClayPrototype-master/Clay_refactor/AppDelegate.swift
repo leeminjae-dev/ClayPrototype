@@ -105,6 +105,33 @@ class AppDelegate: NSObject,UIApplicationDelegate{
         UNUserNotificationCenter.current().add(dinnerRequest, withCompletionHandler: nil)
     }
     
+    func diaryNotification(ment : String){
+        
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .sound, .badge], completionHandler: {userDidAllow, error in
+            //if userDidAllow : do something if you want to
+        })
+        
+        let morningContent = UNMutableNotificationContent()
+        morningContent.title = "클레이"
+        morningContent.body = ment
+        morningContent.sound = .default
+        
+        
+        let morningTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        //Set your content
+      
+       
+        let morningRequest = UNNotificationRequest(
+            identifier: "morningPush", content: morningContent, trigger: morningTrigger
+        )
+      
+        
+        UNUserNotificationCenter.current().add(morningRequest, withCompletionHandler: nil)
+      
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 

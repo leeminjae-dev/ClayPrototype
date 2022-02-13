@@ -150,6 +150,10 @@ struct CustomDatePicker: View {
                                             datas.calendarLaunchFoodListCall(email: userEmail, date: makeCurrentDate(), meal: "Launch")
                                             datas.calendarDinnerFoodListCall(email: userEmail, date: makeCurrentDate(), meal: "Dinner")
                                             
+                                            datas.foodTextCall(email: userEmail, data: "morningFoodText", date: makeCurrentDate(), meal: "Breakfast")
+                                            datas.foodTextCall(email: userEmail, data: "launchFoodText", date: makeCurrentDate(), meal: "Launch")
+                                            datas.foodTextCall(email: userEmail, data: "dinnerFoodText", date: makeCurrentDate(), meal: "Dinner")
+                                            
                                             index = 1
                                             
                                             isTabDate = true
@@ -342,6 +346,10 @@ struct CustomDatePicker: View {
                                             datas.calendarLaunchFoodListCall(email: userEmail, date: makeCurrentDate(), meal: "Launch")
                                             datas.calendarDinnerFoodListCall(email: userEmail, date: makeCurrentDate(), meal: "Dinner")
                                             
+                                            datas.foodTextCall(email: userEmail, data: "morningFoodText", date: makeCurrentDate(), meal: "Breakfast")
+                                            datas.foodTextCall(email: userEmail, data: "launchFoodText", date: makeCurrentDate(), meal: "Launch")
+                                            datas.foodTextCall(email: userEmail, data: "dinnerFoodText", date: makeCurrentDate(), meal: "Dinner")
+                                            
                                             index = 1
                                             
                                             isTabDate = true
@@ -495,20 +503,20 @@ struct CustomDatePicker: View {
                                 VStack{
                                     ZStack{
 
-                                        CardDietView(mealString : "저녁",userImageURL: $calendarViewModel.dinnerImageURL, foodList: $datas.calendarDinnerFoodList, isTabDate : $isTabDate, index:$index, offset: $dinnerCardOffset)
+                                        CardDietView(mealString : "저녁",userImageURL: $calendarViewModel.dinnerImageURL, foodText : "dinnerFoodText", isTabDate : $isTabDate, index:$index, offset: $dinnerCardOffset)
                                             .scaleEffect(index == 3  ? 1 : 0.64)
                                             .offset(x: index == 3 ?  0 : getRect().width - 120, y : index == 3 ? 0 : 15 )
                                             .opacity(index == 3 ? 1 : 0.6)
                                             .zIndex(index == 3  ? 3 : 1)
                                            
                                         
-                                        CardDietView(mealString : "점심",userImageURL: $calendarViewModel.launchImageURL, foodList: $datas.calendarLaunchFoodList, isTabDate: $isTabDate, index:$index, offset: $launchCardOffset)
+                                        CardDietView(mealString : "점심",userImageURL: $calendarViewModel.launchImageURL, foodText : "launchFoodText", isTabDate: $isTabDate, index:$index, offset: $launchCardOffset)
                                             .scaleEffect(index == 2  ? 1 : 0.64)
                                             .offset(x: index == 2 ? 0 : index < 2 ? getRect().width - 120 : getRect().width - 660 , y : index == 2 ? 0 : 15 )
                                             .zIndex(index == 2  ? 3 : 2)
                                             .opacity(index == 2 ? 1 : 0.6)
                                           
-                                        CardDietView(mealString : "아침",userImageURL: $calendarViewModel.morningImageURL, foodList: $datas.calendarMorningFoodList, isTabDate: $isTabDate, index:$index, offset: $morningCardOffset)
+                                        CardDietView(mealString : "아침",userImageURL: $calendarViewModel.morningImageURL,foodText : "morningFoodText", isTabDate: $isTabDate, index:$index, offset: $morningCardOffset)
                                             .scaleEffect(index == 1 ? 1 : 0.64)
                                             .offset(x: index == 1 ?  0 : getRect().width - 660, y : index == 1 ? 0 : 15 )
                                             
@@ -567,9 +575,29 @@ struct CustomDatePicker: View {
                            
                         }
                         else{
-
-                            Text("정보가 없습니다")
-                                .padding(.top, 30)
+                            VStack{
+                                Button(action: {
+                                    
+                                    presentationMode.wrappedValue.dismiss()
+                                    
+                                }, label: {
+                                    HStack{
+                                        Image(systemName: "chevron.left")
+                                            .resizable()
+                                            .frame(width: 12, height: 18)
+                                            .foregroundColor(Color.init("systemColor"))
+                                        Text("Back")
+                                            .foregroundColor(Color.init("systemColor"))
+                                        Spacer()
+                                    }
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 20)
+                                    
+                                })
+                                Text("정보가 없습니다")
+                                    .padding(.top, 30)
+                            }
+                            
                         }
       
                         
@@ -600,6 +628,8 @@ struct CustomDatePicker: View {
             calendarViewModel.loadImageFromFirebase(path: "Diary/\(makeEmailString())/\(makeCurrentDate())/Breakfast.jpg", meal : "morning")
             calendarViewModel.loadImageFromFirebase(path: "Diary/\(makeEmailString())/\(makeCurrentDate())/Launch.jpg", meal : "launch")
             calendarViewModel.loadImageFromFirebase(path: "Diary/\(makeEmailString())/\(makeCurrentDate())/Dinner.jpg", meal : "dinner")
+            
+            
             
             currentDate = getCurrentMonth()
             datas.readCalendarData(email: userEmail)

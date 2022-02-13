@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SkeletonMealBanner: View {
  
+    @State var show : Bool = false
     var body: some View {
        
             HStack{
@@ -31,9 +32,18 @@ struct SkeletonMealBanner: View {
                     }
             
                     .frame(width: 345, height: 70)
-                    .background(Color.init("shadowWhite"))
+//                    .background(show ? Color.init("level0"): Color.init("shadowWhite"))
+//
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.init("skeletonColor"),  Color.init("shadowWhite")]), startPoint: .leading, endPoint: .trailing)
+                        )
+                    .opacity( show ?  1 : 0)
+                    .animation(.easeInOut.delay(0.5))
                     .cornerRadius(60)
-                       
+        
+                    .onAppear{
+                        show = true
+                    }
             
             
     }

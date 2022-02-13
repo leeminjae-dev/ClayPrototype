@@ -22,6 +22,7 @@ class UserData: ObservableObject {
     @Published var email : String = ""
 
     @Published var friendList : [String] = []
+    
     @Published var foodList : [[String]] = []
     
     @Published var targetArchieve : String = "1"

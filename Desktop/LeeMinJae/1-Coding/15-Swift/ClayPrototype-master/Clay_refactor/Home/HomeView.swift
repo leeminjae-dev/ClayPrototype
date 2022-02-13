@@ -63,7 +63,7 @@ struct HomeView: View {
                         .zIndex(-1)
                     /// 배경 그라데이션
                   
-                    if homeViewModel.showingPopup || homeViewModel.showingPointPopup || homeViewModel.showingFailPopup || homeViewModel.showingTimePopup{
+                    if homeViewModel.showingPopup || homeViewModel.showingPointPopup || homeViewModel.showingFailPopup || homeViewModel.showingTimePopup || homeViewModel.showingHalfPointPopup{
                         
                         
                         if #available(iOS 15, *){
@@ -176,20 +176,60 @@ struct HomeView: View {
                        }
                 /// 시간 표시 팝업
                 
+                .popup(isPresented: $homeViewModel.showingHalfPointPopup, dismissCallback: {
+                    
+                    datas.updatePoint(email: userEmail, archieveRate: String((Float(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0) + 0.5))
+                    
+                    if datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) && !(datas.completeList["completeLaunch"] ?? false) && !(datas.completeList["completeDinner"] ?? false)){
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                    }else{
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                        datas.updatePoint(email: userEmail, archieveRate: String((Float(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0) + 0.5))
+                    }
+                    
+                    datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                    
+                }) {
+                    GetHalfPointPopup(counter: $homeViewModel.counter)
+                   
+                       }
+                /// 500 포인트 획득 팝업
+                
                 .popup(isPresented: $homeViewModel.showingPointPopup, dismissCallback: {
                     
-                    datas.updatePoint(email: userEmail, archieveRate: String(Int(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0 + 1))
-                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0 + 1))
+                    if datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) && !(datas.completeList["completeLaunch"] ?? false) && !(datas.completeList["completeDinner"] ?? false)){
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                    }else{
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                        datas.updatePoint(email: userEmail, archieveRate: String((Float(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0) + 0.5))
+                    }
+                    
+                    datas.updatePoint(email: userEmail, archieveRate: String((Int(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0) + 1))
+                    
+                    
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
                 }) {
                     GetPointPopup(counter: $homeViewModel.counter)
                    
                        }
-                /// 포인드 획득 팝업
+                /// 1000 포인드 획득 팝업
                 
                 .popup(isPresented: $homeViewModel.showingFailPopup, dismissCallback : {
-                    datas.updateTargetArchieve(email: userEmail, targetArchieve: String(Int(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0 + 1))
+                    
+                    if datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) && !(datas.completeList["completeLaunch"] ?? false) && !(datas.completeList["completeDinner"] ?? false)){
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                    }else{
+                        
+                        datas.updateTargetArchieve(email: userEmail, targetArchieve: String((Float(datas.dataToDisplay["targetArchieve"] ?? "0") ?? 0) + 1))
+                        datas.updatePoint(email: userEmail, archieveRate: String((Float(datas.dataToDisplay["archieveRate"] ?? "0") ?? 0) + 0.5))
+                    }
+                   
                     datas.isCanGetPoint(email: userEmail, userPoint: "1")
                     
                 }){
@@ -203,7 +243,9 @@ struct HomeView: View {
           
         }
         .onAppear{
-            
+           
+           
+         
             show = true
             
             let docRef = Firestore.firestore().collection("UserData").document(userEmail).collection("Calendar").document(makeTodayDetail())
@@ -223,7 +265,6 @@ struct HomeView: View {
                 firstPop = "1"
             }
             
-          
             homeViewModel.morningTimeRemaining = (Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9) * 3600 - homeViewModel.getTimeToSeconds()
             homeViewModel.launchTimeRemaining = (Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12) * 3600 - homeViewModel.getTimeToSeconds()
             homeViewModel.dinnerTimeRemaining = (Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18) * 3600 - homeViewModel.getTimeToSeconds()
@@ -243,13 +284,6 @@ struct HomeView: View {
             datas.KcalCall(email: userEmail, data: "dinnerKcal", meal: "Dinner")
             datas.KcalCall(email: userEmail, data: "snackKcal", meal: "Snack")
            
-            if homeViewModel.dinnerTimeRemaining < -7200{
-                
-                if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) || !(datas.completeList["completeLaunch"] ?? false) || !(datas.completeList["completeDinner"] ?? false)){
-                    
-                    homeViewModel.showingFailPopup = true
-                }
-            }
 
             datas.readCalendarData(email: userEmail)
             
@@ -269,11 +303,15 @@ struct HomeView: View {
             datas.userTimeCall(email: userEmail, data: "userLaunchTime")
             datas.userTimeCall(email: userEmail, data: "userDinnerTime")
             
+            datas.homeCountCall(email: userEmail)
+            
             homeViewModel.morningTimeRemaining = (Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9) * 3600 - homeViewModel.getTimeToSeconds()
             homeViewModel.launchTimeRemaining = (Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12) * 3600 - homeViewModel.getTimeToSeconds()
             homeViewModel.dinnerTimeRemaining = (Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18) * 3600 - homeViewModel.getTimeToSeconds()
             
             delegate.Notification(morningTime: Int(datas.userTimeToDisPlay["userMorningTime"] ?? "9") ?? 9, morningMinute: 00, morningMent: "\(datas.dataToDisplay["nickName"] ?? "error")님, 아침은 드셨나요?\n오늘 하루도 화이팅이에요💪🏻", launchTime: Int(datas.userTimeToDisPlay["userLaunchTime"] ?? "12") ?? 12, launchMinute: 00, launchMent: "\(datas.dataToDisplay["nickName"] ?? "error")님, 점심시간이에요! \n평소보다 한 숟가락만 덜 먹어도 살은 쏙 빠진답니다💚", dinnerTime: Int(datas.userTimeToDisPlay["userDinnerTime"] ?? "18") ?? 18, dinnerMinute: 00, dinnerMent: datas.completeList["completeMorning"] ?? false == true && datas.completeList["completeLaunch"] ?? false == true ? "\(datas.dataToDisplay["nickName"] ?? "error")님,\n저녁식사하고 기록하셔서 1,000P 받으세요💰" : "\(datas.dataToDisplay["nickName"] ?? "error")님, 저녁까지 기록해주세요!\n오늘은 아쉽지만 내일은 모두 기록하고 환급받아요🌱")
+            
+        
             
             if homeViewModel.morningTimeRemaining < -7200{
                 homeViewModel.isMorningTimeOver = true
@@ -282,15 +320,16 @@ struct HomeView: View {
                 homeViewModel.isLaunchTimeOver = true
             }
             if homeViewModel.dinnerTimeRemaining < -7200{
+                
                 homeViewModel.isDinnerTimeOver = true
                 
-               
             }
             
-            if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) || !(datas.completeList["completeLaunch"] ?? false) || !(datas.completeList["completeDinner"] ?? false)){
-                
-                homeViewModel.showingFailPopup = true
-            }
+//            if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) || !(datas.completeList["completeLaunch"] ?? false) || !(datas.completeList["completeDinner"] ?? false)){
+//
+//                homeViewModel.showingFailPopup = true
+//            }
+            
             if isMorning(){
 
                 datas.isCanGetPoint(email: userEmail, userPoint: "1")
@@ -303,14 +342,51 @@ struct HomeView: View {
 
                 datas.isCanGetPoint(email: userEmail, userPoint: "1")
             }
-
-
-            if  datas.dataToDisplay["userPoint"] ?? "1" == "0" && datas.completeList["completeMorning"] ?? false && datas.completeList["completeLaunch"] ?? false && datas.completeList["completeDinner"] ?? false{
+           
+//            if datas.homeCountToDisPlay["homeCount"] ?? "1" == "0"{
+//                delegate.diaryNotification(ment: "test")
+//                print("test")
+//            }
+            
+            
                 
-                homeViewModel.showingPointPopup = true
-                datas.updateArchievePoint(email: userEmail, archievePoint: String(Int(datas.dataToDisplay["archievePoint"] ?? "0") ?? 0 + 1000))
+            
+            
+            if datas.dataToDisplay["userPoint"] ?? "1" == "0" && (!(datas.completeList["completeMorning"] ?? false) && !(datas.completeList["completeLaunch"] ?? false) && !(datas.completeList["completeDinner"] ?? false)){
+
+                homeViewModel.showingFailPopup = true
+                datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                /// 세번 다 실패한 경우
+            }else{
+
+                if datas.dataToDisplay["userPoint"] ?? "1" == "0" && datas.completeList["completeMorning"] ?? false && datas.completeList["completeLaunch"] ?? false && datas.completeList["completeDinner"] ?? false{
+
+                    homeViewModel.showingPointPopup = true
+                    datas.updateArchievePoint(email: userEmail, archievePoint: String((Int(datas.dataToDisplay["archievePoint"] ?? "0") ?? 0) + 1000))
+                    datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                } /// 세번 다 성공한 경우
+                
+                else if datas.dataToDisplay["userPoint"] ?? "1" == "0" {
+                    if isMorning(){
+                        homeViewModel.showingHalfPointPopup = true
+                        datas.updateArchievePoint(email: userEmail, archievePoint: String((Int(datas.dataToDisplay["archievePoint"] ?? "0") ?? 0) + 500))
+                        datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                    }
+                    if isLaunch() && (!(datas.completeList["completeMorning"] ?? false)){
+                        
+                        homeViewModel.showingHalfPointPopup = true
+                        datas.updateArchievePoint(email: userEmail, archievePoint: String((Int(datas.dataToDisplay["archievePoint"] ?? "0") ?? 0) + 500))
+                        datas.isCanGetPoint(email: userEmail, userPoint: "1")
+                    }
+                    
+                   
+                }/// 세번은 아니지만 한번 or 두번 성공한 경우
+
+
+
             }
 
+           
             
         }
     }

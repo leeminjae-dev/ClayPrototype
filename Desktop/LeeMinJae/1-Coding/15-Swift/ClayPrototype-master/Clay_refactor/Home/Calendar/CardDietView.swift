@@ -12,7 +12,8 @@ struct CardDietView: View {
     
     @State var mealString : String = "아침"
     @Binding var userImageURL : String
-    @Binding var foodList : [[String]]
+    @State var foodText : String
+  
     @Binding var isTabDate : Bool
     @Binding var index : Int
     @Binding var offset : CGFloat 
@@ -21,6 +22,7 @@ struct CardDietView: View {
     var body: some View {
         if userImageURL == ""{
             VStack(spacing : 0){
+                
                 ZStack{
                     ZStack{
                         Image(systemName: "multiply.circle")
@@ -108,41 +110,13 @@ struct CardDietView: View {
                         Rectangle()
                              .foregroundColor(.white)
                              .frame(width: 320, height: 480, alignment: .center)
-                             
                              .shadow(color : .black.opacity(0.2), radius: 12, x : 6 ,y: 15)
                             
-                        List(foodList, id: \.self){food in
-  
-                            HStack(spacing : 10){
-                                   
-                                    Text(food[0])
-                                        .font(Font.custom(systemFont, size: 15))
-                                        .fontWeight(.bold)
-       
-                                    Spacer()
-                                    
-                                    Text("\(Float(food[2])!,specifier: "%.0f") Kcal")
-                                        .font(Font.custom(systemFont, size: 15))
-                                        
-                                       
-                                    
-                                    
-                                }
-
-                                .background(Color.white)
-                               
-                            
-                        }
-                    
-                    
-                    .listStyle(PlainListStyle())
-                    .frame(width: 295, height: 80)
-                    
-                    .offset(y: 170)
-                    .onAppear{
-                        UITableView.appearance().separatorColor = .clear
+                        Text("\(datas.foodText[foodText] ?? "")")
+                            .foregroundColor(.black)
+                            .offset(y : 175)
+                            .zIndex(3)
                         
-                        }
                     }
                  
  
@@ -165,12 +139,12 @@ struct CardDietView: View {
                         
                         withAnimation(.easeIn){
                         
-                            if offset > 20 && index != 1{
+                            if offset > 10 && index != 1{
                                 
                                 index-=1
                                 offset = 0
                             }
-                            else if offset < -20 && index != 3{
+                            else if offset < -10 && index != 3{
                                 
                                 index+=1
                                 offset = 0
@@ -188,11 +162,3 @@ struct CardDietView: View {
     
 }
 
-struct CardDietView_Previews: PreviewProvider {
-    
-  
-    
-    static var previews: some View {
-        CardDietView(userImageURL: .constant(""), foodList: .constant([["밥", "2", "3"]]), isTabDate: .constant(false), index: .constant(1), offset: .constant(0))
-    }
-}

@@ -28,14 +28,7 @@ struct TodayBanner: View {
                         }
                 
             }
-            
-          
-            
-                
-                
-                
-            
-    
+
 }
 
 struct TodayBanner_Previews : PreviewProvider{

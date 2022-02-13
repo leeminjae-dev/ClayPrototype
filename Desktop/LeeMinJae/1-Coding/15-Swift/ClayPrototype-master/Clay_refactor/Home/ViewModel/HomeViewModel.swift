@@ -34,6 +34,7 @@ class HomeViewModel : ObservableObject{
     @Published var showingPopup : Bool = false
     @Published var showingTimePopup : Bool = false
     @Published var showingPointPopup : Bool = false
+    @Published var showingHalfPointPopup : Bool = false
     @Published var showingFailPopup : Bool = false
     
     @Published var tasks: [TaskMetaData] = []

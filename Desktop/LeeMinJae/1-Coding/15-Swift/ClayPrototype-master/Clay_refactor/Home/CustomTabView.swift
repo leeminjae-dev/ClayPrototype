@@ -35,7 +35,7 @@ struct CustomTabView: View {
                     HomeView(isTabDiet: $isTabDiet,isTabSnackDiet: $isTabSnackDiet, userImageURL: $userImageURL)
                 }
                 if selectedTab == "heart"{
-                    DonateView()
+                    Friend()
                         
                 }
                 if selectedTab == "cart"{

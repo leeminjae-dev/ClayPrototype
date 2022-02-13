@@ -33,9 +33,14 @@ class FirebaseData: ObservableObject {
     @Published var dataToDisplay : [String : String] = ["archieveRate" : "0", "targetArchieve" : "0", "userPoint" : "0", "Kcal" : "0","nickName" : "", "archievePoint" : ""]
     @Published var kcalToDisplay : [String : Float] = ["morningKcal" : 0, "launchKcal" : 0, "dinnerKcal" : 0, "snackKcal" : 0]
     @Published var completeList : [String : Bool] = ["completeMorning": false, "completeLaunch" : false, "completeDinner" : false]
-    @Published var homeCountToDisPlay : [String : String] = ["homeCount" : "0"]
+   
+    @Published var homeCountToDisPlay : [String : String] = ["homeCount" : "1"]
     @Published var userTimeToDisPlay : [String : String] = ["userMorningTime" : "28","userLaunchTime" : "28","userDinnerTime" : "28"]
     @Published var foodList : [[String]] = []
+    
+    @Published var friendList : [[String]] = []
+    @Published var friendNickName : [String: String] = ["nickName":""]
+    @Published var foodText : [String: String] = ["morningFoodText":"", "launchFoodText":"", "dinnerFoodText":"asd", "foodText" : "asdasdasd"]
     
     @Published var calendarMorningFoodList : [[String]] = []
     @Published var calendarLaunchFoodList : [[String]] = []
@@ -125,6 +130,7 @@ class FirebaseData: ObservableObject {
     }
    }
   }
+    
    
     func updatePoint(
         email : String,
@@ -250,6 +256,7 @@ class FirebaseData: ObservableObject {
     }
    }
   }
+  
     func calendarCall(email:String) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
         dbCollection.document(email).collection("Calendar").document(makeTodayDetail()).addSnapshotListener{ (document, error) in
@@ -346,9 +353,9 @@ class FirebaseData: ObservableObject {
         image : String,
     
         date : String = makeToday(),
-        morningKcal : Float,
-        launchKcal : Float,
-        dinnerKcal : Float
+        foodText : String,
+        memo : String
+        
        
 
                     )
@@ -361,7 +368,8 @@ class FirebaseData: ObservableObject {
                                                         "id" : dbCollection.document().documentID,
                                                         "image" : image,
                                                         "date": makeToday(),
-                                                        "morningKcal" : morningKcal,
+                                                        "foodText" : foodText,
+                                                        "memo" : memo,
                                                         "completeMorning" : true
                                                         
                                                         ]) { (err) in
@@ -380,7 +388,8 @@ class FirebaseData: ObservableObject {
                                                         "image" : image,
                                                        
                                                         "date": makeToday(),
-                                                        "launchKcal" : launchKcal,
+                                                        "foodText" : foodText,
+                                                        "memo" : memo,
                                                         "completeLaunch" : true
                                                         ]) { (err) in
                 if err != nil {
@@ -398,7 +407,8 @@ class FirebaseData: ObservableObject {
                                                         "image" : image,
                                                     
                                                         "date": makeToday(),
-                                                        "dinnerKcal" : dinnerKcal,
+                                                        "foodText" : foodText,
+                                                        "memo" : memo,
                                                         "completeDinner" : true
                                                         ]) { (err) in
                 if err != nil {
@@ -438,8 +448,66 @@ class FirebaseData: ObservableObject {
     
     }
     
+    func createFriendList(
+        email : String,
+        friendEmail : String,
+        date : String = makeToday(),
+        nickName : String
+     
+       
+                    )
+    {
+        
+        // To create or overwrite a single document
+        dbCollection.document(email).collection("friend").document(friendEmail).setData([
+                                                                                    
+                                                    "id" : dbCollection.document().documentID,
+                                                    "date" : date,
+                                                    "friendEmail" : friendEmail,
+                                                    "nickName" : nickName
+                                                    ])
+    }
     
+    func friendListCall(email:String,date : String = makeToday()) {
+        guard (Auth.auth().currentUser?.uid) != nil else { return }
+        
+        
+        
+        dbCollection.document(email).collection("friend")
+            .addSnapshotListener{ (querySnapshot, err) in
+                
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    if self.friendList.contains(["\(document.data()["friendEmail"] ?? "")","\(document.data()["nickName"] ?? "")"]){
+                        
+                        
+                        
+                    }else{
+
+                        self.friendList.append(["\(document.data()["friendEmail"] ?? "")","\(document.data()["nickName"] ?? "" )"])
+                        
+                    }
+                   
+                }
+            }
+        }
+   }
     
+    func friendNickNameCall(email:String) {
+        guard (Auth.auth().currentUser?.uid) != nil else { return }
+    Firestore.firestore().collection("UserData").document(email).addSnapshotListener{ (document, error) in
+    if let document = document, document.exists {
+        _ = document.data().map(String.init(describing:)) ?? "nil"
+        self.friendNickName["nickName"] = document.get("nickName") as? String ?? ""
+    } else {
+        print("Document does not exist")
+    }
+   }
+  }
+ 
     func KcalCall(email:String, data : String, date : String = makeToday(), meal : String) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
     dbCollection.document(email).collection("diary").document(date + " \(meal)").addSnapshotListener{ (document, error) in
@@ -452,8 +520,7 @@ class FirebaseData: ObservableObject {
    }
   }
    
-    
-    
+
     
     func isCompleteCall(email:String, data : String, date : String = makeToday(), meal : String) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
@@ -467,6 +534,18 @@ class FirebaseData: ObservableObject {
    }
   }
     
+    func foodTextCall(email:String, data : String, date : String, meal : String) {
+        guard (Auth.auth().currentUser?.uid) != nil else { return }
+        dbCollection.document(email).collection("diary").document(date + " \(meal)").addSnapshotListener{ (document, error) in
+    if let document = document, document.exists {
+        _ = document.data().map(String.init(describing:)) ?? "nil"
+        self.foodText[data] = document.get("foodText") as? String ?? ""
+       
+    } else {
+        print("Document does not exist")
+    }
+   }
+  }
     
     func foodListCall(email:String,date : String = makeToday()) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
@@ -490,6 +569,8 @@ class FirebaseData: ObservableObject {
             }
         }
    }
+    
+    
     
     func calendarMorningFoodListCall(email:String,date : String , meal : String) {
         guard (Auth.auth().currentUser?.uid) != nil else { return }
@@ -586,6 +667,16 @@ class FirebaseData: ObservableObject {
     
     func deleteFoodList(email : String, date : String = makeToday(), foodName : String) {
         dbCollection.document(email).collection("diary").document(date + " \(makeMealString())").collection("foodList").document(foodName).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    func deletefriendList(email : String, date : String = makeToday(), friendName : String) {
+        dbCollection.document(email).collection("friend").document(friendName).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {

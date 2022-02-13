@@ -56,9 +56,7 @@ struct CalendarLoader : View {
                     .cornerRadius(15)
 //                    .shadow(radius: 6, x: 3, y: 3)
             }
-           
-           
-           
+ 
         }
         .padding(.bottom, 70)
         .frame(width: geometry.size.width, height: 900)

@@ -169,7 +169,8 @@ struct SnackDiaryView: View {
                         
                         List(foodInfoViewModel.FoodInfo){ aRandomUser in
                             
-                            SnackFoodInfoRowView(aRandomUser, foodSuccess: $foodSuccess,showingPopup: $showingPopup, foodName: $foodName, serveSize : $serveSize, foodKcal : $foodKcal, isSearch: $isSearch)
+                            SnackFoodInfoRowView(items: aRandomUser, searchFoodName : $searchFoodName,foodSuccess: $foodSuccess,showingPopup: $showingPopup, foodName: $foodName, serveSize : $serveSize, foodKcal : $foodKcal, isSearch: $isSearch)
+                           
                                 
                     }
                         .listStyle(PlainListStyle())
@@ -195,7 +196,7 @@ struct SnackDiaryView: View {
                 }else{
                     VStack(spacing : 0){
                       
-                            Text("\(datas.dataToDisplay["nickName"]!)님이 드신 간식 식단을 알려주세요")
+                            Text("\(datas.dataToDisplay["nickName"] ?? "error")님이 드신 간식 식단을 알려주세요")
                                 .font(Font.custom(systemFont, size: 17))
                                 .padding(.top, 7)
                                 .padding(.bottom, 5)
@@ -290,7 +291,7 @@ struct SnackDiaryView: View {
                                                         Spacer()
                                                     }
                                                     HStack{
-                                                        Text("\(Float(food[2])!,specifier: "%.0f") Kcal")
+                                                        Text("\(Float(food[2]) ?? 0,specifier: "%.0f") Kcal")
                                                             .font(Font.custom(systemFont, size: 13))
                                                         Spacer()
                                                     }
@@ -331,11 +332,7 @@ struct SnackDiaryView: View {
                                 UITableView.appearance().separatorColor = .clear
                             }
                            
-                           
-                           
-                          
-                            
-                            
+     
                         }
                         
                     }
@@ -560,7 +557,7 @@ struct SnackDiaryView: View {
                             }
                         }
                        
-                        datas.createSnackFoodList(email: userEmail, foodName: customFoodName, serveSize: customServeSize, kcal : "\(Float(customKcal)!)")
+                        datas.createSnackFoodList(email: userEmail, foodName: customFoodName, serveSize: customServeSize, kcal : "\(Float(customKcal) ?? 0)")
                         customKcal = ""
                         customFoodName = ""
                         customServeSize = ""
@@ -588,6 +585,5 @@ struct SnackDiaryView: View {
 
 }
     
-
 
 
